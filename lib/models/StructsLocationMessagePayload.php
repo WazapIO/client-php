@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  whatsapi
+ * @package  WhatsAPI
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace whatsapi\models;
+namespace WhatsAPI\models;
 
 use \ArrayAccess;
-use \whatsapi\ObjectSerializer;
+use \WhatsAPI\ObjectSerializer;
 
 /**
  * StructsLocationMessagePayload Class Doc Comment
  *
  * @category Class
- * @package  whatsapi
+ * @package  WhatsAPI
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,7 +58,7 @@ class StructsLocationMessagePayload implements ModelInterface, ArrayAccess, \Jso
       * @var string[]
       */
     protected static $openAPITypes = [
-        'location' => '\whatsapi\models\StructsLocationMessagePayloadLocation',
+        'location' => '\WhatsAPI\models\StructsLocationMessagePayloadLocation',
         'to' => 'string',
         'url' => 'string'
     ];
@@ -313,7 +313,7 @@ class StructsLocationMessagePayload implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets location
      *
-     * @return \whatsapi\models\StructsLocationMessagePayloadLocation
+     * @return \WhatsAPI\models\StructsLocationMessagePayloadLocation
      */
     public function getLocation()
     {
@@ -323,7 +323,7 @@ class StructsLocationMessagePayload implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets location
      *
-     * @param \whatsapi\models\StructsLocationMessagePayloadLocation $location location
+     * @param \WhatsAPI\models\StructsLocationMessagePayloadLocation $location location
      *
      * @return self
      */

@@ -30,9 +30,9 @@
         "friendsofphp/php-cs-fixer": "^3.5"
     },
     "autoload": {
-        "psr-4": { "whatsapi\\" : "lib/" }
+        "psr-4": { "WhatsAPI\\" : "lib/" }
     },
     "autoload-dev": {
-        "psr-4": { "whatsapi\\Test\\" : "test/" }
+        "psr-4": { "WhatsAPI\\Test\\" : "test/" }
     }
 }

@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**buttons** | [**\whatsapi\models\StructsReplyButton[]**](StructsReplyButton.md) |  | [optional]
+**buttons** | [**\WhatsAPI\models\StructsReplyButton[]**](StructsReplyButton.md) |  | [optional]
 **footer_text** | **string** |  | [optional]
-**media_data** | [**\whatsapi\models\StructsFileUpload**](StructsFileUpload.md) |  | [optional]
+**media_data** | [**\WhatsAPI\models\StructsFileUpload**](StructsFileUpload.md) |  | [optional]
 **text** | **string** |  | [optional]
 **to** | **string** |  | [optional]
 

@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  whatsapi
+ * @package  WhatsAPI
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace whatsapi;
+namespace WhatsAPI;
 
 use GuzzleHttp\Psr7\Utils;
-use whatsapi\models\ModelInterface;
+use WhatsAPI\models\ModelInterface;
 
 /**
  * ObjectSerializer Class Doc Comment
  *
  * @category Class
- * @package  whatsapi
+ * @package  WhatsAPI
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -469,7 +469,7 @@ class ObjectSerializer
             // If a discriminator is defined and points to a valid subclass, use it.
             $discriminator = $class::DISCRIMINATOR;
             if (!empty($discriminator) && isset($data->{$discriminator}) && is_string($data->{$discriminator})) {
-                $subclass = '\whatsapi\Model\\' . $data->{$discriminator};
+                $subclass = '\WhatsAPI\Model\\' . $data->{$discriminator};
                 if (is_subclass_of($subclass, $class)) {
                     $class = $subclass;
                 }

@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  whatsapi
+ * @package  WhatsAPI
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace whatsapi\models;
+namespace WhatsAPI\models;
 
 use \ArrayAccess;
-use \whatsapi\ObjectSerializer;
+use \WhatsAPI\ObjectSerializer;
 
 /**
  * StructsButtonMessagePayload Class Doc Comment
  *
  * @category Class
- * @package  whatsapi
+ * @package  WhatsAPI
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,7 +58,7 @@ class StructsButtonMessagePayload implements ModelInterface, ArrayAccess, \JsonS
       * @var string[]
       */
     protected static $openAPITypes = [
-        'buttons' => '\whatsapi\models\StructsReplyButton[]',
+        'buttons' => '\WhatsAPI\models\StructsReplyButton[]',
         'footer_text' => 'string',
         'header_text' => 'string',
         'text' => 'string',
@@ -321,7 +321,7 @@ class StructsButtonMessagePayload implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets buttons
      *
-     * @return \whatsapi\models\StructsReplyButton[]|null
+     * @return \WhatsAPI\models\StructsReplyButton[]|null
      */
     public function getButtons()
     {
@@ -331,7 +331,7 @@ class StructsButtonMessagePayload implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets buttons
      *
-     * @param \whatsapi\models\StructsReplyButton[]|null $buttons buttons
+     * @param \WhatsAPI\models\StructsReplyButton[]|null $buttons buttons
      *
      * @return self
      */

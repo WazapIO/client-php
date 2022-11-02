@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  whatsapi
+ * @package  WhatsAPI
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace whatsapi\models;
+namespace WhatsAPI\models;
 
 use \ArrayAccess;
-use \whatsapi\ObjectSerializer;
+use \WhatsAPI\ObjectSerializer;
 
 /**
  * StructsListSection Class Doc Comment
  *
  * @category Class
- * @package  whatsapi
+ * @package  WhatsAPI
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,7 +58,7 @@ class StructsListSection implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
-        'rows' => '\whatsapi\models\StructsListItem[]',
+        'rows' => '\WhatsAPI\models\StructsListItem[]',
         'title' => 'string'
     ];
 
@@ -306,7 +306,7 @@ class StructsListSection implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets rows
      *
-     * @return \whatsapi\models\StructsListItem[]
+     * @return \WhatsAPI\models\StructsListItem[]
      */
     public function getRows()
     {
@@ -316,7 +316,7 @@ class StructsListSection implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets rows
      *
-     * @param \whatsapi\models\StructsListItem[] $rows rows
+     * @param \WhatsAPI\models\StructsListItem[] $rows rows
      *
      * @return self
      */

@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  whatsapi
+ * @package  WhatsAPI
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace whatsapi\models;
+namespace WhatsAPI\models;
 
 use \ArrayAccess;
-use \whatsapi\ObjectSerializer;
+use \WhatsAPI\ObjectSerializer;
 
 /**
  * StructsButtonMessageWithMediaPayload Class Doc Comment
  *
  * @category Class
- * @package  whatsapi
+ * @package  WhatsAPI
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -58,9 +58,9 @@ class StructsButtonMessageWithMediaPayload implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $openAPITypes = [
-        'buttons' => '\whatsapi\models\StructsReplyButton[]',
+        'buttons' => '\WhatsAPI\models\StructsReplyButton[]',
         'footer_text' => 'string',
-        'media_data' => '\whatsapi\models\StructsFileUpload',
+        'media_data' => '\WhatsAPI\models\StructsFileUpload',
         'text' => 'string',
         'to' => 'string'
     ];
@@ -321,7 +321,7 @@ class StructsButtonMessageWithMediaPayload implements ModelInterface, ArrayAcces
     /**
      * Gets buttons
      *
-     * @return \whatsapi\models\StructsReplyButton[]|null
+     * @return \WhatsAPI\models\StructsReplyButton[]|null
      */
     public function getButtons()
     {
@@ -331,7 +331,7 @@ class StructsButtonMessageWithMediaPayload implements ModelInterface, ArrayAcces
     /**
      * Sets buttons
      *
-     * @param \whatsapi\models\StructsReplyButton[]|null $buttons buttons
+     * @param \WhatsAPI\models\StructsReplyButton[]|null $buttons buttons
      *
      * @return self
      */
@@ -379,7 +379,7 @@ class StructsButtonMessageWithMediaPayload implements ModelInterface, ArrayAcces
     /**
      * Gets media_data
      *
-     * @return \whatsapi\models\StructsFileUpload|null
+     * @return \WhatsAPI\models\StructsFileUpload|null
      */
     public function getMediaData()
     {
@@ -389,7 +389,7 @@ class StructsButtonMessageWithMediaPayload implements ModelInterface, ArrayAcces
     /**
      * Sets media_data
      *
-     * @param \whatsapi\models\StructsFileUpload|null $media_data media_data
+     * @param \WhatsAPI\models\StructsFileUpload|null $media_data media_data
      *
      * @return self
      */

@@ -1,4 +1,4 @@
-# whatsapi\GroupManagementApi
+# WhatsAPI\GroupManagementApi
 
 All URIs are relative to /api, except if the operation defines another base path.
 
@@ -25,7 +25,7 @@ All URIs are relative to /api, except if the operation defines another base path
 ## `instancesInstanceKeyGroupsAdminGet()`
 
 ```php
-instancesInstanceKeyGroupsAdminGet($instance_key): \whatsapi\models\MainAPIResponse
+instancesInstanceKeyGroupsAdminGet($instance_key): \WhatsAPI\models\MainAPIResponse
 ```
 
 Get admin groupss.
@@ -40,12 +40,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = whatsapi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = WhatsAPI\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = whatsapi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = WhatsAPI\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new whatsapi\Api\GroupManagementApi(
+$apiInstance = new WhatsAPI\Api\GroupManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -69,7 +69,7 @@ try {
 
 ### Return type
 
-[**\whatsapi\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
 
 ### Authorization
 
@@ -87,7 +87,7 @@ try {
 ## `instancesInstanceKeyGroupsCreatePost()`
 
 ```php
-instancesInstanceKeyGroupsCreatePost($instance_key, $data): \whatsapi\models\MainAPIResponse
+instancesInstanceKeyGroupsCreatePost($instance_key, $data): \WhatsAPI\models\MainAPIResponse
 ```
 
 Create group.
@@ -102,19 +102,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = whatsapi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = WhatsAPI\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = whatsapi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = WhatsAPI\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new whatsapi\Api\GroupManagementApi(
+$apiInstance = new WhatsAPI\Api\GroupManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $instance_key = 'instance_key_example'; // string | Instance key
-$data = new \whatsapi\models\StructsGroupCreatePayload(); // \whatsapi\models\StructsGroupCreatePayload | Group create payload
+$data = new \WhatsAPI\models\StructsGroupCreatePayload(); // \WhatsAPI\models\StructsGroupCreatePayload | Group create payload
 
 try {
     $result = $apiInstance->instancesInstanceKeyGroupsCreatePost($instance_key, $data);
@@ -129,11 +129,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **instance_key** | **string**| Instance key | |
-| **data** | [**\whatsapi\models\StructsGroupCreatePayload**](../Model/StructsGroupCreatePayload.md)| Group create payload | |
+| **data** | [**\WhatsAPI\models\StructsGroupCreatePayload**](../Model/StructsGroupCreatePayload.md)| Group create payload | |
 
 ### Return type
 
-[**\whatsapi\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
 
 ### Authorization
 
@@ -151,7 +151,7 @@ try {
 ## `instancesInstanceKeyGroupsGet()`
 
 ```php
-instancesInstanceKeyGroupsGet($instance_key, $include_participants): \whatsapi\models\MainAPIResponse
+instancesInstanceKeyGroupsGet($instance_key, $include_participants): \WhatsAPI\models\MainAPIResponse
 ```
 
 Get all groups.
@@ -166,12 +166,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = whatsapi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = WhatsAPI\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = whatsapi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = WhatsAPI\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new whatsapi\Api\GroupManagementApi(
+$apiInstance = new WhatsAPI\Api\GroupManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -197,7 +197,7 @@ try {
 
 ### Return type
 
-[**\whatsapi\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
 
 ### Authorization
 
@@ -215,7 +215,7 @@ try {
 ## `instancesInstanceKeyGroupsGroupIdAnnouncePut()`
 
 ```php
-instancesInstanceKeyGroupsGroupIdAnnouncePut($instance_key, $announce, $group_id): \whatsapi\models\MainAPIResponse
+instancesInstanceKeyGroupsGroupIdAnnouncePut($instance_key, $announce, $group_id): \WhatsAPI\models\MainAPIResponse
 ```
 
 Set group announce.
@@ -230,12 +230,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = whatsapi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = WhatsAPI\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = whatsapi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = WhatsAPI\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new whatsapi\Api\GroupManagementApi(
+$apiInstance = new WhatsAPI\Api\GroupManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -263,7 +263,7 @@ try {
 
 ### Return type
 
-[**\whatsapi\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
 
 ### Authorization
 
@@ -281,7 +281,7 @@ try {
 ## `instancesInstanceKeyGroupsGroupIdDelete()`
 
 ```php
-instancesInstanceKeyGroupsGroupIdDelete($instance_key, $group_id): \whatsapi\models\MainAPIResponse
+instancesInstanceKeyGroupsGroupIdDelete($instance_key, $group_id): \WhatsAPI\models\MainAPIResponse
 ```
 
 Leaves the group.
@@ -296,12 +296,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = whatsapi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = WhatsAPI\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = whatsapi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = WhatsAPI\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new whatsapi\Api\GroupManagementApi(
+$apiInstance = new WhatsAPI\Api\GroupManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -327,7 +327,7 @@ try {
 
 ### Return type
 
-[**\whatsapi\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
 
 ### Authorization
 
@@ -345,7 +345,7 @@ try {
 ## `instancesInstanceKeyGroupsGroupIdDescriptionPut()`
 
 ```php
-instancesInstanceKeyGroupsGroupIdDescriptionPut($instance_key, $group_id, $data): \whatsapi\models\MainAPIResponse
+instancesInstanceKeyGroupsGroupIdDescriptionPut($instance_key, $group_id, $data): \WhatsAPI\models\MainAPIResponse
 ```
 
 Set group description.
@@ -360,12 +360,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = whatsapi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = WhatsAPI\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = whatsapi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = WhatsAPI\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new whatsapi\Api\GroupManagementApi(
+$apiInstance = new WhatsAPI\Api\GroupManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -373,7 +373,7 @@ $apiInstance = new whatsapi\Api\GroupManagementApi(
 );
 $instance_key = 'instance_key_example'; // string | Instance key
 $group_id = 'group_id_example'; // string | Group id of the group
-$data = new \whatsapi\models\StructsGroupUpdateDescriptionPayload(); // \whatsapi\models\StructsGroupUpdateDescriptionPayload | Group description data
+$data = new \WhatsAPI\models\StructsGroupUpdateDescriptionPayload(); // \WhatsAPI\models\StructsGroupUpdateDescriptionPayload | Group description data
 
 try {
     $result = $apiInstance->instancesInstanceKeyGroupsGroupIdDescriptionPut($instance_key, $group_id, $data);
@@ -389,11 +389,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **instance_key** | **string**| Instance key | |
 | **group_id** | **string**| Group id of the group | |
-| **data** | [**\whatsapi\models\StructsGroupUpdateDescriptionPayload**](../Model/StructsGroupUpdateDescriptionPayload.md)| Group description data | |
+| **data** | [**\WhatsAPI\models\StructsGroupUpdateDescriptionPayload**](../Model/StructsGroupUpdateDescriptionPayload.md)| Group description data | |
 
 ### Return type
 
-[**\whatsapi\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
 
 ### Authorization
 
@@ -411,7 +411,7 @@ try {
 ## `instancesInstanceKeyGroupsGroupIdGet()`
 
 ```php
-instancesInstanceKeyGroupsGroupIdGet($instance_key, $group_id): \whatsapi\models\MainAPIResponse
+instancesInstanceKeyGroupsGroupIdGet($instance_key, $group_id): \WhatsAPI\models\MainAPIResponse
 ```
 
 Get group.
@@ -426,12 +426,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = whatsapi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = WhatsAPI\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = whatsapi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = WhatsAPI\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new whatsapi\Api\GroupManagementApi(
+$apiInstance = new WhatsAPI\Api\GroupManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -457,7 +457,7 @@ try {
 
 ### Return type
 
-[**\whatsapi\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
 
 ### Authorization
 
@@ -475,7 +475,7 @@ try {
 ## `instancesInstanceKeyGroupsGroupIdInviteCodeGet()`
 
 ```php
-instancesInstanceKeyGroupsGroupIdInviteCodeGet($instance_key, $group_id): \whatsapi\models\MainAPIResponse
+instancesInstanceKeyGroupsGroupIdInviteCodeGet($instance_key, $group_id): \WhatsAPI\models\MainAPIResponse
 ```
 
 Get group invite code.
@@ -490,12 +490,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = whatsapi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = WhatsAPI\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = whatsapi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = WhatsAPI\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new whatsapi\Api\GroupManagementApi(
+$apiInstance = new WhatsAPI\Api\GroupManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -521,7 +521,7 @@ try {
 
 ### Return type
 
-[**\whatsapi\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
 
 ### Authorization
 
@@ -539,7 +539,7 @@ try {
 ## `instancesInstanceKeyGroupsGroupIdLockPut()`
 
 ```php
-instancesInstanceKeyGroupsGroupIdLockPut($instance_key, $locked, $group_id): \whatsapi\models\MainAPIResponse
+instancesInstanceKeyGroupsGroupIdLockPut($instance_key, $locked, $group_id): \WhatsAPI\models\MainAPIResponse
 ```
 
 Set group locked.
@@ -554,12 +554,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = whatsapi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = WhatsAPI\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = whatsapi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = WhatsAPI\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new whatsapi\Api\GroupManagementApi(
+$apiInstance = new WhatsAPI\Api\GroupManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -587,7 +587,7 @@ try {
 
 ### Return type
 
-[**\whatsapi\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
 
 ### Authorization
 
@@ -605,7 +605,7 @@ try {
 ## `instancesInstanceKeyGroupsGroupIdNamePut()`
 
 ```php
-instancesInstanceKeyGroupsGroupIdNamePut($instance_key, $group_id, $data): \whatsapi\models\MainAPIResponse
+instancesInstanceKeyGroupsGroupIdNamePut($instance_key, $group_id, $data): \WhatsAPI\models\MainAPIResponse
 ```
 
 Set group name.
@@ -620,12 +620,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = whatsapi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = WhatsAPI\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = whatsapi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = WhatsAPI\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new whatsapi\Api\GroupManagementApi(
+$apiInstance = new WhatsAPI\Api\GroupManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -633,7 +633,7 @@ $apiInstance = new whatsapi\Api\GroupManagementApi(
 );
 $instance_key = 'instance_key_example'; // string | Instance key
 $group_id = 'group_id_example'; // string | Group id of the group
-$data = new \whatsapi\models\StructsGroupUpdateNamePayload(); // \whatsapi\models\StructsGroupUpdateNamePayload | Group name data
+$data = new \WhatsAPI\models\StructsGroupUpdateNamePayload(); // \WhatsAPI\models\StructsGroupUpdateNamePayload | Group name data
 
 try {
     $result = $apiInstance->instancesInstanceKeyGroupsGroupIdNamePut($instance_key, $group_id, $data);
@@ -649,11 +649,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **instance_key** | **string**| Instance key | |
 | **group_id** | **string**| Group id of the group | |
-| **data** | [**\whatsapi\models\StructsGroupUpdateNamePayload**](../Model/StructsGroupUpdateNamePayload.md)| Group name data | |
+| **data** | [**\WhatsAPI\models\StructsGroupUpdateNamePayload**](../Model/StructsGroupUpdateNamePayload.md)| Group name data | |
 
 ### Return type
 
-[**\whatsapi\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
 
 ### Authorization
 
@@ -671,7 +671,7 @@ try {
 ## `instancesInstanceKeyGroupsGroupIdParticipantsAddPost()`
 
 ```php
-instancesInstanceKeyGroupsGroupIdParticipantsAddPost($instance_key, $group_id, $data): \whatsapi\models\MainAPIResponse
+instancesInstanceKeyGroupsGroupIdParticipantsAddPost($instance_key, $group_id, $data): \WhatsAPI\models\MainAPIResponse
 ```
 
 Add participant.
@@ -686,12 +686,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = whatsapi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = WhatsAPI\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = whatsapi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = WhatsAPI\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new whatsapi\Api\GroupManagementApi(
+$apiInstance = new WhatsAPI\Api\GroupManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -699,7 +699,7 @@ $apiInstance = new whatsapi\Api\GroupManagementApi(
 );
 $instance_key = 'instance_key_example'; // string | Instance key
 $group_id = 'group_id_example'; // string | Group id of the group
-$data = new \whatsapi\models\StructsGroupUpdateParticipantsPayload(); // \whatsapi\models\StructsGroupUpdateParticipantsPayload | Group update payload
+$data = new \WhatsAPI\models\StructsGroupUpdateParticipantsPayload(); // \WhatsAPI\models\StructsGroupUpdateParticipantsPayload | Group update payload
 
 try {
     $result = $apiInstance->instancesInstanceKeyGroupsGroupIdParticipantsAddPost($instance_key, $group_id, $data);
@@ -715,11 +715,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **instance_key** | **string**| Instance key | |
 | **group_id** | **string**| Group id of the group | |
-| **data** | [**\whatsapi\models\StructsGroupUpdateParticipantsPayload**](../Model/StructsGroupUpdateParticipantsPayload.md)| Group update payload | |
+| **data** | [**\WhatsAPI\models\StructsGroupUpdateParticipantsPayload**](../Model/StructsGroupUpdateParticipantsPayload.md)| Group update payload | |
 
 ### Return type
 
-[**\whatsapi\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
 
 ### Authorization
 
@@ -737,7 +737,7 @@ try {
 ## `instancesInstanceKeyGroupsGroupIdParticipantsDemotePut()`
 
 ```php
-instancesInstanceKeyGroupsGroupIdParticipantsDemotePut($instance_key, $group_id, $data): \whatsapi\models\MainAPIResponse
+instancesInstanceKeyGroupsGroupIdParticipantsDemotePut($instance_key, $group_id, $data): \WhatsAPI\models\MainAPIResponse
 ```
 
 Demote participant.
@@ -752,12 +752,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = whatsapi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = WhatsAPI\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = whatsapi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = WhatsAPI\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new whatsapi\Api\GroupManagementApi(
+$apiInstance = new WhatsAPI\Api\GroupManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -765,7 +765,7 @@ $apiInstance = new whatsapi\Api\GroupManagementApi(
 );
 $instance_key = 'instance_key_example'; // string | Instance key
 $group_id = 'group_id_example'; // string | Group id of the group
-$data = new \whatsapi\models\StructsGroupUpdateParticipantsPayload(); // \whatsapi\models\StructsGroupUpdateParticipantsPayload | Group update payload
+$data = new \WhatsAPI\models\StructsGroupUpdateParticipantsPayload(); // \WhatsAPI\models\StructsGroupUpdateParticipantsPayload | Group update payload
 
 try {
     $result = $apiInstance->instancesInstanceKeyGroupsGroupIdParticipantsDemotePut($instance_key, $group_id, $data);
@@ -781,11 +781,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **instance_key** | **string**| Instance key | |
 | **group_id** | **string**| Group id of the group | |
-| **data** | [**\whatsapi\models\StructsGroupUpdateParticipantsPayload**](../Model/StructsGroupUpdateParticipantsPayload.md)| Group update payload | |
+| **data** | [**\WhatsAPI\models\StructsGroupUpdateParticipantsPayload**](../Model/StructsGroupUpdateParticipantsPayload.md)| Group update payload | |
 
 ### Return type
 
-[**\whatsapi\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
 
 ### Authorization
 
@@ -803,7 +803,7 @@ try {
 ## `instancesInstanceKeyGroupsGroupIdParticipantsPromotePut()`
 
 ```php
-instancesInstanceKeyGroupsGroupIdParticipantsPromotePut($instance_key, $group_id, $data): \whatsapi\models\MainAPIResponse
+instancesInstanceKeyGroupsGroupIdParticipantsPromotePut($instance_key, $group_id, $data): \WhatsAPI\models\MainAPIResponse
 ```
 
 Promote participant.
@@ -818,12 +818,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = whatsapi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = WhatsAPI\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = whatsapi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = WhatsAPI\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new whatsapi\Api\GroupManagementApi(
+$apiInstance = new WhatsAPI\Api\GroupManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -831,7 +831,7 @@ $apiInstance = new whatsapi\Api\GroupManagementApi(
 );
 $instance_key = 'instance_key_example'; // string | Instance key
 $group_id = 'group_id_example'; // string | Group id of the group
-$data = new \whatsapi\models\StructsGroupUpdateParticipantsPayload(); // \whatsapi\models\StructsGroupUpdateParticipantsPayload | Group update payload
+$data = new \WhatsAPI\models\StructsGroupUpdateParticipantsPayload(); // \WhatsAPI\models\StructsGroupUpdateParticipantsPayload | Group update payload
 
 try {
     $result = $apiInstance->instancesInstanceKeyGroupsGroupIdParticipantsPromotePut($instance_key, $group_id, $data);
@@ -847,11 +847,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **instance_key** | **string**| Instance key | |
 | **group_id** | **string**| Group id of the group | |
-| **data** | [**\whatsapi\models\StructsGroupUpdateParticipantsPayload**](../Model/StructsGroupUpdateParticipantsPayload.md)| Group update payload | |
+| **data** | [**\WhatsAPI\models\StructsGroupUpdateParticipantsPayload**](../Model/StructsGroupUpdateParticipantsPayload.md)| Group update payload | |
 
 ### Return type
 
-[**\whatsapi\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
 
 ### Authorization
 
@@ -869,7 +869,7 @@ try {
 ## `instancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete()`
 
 ```php
-instancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete($instance_key, $group_id, $data): \whatsapi\models\MainAPIResponse
+instancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete($instance_key, $group_id, $data): \WhatsAPI\models\MainAPIResponse
 ```
 
 Remove participant.
@@ -884,12 +884,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = whatsapi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = WhatsAPI\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = whatsapi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = WhatsAPI\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new whatsapi\Api\GroupManagementApi(
+$apiInstance = new WhatsAPI\Api\GroupManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -897,7 +897,7 @@ $apiInstance = new whatsapi\Api\GroupManagementApi(
 );
 $instance_key = 'instance_key_example'; // string | Instance key
 $group_id = 'group_id_example'; // string | Group id of the group
-$data = new \whatsapi\models\StructsGroupUpdateParticipantsPayload(); // \whatsapi\models\StructsGroupUpdateParticipantsPayload | Group update payload
+$data = new \WhatsAPI\models\StructsGroupUpdateParticipantsPayload(); // \WhatsAPI\models\StructsGroupUpdateParticipantsPayload | Group update payload
 
 try {
     $result = $apiInstance->instancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete($instance_key, $group_id, $data);
@@ -913,11 +913,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **instance_key** | **string**| Instance key | |
 | **group_id** | **string**| Group id of the group | |
-| **data** | [**\whatsapi\models\StructsGroupUpdateParticipantsPayload**](../Model/StructsGroupUpdateParticipantsPayload.md)| Group update payload | |
+| **data** | [**\WhatsAPI\models\StructsGroupUpdateParticipantsPayload**](../Model/StructsGroupUpdateParticipantsPayload.md)| Group update payload | |
 
 ### Return type
 
-[**\whatsapi\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
 
 ### Authorization
 
@@ -935,7 +935,7 @@ try {
 ## `instancesInstanceKeyGroupsGroupIdProfilePicPut()`
 
 ```php
-instancesInstanceKeyGroupsGroupIdProfilePicPut($instance_key, $group_id, $instances_instance_key_groups_group_id_profile_pic_put_request): \whatsapi\models\MainAPIResponse
+instancesInstanceKeyGroupsGroupIdProfilePicPut($instance_key, $group_id, $instances_instance_key_groups_group_id_profile_pic_put_request): \WhatsAPI\models\MainAPIResponse
 ```
 
 Set group picture.
@@ -950,12 +950,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = whatsapi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = WhatsAPI\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = whatsapi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = WhatsAPI\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new whatsapi\Api\GroupManagementApi(
+$apiInstance = new WhatsAPI\Api\GroupManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -963,7 +963,7 @@ $apiInstance = new whatsapi\Api\GroupManagementApi(
 );
 $instance_key = 'instance_key_example'; // string | Instance key
 $group_id = 'group_id_example'; // string | Group id of the group
-$instances_instance_key_groups_group_id_profile_pic_put_request = new \whatsapi\models\InstancesInstanceKeyGroupsGroupIdProfilePicPutRequest(); // \whatsapi\models\InstancesInstanceKeyGroupsGroupIdProfilePicPutRequest
+$instances_instance_key_groups_group_id_profile_pic_put_request = new \WhatsAPI\models\InstancesInstanceKeyGroupsGroupIdProfilePicPutRequest(); // \WhatsAPI\models\InstancesInstanceKeyGroupsGroupIdProfilePicPutRequest
 
 try {
     $result = $apiInstance->instancesInstanceKeyGroupsGroupIdProfilePicPut($instance_key, $group_id, $instances_instance_key_groups_group_id_profile_pic_put_request);
@@ -979,11 +979,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **instance_key** | **string**| Instance key | |
 | **group_id** | **string**| Group id of the group | |
-| **instances_instance_key_groups_group_id_profile_pic_put_request** | [**\whatsapi\models\InstancesInstanceKeyGroupsGroupIdProfilePicPutRequest**](../Model/InstancesInstanceKeyGroupsGroupIdProfilePicPutRequest.md)|  | |
+| **instances_instance_key_groups_group_id_profile_pic_put_request** | [**\WhatsAPI\models\InstancesInstanceKeyGroupsGroupIdProfilePicPutRequest**](../Model/InstancesInstanceKeyGroupsGroupIdProfilePicPutRequest.md)|  | |
 
 ### Return type
 
-[**\whatsapi\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
 
 ### Authorization
 
@@ -1001,7 +1001,7 @@ try {
 ## `instancesInstanceKeyGroupsInviteInfoGet()`
 
 ```php
-instancesInstanceKeyGroupsInviteInfoGet($instance_key, $invite_link): \whatsapi\models\MainAPIResponse
+instancesInstanceKeyGroupsInviteInfoGet($instance_key, $invite_link): \WhatsAPI\models\MainAPIResponse
 ```
 
 Get group from invite link.
@@ -1016,12 +1016,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = whatsapi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = WhatsAPI\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = whatsapi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = WhatsAPI\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new whatsapi\Api\GroupManagementApi(
+$apiInstance = new WhatsAPI\Api\GroupManagementApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1047,7 +1047,7 @@ try {
 
 ### Return type
 
-[**\whatsapi\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
 
 ### Authorization
 

@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  whatsapi
+ * @package  WhatsAPI
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace whatsapi\models;
+namespace WhatsAPI\models;
 
 use \ArrayAccess;
-use \whatsapi\ObjectSerializer;
+use \WhatsAPI\ObjectSerializer;
 
 /**
  * StructsListMessagePayload Class Doc Comment
  *
  * @category Class
- * @package  whatsapi
+ * @package  WhatsAPI
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -61,7 +61,7 @@ class StructsListMessagePayload implements ModelInterface, ArrayAccess, \JsonSer
         'button_text' => 'string',
         'description' => 'string',
         'multi_select' => 'bool',
-        'sections' => '\whatsapi\models\StructsListSection[]',
+        'sections' => '\WhatsAPI\models\StructsListSection[]',
         'text' => 'string',
         'title' => 'string',
         'to' => 'string'
@@ -428,7 +428,7 @@ class StructsListMessagePayload implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets sections
      *
-     * @return \whatsapi\models\StructsListSection[]
+     * @return \WhatsAPI\models\StructsListSection[]
      */
     public function getSections()
     {
@@ -438,7 +438,7 @@ class StructsListMessagePayload implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets sections
      *
-     * @param \whatsapi\models\StructsListSection[] $sections sections
+     * @param \WhatsAPI\models\StructsListSection[] $sections sections
      *
      * @return self
      */

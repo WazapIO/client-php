@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  whatsapi
+ * @package  WhatsAPI
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace whatsapi\models;
+namespace WhatsAPI\models;
 
 use \ArrayAccess;
-use \whatsapi\ObjectSerializer;
+use \WhatsAPI\ObjectSerializer;
 
 /**
  * StructsSendMediaPayload Class Doc Comment
  *
  * @category Class
- * @package  whatsapi
+ * @package  WhatsAPI
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -60,7 +60,7 @@ class StructsSendMediaPayload implements ModelInterface, ArrayAccess, \JsonSeria
     protected static $openAPITypes = [
         'caption' => 'string',
         'filename' => 'string',
-        'media_data' => '\whatsapi\models\StructsFileUpload',
+        'media_data' => '\WhatsAPI\models\StructsFileUpload',
         'media_type' => 'string',
         'to' => 'string'
     ];
@@ -388,7 +388,7 @@ class StructsSendMediaPayload implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets media_data
      *
-     * @return \whatsapi\models\StructsFileUpload
+     * @return \WhatsAPI\models\StructsFileUpload
      */
     public function getMediaData()
     {
@@ -398,7 +398,7 @@ class StructsSendMediaPayload implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets media_data
      *
-     * @param \whatsapi\models\StructsFileUpload $media_data media_data
+     * @param \WhatsAPI\models\StructsFileUpload $media_data media_data
      *
      * @return self
      */

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**location** | [**\whatsapi\models\StructsLocationMessagePayloadLocation**](StructsLocationMessagePayloadLocation.md) |  |
+**location** | [**\WhatsAPI\models\StructsLocationMessagePayloadLocation**](StructsLocationMessagePayloadLocation.md) |  |
 **to** | **string** |  |
 **url** | **string** |  | [optional]
 

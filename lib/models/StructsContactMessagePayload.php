@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  whatsapi
+ * @package  WhatsAPI
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace whatsapi\models;
+namespace WhatsAPI\models;
 
 use \ArrayAccess;
-use \whatsapi\ObjectSerializer;
+use \WhatsAPI\ObjectSerializer;
 
 /**
  * StructsContactMessagePayload Class Doc Comment
  *
  * @category Class
- * @package  whatsapi
+ * @package  WhatsAPI
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
@@ -59,7 +59,7 @@ class StructsContactMessagePayload implements ModelInterface, ArrayAccess, \Json
       */
     protected static $openAPITypes = [
         'to' => 'string',
-        'vcard' => '\whatsapi\models\StructsContactMessagePayloadVcard'
+        'vcard' => '\WhatsAPI\models\StructsContactMessagePayloadVcard'
     ];
 
     /**
@@ -335,7 +335,7 @@ class StructsContactMessagePayload implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets vcard
      *
-     * @return \whatsapi\models\StructsContactMessagePayloadVcard
+     * @return \WhatsAPI\models\StructsContactMessagePayloadVcard
      */
     public function getVcard()
     {
@@ -345,7 +345,7 @@ class StructsContactMessagePayload implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets vcard
      *
-     * @param \whatsapi\models\StructsContactMessagePayloadVcard $vcard vcard
+     * @param \WhatsAPI\models\StructsContactMessagePayloadVcard $vcard vcard
      *
      * @return self
      */

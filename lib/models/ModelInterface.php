@@ -5,7 +5,7 @@
  * PHP version 7.4
  *
  * @category Class
- * @package  whatsapi\models
+ * @package  WhatsAPI\models
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,12 +27,12 @@
  * Do not edit the class manually.
  */
 
-namespace whatsapi\models;
+namespace WhatsAPI\models;
 
 /**
  * Interface abstracting model access.
  *
- * @package whatsapi\models
+ * @package WhatsAPI\models
  * @author  OpenAPI Generator team
  */
 interface ModelInterface
