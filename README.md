@@ -1,4 +1,4 @@
-# OpenAPIClient-php
+# com.whatsapi
 
 The V2 of WhatsAPI Go
 
@@ -36,7 +36,7 @@ Download the files and include `autoload.php`:
 
 ```php
 <?php
-require_once('/path/to/OpenAPIClient-php/vendor/autoload.php');
+require_once('/path/to/com.whatsapi/vendor/autoload.php');
 ```
 
 ## Getting Started
