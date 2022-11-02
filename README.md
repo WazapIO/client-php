@@ -1,4 +1,4 @@
-# whatsapi
+# WhatsAPI
 
 The V2 of WhatsAPI Go
 
@@ -36,7 +36,7 @@ Download the files and include `autoload.php`:
 
 ```php
 <?php
-require_once('/path/to/whatsapi/vendor/autoload.php');
+require_once('/path/to/WhatsAPI/vendor/autoload.php');
 ```
 
 ## Getting Started
