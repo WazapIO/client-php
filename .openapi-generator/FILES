@@ -39,10 +39,6 @@ docs/Model/StructsUserInfoPayload.md
 docs/Model/StructsWebhookPayload.md
 git_push.sh
 lib/ApiException.php
-lib/Api/GroupManagementApi.php
-lib/Api/InstanceApi.php
-lib/Api/MessageSendingApi.php
-lib/Api/MiscellaneousApi.php
 lib/Configuration.php
 lib/HeaderSelector.php
 lib/Model/InstancesInstanceKeyGroupsGroupIdProfilePicPutRequest.php
@@ -77,4 +73,8 @@ lib/Model/StructsTextMessage.php
 lib/Model/StructsUserInfoPayload.php
 lib/Model/StructsWebhookPayload.php
 lib/ObjectSerializer.php
+lib/whatsapi/GroupManagementApi.php
+lib/whatsapi/InstanceApi.php
+lib/whatsapi/MessageSendingApi.php
+lib/whatsapi/MiscellaneousApi.php
 phpunit.xml.dist
