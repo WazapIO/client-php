@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**buttons** | [**\OpenAPI\Client\Model\StructsReplyButton[]**](StructsReplyButton.md) |  | [optional]
+**buttons** | [**\whatsapi\models\StructsReplyButton[]**](StructsReplyButton.md) |  | [optional]
 **footer_text** | **string** |  | [optional]
 **header_text** | **string** |  | [optional]
 **text** | **string** |  | [optional]

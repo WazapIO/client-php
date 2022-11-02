@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **caption** | **string** |  | [optional]
 **filename** | **string** |  | [optional]
-**media_data** | [**\OpenAPI\Client\Model\StructsFileUpload**](StructsFileUpload.md) |  |
+**media_data** | [**\whatsapi\models\StructsFileUpload**](StructsFileUpload.md) |  |
 **media_type** | **string** |  |
 **to** | **string** |  |
 

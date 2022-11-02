@@ -1,4 +1,4 @@
-# OpenAPI\Client\InstanceApi
+# whatsapi\InstanceApi
 
 All URIs are relative to /api, except if the operation defines another base path.
 
@@ -17,7 +17,7 @@ All URIs are relative to /api, except if the operation defines another base path
 ## `instancesCreateGet()`
 
 ```php
-instancesCreateGet($instance_key): \OpenAPI\Client\Model\MainAPIResponse
+instancesCreateGet($instance_key): \whatsapi\models\MainAPIResponse
 ```
 
 Creates a new instance key.
@@ -32,12 +32,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = whatsapi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = whatsapi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\InstanceApi(
+$apiInstance = new whatsapi\Api\InstanceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -61,7 +61,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\whatsapi\models\MainAPIResponse**](../Model/MainAPIResponse.md)
 
 ### Authorization
 
@@ -79,7 +79,7 @@ try {
 ## `instancesInstanceKeyContactsGet()`
 
 ```php
-instancesInstanceKeyContactsGet($instance_key): \OpenAPI\Client\Model\MainAPIResponse
+instancesInstanceKeyContactsGet($instance_key): \whatsapi\models\MainAPIResponse
 ```
 
 Get contacts.
@@ -94,12 +94,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = whatsapi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = whatsapi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\InstanceApi(
+$apiInstance = new whatsapi\Api\InstanceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -123,7 +123,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\whatsapi\models\MainAPIResponse**](../Model/MainAPIResponse.md)
 
 ### Authorization
 
@@ -141,7 +141,7 @@ try {
 ## `instancesInstanceKeyDeleteDelete()`
 
 ```php
-instancesInstanceKeyDeleteDelete($instance_key): \OpenAPI\Client\Model\MainAPIResponse
+instancesInstanceKeyDeleteDelete($instance_key): \whatsapi\models\MainAPIResponse
 ```
 
 Delete Instance.
@@ -156,12 +156,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = whatsapi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = whatsapi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\InstanceApi(
+$apiInstance = new whatsapi\Api\InstanceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -185,7 +185,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\whatsapi\models\MainAPIResponse**](../Model/MainAPIResponse.md)
 
 ### Authorization
 
@@ -203,7 +203,7 @@ try {
 ## `instancesInstanceKeyGet()`
 
 ```php
-instancesInstanceKeyGet($instance_key): \OpenAPI\Client\Model\MainAPIResponse
+instancesInstanceKeyGet($instance_key): \whatsapi\models\MainAPIResponse
 ```
 
 Get Instance.
@@ -218,12 +218,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = whatsapi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = whatsapi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\InstanceApi(
+$apiInstance = new whatsapi\Api\InstanceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -247,7 +247,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\whatsapi\models\MainAPIResponse**](../Model/MainAPIResponse.md)
 
 ### Authorization
 
@@ -265,7 +265,7 @@ try {
 ## `instancesInstanceKeyLogoutDelete()`
 
 ```php
-instancesInstanceKeyLogoutDelete($instance_key): \OpenAPI\Client\Model\MainAPIResponse
+instancesInstanceKeyLogoutDelete($instance_key): \whatsapi\models\MainAPIResponse
 ```
 
 Logout Instance.
@@ -280,12 +280,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = whatsapi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = whatsapi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\InstanceApi(
+$apiInstance = new whatsapi\Api\InstanceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -309,7 +309,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\whatsapi\models\MainAPIResponse**](../Model/MainAPIResponse.md)
 
 ### Authorization
 
@@ -327,7 +327,7 @@ try {
 ## `instancesInstanceKeyQrcodeGet()`
 
 ```php
-instancesInstanceKeyQrcodeGet($instance_key): \OpenAPI\Client\Model\MainAPIResponse
+instancesInstanceKeyQrcodeGet($instance_key): \whatsapi\models\MainAPIResponse
 ```
 
 Get QrCode.
@@ -342,12 +342,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = whatsapi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = whatsapi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\InstanceApi(
+$apiInstance = new whatsapi\Api\InstanceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -371,7 +371,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\whatsapi\models\MainAPIResponse**](../Model/MainAPIResponse.md)
 
 ### Authorization
 
@@ -389,7 +389,7 @@ try {
 ## `instancesInstanceKeyWebhookPut()`
 
 ```php
-instancesInstanceKeyWebhookPut($instance_key, $data): \OpenAPI\Client\Model\MainAPIResponse
+instancesInstanceKeyWebhookPut($instance_key, $data): \whatsapi\models\MainAPIResponse
 ```
 
 Change Webhook url.
@@ -404,19 +404,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = whatsapi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = whatsapi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\InstanceApi(
+$apiInstance = new whatsapi\Api\InstanceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $instance_key = 'instance_key_example'; // string | Instance key
-$data = new \OpenAPI\Client\Model\StructsWebhookPayload(); // \OpenAPI\Client\Model\StructsWebhookPayload | Message data
+$data = new \whatsapi\models\StructsWebhookPayload(); // \whatsapi\models\StructsWebhookPayload | Message data
 
 try {
     $result = $apiInstance->instancesInstanceKeyWebhookPut($instance_key, $data);
@@ -431,11 +431,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **instance_key** | **string**| Instance key | |
-| **data** | [**\OpenAPI\Client\Model\StructsWebhookPayload**](../Model/StructsWebhookPayload.md)| Message data | |
+| **data** | [**\whatsapi\models\StructsWebhookPayload**](../Model/StructsWebhookPayload.md)| Message data | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\whatsapi\models\MainAPIResponse**](../Model/MainAPIResponse.md)
 
 ### Authorization
 
@@ -453,7 +453,7 @@ try {
 ## `instancesListGet()`
 
 ```php
-instancesListGet(): \OpenAPI\Client\Model\MainAPIResponse
+instancesListGet(): \whatsapi\models\MainAPIResponse
 ```
 
 Get all instances.
@@ -468,12 +468,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = whatsapi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = whatsapi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\InstanceApi(
+$apiInstance = new whatsapi\Api\InstanceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -494,7 +494,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\OpenAPI\Client\Model\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\whatsapi\models\MainAPIResponse**](../Model/MainAPIResponse.md)
 
 ### Authorization
 

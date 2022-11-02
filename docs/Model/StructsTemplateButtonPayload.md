@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**buttons** | [**\OpenAPI\Client\Model\StructsTemplateButton[]**](StructsTemplateButton.md) |  |
+**buttons** | [**\whatsapi\models\StructsTemplateButton[]**](StructsTemplateButton.md) |  |
 **content_text** | **string** |  | [optional]
 **footer** | **string** |  | [optional]
 **header** | **string** |  | [optional]

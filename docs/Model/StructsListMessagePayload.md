@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **button_text** | **string** |  | [optional]
 **description** | **string** |  | [optional]
 **multi_select** | **bool** |  | [optional]
-**sections** | [**\OpenAPI\Client\Model\StructsListSection[]**](StructsListSection.md) |  |
+**sections** | [**\whatsapi\models\StructsListSection[]**](StructsListSection.md) |  |
 **text** | **string** |  | [optional]
 **title** | **string** |  | [optional]
 **to** | **string** |  |

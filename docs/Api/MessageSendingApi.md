@@ -1,4 +1,4 @@
-# OpenAPI\Client\MessageSendingApi
+# whatsapi\MessageSendingApi
 
 All URIs are relative to /api, except if the operation defines another base path.
 
@@ -25,7 +25,7 @@ All URIs are relative to /api, except if the operation defines another base path
 ## `instancesInstanceKeyBusinessCatalogGet()`
 
 ```php
-instancesInstanceKeyBusinessCatalogGet($instance_key): \OpenAPI\Client\Model\MainAPIResponse
+instancesInstanceKeyBusinessCatalogGet($instance_key): \whatsapi\models\MainAPIResponse
 ```
 
 Fetches the catlog.
@@ -40,12 +40,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = whatsapi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = whatsapi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\MessageSendingApi(
+$apiInstance = new whatsapi\Api\MessageSendingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -69,7 +69,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\whatsapi\models\MainAPIResponse**](../Model/MainAPIResponse.md)
 
 ### Authorization
 
@@ -87,7 +87,7 @@ try {
 ## `instancesInstanceKeySendAudioPost()`
 
 ```php
-instancesInstanceKeySendAudioPost($instance_key, $to, $instances_instance_key_send_audio_post_request, $caption): \OpenAPI\Client\Model\MainAPIResponse
+instancesInstanceKeySendAudioPost($instance_key, $to, $instances_instance_key_send_audio_post_request, $caption): \whatsapi\models\MainAPIResponse
 ```
 
 Send raw audio.
@@ -102,12 +102,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = whatsapi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = whatsapi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\MessageSendingApi(
+$apiInstance = new whatsapi\Api\MessageSendingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -115,7 +115,7 @@ $apiInstance = new OpenAPI\Client\Api\MessageSendingApi(
 );
 $instance_key = 'instance_key_example'; // string | Instance key
 $to = 'to_example'; // string | The recipient's number
-$instances_instance_key_send_audio_post_request = new \OpenAPI\Client\Model\InstancesInstanceKeySendAudioPostRequest(); // \OpenAPI\Client\Model\InstancesInstanceKeySendAudioPostRequest
+$instances_instance_key_send_audio_post_request = new \whatsapi\models\InstancesInstanceKeySendAudioPostRequest(); // \whatsapi\models\InstancesInstanceKeySendAudioPostRequest
 $caption = 'caption_example'; // string | Attached caption
 
 try {
@@ -132,12 +132,12 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **instance_key** | **string**| Instance key | |
 | **to** | **string**| The recipient&#39;s number | |
-| **instances_instance_key_send_audio_post_request** | [**\OpenAPI\Client\Model\InstancesInstanceKeySendAudioPostRequest**](../Model/InstancesInstanceKeySendAudioPostRequest.md)|  | |
+| **instances_instance_key_send_audio_post_request** | [**\whatsapi\models\InstancesInstanceKeySendAudioPostRequest**](../Model/InstancesInstanceKeySendAudioPostRequest.md)|  | |
 | **caption** | **string**| Attached caption | [optional] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\whatsapi\models\MainAPIResponse**](../Model/MainAPIResponse.md)
 
 ### Authorization
 
@@ -155,7 +155,7 @@ try {
 ## `instancesInstanceKeySendButtonMediaPost()`
 
 ```php
-instancesInstanceKeySendButtonMediaPost($instance_key, $data): \OpenAPI\Client\Model\MainAPIResponse
+instancesInstanceKeySendButtonMediaPost($instance_key, $data): \whatsapi\models\MainAPIResponse
 ```
 
 Send a button message with a media header.
@@ -170,19 +170,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = whatsapi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = whatsapi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\MessageSendingApi(
+$apiInstance = new whatsapi\Api\MessageSendingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $instance_key = 'instance_key_example'; // string | Instance key
-$data = new \OpenAPI\Client\Model\StructsButtonMessageWithMediaPayload(); // \OpenAPI\Client\Model\StructsButtonMessageWithMediaPayload | Message data
+$data = new \whatsapi\models\StructsButtonMessageWithMediaPayload(); // \whatsapi\models\StructsButtonMessageWithMediaPayload | Message data
 
 try {
     $result = $apiInstance->instancesInstanceKeySendButtonMediaPost($instance_key, $data);
@@ -197,11 +197,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **instance_key** | **string**| Instance key | |
-| **data** | [**\OpenAPI\Client\Model\StructsButtonMessageWithMediaPayload**](../Model/StructsButtonMessageWithMediaPayload.md)| Message data | |
+| **data** | [**\whatsapi\models\StructsButtonMessageWithMediaPayload**](../Model/StructsButtonMessageWithMediaPayload.md)| Message data | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\whatsapi\models\MainAPIResponse**](../Model/MainAPIResponse.md)
 
 ### Authorization
 
@@ -219,7 +219,7 @@ try {
 ## `instancesInstanceKeySendButtonsPost()`
 
 ```php
-instancesInstanceKeySendButtonsPost($instance_key, $data): \OpenAPI\Client\Model\MainAPIResponse
+instancesInstanceKeySendButtonsPost($instance_key, $data): \whatsapi\models\MainAPIResponse
 ```
 
 Send a button message.
@@ -234,19 +234,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = whatsapi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = whatsapi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\MessageSendingApi(
+$apiInstance = new whatsapi\Api\MessageSendingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $instance_key = 'instance_key_example'; // string | Instance key
-$data = new \OpenAPI\Client\Model\StructsButtonMessagePayload(); // \OpenAPI\Client\Model\StructsButtonMessagePayload | Message data
+$data = new \whatsapi\models\StructsButtonMessagePayload(); // \whatsapi\models\StructsButtonMessagePayload | Message data
 
 try {
     $result = $apiInstance->instancesInstanceKeySendButtonsPost($instance_key, $data);
@@ -261,11 +261,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **instance_key** | **string**| Instance key | |
-| **data** | [**\OpenAPI\Client\Model\StructsButtonMessagePayload**](../Model/StructsButtonMessagePayload.md)| Message data | |
+| **data** | [**\whatsapi\models\StructsButtonMessagePayload**](../Model/StructsButtonMessagePayload.md)| Message data | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\whatsapi\models\MainAPIResponse**](../Model/MainAPIResponse.md)
 
 ### Authorization
 
@@ -283,7 +283,7 @@ try {
 ## `instancesInstanceKeySendContactPost()`
 
 ```php
-instancesInstanceKeySendContactPost($instance_key, $data): \OpenAPI\Client\Model\MainAPIResponse
+instancesInstanceKeySendContactPost($instance_key, $data): \whatsapi\models\MainAPIResponse
 ```
 
 Send a contact message.
@@ -298,19 +298,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = whatsapi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = whatsapi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\MessageSendingApi(
+$apiInstance = new whatsapi\Api\MessageSendingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $instance_key = 'instance_key_example'; // string | Instance key
-$data = new \OpenAPI\Client\Model\StructsContactMessagePayload(); // \OpenAPI\Client\Model\StructsContactMessagePayload | Message data
+$data = new \whatsapi\models\StructsContactMessagePayload(); // \whatsapi\models\StructsContactMessagePayload | Message data
 
 try {
     $result = $apiInstance->instancesInstanceKeySendContactPost($instance_key, $data);
@@ -325,11 +325,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **instance_key** | **string**| Instance key | |
-| **data** | [**\OpenAPI\Client\Model\StructsContactMessagePayload**](../Model/StructsContactMessagePayload.md)| Message data | |
+| **data** | [**\whatsapi\models\StructsContactMessagePayload**](../Model/StructsContactMessagePayload.md)| Message data | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\whatsapi\models\MainAPIResponse**](../Model/MainAPIResponse.md)
 
 ### Authorization
 
@@ -347,7 +347,7 @@ try {
 ## `instancesInstanceKeySendDocumentPost()`
 
 ```php
-instancesInstanceKeySendDocumentPost($instance_key, $to, $instances_instance_key_send_document_post_request, $caption): \OpenAPI\Client\Model\MainAPIResponse
+instancesInstanceKeySendDocumentPost($instance_key, $to, $instances_instance_key_send_document_post_request, $caption): \whatsapi\models\MainAPIResponse
 ```
 
 Send raw document.
@@ -362,12 +362,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = whatsapi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = whatsapi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\MessageSendingApi(
+$apiInstance = new whatsapi\Api\MessageSendingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -375,7 +375,7 @@ $apiInstance = new OpenAPI\Client\Api\MessageSendingApi(
 );
 $instance_key = 'instance_key_example'; // string | Instance key
 $to = 'to_example'; // string | The recipient's number
-$instances_instance_key_send_document_post_request = new \OpenAPI\Client\Model\InstancesInstanceKeySendDocumentPostRequest(); // \OpenAPI\Client\Model\InstancesInstanceKeySendDocumentPostRequest
+$instances_instance_key_send_document_post_request = new \whatsapi\models\InstancesInstanceKeySendDocumentPostRequest(); // \whatsapi\models\InstancesInstanceKeySendDocumentPostRequest
 $caption = 'caption_example'; // string | Attached caption
 
 try {
@@ -392,12 +392,12 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **instance_key** | **string**| Instance key | |
 | **to** | **string**| The recipient&#39;s number | |
-| **instances_instance_key_send_document_post_request** | [**\OpenAPI\Client\Model\InstancesInstanceKeySendDocumentPostRequest**](../Model/InstancesInstanceKeySendDocumentPostRequest.md)|  | |
+| **instances_instance_key_send_document_post_request** | [**\whatsapi\models\InstancesInstanceKeySendDocumentPostRequest**](../Model/InstancesInstanceKeySendDocumentPostRequest.md)|  | |
 | **caption** | **string**| Attached caption | [optional] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\whatsapi\models\MainAPIResponse**](../Model/MainAPIResponse.md)
 
 ### Authorization
 
@@ -415,7 +415,7 @@ try {
 ## `instancesInstanceKeySendImagePost()`
 
 ```php
-instancesInstanceKeySendImagePost($instance_key, $to, $instances_instance_key_send_image_post_request, $caption): \OpenAPI\Client\Model\MainAPIResponse
+instancesInstanceKeySendImagePost($instance_key, $to, $instances_instance_key_send_image_post_request, $caption): \whatsapi\models\MainAPIResponse
 ```
 
 Send raw image.
@@ -430,12 +430,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = whatsapi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = whatsapi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\MessageSendingApi(
+$apiInstance = new whatsapi\Api\MessageSendingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -443,7 +443,7 @@ $apiInstance = new OpenAPI\Client\Api\MessageSendingApi(
 );
 $instance_key = 'instance_key_example'; // string | Instance key
 $to = 'to_example'; // string | The recipient's number
-$instances_instance_key_send_image_post_request = new \OpenAPI\Client\Model\InstancesInstanceKeySendImagePostRequest(); // \OpenAPI\Client\Model\InstancesInstanceKeySendImagePostRequest
+$instances_instance_key_send_image_post_request = new \whatsapi\models\InstancesInstanceKeySendImagePostRequest(); // \whatsapi\models\InstancesInstanceKeySendImagePostRequest
 $caption = 'caption_example'; // string | Attached caption
 
 try {
@@ -460,12 +460,12 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **instance_key** | **string**| Instance key | |
 | **to** | **string**| The recipient&#39;s number | |
-| **instances_instance_key_send_image_post_request** | [**\OpenAPI\Client\Model\InstancesInstanceKeySendImagePostRequest**](../Model/InstancesInstanceKeySendImagePostRequest.md)|  | |
+| **instances_instance_key_send_image_post_request** | [**\whatsapi\models\InstancesInstanceKeySendImagePostRequest**](../Model/InstancesInstanceKeySendImagePostRequest.md)|  | |
 | **caption** | **string**| Attached caption | [optional] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\whatsapi\models\MainAPIResponse**](../Model/MainAPIResponse.md)
 
 ### Authorization
 
@@ -483,7 +483,7 @@ try {
 ## `instancesInstanceKeySendListPost()`
 
 ```php
-instancesInstanceKeySendListPost($instance_key, $data): \OpenAPI\Client\Model\MainAPIResponse
+instancesInstanceKeySendListPost($instance_key, $data): \whatsapi\models\MainAPIResponse
 ```
 
 Send a List message.
@@ -498,19 +498,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = whatsapi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = whatsapi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\MessageSendingApi(
+$apiInstance = new whatsapi\Api\MessageSendingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $instance_key = 'instance_key_example'; // string | Instance key
-$data = new \OpenAPI\Client\Model\StructsListMessagePayload(); // \OpenAPI\Client\Model\StructsListMessagePayload | Message data
+$data = new \whatsapi\models\StructsListMessagePayload(); // \whatsapi\models\StructsListMessagePayload | Message data
 
 try {
     $result = $apiInstance->instancesInstanceKeySendListPost($instance_key, $data);
@@ -525,11 +525,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **instance_key** | **string**| Instance key | |
-| **data** | [**\OpenAPI\Client\Model\StructsListMessagePayload**](../Model/StructsListMessagePayload.md)| Message data | |
+| **data** | [**\whatsapi\models\StructsListMessagePayload**](../Model/StructsListMessagePayload.md)| Message data | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\whatsapi\models\MainAPIResponse**](../Model/MainAPIResponse.md)
 
 ### Authorization
 
@@ -547,7 +547,7 @@ try {
 ## `instancesInstanceKeySendLocationPost()`
 
 ```php
-instancesInstanceKeySendLocationPost($instance_key, $data): \OpenAPI\Client\Model\MainAPIResponse
+instancesInstanceKeySendLocationPost($instance_key, $data): \whatsapi\models\MainAPIResponse
 ```
 
 Send a location message.
@@ -562,19 +562,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = whatsapi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = whatsapi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\MessageSendingApi(
+$apiInstance = new whatsapi\Api\MessageSendingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $instance_key = 'instance_key_example'; // string | Instance key
-$data = new \OpenAPI\Client\Model\StructsLocationMessagePayload(); // \OpenAPI\Client\Model\StructsLocationMessagePayload | Message data
+$data = new \whatsapi\models\StructsLocationMessagePayload(); // \whatsapi\models\StructsLocationMessagePayload | Message data
 
 try {
     $result = $apiInstance->instancesInstanceKeySendLocationPost($instance_key, $data);
@@ -589,11 +589,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **instance_key** | **string**| Instance key | |
-| **data** | [**\OpenAPI\Client\Model\StructsLocationMessagePayload**](../Model/StructsLocationMessagePayload.md)| Message data | |
+| **data** | [**\whatsapi\models\StructsLocationMessagePayload**](../Model/StructsLocationMessagePayload.md)| Message data | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\whatsapi\models\MainAPIResponse**](../Model/MainAPIResponse.md)
 
 ### Authorization
 
@@ -611,7 +611,7 @@ try {
 ## `instancesInstanceKeySendMediaPost()`
 
 ```php
-instancesInstanceKeySendMediaPost($instance_key, $data): \OpenAPI\Client\Model\MainAPIResponse
+instancesInstanceKeySendMediaPost($instance_key, $data): \whatsapi\models\MainAPIResponse
 ```
 
 Send a media message.
@@ -626,19 +626,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = whatsapi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = whatsapi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\MessageSendingApi(
+$apiInstance = new whatsapi\Api\MessageSendingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $instance_key = 'instance_key_example'; // string | Instance key
-$data = new \OpenAPI\Client\Model\StructsSendMediaPayload(); // \OpenAPI\Client\Model\StructsSendMediaPayload | Message data
+$data = new \whatsapi\models\StructsSendMediaPayload(); // \whatsapi\models\StructsSendMediaPayload | Message data
 
 try {
     $result = $apiInstance->instancesInstanceKeySendMediaPost($instance_key, $data);
@@ -653,11 +653,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **instance_key** | **string**| Instance key | |
-| **data** | [**\OpenAPI\Client\Model\StructsSendMediaPayload**](../Model/StructsSendMediaPayload.md)| Message data | |
+| **data** | [**\whatsapi\models\StructsSendMediaPayload**](../Model/StructsSendMediaPayload.md)| Message data | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\whatsapi\models\MainAPIResponse**](../Model/MainAPIResponse.md)
 
 ### Authorization
 
@@ -675,7 +675,7 @@ try {
 ## `instancesInstanceKeySendPollPost()`
 
 ```php
-instancesInstanceKeySendPollPost($instance_key, $data): \OpenAPI\Client\Model\MainAPIResponse
+instancesInstanceKeySendPollPost($instance_key, $data): \whatsapi\models\MainAPIResponse
 ```
 
 Send a Poll message with media.
@@ -690,19 +690,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = whatsapi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = whatsapi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\MessageSendingApi(
+$apiInstance = new whatsapi\Api\MessageSendingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $instance_key = 'instance_key_example'; // string | Instance key
-$data = new \OpenAPI\Client\Model\StructsPollMessagePayload(); // \OpenAPI\Client\Model\StructsPollMessagePayload | Message data
+$data = new \whatsapi\models\StructsPollMessagePayload(); // \whatsapi\models\StructsPollMessagePayload | Message data
 
 try {
     $result = $apiInstance->instancesInstanceKeySendPollPost($instance_key, $data);
@@ -717,11 +717,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **instance_key** | **string**| Instance key | |
-| **data** | [**\OpenAPI\Client\Model\StructsPollMessagePayload**](../Model/StructsPollMessagePayload.md)| Message data | |
+| **data** | [**\whatsapi\models\StructsPollMessagePayload**](../Model/StructsPollMessagePayload.md)| Message data | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\whatsapi\models\MainAPIResponse**](../Model/MainAPIResponse.md)
 
 ### Authorization
 
@@ -739,7 +739,7 @@ try {
 ## `instancesInstanceKeySendTemplateMediaPost()`
 
 ```php
-instancesInstanceKeySendTemplateMediaPost($instance_key, $data): \OpenAPI\Client\Model\MainAPIResponse
+instancesInstanceKeySendTemplateMediaPost($instance_key, $data): \whatsapi\models\MainAPIResponse
 ```
 
 Send a template message with media.
@@ -754,19 +754,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = whatsapi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = whatsapi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\MessageSendingApi(
+$apiInstance = new whatsapi\Api\MessageSendingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $instance_key = 'instance_key_example'; // string | Instance key
-$data = new \OpenAPI\Client\Model\StructsTemplateButtonWithMediaPayload(); // \OpenAPI\Client\Model\StructsTemplateButtonWithMediaPayload | Message data
+$data = new \whatsapi\models\StructsTemplateButtonWithMediaPayload(); // \whatsapi\models\StructsTemplateButtonWithMediaPayload | Message data
 
 try {
     $result = $apiInstance->instancesInstanceKeySendTemplateMediaPost($instance_key, $data);
@@ -781,11 +781,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **instance_key** | **string**| Instance key | |
-| **data** | [**\OpenAPI\Client\Model\StructsTemplateButtonWithMediaPayload**](../Model/StructsTemplateButtonWithMediaPayload.md)| Message data | |
+| **data** | [**\whatsapi\models\StructsTemplateButtonWithMediaPayload**](../Model/StructsTemplateButtonWithMediaPayload.md)| Message data | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\whatsapi\models\MainAPIResponse**](../Model/MainAPIResponse.md)
 
 ### Authorization
 
@@ -803,7 +803,7 @@ try {
 ## `instancesInstanceKeySendTemplatePost()`
 
 ```php
-instancesInstanceKeySendTemplatePost($instance_key, $data): \OpenAPI\Client\Model\MainAPIResponse
+instancesInstanceKeySendTemplatePost($instance_key, $data): \whatsapi\models\MainAPIResponse
 ```
 
 Send a template message.
@@ -818,19 +818,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = whatsapi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = whatsapi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\MessageSendingApi(
+$apiInstance = new whatsapi\Api\MessageSendingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $instance_key = 'instance_key_example'; // string | Instance key
-$data = new \OpenAPI\Client\Model\StructsTemplateButtonPayload(); // \OpenAPI\Client\Model\StructsTemplateButtonPayload | Message data
+$data = new \whatsapi\models\StructsTemplateButtonPayload(); // \whatsapi\models\StructsTemplateButtonPayload | Message data
 
 try {
     $result = $apiInstance->instancesInstanceKeySendTemplatePost($instance_key, $data);
@@ -845,11 +845,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **instance_key** | **string**| Instance key | |
-| **data** | [**\OpenAPI\Client\Model\StructsTemplateButtonPayload**](../Model/StructsTemplateButtonPayload.md)| Message data | |
+| **data** | [**\whatsapi\models\StructsTemplateButtonPayload**](../Model/StructsTemplateButtonPayload.md)| Message data | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\whatsapi\models\MainAPIResponse**](../Model/MainAPIResponse.md)
 
 ### Authorization
 
@@ -867,7 +867,7 @@ try {
 ## `instancesInstanceKeySendTextPost()`
 
 ```php
-instancesInstanceKeySendTextPost($instance_key, $data): \OpenAPI\Client\Model\MainAPIResponse
+instancesInstanceKeySendTextPost($instance_key, $data): \whatsapi\models\MainAPIResponse
 ```
 
 Send a text message.
@@ -882,19 +882,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = whatsapi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = whatsapi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\MessageSendingApi(
+$apiInstance = new whatsapi\Api\MessageSendingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $instance_key = 'instance_key_example'; // string | Instance key
-$data = new \OpenAPI\Client\Model\StructsTextMessage(); // \OpenAPI\Client\Model\StructsTextMessage | Message data
+$data = new \whatsapi\models\StructsTextMessage(); // \whatsapi\models\StructsTextMessage | Message data
 
 try {
     $result = $apiInstance->instancesInstanceKeySendTextPost($instance_key, $data);
@@ -909,11 +909,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **instance_key** | **string**| Instance key | |
-| **data** | [**\OpenAPI\Client\Model\StructsTextMessage**](../Model/StructsTextMessage.md)| Message data | |
+| **data** | [**\whatsapi\models\StructsTextMessage**](../Model/StructsTextMessage.md)| Message data | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\whatsapi\models\MainAPIResponse**](../Model/MainAPIResponse.md)
 
 ### Authorization
 
@@ -931,7 +931,7 @@ try {
 ## `instancesInstanceKeySendUploadPost()`
 
 ```php
-instancesInstanceKeySendUploadPost($instance_key, $type, $instances_instance_key_send_upload_post_request): \OpenAPI\Client\Model\MainAPIResponse
+instancesInstanceKeySendUploadPost($instance_key, $type, $instances_instance_key_send_upload_post_request): \whatsapi\models\MainAPIResponse
 ```
 
 Upload media.
@@ -946,12 +946,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = whatsapi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = whatsapi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\MessageSendingApi(
+$apiInstance = new whatsapi\Api\MessageSendingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -959,7 +959,7 @@ $apiInstance = new OpenAPI\Client\Api\MessageSendingApi(
 );
 $instance_key = 'instance_key_example'; // string | Instance key
 $type = 'type_example'; // string | Media type
-$instances_instance_key_send_upload_post_request = new \OpenAPI\Client\Model\InstancesInstanceKeySendUploadPostRequest(); // \OpenAPI\Client\Model\InstancesInstanceKeySendUploadPostRequest
+$instances_instance_key_send_upload_post_request = new \whatsapi\models\InstancesInstanceKeySendUploadPostRequest(); // \whatsapi\models\InstancesInstanceKeySendUploadPostRequest
 
 try {
     $result = $apiInstance->instancesInstanceKeySendUploadPost($instance_key, $type, $instances_instance_key_send_upload_post_request);
@@ -975,11 +975,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **instance_key** | **string**| Instance key | |
 | **type** | **string**| Media type | |
-| **instances_instance_key_send_upload_post_request** | [**\OpenAPI\Client\Model\InstancesInstanceKeySendUploadPostRequest**](../Model/InstancesInstanceKeySendUploadPostRequest.md)|  | |
+| **instances_instance_key_send_upload_post_request** | [**\whatsapi\models\InstancesInstanceKeySendUploadPostRequest**](../Model/InstancesInstanceKeySendUploadPostRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\whatsapi\models\MainAPIResponse**](../Model/MainAPIResponse.md)
 
 ### Authorization
 
@@ -997,7 +997,7 @@ try {
 ## `instancesInstanceKeySendVideoPost()`
 
 ```php
-instancesInstanceKeySendVideoPost($instance_key, $to, $instances_instance_key_send_video_post_request, $caption): \OpenAPI\Client\Model\MainAPIResponse
+instancesInstanceKeySendVideoPost($instance_key, $to, $instances_instance_key_send_video_post_request, $caption): \whatsapi\models\MainAPIResponse
 ```
 
 Send raw video.
@@ -1012,12 +1012,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure API key authorization: ApiKeyAuth
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = whatsapi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = whatsapi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new OpenAPI\Client\Api\MessageSendingApi(
+$apiInstance = new whatsapi\Api\MessageSendingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -1025,7 +1025,7 @@ $apiInstance = new OpenAPI\Client\Api\MessageSendingApi(
 );
 $instance_key = 'instance_key_example'; // string | Instance key
 $to = 'to_example'; // string | The recipient's number
-$instances_instance_key_send_video_post_request = new \OpenAPI\Client\Model\InstancesInstanceKeySendVideoPostRequest(); // \OpenAPI\Client\Model\InstancesInstanceKeySendVideoPostRequest
+$instances_instance_key_send_video_post_request = new \whatsapi\models\InstancesInstanceKeySendVideoPostRequest(); // \whatsapi\models\InstancesInstanceKeySendVideoPostRequest
 $caption = 'caption_example'; // string | Attached caption
 
 try {
@@ -1042,12 +1042,12 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **instance_key** | **string**| Instance key | |
 | **to** | **string**| The recipient&#39;s number | |
-| **instances_instance_key_send_video_post_request** | [**\OpenAPI\Client\Model\InstancesInstanceKeySendVideoPostRequest**](../Model/InstancesInstanceKeySendVideoPostRequest.md)|  | |
+| **instances_instance_key_send_video_post_request** | [**\whatsapi\models\InstancesInstanceKeySendVideoPostRequest**](../Model/InstancesInstanceKeySendVideoPostRequest.md)|  | |
 | **caption** | **string**| Attached caption | [optional] |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\whatsapi\models\MainAPIResponse**](../Model/MainAPIResponse.md)
 
 ### Authorization
 
