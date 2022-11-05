@@ -25,7 +25,7 @@ All URIs are relative to /api, except if the operation defines another base path
 ## `instancesInstanceKeyGroupsAdminGet()`
 
 ```php
-instancesInstanceKeyGroupsAdminGet($instance_key): \WhatsAPI\models\MainAPIResponse
+instancesInstanceKeyGroupsAdminGet($instance_key): \WhatsAPI\models\APIResponse
 ```
 
 Get admin groupss.
@@ -69,7 +69,7 @@ try {
 
 ### Return type
 
-[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\APIResponse**](../Model/APIResponse.md)
 
 ### Authorization
 
@@ -87,7 +87,7 @@ try {
 ## `instancesInstanceKeyGroupsCreatePost()`
 
 ```php
-instancesInstanceKeyGroupsCreatePost($instance_key, $data): \WhatsAPI\models\MainAPIResponse
+instancesInstanceKeyGroupsCreatePost($instance_key, $data): \WhatsAPI\models\APIResponse
 ```
 
 Create group.
@@ -114,7 +114,7 @@ $apiInstance = new WhatsAPI\Api\GroupManagementApi(
     $config
 );
 $instance_key = 'instance_key_example'; // string | Instance key
-$data = new \WhatsAPI\models\StructsGroupCreatePayload(); // \WhatsAPI\models\StructsGroupCreatePayload | Group create payload
+$data = new \WhatsAPI\models\GroupCreatePayload(); // \WhatsAPI\models\GroupCreatePayload | Group create payload
 
 try {
     $result = $apiInstance->instancesInstanceKeyGroupsCreatePost($instance_key, $data);
@@ -129,11 +129,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **instance_key** | **string**| Instance key | |
-| **data** | [**\WhatsAPI\models\StructsGroupCreatePayload**](../Model/StructsGroupCreatePayload.md)| Group create payload | |
+| **data** | [**\WhatsAPI\models\GroupCreatePayload**](../Model/GroupCreatePayload.md)| Group create payload | |
 
 ### Return type
 
-[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\APIResponse**](../Model/APIResponse.md)
 
 ### Authorization
 
@@ -151,7 +151,7 @@ try {
 ## `instancesInstanceKeyGroupsGet()`
 
 ```php
-instancesInstanceKeyGroupsGet($instance_key, $include_participants): \WhatsAPI\models\MainAPIResponse
+instancesInstanceKeyGroupsGet($instance_key, $include_participants): \WhatsAPI\models\APIResponse
 ```
 
 Get all groups.
@@ -197,7 +197,7 @@ try {
 
 ### Return type
 
-[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\APIResponse**](../Model/APIResponse.md)
 
 ### Authorization
 
@@ -215,7 +215,7 @@ try {
 ## `instancesInstanceKeyGroupsGroupIdAnnouncePut()`
 
 ```php
-instancesInstanceKeyGroupsGroupIdAnnouncePut($instance_key, $announce, $group_id): \WhatsAPI\models\MainAPIResponse
+instancesInstanceKeyGroupsGroupIdAnnouncePut($instance_key, $announce, $group_id): \WhatsAPI\models\APIResponse
 ```
 
 Set group announce.
@@ -263,7 +263,7 @@ try {
 
 ### Return type
 
-[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\APIResponse**](../Model/APIResponse.md)
 
 ### Authorization
 
@@ -281,7 +281,7 @@ try {
 ## `instancesInstanceKeyGroupsGroupIdDelete()`
 
 ```php
-instancesInstanceKeyGroupsGroupIdDelete($instance_key, $group_id): \WhatsAPI\models\MainAPIResponse
+instancesInstanceKeyGroupsGroupIdDelete($instance_key, $group_id): \WhatsAPI\models\APIResponse
 ```
 
 Leaves the group.
@@ -327,7 +327,7 @@ try {
 
 ### Return type
 
-[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\APIResponse**](../Model/APIResponse.md)
 
 ### Authorization
 
@@ -345,7 +345,7 @@ try {
 ## `instancesInstanceKeyGroupsGroupIdDescriptionPut()`
 
 ```php
-instancesInstanceKeyGroupsGroupIdDescriptionPut($instance_key, $group_id, $data): \WhatsAPI\models\MainAPIResponse
+instancesInstanceKeyGroupsGroupIdDescriptionPut($instance_key, $group_id, $data): \WhatsAPI\models\APIResponse
 ```
 
 Set group description.
@@ -373,7 +373,7 @@ $apiInstance = new WhatsAPI\Api\GroupManagementApi(
 );
 $instance_key = 'instance_key_example'; // string | Instance key
 $group_id = 'group_id_example'; // string | Group id of the group
-$data = new \WhatsAPI\models\StructsGroupUpdateDescriptionPayload(); // \WhatsAPI\models\StructsGroupUpdateDescriptionPayload | Group description data
+$data = new \WhatsAPI\models\GroupUpdateDescriptionPayload(); // \WhatsAPI\models\GroupUpdateDescriptionPayload | Group description data
 
 try {
     $result = $apiInstance->instancesInstanceKeyGroupsGroupIdDescriptionPut($instance_key, $group_id, $data);
@@ -389,11 +389,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **instance_key** | **string**| Instance key | |
 | **group_id** | **string**| Group id of the group | |
-| **data** | [**\WhatsAPI\models\StructsGroupUpdateDescriptionPayload**](../Model/StructsGroupUpdateDescriptionPayload.md)| Group description data | |
+| **data** | [**\WhatsAPI\models\GroupUpdateDescriptionPayload**](../Model/GroupUpdateDescriptionPayload.md)| Group description data | |
 
 ### Return type
 
-[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\APIResponse**](../Model/APIResponse.md)
 
 ### Authorization
 
@@ -411,7 +411,7 @@ try {
 ## `instancesInstanceKeyGroupsGroupIdGet()`
 
 ```php
-instancesInstanceKeyGroupsGroupIdGet($instance_key, $group_id): \WhatsAPI\models\MainAPIResponse
+instancesInstanceKeyGroupsGroupIdGet($instance_key, $group_id): \WhatsAPI\models\APIResponse
 ```
 
 Get group.
@@ -457,7 +457,7 @@ try {
 
 ### Return type
 
-[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\APIResponse**](../Model/APIResponse.md)
 
 ### Authorization
 
@@ -475,7 +475,7 @@ try {
 ## `instancesInstanceKeyGroupsGroupIdInviteCodeGet()`
 
 ```php
-instancesInstanceKeyGroupsGroupIdInviteCodeGet($instance_key, $group_id): \WhatsAPI\models\MainAPIResponse
+instancesInstanceKeyGroupsGroupIdInviteCodeGet($instance_key, $group_id): \WhatsAPI\models\APIResponse
 ```
 
 Get group invite code.
@@ -521,7 +521,7 @@ try {
 
 ### Return type
 
-[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\APIResponse**](../Model/APIResponse.md)
 
 ### Authorization
 
@@ -539,7 +539,7 @@ try {
 ## `instancesInstanceKeyGroupsGroupIdLockPut()`
 
 ```php
-instancesInstanceKeyGroupsGroupIdLockPut($instance_key, $locked, $group_id): \WhatsAPI\models\MainAPIResponse
+instancesInstanceKeyGroupsGroupIdLockPut($instance_key, $locked, $group_id): \WhatsAPI\models\APIResponse
 ```
 
 Set group locked.
@@ -587,7 +587,7 @@ try {
 
 ### Return type
 
-[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\APIResponse**](../Model/APIResponse.md)
 
 ### Authorization
 
@@ -605,7 +605,7 @@ try {
 ## `instancesInstanceKeyGroupsGroupIdNamePut()`
 
 ```php
-instancesInstanceKeyGroupsGroupIdNamePut($instance_key, $group_id, $data): \WhatsAPI\models\MainAPIResponse
+instancesInstanceKeyGroupsGroupIdNamePut($instance_key, $group_id, $data): \WhatsAPI\models\APIResponse
 ```
 
 Set group name.
@@ -633,7 +633,7 @@ $apiInstance = new WhatsAPI\Api\GroupManagementApi(
 );
 $instance_key = 'instance_key_example'; // string | Instance key
 $group_id = 'group_id_example'; // string | Group id of the group
-$data = new \WhatsAPI\models\StructsGroupUpdateNamePayload(); // \WhatsAPI\models\StructsGroupUpdateNamePayload | Group name data
+$data = new \WhatsAPI\models\GroupUpdateNamePayload(); // \WhatsAPI\models\GroupUpdateNamePayload | Group name data
 
 try {
     $result = $apiInstance->instancesInstanceKeyGroupsGroupIdNamePut($instance_key, $group_id, $data);
@@ -649,11 +649,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **instance_key** | **string**| Instance key | |
 | **group_id** | **string**| Group id of the group | |
-| **data** | [**\WhatsAPI\models\StructsGroupUpdateNamePayload**](../Model/StructsGroupUpdateNamePayload.md)| Group name data | |
+| **data** | [**\WhatsAPI\models\GroupUpdateNamePayload**](../Model/GroupUpdateNamePayload.md)| Group name data | |
 
 ### Return type
 
-[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\APIResponse**](../Model/APIResponse.md)
 
 ### Authorization
 
@@ -671,7 +671,7 @@ try {
 ## `instancesInstanceKeyGroupsGroupIdParticipantsAddPost()`
 
 ```php
-instancesInstanceKeyGroupsGroupIdParticipantsAddPost($instance_key, $group_id, $data): \WhatsAPI\models\MainAPIResponse
+instancesInstanceKeyGroupsGroupIdParticipantsAddPost($instance_key, $group_id, $data): \WhatsAPI\models\APIResponse
 ```
 
 Add participant.
@@ -699,7 +699,7 @@ $apiInstance = new WhatsAPI\Api\GroupManagementApi(
 );
 $instance_key = 'instance_key_example'; // string | Instance key
 $group_id = 'group_id_example'; // string | Group id of the group
-$data = new \WhatsAPI\models\StructsGroupUpdateParticipantsPayload(); // \WhatsAPI\models\StructsGroupUpdateParticipantsPayload | Group update payload
+$data = new \WhatsAPI\models\GroupUpdateParticipantsPayload(); // \WhatsAPI\models\GroupUpdateParticipantsPayload | Group update payload
 
 try {
     $result = $apiInstance->instancesInstanceKeyGroupsGroupIdParticipantsAddPost($instance_key, $group_id, $data);
@@ -715,11 +715,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **instance_key** | **string**| Instance key | |
 | **group_id** | **string**| Group id of the group | |
-| **data** | [**\WhatsAPI\models\StructsGroupUpdateParticipantsPayload**](../Model/StructsGroupUpdateParticipantsPayload.md)| Group update payload | |
+| **data** | [**\WhatsAPI\models\GroupUpdateParticipantsPayload**](../Model/GroupUpdateParticipantsPayload.md)| Group update payload | |
 
 ### Return type
 
-[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\APIResponse**](../Model/APIResponse.md)
 
 ### Authorization
 
@@ -737,7 +737,7 @@ try {
 ## `instancesInstanceKeyGroupsGroupIdParticipantsDemotePut()`
 
 ```php
-instancesInstanceKeyGroupsGroupIdParticipantsDemotePut($instance_key, $group_id, $data): \WhatsAPI\models\MainAPIResponse
+instancesInstanceKeyGroupsGroupIdParticipantsDemotePut($instance_key, $group_id, $data): \WhatsAPI\models\APIResponse
 ```
 
 Demote participant.
@@ -765,7 +765,7 @@ $apiInstance = new WhatsAPI\Api\GroupManagementApi(
 );
 $instance_key = 'instance_key_example'; // string | Instance key
 $group_id = 'group_id_example'; // string | Group id of the group
-$data = new \WhatsAPI\models\StructsGroupUpdateParticipantsPayload(); // \WhatsAPI\models\StructsGroupUpdateParticipantsPayload | Group update payload
+$data = new \WhatsAPI\models\GroupUpdateParticipantsPayload(); // \WhatsAPI\models\GroupUpdateParticipantsPayload | Group update payload
 
 try {
     $result = $apiInstance->instancesInstanceKeyGroupsGroupIdParticipantsDemotePut($instance_key, $group_id, $data);
@@ -781,11 +781,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **instance_key** | **string**| Instance key | |
 | **group_id** | **string**| Group id of the group | |
-| **data** | [**\WhatsAPI\models\StructsGroupUpdateParticipantsPayload**](../Model/StructsGroupUpdateParticipantsPayload.md)| Group update payload | |
+| **data** | [**\WhatsAPI\models\GroupUpdateParticipantsPayload**](../Model/GroupUpdateParticipantsPayload.md)| Group update payload | |
 
 ### Return type
 
-[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\APIResponse**](../Model/APIResponse.md)
 
 ### Authorization
 
@@ -803,7 +803,7 @@ try {
 ## `instancesInstanceKeyGroupsGroupIdParticipantsPromotePut()`
 
 ```php
-instancesInstanceKeyGroupsGroupIdParticipantsPromotePut($instance_key, $group_id, $data): \WhatsAPI\models\MainAPIResponse
+instancesInstanceKeyGroupsGroupIdParticipantsPromotePut($instance_key, $group_id, $data): \WhatsAPI\models\APIResponse
 ```
 
 Promote participant.
@@ -831,7 +831,7 @@ $apiInstance = new WhatsAPI\Api\GroupManagementApi(
 );
 $instance_key = 'instance_key_example'; // string | Instance key
 $group_id = 'group_id_example'; // string | Group id of the group
-$data = new \WhatsAPI\models\StructsGroupUpdateParticipantsPayload(); // \WhatsAPI\models\StructsGroupUpdateParticipantsPayload | Group update payload
+$data = new \WhatsAPI\models\GroupUpdateParticipantsPayload(); // \WhatsAPI\models\GroupUpdateParticipantsPayload | Group update payload
 
 try {
     $result = $apiInstance->instancesInstanceKeyGroupsGroupIdParticipantsPromotePut($instance_key, $group_id, $data);
@@ -847,11 +847,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **instance_key** | **string**| Instance key | |
 | **group_id** | **string**| Group id of the group | |
-| **data** | [**\WhatsAPI\models\StructsGroupUpdateParticipantsPayload**](../Model/StructsGroupUpdateParticipantsPayload.md)| Group update payload | |
+| **data** | [**\WhatsAPI\models\GroupUpdateParticipantsPayload**](../Model/GroupUpdateParticipantsPayload.md)| Group update payload | |
 
 ### Return type
 
-[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\APIResponse**](../Model/APIResponse.md)
 
 ### Authorization
 
@@ -869,7 +869,7 @@ try {
 ## `instancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete()`
 
 ```php
-instancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete($instance_key, $group_id, $data): \WhatsAPI\models\MainAPIResponse
+instancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete($instance_key, $group_id, $data): \WhatsAPI\models\APIResponse
 ```
 
 Remove participant.
@@ -897,7 +897,7 @@ $apiInstance = new WhatsAPI\Api\GroupManagementApi(
 );
 $instance_key = 'instance_key_example'; // string | Instance key
 $group_id = 'group_id_example'; // string | Group id of the group
-$data = new \WhatsAPI\models\StructsGroupUpdateParticipantsPayload(); // \WhatsAPI\models\StructsGroupUpdateParticipantsPayload | Group update payload
+$data = new \WhatsAPI\models\GroupUpdateParticipantsPayload(); // \WhatsAPI\models\GroupUpdateParticipantsPayload | Group update payload
 
 try {
     $result = $apiInstance->instancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete($instance_key, $group_id, $data);
@@ -913,11 +913,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **instance_key** | **string**| Instance key | |
 | **group_id** | **string**| Group id of the group | |
-| **data** | [**\WhatsAPI\models\StructsGroupUpdateParticipantsPayload**](../Model/StructsGroupUpdateParticipantsPayload.md)| Group update payload | |
+| **data** | [**\WhatsAPI\models\GroupUpdateParticipantsPayload**](../Model/GroupUpdateParticipantsPayload.md)| Group update payload | |
 
 ### Return type
 
-[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\APIResponse**](../Model/APIResponse.md)
 
 ### Authorization
 
@@ -935,7 +935,7 @@ try {
 ## `instancesInstanceKeyGroupsGroupIdProfilePicPut()`
 
 ```php
-instancesInstanceKeyGroupsGroupIdProfilePicPut($instance_key, $group_id, $instances_instance_key_groups_group_id_profile_pic_put_request): \WhatsAPI\models\MainAPIResponse
+instancesInstanceKeyGroupsGroupIdProfilePicPut($instance_key, $group_id, $instances_instance_key_groups_group_id_profile_pic_put_request): \WhatsAPI\models\APIResponse
 ```
 
 Set group picture.
@@ -983,7 +983,7 @@ try {
 
 ### Return type
 
-[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\APIResponse**](../Model/APIResponse.md)
 
 ### Authorization
 
@@ -1001,7 +1001,7 @@ try {
 ## `instancesInstanceKeyGroupsInviteInfoGet()`
 
 ```php
-instancesInstanceKeyGroupsInviteInfoGet($instance_key, $invite_link): \WhatsAPI\models\MainAPIResponse
+instancesInstanceKeyGroupsInviteInfoGet($instance_key, $invite_link): \WhatsAPI\models\APIResponse
 ```
 
 Get group from invite link.
@@ -1047,7 +1047,7 @@ try {
 
 ### Return type
 
-[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\APIResponse**](../Model/APIResponse.md)
 
 ### Authorization
 

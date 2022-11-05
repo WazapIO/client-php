@@ -11,7 +11,7 @@ All URIs are relative to /api, except if the operation defines another base path
 ## `instancesInstanceKeyMiscProfilePicGet()`
 
 ```php
-instancesInstanceKeyMiscProfilePicGet($instance_key, $jid): \WhatsAPI\models\MainAPIResponse
+instancesInstanceKeyMiscProfilePicGet($instance_key, $jid): \WhatsAPI\models\APIResponse
 ```
 
 Get profile pic.
@@ -57,7 +57,7 @@ try {
 
 ### Return type
 
-[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\APIResponse**](../Model/APIResponse.md)
 
 ### Authorization
 
@@ -75,7 +75,7 @@ try {
 ## `instancesInstanceKeyMiscUserInfoPost()`
 
 ```php
-instancesInstanceKeyMiscUserInfoPost($instance_key, $data): \WhatsAPI\models\MainAPIResponse
+instancesInstanceKeyMiscUserInfoPost($instance_key, $data): \WhatsAPI\models\APIResponse
 ```
 
 Fetches the users info.
@@ -102,7 +102,7 @@ $apiInstance = new WhatsAPI\Api\MiscellaneousApi(
     $config
 );
 $instance_key = 'instance_key_example'; // string | Instance key
-$data = new \WhatsAPI\models\StructsUserInfoPayload(); // \WhatsAPI\models\StructsUserInfoPayload | Data
+$data = new \WhatsAPI\models\UserInfoPayload(); // \WhatsAPI\models\UserInfoPayload | Data
 
 try {
     $result = $apiInstance->instancesInstanceKeyMiscUserInfoPost($instance_key, $data);
@@ -117,11 +117,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **instance_key** | **string**| Instance key | |
-| **data** | [**\WhatsAPI\models\StructsUserInfoPayload**](../Model/StructsUserInfoPayload.md)| Data | |
+| **data** | [**\WhatsAPI\models\UserInfoPayload**](../Model/UserInfoPayload.md)| Data | |
 
 ### Return type
 
-[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\APIResponse**](../Model/APIResponse.md)
 
 ### Authorization
 

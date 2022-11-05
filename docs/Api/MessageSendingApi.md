@@ -4,7 +4,6 @@ All URIs are relative to /api, except if the operation defines another base path
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**instancesInstanceKeyBusinessCatalogGet()**](MessageSendingApi.md#instancesInstanceKeyBusinessCatalogGet) | **GET** /instances/{instance_key}/business/catalog | Fetches the catlog. |
 | [**instancesInstanceKeySendAudioPost()**](MessageSendingApi.md#instancesInstanceKeySendAudioPost) | **POST** /instances/{instance_key}/send/audio | Send raw audio. |
 | [**instancesInstanceKeySendButtonMediaPost()**](MessageSendingApi.md#instancesInstanceKeySendButtonMediaPost) | **POST** /instances/{instance_key}/send/button-media | Send a button message with a media header. |
 | [**instancesInstanceKeySendButtonsPost()**](MessageSendingApi.md#instancesInstanceKeySendButtonsPost) | **POST** /instances/{instance_key}/send/buttons | Send a button message. |
@@ -14,7 +13,7 @@ All URIs are relative to /api, except if the operation defines another base path
 | [**instancesInstanceKeySendListPost()**](MessageSendingApi.md#instancesInstanceKeySendListPost) | **POST** /instances/{instance_key}/send/list | Send a List message. |
 | [**instancesInstanceKeySendLocationPost()**](MessageSendingApi.md#instancesInstanceKeySendLocationPost) | **POST** /instances/{instance_key}/send/location | Send a location message. |
 | [**instancesInstanceKeySendMediaPost()**](MessageSendingApi.md#instancesInstanceKeySendMediaPost) | **POST** /instances/{instance_key}/send/media | Send a media message. |
-| [**instancesInstanceKeySendPollPost()**](MessageSendingApi.md#instancesInstanceKeySendPollPost) | **POST** /instances/{instance_key}/send/poll | Send a Poll message with media. |
+| [**instancesInstanceKeySendPollPost()**](MessageSendingApi.md#instancesInstanceKeySendPollPost) | **POST** /instances/{instance_key}/send/poll | Send a Poll message. |
 | [**instancesInstanceKeySendTemplateMediaPost()**](MessageSendingApi.md#instancesInstanceKeySendTemplateMediaPost) | **POST** /instances/{instance_key}/send/template-media | Send a template message with media. |
 | [**instancesInstanceKeySendTemplatePost()**](MessageSendingApi.md#instancesInstanceKeySendTemplatePost) | **POST** /instances/{instance_key}/send/template | Send a template message. |
 | [**instancesInstanceKeySendTextPost()**](MessageSendingApi.md#instancesInstanceKeySendTextPost) | **POST** /instances/{instance_key}/send/text | Send a text message. |
@@ -22,72 +21,10 @@ All URIs are relative to /api, except if the operation defines another base path
 | [**instancesInstanceKeySendVideoPost()**](MessageSendingApi.md#instancesInstanceKeySendVideoPost) | **POST** /instances/{instance_key}/send/video | Send raw video. |
 
 
-## `instancesInstanceKeyBusinessCatalogGet()`
-
-```php
-instancesInstanceKeyBusinessCatalogGet($instance_key): \WhatsAPI\models\MainAPIResponse
-```
-
-Fetches the catlog.
-
-Gets list of all products registered by you.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: ApiKeyAuth
-$config = WhatsAPI\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = WhatsAPI\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new WhatsAPI\Api\MessageSendingApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$instance_key = 'instance_key_example'; // string | Instance key
-
-try {
-    $result = $apiInstance->instancesInstanceKeyBusinessCatalogGet($instance_key);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling MessageSendingApi->instancesInstanceKeyBusinessCatalogGet: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **instance_key** | **string**| Instance key | |
-
-### Return type
-
-[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
-
-### Authorization
-
-[ApiKeyAuth](../../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `*/*`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
 ## `instancesInstanceKeySendAudioPost()`
 
 ```php
-instancesInstanceKeySendAudioPost($instance_key, $to, $instances_instance_key_send_audio_post_request, $caption): \WhatsAPI\models\MainAPIResponse
+instancesInstanceKeySendAudioPost($instance_key, $to, $instances_instance_key_send_audio_post_request, $caption): \WhatsAPI\models\APIResponse
 ```
 
 Send raw audio.
@@ -137,7 +74,7 @@ try {
 
 ### Return type
 
-[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\APIResponse**](../Model/APIResponse.md)
 
 ### Authorization
 
@@ -155,7 +92,7 @@ try {
 ## `instancesInstanceKeySendButtonMediaPost()`
 
 ```php
-instancesInstanceKeySendButtonMediaPost($instance_key, $data): \WhatsAPI\models\MainAPIResponse
+instancesInstanceKeySendButtonMediaPost($instance_key, $data): \WhatsAPI\models\APIResponse
 ```
 
 Send a button message with a media header.
@@ -182,7 +119,7 @@ $apiInstance = new WhatsAPI\Api\MessageSendingApi(
     $config
 );
 $instance_key = 'instance_key_example'; // string | Instance key
-$data = new \WhatsAPI\models\StructsButtonMessageWithMediaPayload(); // \WhatsAPI\models\StructsButtonMessageWithMediaPayload | Message data
+$data = new \WhatsAPI\models\ButtonMessageWithMediaPayload(); // \WhatsAPI\models\ButtonMessageWithMediaPayload | Message data
 
 try {
     $result = $apiInstance->instancesInstanceKeySendButtonMediaPost($instance_key, $data);
@@ -197,11 +134,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **instance_key** | **string**| Instance key | |
-| **data** | [**\WhatsAPI\models\StructsButtonMessageWithMediaPayload**](../Model/StructsButtonMessageWithMediaPayload.md)| Message data | |
+| **data** | [**\WhatsAPI\models\ButtonMessageWithMediaPayload**](../Model/ButtonMessageWithMediaPayload.md)| Message data | |
 
 ### Return type
 
-[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\APIResponse**](../Model/APIResponse.md)
 
 ### Authorization
 
@@ -219,7 +156,7 @@ try {
 ## `instancesInstanceKeySendButtonsPost()`
 
 ```php
-instancesInstanceKeySendButtonsPost($instance_key, $data): \WhatsAPI\models\MainAPIResponse
+instancesInstanceKeySendButtonsPost($instance_key, $data): \WhatsAPI\models\APIResponse
 ```
 
 Send a button message.
@@ -246,7 +183,7 @@ $apiInstance = new WhatsAPI\Api\MessageSendingApi(
     $config
 );
 $instance_key = 'instance_key_example'; // string | Instance key
-$data = new \WhatsAPI\models\StructsButtonMessagePayload(); // \WhatsAPI\models\StructsButtonMessagePayload | Message data
+$data = new \WhatsAPI\models\ButtonMessagePayload(); // \WhatsAPI\models\ButtonMessagePayload | Message data
 
 try {
     $result = $apiInstance->instancesInstanceKeySendButtonsPost($instance_key, $data);
@@ -261,11 +198,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **instance_key** | **string**| Instance key | |
-| **data** | [**\WhatsAPI\models\StructsButtonMessagePayload**](../Model/StructsButtonMessagePayload.md)| Message data | |
+| **data** | [**\WhatsAPI\models\ButtonMessagePayload**](../Model/ButtonMessagePayload.md)| Message data | |
 
 ### Return type
 
-[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\APIResponse**](../Model/APIResponse.md)
 
 ### Authorization
 
@@ -283,7 +220,7 @@ try {
 ## `instancesInstanceKeySendContactPost()`
 
 ```php
-instancesInstanceKeySendContactPost($instance_key, $data): \WhatsAPI\models\MainAPIResponse
+instancesInstanceKeySendContactPost($instance_key, $data): \WhatsAPI\models\APIResponse
 ```
 
 Send a contact message.
@@ -310,7 +247,7 @@ $apiInstance = new WhatsAPI\Api\MessageSendingApi(
     $config
 );
 $instance_key = 'instance_key_example'; // string | Instance key
-$data = new \WhatsAPI\models\StructsContactMessagePayload(); // \WhatsAPI\models\StructsContactMessagePayload | Message data
+$data = new \WhatsAPI\models\ContactMessagePayload(); // \WhatsAPI\models\ContactMessagePayload | Message data
 
 try {
     $result = $apiInstance->instancesInstanceKeySendContactPost($instance_key, $data);
@@ -325,11 +262,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **instance_key** | **string**| Instance key | |
-| **data** | [**\WhatsAPI\models\StructsContactMessagePayload**](../Model/StructsContactMessagePayload.md)| Message data | |
+| **data** | [**\WhatsAPI\models\ContactMessagePayload**](../Model/ContactMessagePayload.md)| Message data | |
 
 ### Return type
 
-[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\APIResponse**](../Model/APIResponse.md)
 
 ### Authorization
 
@@ -347,7 +284,7 @@ try {
 ## `instancesInstanceKeySendDocumentPost()`
 
 ```php
-instancesInstanceKeySendDocumentPost($instance_key, $to, $instances_instance_key_send_document_post_request, $caption): \WhatsAPI\models\MainAPIResponse
+instancesInstanceKeySendDocumentPost($instance_key, $to, $instances_instance_key_send_document_post_request, $caption): \WhatsAPI\models\APIResponse
 ```
 
 Send raw document.
@@ -397,7 +334,7 @@ try {
 
 ### Return type
 
-[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\APIResponse**](../Model/APIResponse.md)
 
 ### Authorization
 
@@ -415,7 +352,7 @@ try {
 ## `instancesInstanceKeySendImagePost()`
 
 ```php
-instancesInstanceKeySendImagePost($instance_key, $to, $instances_instance_key_send_image_post_request, $caption): \WhatsAPI\models\MainAPIResponse
+instancesInstanceKeySendImagePost($instance_key, $to, $instances_instance_key_send_image_post_request, $caption): \WhatsAPI\models\APIResponse
 ```
 
 Send raw image.
@@ -465,7 +402,7 @@ try {
 
 ### Return type
 
-[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\APIResponse**](../Model/APIResponse.md)
 
 ### Authorization
 
@@ -483,7 +420,7 @@ try {
 ## `instancesInstanceKeySendListPost()`
 
 ```php
-instancesInstanceKeySendListPost($instance_key, $data): \WhatsAPI\models\MainAPIResponse
+instancesInstanceKeySendListPost($instance_key, $data): \WhatsAPI\models\APIResponse
 ```
 
 Send a List message.
@@ -510,7 +447,7 @@ $apiInstance = new WhatsAPI\Api\MessageSendingApi(
     $config
 );
 $instance_key = 'instance_key_example'; // string | Instance key
-$data = new \WhatsAPI\models\StructsListMessagePayload(); // \WhatsAPI\models\StructsListMessagePayload | Message data
+$data = new \WhatsAPI\models\ListMessagePayload(); // \WhatsAPI\models\ListMessagePayload | Message data
 
 try {
     $result = $apiInstance->instancesInstanceKeySendListPost($instance_key, $data);
@@ -525,11 +462,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **instance_key** | **string**| Instance key | |
-| **data** | [**\WhatsAPI\models\StructsListMessagePayload**](../Model/StructsListMessagePayload.md)| Message data | |
+| **data** | [**\WhatsAPI\models\ListMessagePayload**](../Model/ListMessagePayload.md)| Message data | |
 
 ### Return type
 
-[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\APIResponse**](../Model/APIResponse.md)
 
 ### Authorization
 
@@ -547,7 +484,7 @@ try {
 ## `instancesInstanceKeySendLocationPost()`
 
 ```php
-instancesInstanceKeySendLocationPost($instance_key, $data): \WhatsAPI\models\MainAPIResponse
+instancesInstanceKeySendLocationPost($instance_key, $data): \WhatsAPI\models\APIResponse
 ```
 
 Send a location message.
@@ -574,7 +511,7 @@ $apiInstance = new WhatsAPI\Api\MessageSendingApi(
     $config
 );
 $instance_key = 'instance_key_example'; // string | Instance key
-$data = new \WhatsAPI\models\StructsLocationMessagePayload(); // \WhatsAPI\models\StructsLocationMessagePayload | Message data
+$data = new \WhatsAPI\models\LocationMessagePayload(); // \WhatsAPI\models\LocationMessagePayload | Message data
 
 try {
     $result = $apiInstance->instancesInstanceKeySendLocationPost($instance_key, $data);
@@ -589,11 +526,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **instance_key** | **string**| Instance key | |
-| **data** | [**\WhatsAPI\models\StructsLocationMessagePayload**](../Model/StructsLocationMessagePayload.md)| Message data | |
+| **data** | [**\WhatsAPI\models\LocationMessagePayload**](../Model/LocationMessagePayload.md)| Message data | |
 
 ### Return type
 
-[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\APIResponse**](../Model/APIResponse.md)
 
 ### Authorization
 
@@ -611,7 +548,7 @@ try {
 ## `instancesInstanceKeySendMediaPost()`
 
 ```php
-instancesInstanceKeySendMediaPost($instance_key, $data): \WhatsAPI\models\MainAPIResponse
+instancesInstanceKeySendMediaPost($instance_key, $data): \WhatsAPI\models\APIResponse
 ```
 
 Send a media message.
@@ -638,7 +575,7 @@ $apiInstance = new WhatsAPI\Api\MessageSendingApi(
     $config
 );
 $instance_key = 'instance_key_example'; // string | Instance key
-$data = new \WhatsAPI\models\StructsSendMediaPayload(); // \WhatsAPI\models\StructsSendMediaPayload | Message data
+$data = new \WhatsAPI\models\SendMediaPayload(); // \WhatsAPI\models\SendMediaPayload | Message data
 
 try {
     $result = $apiInstance->instancesInstanceKeySendMediaPost($instance_key, $data);
@@ -653,11 +590,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **instance_key** | **string**| Instance key | |
-| **data** | [**\WhatsAPI\models\StructsSendMediaPayload**](../Model/StructsSendMediaPayload.md)| Message data | |
+| **data** | [**\WhatsAPI\models\SendMediaPayload**](../Model/SendMediaPayload.md)| Message data | |
 
 ### Return type
 
-[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\APIResponse**](../Model/APIResponse.md)
 
 ### Authorization
 
@@ -675,12 +612,12 @@ try {
 ## `instancesInstanceKeySendPollPost()`
 
 ```php
-instancesInstanceKeySendPollPost($instance_key, $data): \WhatsAPI\models\MainAPIResponse
+instancesInstanceKeySendPollPost($instance_key, $data): \WhatsAPI\models\APIResponse
 ```
 
-Send a Poll message with media.
+Send a Poll message.
 
-Sends an interactive poll message with a media header to the given user. The poll message is a new feature that is currently in beta.
+Sends an interactive poll message to the given user. The poll message is a new feature that is currently in beta.
 
 ### Example
 
@@ -702,7 +639,7 @@ $apiInstance = new WhatsAPI\Api\MessageSendingApi(
     $config
 );
 $instance_key = 'instance_key_example'; // string | Instance key
-$data = new \WhatsAPI\models\StructsPollMessagePayload(); // \WhatsAPI\models\StructsPollMessagePayload | Message data
+$data = new \WhatsAPI\models\PollMessagePayload(); // \WhatsAPI\models\PollMessagePayload | Message data
 
 try {
     $result = $apiInstance->instancesInstanceKeySendPollPost($instance_key, $data);
@@ -717,11 +654,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **instance_key** | **string**| Instance key | |
-| **data** | [**\WhatsAPI\models\StructsPollMessagePayload**](../Model/StructsPollMessagePayload.md)| Message data | |
+| **data** | [**\WhatsAPI\models\PollMessagePayload**](../Model/PollMessagePayload.md)| Message data | |
 
 ### Return type
 
-[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\APIResponse**](../Model/APIResponse.md)
 
 ### Authorization
 
@@ -739,7 +676,7 @@ try {
 ## `instancesInstanceKeySendTemplateMediaPost()`
 
 ```php
-instancesInstanceKeySendTemplateMediaPost($instance_key, $data): \WhatsAPI\models\MainAPIResponse
+instancesInstanceKeySendTemplateMediaPost($instance_key, $data): \WhatsAPI\models\APIResponse
 ```
 
 Send a template message with media.
@@ -766,7 +703,7 @@ $apiInstance = new WhatsAPI\Api\MessageSendingApi(
     $config
 );
 $instance_key = 'instance_key_example'; // string | Instance key
-$data = new \WhatsAPI\models\StructsTemplateButtonWithMediaPayload(); // \WhatsAPI\models\StructsTemplateButtonWithMediaPayload | Message data
+$data = new \WhatsAPI\models\TemplateButtonWithMediaPayload(); // \WhatsAPI\models\TemplateButtonWithMediaPayload | Message data
 
 try {
     $result = $apiInstance->instancesInstanceKeySendTemplateMediaPost($instance_key, $data);
@@ -781,11 +718,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **instance_key** | **string**| Instance key | |
-| **data** | [**\WhatsAPI\models\StructsTemplateButtonWithMediaPayload**](../Model/StructsTemplateButtonWithMediaPayload.md)| Message data | |
+| **data** | [**\WhatsAPI\models\TemplateButtonWithMediaPayload**](../Model/TemplateButtonWithMediaPayload.md)| Message data | |
 
 ### Return type
 
-[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\APIResponse**](../Model/APIResponse.md)
 
 ### Authorization
 
@@ -803,7 +740,7 @@ try {
 ## `instancesInstanceKeySendTemplatePost()`
 
 ```php
-instancesInstanceKeySendTemplatePost($instance_key, $data): \WhatsAPI\models\MainAPIResponse
+instancesInstanceKeySendTemplatePost($instance_key, $data): \WhatsAPI\models\APIResponse
 ```
 
 Send a template message.
@@ -830,7 +767,7 @@ $apiInstance = new WhatsAPI\Api\MessageSendingApi(
     $config
 );
 $instance_key = 'instance_key_example'; // string | Instance key
-$data = new \WhatsAPI\models\StructsTemplateButtonPayload(); // \WhatsAPI\models\StructsTemplateButtonPayload | Message data
+$data = new \WhatsAPI\models\TemplateButtonPayload(); // \WhatsAPI\models\TemplateButtonPayload | Message data
 
 try {
     $result = $apiInstance->instancesInstanceKeySendTemplatePost($instance_key, $data);
@@ -845,11 +782,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **instance_key** | **string**| Instance key | |
-| **data** | [**\WhatsAPI\models\StructsTemplateButtonPayload**](../Model/StructsTemplateButtonPayload.md)| Message data | |
+| **data** | [**\WhatsAPI\models\TemplateButtonPayload**](../Model/TemplateButtonPayload.md)| Message data | |
 
 ### Return type
 
-[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\APIResponse**](../Model/APIResponse.md)
 
 ### Authorization
 
@@ -867,7 +804,7 @@ try {
 ## `instancesInstanceKeySendTextPost()`
 
 ```php
-instancesInstanceKeySendTextPost($instance_key, $data): \WhatsAPI\models\MainAPIResponse
+instancesInstanceKeySendTextPost($instance_key, $data): \WhatsAPI\models\APIResponse
 ```
 
 Send a text message.
@@ -894,7 +831,7 @@ $apiInstance = new WhatsAPI\Api\MessageSendingApi(
     $config
 );
 $instance_key = 'instance_key_example'; // string | Instance key
-$data = new \WhatsAPI\models\StructsTextMessage(); // \WhatsAPI\models\StructsTextMessage | Message data
+$data = new \WhatsAPI\models\TextMessage(); // \WhatsAPI\models\TextMessage | Message data
 
 try {
     $result = $apiInstance->instancesInstanceKeySendTextPost($instance_key, $data);
@@ -909,11 +846,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **instance_key** | **string**| Instance key | |
-| **data** | [**\WhatsAPI\models\StructsTextMessage**](../Model/StructsTextMessage.md)| Message data | |
+| **data** | [**\WhatsAPI\models\TextMessage**](../Model/TextMessage.md)| Message data | |
 
 ### Return type
 
-[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\APIResponse**](../Model/APIResponse.md)
 
 ### Authorization
 
@@ -931,7 +868,7 @@ try {
 ## `instancesInstanceKeySendUploadPost()`
 
 ```php
-instancesInstanceKeySendUploadPost($instance_key, $type, $instances_instance_key_send_upload_post_request): \WhatsAPI\models\MainAPIResponse
+instancesInstanceKeySendUploadPost($instance_key, $type, $instances_instance_key_send_upload_post_request): \WhatsAPI\models\APIResponse
 ```
 
 Upload media.
@@ -979,7 +916,7 @@ try {
 
 ### Return type
 
-[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\APIResponse**](../Model/APIResponse.md)
 
 ### Authorization
 
@@ -997,7 +934,7 @@ try {
 ## `instancesInstanceKeySendVideoPost()`
 
 ```php
-instancesInstanceKeySendVideoPost($instance_key, $to, $instances_instance_key_send_video_post_request, $caption): \WhatsAPI\models\MainAPIResponse
+instancesInstanceKeySendVideoPost($instance_key, $to, $instances_instance_key_send_video_post_request, $caption): \WhatsAPI\models\APIResponse
 ```
 
 Send raw video.
@@ -1047,7 +984,7 @@ try {
 
 ### Return type
 
-[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\APIResponse**](../Model/APIResponse.md)
 
 ### Authorization
 

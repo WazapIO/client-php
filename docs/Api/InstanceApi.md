@@ -17,7 +17,7 @@ All URIs are relative to /api, except if the operation defines another base path
 ## `instancesCreateGet()`
 
 ```php
-instancesCreateGet($instance_key): \WhatsAPI\models\MainAPIResponse
+instancesCreateGet($instance_key): \WhatsAPI\models\APIResponse
 ```
 
 Creates a new instance key.
@@ -61,7 +61,7 @@ try {
 
 ### Return type
 
-[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\APIResponse**](../Model/APIResponse.md)
 
 ### Authorization
 
@@ -79,7 +79,7 @@ try {
 ## `instancesInstanceKeyContactsGet()`
 
 ```php
-instancesInstanceKeyContactsGet($instance_key): \WhatsAPI\models\MainAPIResponse
+instancesInstanceKeyContactsGet($instance_key): \WhatsAPI\models\APIResponse
 ```
 
 Get contacts.
@@ -123,7 +123,7 @@ try {
 
 ### Return type
 
-[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\APIResponse**](../Model/APIResponse.md)
 
 ### Authorization
 
@@ -141,7 +141,7 @@ try {
 ## `instancesInstanceKeyDeleteDelete()`
 
 ```php
-instancesInstanceKeyDeleteDelete($instance_key): \WhatsAPI\models\MainAPIResponse
+instancesInstanceKeyDeleteDelete($instance_key): \WhatsAPI\models\APIResponse
 ```
 
 Delete Instance.
@@ -185,7 +185,7 @@ try {
 
 ### Return type
 
-[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\APIResponse**](../Model/APIResponse.md)
 
 ### Authorization
 
@@ -203,7 +203,7 @@ try {
 ## `instancesInstanceKeyGet()`
 
 ```php
-instancesInstanceKeyGet($instance_key): \WhatsAPI\models\MainAPIResponse
+instancesInstanceKeyGet($instance_key): \WhatsAPI\models\APIResponse
 ```
 
 Get Instance.
@@ -247,7 +247,7 @@ try {
 
 ### Return type
 
-[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\APIResponse**](../Model/APIResponse.md)
 
 ### Authorization
 
@@ -265,7 +265,7 @@ try {
 ## `instancesInstanceKeyLogoutDelete()`
 
 ```php
-instancesInstanceKeyLogoutDelete($instance_key): \WhatsAPI\models\MainAPIResponse
+instancesInstanceKeyLogoutDelete($instance_key): \WhatsAPI\models\APIResponse
 ```
 
 Logout Instance.
@@ -309,7 +309,7 @@ try {
 
 ### Return type
 
-[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\APIResponse**](../Model/APIResponse.md)
 
 ### Authorization
 
@@ -327,7 +327,7 @@ try {
 ## `instancesInstanceKeyQrcodeGet()`
 
 ```php
-instancesInstanceKeyQrcodeGet($instance_key): \WhatsAPI\models\MainAPIResponse
+instancesInstanceKeyQrcodeGet($instance_key): \WhatsAPI\models\APIResponse
 ```
 
 Get QrCode.
@@ -371,7 +371,7 @@ try {
 
 ### Return type
 
-[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\APIResponse**](../Model/APIResponse.md)
 
 ### Authorization
 
@@ -389,7 +389,7 @@ try {
 ## `instancesInstanceKeyWebhookPut()`
 
 ```php
-instancesInstanceKeyWebhookPut($instance_key, $data): \WhatsAPI\models\MainAPIResponse
+instancesInstanceKeyWebhookPut($instance_key, $data): \WhatsAPI\models\APIResponse
 ```
 
 Change Webhook url.
@@ -416,7 +416,7 @@ $apiInstance = new WhatsAPI\Api\InstanceApi(
     $config
 );
 $instance_key = 'instance_key_example'; // string | Instance key
-$data = new \WhatsAPI\models\StructsWebhookPayload(); // \WhatsAPI\models\StructsWebhookPayload | Message data
+$data = new \WhatsAPI\models\WebhookPayload(); // \WhatsAPI\models\WebhookPayload | Message data
 
 try {
     $result = $apiInstance->instancesInstanceKeyWebhookPut($instance_key, $data);
@@ -431,11 +431,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **instance_key** | **string**| Instance key | |
-| **data** | [**\WhatsAPI\models\StructsWebhookPayload**](../Model/StructsWebhookPayload.md)| Message data | |
+| **data** | [**\WhatsAPI\models\WebhookPayload**](../Model/WebhookPayload.md)| Message data | |
 
 ### Return type
 
-[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\APIResponse**](../Model/APIResponse.md)
 
 ### Authorization
 
@@ -453,7 +453,7 @@ try {
 ## `instancesListGet()`
 
 ```php
-instancesListGet(): \WhatsAPI\models\MainAPIResponse
+instancesListGet(): \WhatsAPI\models\APIResponse
 ```
 
 Get all instances.
@@ -494,7 +494,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\WhatsAPI\models\MainAPIResponse**](../Model/MainAPIResponse.md)
+[**\WhatsAPI\models\APIResponse**](../Model/APIResponse.md)
 
 ### Authorization
 

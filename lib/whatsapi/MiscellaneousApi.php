@@ -137,7 +137,7 @@ class MiscellaneousApi
      *
      * @throws \WhatsAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \WhatsAPI\models\MainAPIResponse|\WhatsAPI\models\MainAPIResponse|\WhatsAPI\models\MainAPIResponse|\WhatsAPI\models\MainAPIResponse|\WhatsAPI\models\MainAPIResponse
+     * @return \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse
      */
     public function instancesInstanceKeyMiscProfilePicGet($instance_key, $jid, string $contentType = self::contentTypes['instancesInstanceKeyMiscProfilePicGet'][0])
     {
@@ -156,7 +156,7 @@ class MiscellaneousApi
      *
      * @throws \WhatsAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \WhatsAPI\models\MainAPIResponse|\WhatsAPI\models\MainAPIResponse|\WhatsAPI\models\MainAPIResponse|\WhatsAPI\models\MainAPIResponse|\WhatsAPI\models\MainAPIResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function instancesInstanceKeyMiscProfilePicGetWithHttpInfo($instance_key, $jid, string $contentType = self::contentTypes['instancesInstanceKeyMiscProfilePicGet'][0])
     {
@@ -199,83 +199,83 @@ class MiscellaneousApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\WhatsAPI\models\MainAPIResponse' === '\SplFileObject') {
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\MainAPIResponse' !== 'string') {
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\MainAPIResponse', []),
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\WhatsAPI\models\MainAPIResponse' === '\SplFileObject') {
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\MainAPIResponse' !== 'string') {
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\MainAPIResponse', []),
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 401:
-                    if ('\WhatsAPI\models\MainAPIResponse' === '\SplFileObject') {
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\MainAPIResponse' !== 'string') {
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\MainAPIResponse', []),
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\WhatsAPI\models\MainAPIResponse' === '\SplFileObject') {
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\MainAPIResponse' !== 'string') {
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\MainAPIResponse', []),
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\WhatsAPI\models\MainAPIResponse' === '\SplFileObject') {
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\MainAPIResponse' !== 'string') {
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\MainAPIResponse', []),
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\WhatsAPI\models\MainAPIResponse';
+            $returnType = '\WhatsAPI\models\APIResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -296,7 +296,7 @@ class MiscellaneousApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\WhatsAPI\models\MainAPIResponse',
+                        '\WhatsAPI\models\APIResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -304,7 +304,7 @@ class MiscellaneousApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\WhatsAPI\models\MainAPIResponse',
+                        '\WhatsAPI\models\APIResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -312,7 +312,7 @@ class MiscellaneousApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\WhatsAPI\models\MainAPIResponse',
+                        '\WhatsAPI\models\APIResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -320,7 +320,7 @@ class MiscellaneousApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\WhatsAPI\models\MainAPIResponse',
+                        '\WhatsAPI\models\APIResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -328,7 +328,7 @@ class MiscellaneousApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\WhatsAPI\models\MainAPIResponse',
+                        '\WhatsAPI\models\APIResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -374,7 +374,7 @@ class MiscellaneousApi
      */
     public function instancesInstanceKeyMiscProfilePicGetAsyncWithHttpInfo($instance_key, $jid, string $contentType = self::contentTypes['instancesInstanceKeyMiscProfilePicGet'][0])
     {
-        $returnType = '\WhatsAPI\models\MainAPIResponse';
+        $returnType = '\WhatsAPI\models\APIResponse';
         $request = $this->instancesInstanceKeyMiscProfilePicGetRequest($instance_key, $jid, $contentType);
 
         return $this->client
@@ -533,12 +533,12 @@ class MiscellaneousApi
      * Fetches the users info.
      *
      * @param  string $instance_key Instance key (required)
-     * @param  \WhatsAPI\models\StructsUserInfoPayload $data Data (required)
+     * @param  \WhatsAPI\models\UserInfoPayload $data Data (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyMiscUserInfoPost'] to see the possible values for this operation
      *
      * @throws \WhatsAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \WhatsAPI\models\MainAPIResponse|\WhatsAPI\models\MainAPIResponse|\WhatsAPI\models\MainAPIResponse|\WhatsAPI\models\MainAPIResponse|\WhatsAPI\models\MainAPIResponse
+     * @return \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse
      */
     public function instancesInstanceKeyMiscUserInfoPost($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeyMiscUserInfoPost'][0])
     {
@@ -552,12 +552,12 @@ class MiscellaneousApi
      * Fetches the users info.
      *
      * @param  string $instance_key Instance key (required)
-     * @param  \WhatsAPI\models\StructsUserInfoPayload $data Data (required)
+     * @param  \WhatsAPI\models\UserInfoPayload $data Data (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyMiscUserInfoPost'] to see the possible values for this operation
      *
      * @throws \WhatsAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \WhatsAPI\models\MainAPIResponse|\WhatsAPI\models\MainAPIResponse|\WhatsAPI\models\MainAPIResponse|\WhatsAPI\models\MainAPIResponse|\WhatsAPI\models\MainAPIResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function instancesInstanceKeyMiscUserInfoPostWithHttpInfo($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeyMiscUserInfoPost'][0])
     {
@@ -600,83 +600,83 @@ class MiscellaneousApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\WhatsAPI\models\MainAPIResponse' === '\SplFileObject') {
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\MainAPIResponse' !== 'string') {
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\MainAPIResponse', []),
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\WhatsAPI\models\MainAPIResponse' === '\SplFileObject') {
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\MainAPIResponse' !== 'string') {
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\MainAPIResponse', []),
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 401:
-                    if ('\WhatsAPI\models\MainAPIResponse' === '\SplFileObject') {
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\MainAPIResponse' !== 'string') {
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\MainAPIResponse', []),
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\WhatsAPI\models\MainAPIResponse' === '\SplFileObject') {
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\MainAPIResponse' !== 'string') {
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\MainAPIResponse', []),
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\WhatsAPI\models\MainAPIResponse' === '\SplFileObject') {
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\MainAPIResponse' !== 'string') {
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\MainAPIResponse', []),
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\WhatsAPI\models\MainAPIResponse';
+            $returnType = '\WhatsAPI\models\APIResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -697,7 +697,7 @@ class MiscellaneousApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\WhatsAPI\models\MainAPIResponse',
+                        '\WhatsAPI\models\APIResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -705,7 +705,7 @@ class MiscellaneousApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\WhatsAPI\models\MainAPIResponse',
+                        '\WhatsAPI\models\APIResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -713,7 +713,7 @@ class MiscellaneousApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\WhatsAPI\models\MainAPIResponse',
+                        '\WhatsAPI\models\APIResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -721,7 +721,7 @@ class MiscellaneousApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\WhatsAPI\models\MainAPIResponse',
+                        '\WhatsAPI\models\APIResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -729,7 +729,7 @@ class MiscellaneousApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\WhatsAPI\models\MainAPIResponse',
+                        '\WhatsAPI\models\APIResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -745,7 +745,7 @@ class MiscellaneousApi
      * Fetches the users info.
      *
      * @param  string $instance_key Instance key (required)
-     * @param  \WhatsAPI\models\StructsUserInfoPayload $data Data (required)
+     * @param  \WhatsAPI\models\UserInfoPayload $data Data (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyMiscUserInfoPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -767,7 +767,7 @@ class MiscellaneousApi
      * Fetches the users info.
      *
      * @param  string $instance_key Instance key (required)
-     * @param  \WhatsAPI\models\StructsUserInfoPayload $data Data (required)
+     * @param  \WhatsAPI\models\UserInfoPayload $data Data (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyMiscUserInfoPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -775,7 +775,7 @@ class MiscellaneousApi
      */
     public function instancesInstanceKeyMiscUserInfoPostAsyncWithHttpInfo($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeyMiscUserInfoPost'][0])
     {
-        $returnType = '\WhatsAPI\models\MainAPIResponse';
+        $returnType = '\WhatsAPI\models\APIResponse';
         $request = $this->instancesInstanceKeyMiscUserInfoPostRequest($instance_key, $data, $contentType);
 
         return $this->client
@@ -818,7 +818,7 @@ class MiscellaneousApi
      * Create request for operation 'instancesInstanceKeyMiscUserInfoPost'
      *
      * @param  string $instance_key Instance key (required)
-     * @param  \WhatsAPI\models\StructsUserInfoPayload $data Data (required)
+     * @param  \WhatsAPI\models\UserInfoPayload $data Data (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyMiscUserInfoPost'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
