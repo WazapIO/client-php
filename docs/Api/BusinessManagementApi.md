@@ -4,13 +4,13 @@ All URIs are relative to /api, except if the operation defines another base path
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**instancesInstanceKeyBusinessCatalogGet()**](BusinessManagementApi.md#instancesInstanceKeyBusinessCatalogGet) | **GET** /instances/{instance_key}/business/catalog | Fetches the catlog. |
+| [**fetchCatlog()**](BusinessManagementApi.md#fetchCatlog) | **GET** /instances/{instance_key}/business/catalog | Fetches the catlog. |
 
 
-## `instancesInstanceKeyBusinessCatalogGet()`
+## `fetchCatlog()`
 
 ```php
-instancesInstanceKeyBusinessCatalogGet($instance_key): \WhatsAPI\models\APIResponse
+fetchCatlog($instance_key): \WhatsAPI\models\APIResponse
 ```
 
 Fetches the catlog.
@@ -39,10 +39,10 @@ $apiInstance = new WhatsAPI\Api\BusinessManagementApi(
 $instance_key = 'instance_key_example'; // string | Instance key
 
 try {
-    $result = $apiInstance->instancesInstanceKeyBusinessCatalogGet($instance_key);
+    $result = $apiInstance->fetchCatlog($instance_key);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling BusinessManagementApi->instancesInstanceKeyBusinessCatalogGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling BusinessManagementApi->fetchCatlog: ', $e->getMessage(), PHP_EOL;
 }
 ```
 

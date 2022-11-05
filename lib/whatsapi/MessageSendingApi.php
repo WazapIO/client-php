@@ -72,49 +72,49 @@ class MessageSendingApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'instancesInstanceKeySendAudioPost' => [
+        'sendAudio' => [
             'application/json',
         ],
-        'instancesInstanceKeySendButtonMediaPost' => [
+        'sendButtonMessage' => [
             'application/json',
         ],
-        'instancesInstanceKeySendButtonsPost' => [
+        'sendButtonWithMedia' => [
             'application/json',
         ],
-        'instancesInstanceKeySendContactPost' => [
+        'sendContact' => [
             'application/json',
         ],
-        'instancesInstanceKeySendDocumentPost' => [
+        'sendDocument' => [
             'application/json',
         ],
-        'instancesInstanceKeySendImagePost' => [
+        'sendImage' => [
             'application/json',
         ],
-        'instancesInstanceKeySendListPost' => [
+        'sendListMessage' => [
             'application/json',
         ],
-        'instancesInstanceKeySendLocationPost' => [
+        'sendLocation' => [
             'application/json',
         ],
-        'instancesInstanceKeySendMediaPost' => [
+        'sendMediaMessage' => [
             'application/json',
         ],
-        'instancesInstanceKeySendPollPost' => [
+        'sendPollMessage' => [
             'application/json',
         ],
-        'instancesInstanceKeySendTemplateMediaPost' => [
+        'sendTemplate' => [
             'application/json',
         ],
-        'instancesInstanceKeySendTemplatePost' => [
+        'sendTemplateWithMedia' => [
             'application/json',
         ],
-        'instancesInstanceKeySendTextPost' => [
+        'sendTextMessage' => [
             'application/json',
         ],
-        'instancesInstanceKeySendUploadPost' => [
+        'sendVideo' => [
             'application/json',
         ],
-        'instancesInstanceKeySendVideoPost' => [
+        'uploadMedia' => [
             'application/json',
         ],
     ];
@@ -166,44 +166,44 @@ class MessageSendingApi
     }
 
     /**
-     * Operation instancesInstanceKeySendAudioPost
+     * Operation sendAudio
      *
      * Send raw audio.
      *
      * @param  string $instance_key Instance key (required)
      * @param  string $to The recipient&#39;s number (required)
-     * @param  \WhatsAPI\models\InstancesInstanceKeySendAudioPostRequest $instances_instance_key_send_audio_post_request instances_instance_key_send_audio_post_request (required)
+     * @param  \WhatsAPI\models\SendAudioRequest $send_audio_request send_audio_request (required)
      * @param  string $caption Attached caption (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendAudioPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendAudio'] to see the possible values for this operation
      *
      * @throws \WhatsAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse
      */
-    public function instancesInstanceKeySendAudioPost($instance_key, $to, $instances_instance_key_send_audio_post_request, $caption = null, string $contentType = self::contentTypes['instancesInstanceKeySendAudioPost'][0])
+    public function sendAudio($instance_key, $to, $send_audio_request, $caption = null, string $contentType = self::contentTypes['sendAudio'][0])
     {
-        list($response) = $this->instancesInstanceKeySendAudioPostWithHttpInfo($instance_key, $to, $instances_instance_key_send_audio_post_request, $caption, $contentType);
+        list($response) = $this->sendAudioWithHttpInfo($instance_key, $to, $send_audio_request, $caption, $contentType);
         return $response;
     }
 
     /**
-     * Operation instancesInstanceKeySendAudioPostWithHttpInfo
+     * Operation sendAudioWithHttpInfo
      *
      * Send raw audio.
      *
      * @param  string $instance_key Instance key (required)
      * @param  string $to The recipient&#39;s number (required)
-     * @param  \WhatsAPI\models\InstancesInstanceKeySendAudioPostRequest $instances_instance_key_send_audio_post_request (required)
+     * @param  \WhatsAPI\models\SendAudioRequest $send_audio_request (required)
      * @param  string $caption Attached caption (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendAudioPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendAudio'] to see the possible values for this operation
      *
      * @throws \WhatsAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function instancesInstanceKeySendAudioPostWithHttpInfo($instance_key, $to, $instances_instance_key_send_audio_post_request, $caption = null, string $contentType = self::contentTypes['instancesInstanceKeySendAudioPost'][0])
+    public function sendAudioWithHttpInfo($instance_key, $to, $send_audio_request, $caption = null, string $contentType = self::contentTypes['sendAudio'][0])
     {
-        $request = $this->instancesInstanceKeySendAudioPostRequest($instance_key, $to, $instances_instance_key_send_audio_post_request, $caption, $contentType);
+        $request = $this->sendAudioRequest($instance_key, $to, $send_audio_request, $caption, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -382,22 +382,22 @@ class MessageSendingApi
     }
 
     /**
-     * Operation instancesInstanceKeySendAudioPostAsync
+     * Operation sendAudioAsync
      *
      * Send raw audio.
      *
      * @param  string $instance_key Instance key (required)
      * @param  string $to The recipient&#39;s number (required)
-     * @param  \WhatsAPI\models\InstancesInstanceKeySendAudioPostRequest $instances_instance_key_send_audio_post_request (required)
+     * @param  \WhatsAPI\models\SendAudioRequest $send_audio_request (required)
      * @param  string $caption Attached caption (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendAudioPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendAudio'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function instancesInstanceKeySendAudioPostAsync($instance_key, $to, $instances_instance_key_send_audio_post_request, $caption = null, string $contentType = self::contentTypes['instancesInstanceKeySendAudioPost'][0])
+    public function sendAudioAsync($instance_key, $to, $send_audio_request, $caption = null, string $contentType = self::contentTypes['sendAudio'][0])
     {
-        return $this->instancesInstanceKeySendAudioPostAsyncWithHttpInfo($instance_key, $to, $instances_instance_key_send_audio_post_request, $caption, $contentType)
+        return $this->sendAudioAsyncWithHttpInfo($instance_key, $to, $send_audio_request, $caption, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -406,23 +406,23 @@ class MessageSendingApi
     }
 
     /**
-     * Operation instancesInstanceKeySendAudioPostAsyncWithHttpInfo
+     * Operation sendAudioAsyncWithHttpInfo
      *
      * Send raw audio.
      *
      * @param  string $instance_key Instance key (required)
      * @param  string $to The recipient&#39;s number (required)
-     * @param  \WhatsAPI\models\InstancesInstanceKeySendAudioPostRequest $instances_instance_key_send_audio_post_request (required)
+     * @param  \WhatsAPI\models\SendAudioRequest $send_audio_request (required)
      * @param  string $caption Attached caption (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendAudioPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendAudio'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function instancesInstanceKeySendAudioPostAsyncWithHttpInfo($instance_key, $to, $instances_instance_key_send_audio_post_request, $caption = null, string $contentType = self::contentTypes['instancesInstanceKeySendAudioPost'][0])
+    public function sendAudioAsyncWithHttpInfo($instance_key, $to, $send_audio_request, $caption = null, string $contentType = self::contentTypes['sendAudio'][0])
     {
         $returnType = '\WhatsAPI\models\APIResponse';
-        $request = $this->instancesInstanceKeySendAudioPostRequest($instance_key, $to, $instances_instance_key_send_audio_post_request, $caption, $contentType);
+        $request = $this->sendAudioRequest($instance_key, $to, $send_audio_request, $caption, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -461,38 +461,38 @@ class MessageSendingApi
     }
 
     /**
-     * Create request for operation 'instancesInstanceKeySendAudioPost'
+     * Create request for operation 'sendAudio'
      *
      * @param  string $instance_key Instance key (required)
      * @param  string $to The recipient&#39;s number (required)
-     * @param  \WhatsAPI\models\InstancesInstanceKeySendAudioPostRequest $instances_instance_key_send_audio_post_request (required)
+     * @param  \WhatsAPI\models\SendAudioRequest $send_audio_request (required)
      * @param  string $caption Attached caption (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendAudioPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendAudio'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function instancesInstanceKeySendAudioPostRequest($instance_key, $to, $instances_instance_key_send_audio_post_request, $caption = null, string $contentType = self::contentTypes['instancesInstanceKeySendAudioPost'][0])
+    public function sendAudioRequest($instance_key, $to, $send_audio_request, $caption = null, string $contentType = self::contentTypes['sendAudio'][0])
     {
 
         // verify the required parameter 'instance_key' is set
         if ($instance_key === null || (is_array($instance_key) && count($instance_key) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $instance_key when calling instancesInstanceKeySendAudioPost'
+                'Missing the required parameter $instance_key when calling sendAudio'
             );
         }
 
         // verify the required parameter 'to' is set
         if ($to === null || (is_array($to) && count($to) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $to when calling instancesInstanceKeySendAudioPost'
+                'Missing the required parameter $to when calling sendAudio'
             );
         }
 
-        // verify the required parameter 'instances_instance_key_send_audio_post_request' is set
-        if ($instances_instance_key_send_audio_post_request === null || (is_array($instances_instance_key_send_audio_post_request) && count($instances_instance_key_send_audio_post_request) === 0)) {
+        // verify the required parameter 'send_audio_request' is set
+        if ($send_audio_request === null || (is_array($send_audio_request) && count($send_audio_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $instances_instance_key_send_audio_post_request when calling instancesInstanceKeySendAudioPost'
+                'Missing the required parameter $send_audio_request when calling sendAudio'
             );
         }
 
@@ -542,12 +542,12 @@ class MessageSendingApi
         );
 
         // for model (json/xml)
-        if (isset($instances_instance_key_send_audio_post_request)) {
+        if (isset($send_audio_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($instances_instance_key_send_audio_post_request));
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($send_audio_request));
             } else {
-                $httpBody = $instances_instance_key_send_audio_post_request;
+                $httpBody = $send_audio_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -601,40 +601,40 @@ class MessageSendingApi
     }
 
     /**
-     * Operation instancesInstanceKeySendButtonMediaPost
+     * Operation sendButtonMessage
      *
-     * Send a button message with a media header.
+     * Send a button message.
      *
      * @param  string $instance_key Instance key (required)
-     * @param  \WhatsAPI\models\ButtonMessageWithMediaPayload $data Message data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendButtonMediaPost'] to see the possible values for this operation
+     * @param  \WhatsAPI\models\ButtonMessagePayload $data Message data (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendButtonMessage'] to see the possible values for this operation
      *
      * @throws \WhatsAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse
      */
-    public function instancesInstanceKeySendButtonMediaPost($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeySendButtonMediaPost'][0])
+    public function sendButtonMessage($instance_key, $data, string $contentType = self::contentTypes['sendButtonMessage'][0])
     {
-        list($response) = $this->instancesInstanceKeySendButtonMediaPostWithHttpInfo($instance_key, $data, $contentType);
+        list($response) = $this->sendButtonMessageWithHttpInfo($instance_key, $data, $contentType);
         return $response;
     }
 
     /**
-     * Operation instancesInstanceKeySendButtonMediaPostWithHttpInfo
+     * Operation sendButtonMessageWithHttpInfo
      *
-     * Send a button message with a media header.
+     * Send a button message.
      *
      * @param  string $instance_key Instance key (required)
-     * @param  \WhatsAPI\models\ButtonMessageWithMediaPayload $data Message data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendButtonMediaPost'] to see the possible values for this operation
+     * @param  \WhatsAPI\models\ButtonMessagePayload $data Message data (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendButtonMessage'] to see the possible values for this operation
      *
      * @throws \WhatsAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function instancesInstanceKeySendButtonMediaPostWithHttpInfo($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeySendButtonMediaPost'][0])
+    public function sendButtonMessageWithHttpInfo($instance_key, $data, string $contentType = self::contentTypes['sendButtonMessage'][0])
     {
-        $request = $this->instancesInstanceKeySendButtonMediaPostRequest($instance_key, $data, $contentType);
+        $request = $this->sendButtonMessageRequest($instance_key, $data, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -813,20 +813,20 @@ class MessageSendingApi
     }
 
     /**
-     * Operation instancesInstanceKeySendButtonMediaPostAsync
+     * Operation sendButtonMessageAsync
      *
-     * Send a button message with a media header.
+     * Send a button message.
      *
      * @param  string $instance_key Instance key (required)
-     * @param  \WhatsAPI\models\ButtonMessageWithMediaPayload $data Message data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendButtonMediaPost'] to see the possible values for this operation
+     * @param  \WhatsAPI\models\ButtonMessagePayload $data Message data (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendButtonMessage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function instancesInstanceKeySendButtonMediaPostAsync($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeySendButtonMediaPost'][0])
+    public function sendButtonMessageAsync($instance_key, $data, string $contentType = self::contentTypes['sendButtonMessage'][0])
     {
-        return $this->instancesInstanceKeySendButtonMediaPostAsyncWithHttpInfo($instance_key, $data, $contentType)
+        return $this->sendButtonMessageAsyncWithHttpInfo($instance_key, $data, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -835,21 +835,21 @@ class MessageSendingApi
     }
 
     /**
-     * Operation instancesInstanceKeySendButtonMediaPostAsyncWithHttpInfo
+     * Operation sendButtonMessageAsyncWithHttpInfo
      *
-     * Send a button message with a media header.
+     * Send a button message.
      *
      * @param  string $instance_key Instance key (required)
-     * @param  \WhatsAPI\models\ButtonMessageWithMediaPayload $data Message data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendButtonMediaPost'] to see the possible values for this operation
+     * @param  \WhatsAPI\models\ButtonMessagePayload $data Message data (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendButtonMessage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function instancesInstanceKeySendButtonMediaPostAsyncWithHttpInfo($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeySendButtonMediaPost'][0])
+    public function sendButtonMessageAsyncWithHttpInfo($instance_key, $data, string $contentType = self::contentTypes['sendButtonMessage'][0])
     {
         $returnType = '\WhatsAPI\models\APIResponse';
-        $request = $this->instancesInstanceKeySendButtonMediaPostRequest($instance_key, $data, $contentType);
+        $request = $this->sendButtonMessageRequest($instance_key, $data, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -888,428 +888,29 @@ class MessageSendingApi
     }
 
     /**
-     * Create request for operation 'instancesInstanceKeySendButtonMediaPost'
+     * Create request for operation 'sendButtonMessage'
      *
      * @param  string $instance_key Instance key (required)
-     * @param  \WhatsAPI\models\ButtonMessageWithMediaPayload $data Message data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendButtonMediaPost'] to see the possible values for this operation
+     * @param  \WhatsAPI\models\ButtonMessagePayload $data Message data (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendButtonMessage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function instancesInstanceKeySendButtonMediaPostRequest($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeySendButtonMediaPost'][0])
+    public function sendButtonMessageRequest($instance_key, $data, string $contentType = self::contentTypes['sendButtonMessage'][0])
     {
 
         // verify the required parameter 'instance_key' is set
         if ($instance_key === null || (is_array($instance_key) && count($instance_key) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $instance_key when calling instancesInstanceKeySendButtonMediaPost'
+                'Missing the required parameter $instance_key when calling sendButtonMessage'
             );
         }
 
         // verify the required parameter 'data' is set
         if ($data === null || (is_array($data) && count($data) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $data when calling instancesInstanceKeySendButtonMediaPost'
-            );
-        }
-
-
-        $resourcePath = '/instances/{instance_key}/send/button-media';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-        // path params
-        if ($instance_key !== null) {
-            $resourcePath = str_replace(
-                '{' . 'instance_key' . '}',
-                ObjectSerializer::toPathValue($instance_key),
-                $resourcePath
-            );
-        }
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['*/*', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (isset($data)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($data));
-            } else {
-                $httpBody = $data;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'POST',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation instancesInstanceKeySendButtonsPost
-     *
-     * Send a button message.
-     *
-     * @param  string $instance_key Instance key (required)
-     * @param  \WhatsAPI\models\ButtonMessagePayload $data Message data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendButtonsPost'] to see the possible values for this operation
-     *
-     * @throws \WhatsAPI\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse
-     */
-    public function instancesInstanceKeySendButtonsPost($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeySendButtonsPost'][0])
-    {
-        list($response) = $this->instancesInstanceKeySendButtonsPostWithHttpInfo($instance_key, $data, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation instancesInstanceKeySendButtonsPostWithHttpInfo
-     *
-     * Send a button message.
-     *
-     * @param  string $instance_key Instance key (required)
-     * @param  \WhatsAPI\models\ButtonMessagePayload $data Message data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendButtonsPost'] to see the possible values for this operation
-     *
-     * @throws \WhatsAPI\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function instancesInstanceKeySendButtonsPostWithHttpInfo($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeySendButtonsPost'][0])
-    {
-        $request = $this->instancesInstanceKeySendButtonsPostRequest($instance_key, $data, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 400:
-                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 401:
-                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 404:
-                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 500:
-                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\WhatsAPI\models\APIResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\WhatsAPI\models\APIResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\WhatsAPI\models\APIResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\WhatsAPI\models\APIResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\WhatsAPI\models\APIResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\WhatsAPI\models\APIResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation instancesInstanceKeySendButtonsPostAsync
-     *
-     * Send a button message.
-     *
-     * @param  string $instance_key Instance key (required)
-     * @param  \WhatsAPI\models\ButtonMessagePayload $data Message data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendButtonsPost'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function instancesInstanceKeySendButtonsPostAsync($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeySendButtonsPost'][0])
-    {
-        return $this->instancesInstanceKeySendButtonsPostAsyncWithHttpInfo($instance_key, $data, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation instancesInstanceKeySendButtonsPostAsyncWithHttpInfo
-     *
-     * Send a button message.
-     *
-     * @param  string $instance_key Instance key (required)
-     * @param  \WhatsAPI\models\ButtonMessagePayload $data Message data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendButtonsPost'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function instancesInstanceKeySendButtonsPostAsyncWithHttpInfo($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeySendButtonsPost'][0])
-    {
-        $returnType = '\WhatsAPI\models\APIResponse';
-        $request = $this->instancesInstanceKeySendButtonsPostRequest($instance_key, $data, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'instancesInstanceKeySendButtonsPost'
-     *
-     * @param  string $instance_key Instance key (required)
-     * @param  \WhatsAPI\models\ButtonMessagePayload $data Message data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendButtonsPost'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function instancesInstanceKeySendButtonsPostRequest($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeySendButtonsPost'][0])
-    {
-
-        // verify the required parameter 'instance_key' is set
-        if ($instance_key === null || (is_array($instance_key) && count($instance_key) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $instance_key when calling instancesInstanceKeySendButtonsPost'
-            );
-        }
-
-        // verify the required parameter 'data' is set
-        if ($data === null || (is_array($data) && count($data) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $data when calling instancesInstanceKeySendButtonsPost'
+                'Missing the required parameter $data when calling sendButtonMessage'
             );
         }
 
@@ -1399,40 +1000,40 @@ class MessageSendingApi
     }
 
     /**
-     * Operation instancesInstanceKeySendContactPost
+     * Operation sendButtonWithMedia
      *
-     * Send a contact message.
+     * Send a button message with a media header.
      *
      * @param  string $instance_key Instance key (required)
-     * @param  \WhatsAPI\models\ContactMessagePayload $data Message data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendContactPost'] to see the possible values for this operation
+     * @param  \WhatsAPI\models\ButtonMessageWithMediaPayload $data Message data (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendButtonWithMedia'] to see the possible values for this operation
      *
      * @throws \WhatsAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse
      */
-    public function instancesInstanceKeySendContactPost($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeySendContactPost'][0])
+    public function sendButtonWithMedia($instance_key, $data, string $contentType = self::contentTypes['sendButtonWithMedia'][0])
     {
-        list($response) = $this->instancesInstanceKeySendContactPostWithHttpInfo($instance_key, $data, $contentType);
+        list($response) = $this->sendButtonWithMediaWithHttpInfo($instance_key, $data, $contentType);
         return $response;
     }
 
     /**
-     * Operation instancesInstanceKeySendContactPostWithHttpInfo
+     * Operation sendButtonWithMediaWithHttpInfo
      *
-     * Send a contact message.
+     * Send a button message with a media header.
      *
      * @param  string $instance_key Instance key (required)
-     * @param  \WhatsAPI\models\ContactMessagePayload $data Message data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendContactPost'] to see the possible values for this operation
+     * @param  \WhatsAPI\models\ButtonMessageWithMediaPayload $data Message data (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendButtonWithMedia'] to see the possible values for this operation
      *
      * @throws \WhatsAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function instancesInstanceKeySendContactPostWithHttpInfo($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeySendContactPost'][0])
+    public function sendButtonWithMediaWithHttpInfo($instance_key, $data, string $contentType = self::contentTypes['sendButtonWithMedia'][0])
     {
-        $request = $this->instancesInstanceKeySendContactPostRequest($instance_key, $data, $contentType);
+        $request = $this->sendButtonWithMediaRequest($instance_key, $data, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1611,20 +1212,20 @@ class MessageSendingApi
     }
 
     /**
-     * Operation instancesInstanceKeySendContactPostAsync
+     * Operation sendButtonWithMediaAsync
      *
-     * Send a contact message.
+     * Send a button message with a media header.
      *
      * @param  string $instance_key Instance key (required)
-     * @param  \WhatsAPI\models\ContactMessagePayload $data Message data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendContactPost'] to see the possible values for this operation
+     * @param  \WhatsAPI\models\ButtonMessageWithMediaPayload $data Message data (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendButtonWithMedia'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function instancesInstanceKeySendContactPostAsync($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeySendContactPost'][0])
+    public function sendButtonWithMediaAsync($instance_key, $data, string $contentType = self::contentTypes['sendButtonWithMedia'][0])
     {
-        return $this->instancesInstanceKeySendContactPostAsyncWithHttpInfo($instance_key, $data, $contentType)
+        return $this->sendButtonWithMediaAsyncWithHttpInfo($instance_key, $data, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1633,21 +1234,21 @@ class MessageSendingApi
     }
 
     /**
-     * Operation instancesInstanceKeySendContactPostAsyncWithHttpInfo
+     * Operation sendButtonWithMediaAsyncWithHttpInfo
      *
-     * Send a contact message.
+     * Send a button message with a media header.
      *
      * @param  string $instance_key Instance key (required)
-     * @param  \WhatsAPI\models\ContactMessagePayload $data Message data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendContactPost'] to see the possible values for this operation
+     * @param  \WhatsAPI\models\ButtonMessageWithMediaPayload $data Message data (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendButtonWithMedia'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function instancesInstanceKeySendContactPostAsyncWithHttpInfo($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeySendContactPost'][0])
+    public function sendButtonWithMediaAsyncWithHttpInfo($instance_key, $data, string $contentType = self::contentTypes['sendButtonWithMedia'][0])
     {
         $returnType = '\WhatsAPI\models\APIResponse';
-        $request = $this->instancesInstanceKeySendContactPostRequest($instance_key, $data, $contentType);
+        $request = $this->sendButtonWithMediaRequest($instance_key, $data, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1686,29 +1287,428 @@ class MessageSendingApi
     }
 
     /**
-     * Create request for operation 'instancesInstanceKeySendContactPost'
+     * Create request for operation 'sendButtonWithMedia'
      *
      * @param  string $instance_key Instance key (required)
-     * @param  \WhatsAPI\models\ContactMessagePayload $data Message data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendContactPost'] to see the possible values for this operation
+     * @param  \WhatsAPI\models\ButtonMessageWithMediaPayload $data Message data (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendButtonWithMedia'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function instancesInstanceKeySendContactPostRequest($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeySendContactPost'][0])
+    public function sendButtonWithMediaRequest($instance_key, $data, string $contentType = self::contentTypes['sendButtonWithMedia'][0])
     {
 
         // verify the required parameter 'instance_key' is set
         if ($instance_key === null || (is_array($instance_key) && count($instance_key) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $instance_key when calling instancesInstanceKeySendContactPost'
+                'Missing the required parameter $instance_key when calling sendButtonWithMedia'
             );
         }
 
         // verify the required parameter 'data' is set
         if ($data === null || (is_array($data) && count($data) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $data when calling instancesInstanceKeySendContactPost'
+                'Missing the required parameter $data when calling sendButtonWithMedia'
+            );
+        }
+
+
+        $resourcePath = '/instances/{instance_key}/send/button-media';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($instance_key !== null) {
+            $resourcePath = str_replace(
+                '{' . 'instance_key' . '}',
+                ObjectSerializer::toPathValue($instance_key),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['*/*', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($data)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($data));
+            } else {
+                $httpBody = $data;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation sendContact
+     *
+     * Send a contact message.
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  \WhatsAPI\models\ContactMessagePayload $data Message data (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendContact'] to see the possible values for this operation
+     *
+     * @throws \WhatsAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse
+     */
+    public function sendContact($instance_key, $data, string $contentType = self::contentTypes['sendContact'][0])
+    {
+        list($response) = $this->sendContactWithHttpInfo($instance_key, $data, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation sendContactWithHttpInfo
+     *
+     * Send a contact message.
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  \WhatsAPI\models\ContactMessagePayload $data Message data (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendContact'] to see the possible values for this operation
+     *
+     * @throws \WhatsAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function sendContactWithHttpInfo($instance_key, $data, string $contentType = self::contentTypes['sendContact'][0])
+    {
+        $request = $this->sendContactRequest($instance_key, $data, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\WhatsAPI\models\APIResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation sendContactAsync
+     *
+     * Send a contact message.
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  \WhatsAPI\models\ContactMessagePayload $data Message data (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendContact'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function sendContactAsync($instance_key, $data, string $contentType = self::contentTypes['sendContact'][0])
+    {
+        return $this->sendContactAsyncWithHttpInfo($instance_key, $data, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation sendContactAsyncWithHttpInfo
+     *
+     * Send a contact message.
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  \WhatsAPI\models\ContactMessagePayload $data Message data (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendContact'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function sendContactAsyncWithHttpInfo($instance_key, $data, string $contentType = self::contentTypes['sendContact'][0])
+    {
+        $returnType = '\WhatsAPI\models\APIResponse';
+        $request = $this->sendContactRequest($instance_key, $data, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'sendContact'
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  \WhatsAPI\models\ContactMessagePayload $data Message data (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendContact'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function sendContactRequest($instance_key, $data, string $contentType = self::contentTypes['sendContact'][0])
+    {
+
+        // verify the required parameter 'instance_key' is set
+        if ($instance_key === null || (is_array($instance_key) && count($instance_key) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $instance_key when calling sendContact'
+            );
+        }
+
+        // verify the required parameter 'data' is set
+        if ($data === null || (is_array($data) && count($data) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $data when calling sendContact'
             );
         }
 
@@ -1798,44 +1798,44 @@ class MessageSendingApi
     }
 
     /**
-     * Operation instancesInstanceKeySendDocumentPost
+     * Operation sendDocument
      *
      * Send raw document.
      *
      * @param  string $instance_key Instance key (required)
      * @param  string $to The recipient&#39;s number (required)
-     * @param  \WhatsAPI\models\InstancesInstanceKeySendDocumentPostRequest $instances_instance_key_send_document_post_request instances_instance_key_send_document_post_request (required)
+     * @param  \WhatsAPI\models\SendDocumentRequest $send_document_request send_document_request (required)
      * @param  string $caption Attached caption (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendDocumentPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendDocument'] to see the possible values for this operation
      *
      * @throws \WhatsAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse
      */
-    public function instancesInstanceKeySendDocumentPost($instance_key, $to, $instances_instance_key_send_document_post_request, $caption = null, string $contentType = self::contentTypes['instancesInstanceKeySendDocumentPost'][0])
+    public function sendDocument($instance_key, $to, $send_document_request, $caption = null, string $contentType = self::contentTypes['sendDocument'][0])
     {
-        list($response) = $this->instancesInstanceKeySendDocumentPostWithHttpInfo($instance_key, $to, $instances_instance_key_send_document_post_request, $caption, $contentType);
+        list($response) = $this->sendDocumentWithHttpInfo($instance_key, $to, $send_document_request, $caption, $contentType);
         return $response;
     }
 
     /**
-     * Operation instancesInstanceKeySendDocumentPostWithHttpInfo
+     * Operation sendDocumentWithHttpInfo
      *
      * Send raw document.
      *
      * @param  string $instance_key Instance key (required)
      * @param  string $to The recipient&#39;s number (required)
-     * @param  \WhatsAPI\models\InstancesInstanceKeySendDocumentPostRequest $instances_instance_key_send_document_post_request (required)
+     * @param  \WhatsAPI\models\SendDocumentRequest $send_document_request (required)
      * @param  string $caption Attached caption (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendDocumentPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendDocument'] to see the possible values for this operation
      *
      * @throws \WhatsAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function instancesInstanceKeySendDocumentPostWithHttpInfo($instance_key, $to, $instances_instance_key_send_document_post_request, $caption = null, string $contentType = self::contentTypes['instancesInstanceKeySendDocumentPost'][0])
+    public function sendDocumentWithHttpInfo($instance_key, $to, $send_document_request, $caption = null, string $contentType = self::contentTypes['sendDocument'][0])
     {
-        $request = $this->instancesInstanceKeySendDocumentPostRequest($instance_key, $to, $instances_instance_key_send_document_post_request, $caption, $contentType);
+        $request = $this->sendDocumentRequest($instance_key, $to, $send_document_request, $caption, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2014,22 +2014,22 @@ class MessageSendingApi
     }
 
     /**
-     * Operation instancesInstanceKeySendDocumentPostAsync
+     * Operation sendDocumentAsync
      *
      * Send raw document.
      *
      * @param  string $instance_key Instance key (required)
      * @param  string $to The recipient&#39;s number (required)
-     * @param  \WhatsAPI\models\InstancesInstanceKeySendDocumentPostRequest $instances_instance_key_send_document_post_request (required)
+     * @param  \WhatsAPI\models\SendDocumentRequest $send_document_request (required)
      * @param  string $caption Attached caption (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendDocumentPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendDocument'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function instancesInstanceKeySendDocumentPostAsync($instance_key, $to, $instances_instance_key_send_document_post_request, $caption = null, string $contentType = self::contentTypes['instancesInstanceKeySendDocumentPost'][0])
+    public function sendDocumentAsync($instance_key, $to, $send_document_request, $caption = null, string $contentType = self::contentTypes['sendDocument'][0])
     {
-        return $this->instancesInstanceKeySendDocumentPostAsyncWithHttpInfo($instance_key, $to, $instances_instance_key_send_document_post_request, $caption, $contentType)
+        return $this->sendDocumentAsyncWithHttpInfo($instance_key, $to, $send_document_request, $caption, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2038,23 +2038,23 @@ class MessageSendingApi
     }
 
     /**
-     * Operation instancesInstanceKeySendDocumentPostAsyncWithHttpInfo
+     * Operation sendDocumentAsyncWithHttpInfo
      *
      * Send raw document.
      *
      * @param  string $instance_key Instance key (required)
      * @param  string $to The recipient&#39;s number (required)
-     * @param  \WhatsAPI\models\InstancesInstanceKeySendDocumentPostRequest $instances_instance_key_send_document_post_request (required)
+     * @param  \WhatsAPI\models\SendDocumentRequest $send_document_request (required)
      * @param  string $caption Attached caption (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendDocumentPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendDocument'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function instancesInstanceKeySendDocumentPostAsyncWithHttpInfo($instance_key, $to, $instances_instance_key_send_document_post_request, $caption = null, string $contentType = self::contentTypes['instancesInstanceKeySendDocumentPost'][0])
+    public function sendDocumentAsyncWithHttpInfo($instance_key, $to, $send_document_request, $caption = null, string $contentType = self::contentTypes['sendDocument'][0])
     {
         $returnType = '\WhatsAPI\models\APIResponse';
-        $request = $this->instancesInstanceKeySendDocumentPostRequest($instance_key, $to, $instances_instance_key_send_document_post_request, $caption, $contentType);
+        $request = $this->sendDocumentRequest($instance_key, $to, $send_document_request, $caption, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2093,38 +2093,38 @@ class MessageSendingApi
     }
 
     /**
-     * Create request for operation 'instancesInstanceKeySendDocumentPost'
+     * Create request for operation 'sendDocument'
      *
      * @param  string $instance_key Instance key (required)
      * @param  string $to The recipient&#39;s number (required)
-     * @param  \WhatsAPI\models\InstancesInstanceKeySendDocumentPostRequest $instances_instance_key_send_document_post_request (required)
+     * @param  \WhatsAPI\models\SendDocumentRequest $send_document_request (required)
      * @param  string $caption Attached caption (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendDocumentPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendDocument'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function instancesInstanceKeySendDocumentPostRequest($instance_key, $to, $instances_instance_key_send_document_post_request, $caption = null, string $contentType = self::contentTypes['instancesInstanceKeySendDocumentPost'][0])
+    public function sendDocumentRequest($instance_key, $to, $send_document_request, $caption = null, string $contentType = self::contentTypes['sendDocument'][0])
     {
 
         // verify the required parameter 'instance_key' is set
         if ($instance_key === null || (is_array($instance_key) && count($instance_key) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $instance_key when calling instancesInstanceKeySendDocumentPost'
+                'Missing the required parameter $instance_key when calling sendDocument'
             );
         }
 
         // verify the required parameter 'to' is set
         if ($to === null || (is_array($to) && count($to) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $to when calling instancesInstanceKeySendDocumentPost'
+                'Missing the required parameter $to when calling sendDocument'
             );
         }
 
-        // verify the required parameter 'instances_instance_key_send_document_post_request' is set
-        if ($instances_instance_key_send_document_post_request === null || (is_array($instances_instance_key_send_document_post_request) && count($instances_instance_key_send_document_post_request) === 0)) {
+        // verify the required parameter 'send_document_request' is set
+        if ($send_document_request === null || (is_array($send_document_request) && count($send_document_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $instances_instance_key_send_document_post_request when calling instancesInstanceKeySendDocumentPost'
+                'Missing the required parameter $send_document_request when calling sendDocument'
             );
         }
 
@@ -2174,12 +2174,12 @@ class MessageSendingApi
         );
 
         // for model (json/xml)
-        if (isset($instances_instance_key_send_document_post_request)) {
+        if (isset($send_document_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($instances_instance_key_send_document_post_request));
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($send_document_request));
             } else {
-                $httpBody = $instances_instance_key_send_document_post_request;
+                $httpBody = $send_document_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -2233,44 +2233,44 @@ class MessageSendingApi
     }
 
     /**
-     * Operation instancesInstanceKeySendImagePost
+     * Operation sendImage
      *
      * Send raw image.
      *
      * @param  string $instance_key Instance key (required)
      * @param  string $to The recipient&#39;s number (required)
-     * @param  \WhatsAPI\models\InstancesInstanceKeySendImagePostRequest $instances_instance_key_send_image_post_request instances_instance_key_send_image_post_request (required)
+     * @param  \WhatsAPI\models\SendImageRequest $send_image_request send_image_request (required)
      * @param  string $caption Attached caption (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendImagePost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendImage'] to see the possible values for this operation
      *
      * @throws \WhatsAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse
      */
-    public function instancesInstanceKeySendImagePost($instance_key, $to, $instances_instance_key_send_image_post_request, $caption = null, string $contentType = self::contentTypes['instancesInstanceKeySendImagePost'][0])
+    public function sendImage($instance_key, $to, $send_image_request, $caption = null, string $contentType = self::contentTypes['sendImage'][0])
     {
-        list($response) = $this->instancesInstanceKeySendImagePostWithHttpInfo($instance_key, $to, $instances_instance_key_send_image_post_request, $caption, $contentType);
+        list($response) = $this->sendImageWithHttpInfo($instance_key, $to, $send_image_request, $caption, $contentType);
         return $response;
     }
 
     /**
-     * Operation instancesInstanceKeySendImagePostWithHttpInfo
+     * Operation sendImageWithHttpInfo
      *
      * Send raw image.
      *
      * @param  string $instance_key Instance key (required)
      * @param  string $to The recipient&#39;s number (required)
-     * @param  \WhatsAPI\models\InstancesInstanceKeySendImagePostRequest $instances_instance_key_send_image_post_request (required)
+     * @param  \WhatsAPI\models\SendImageRequest $send_image_request (required)
      * @param  string $caption Attached caption (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendImagePost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendImage'] to see the possible values for this operation
      *
      * @throws \WhatsAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function instancesInstanceKeySendImagePostWithHttpInfo($instance_key, $to, $instances_instance_key_send_image_post_request, $caption = null, string $contentType = self::contentTypes['instancesInstanceKeySendImagePost'][0])
+    public function sendImageWithHttpInfo($instance_key, $to, $send_image_request, $caption = null, string $contentType = self::contentTypes['sendImage'][0])
     {
-        $request = $this->instancesInstanceKeySendImagePostRequest($instance_key, $to, $instances_instance_key_send_image_post_request, $caption, $contentType);
+        $request = $this->sendImageRequest($instance_key, $to, $send_image_request, $caption, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2449,22 +2449,22 @@ class MessageSendingApi
     }
 
     /**
-     * Operation instancesInstanceKeySendImagePostAsync
+     * Operation sendImageAsync
      *
      * Send raw image.
      *
      * @param  string $instance_key Instance key (required)
      * @param  string $to The recipient&#39;s number (required)
-     * @param  \WhatsAPI\models\InstancesInstanceKeySendImagePostRequest $instances_instance_key_send_image_post_request (required)
+     * @param  \WhatsAPI\models\SendImageRequest $send_image_request (required)
      * @param  string $caption Attached caption (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendImagePost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendImage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function instancesInstanceKeySendImagePostAsync($instance_key, $to, $instances_instance_key_send_image_post_request, $caption = null, string $contentType = self::contentTypes['instancesInstanceKeySendImagePost'][0])
+    public function sendImageAsync($instance_key, $to, $send_image_request, $caption = null, string $contentType = self::contentTypes['sendImage'][0])
     {
-        return $this->instancesInstanceKeySendImagePostAsyncWithHttpInfo($instance_key, $to, $instances_instance_key_send_image_post_request, $caption, $contentType)
+        return $this->sendImageAsyncWithHttpInfo($instance_key, $to, $send_image_request, $caption, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2473,23 +2473,23 @@ class MessageSendingApi
     }
 
     /**
-     * Operation instancesInstanceKeySendImagePostAsyncWithHttpInfo
+     * Operation sendImageAsyncWithHttpInfo
      *
      * Send raw image.
      *
      * @param  string $instance_key Instance key (required)
      * @param  string $to The recipient&#39;s number (required)
-     * @param  \WhatsAPI\models\InstancesInstanceKeySendImagePostRequest $instances_instance_key_send_image_post_request (required)
+     * @param  \WhatsAPI\models\SendImageRequest $send_image_request (required)
      * @param  string $caption Attached caption (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendImagePost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendImage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function instancesInstanceKeySendImagePostAsyncWithHttpInfo($instance_key, $to, $instances_instance_key_send_image_post_request, $caption = null, string $contentType = self::contentTypes['instancesInstanceKeySendImagePost'][0])
+    public function sendImageAsyncWithHttpInfo($instance_key, $to, $send_image_request, $caption = null, string $contentType = self::contentTypes['sendImage'][0])
     {
         $returnType = '\WhatsAPI\models\APIResponse';
-        $request = $this->instancesInstanceKeySendImagePostRequest($instance_key, $to, $instances_instance_key_send_image_post_request, $caption, $contentType);
+        $request = $this->sendImageRequest($instance_key, $to, $send_image_request, $caption, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2528,38 +2528,38 @@ class MessageSendingApi
     }
 
     /**
-     * Create request for operation 'instancesInstanceKeySendImagePost'
+     * Create request for operation 'sendImage'
      *
      * @param  string $instance_key Instance key (required)
      * @param  string $to The recipient&#39;s number (required)
-     * @param  \WhatsAPI\models\InstancesInstanceKeySendImagePostRequest $instances_instance_key_send_image_post_request (required)
+     * @param  \WhatsAPI\models\SendImageRequest $send_image_request (required)
      * @param  string $caption Attached caption (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendImagePost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendImage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function instancesInstanceKeySendImagePostRequest($instance_key, $to, $instances_instance_key_send_image_post_request, $caption = null, string $contentType = self::contentTypes['instancesInstanceKeySendImagePost'][0])
+    public function sendImageRequest($instance_key, $to, $send_image_request, $caption = null, string $contentType = self::contentTypes['sendImage'][0])
     {
 
         // verify the required parameter 'instance_key' is set
         if ($instance_key === null || (is_array($instance_key) && count($instance_key) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $instance_key when calling instancesInstanceKeySendImagePost'
+                'Missing the required parameter $instance_key when calling sendImage'
             );
         }
 
         // verify the required parameter 'to' is set
         if ($to === null || (is_array($to) && count($to) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $to when calling instancesInstanceKeySendImagePost'
+                'Missing the required parameter $to when calling sendImage'
             );
         }
 
-        // verify the required parameter 'instances_instance_key_send_image_post_request' is set
-        if ($instances_instance_key_send_image_post_request === null || (is_array($instances_instance_key_send_image_post_request) && count($instances_instance_key_send_image_post_request) === 0)) {
+        // verify the required parameter 'send_image_request' is set
+        if ($send_image_request === null || (is_array($send_image_request) && count($send_image_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $instances_instance_key_send_image_post_request when calling instancesInstanceKeySendImagePost'
+                'Missing the required parameter $send_image_request when calling sendImage'
             );
         }
 
@@ -2609,12 +2609,12 @@ class MessageSendingApi
         );
 
         // for model (json/xml)
-        if (isset($instances_instance_key_send_image_post_request)) {
+        if (isset($send_image_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($instances_instance_key_send_image_post_request));
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($send_image_request));
             } else {
-                $httpBody = $instances_instance_key_send_image_post_request;
+                $httpBody = $send_image_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -2668,40 +2668,40 @@ class MessageSendingApi
     }
 
     /**
-     * Operation instancesInstanceKeySendListPost
+     * Operation sendListMessage
      *
      * Send a List message.
      *
      * @param  string $instance_key Instance key (required)
      * @param  \WhatsAPI\models\ListMessagePayload $data Message data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendListPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendListMessage'] to see the possible values for this operation
      *
      * @throws \WhatsAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse
      */
-    public function instancesInstanceKeySendListPost($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeySendListPost'][0])
+    public function sendListMessage($instance_key, $data, string $contentType = self::contentTypes['sendListMessage'][0])
     {
-        list($response) = $this->instancesInstanceKeySendListPostWithHttpInfo($instance_key, $data, $contentType);
+        list($response) = $this->sendListMessageWithHttpInfo($instance_key, $data, $contentType);
         return $response;
     }
 
     /**
-     * Operation instancesInstanceKeySendListPostWithHttpInfo
+     * Operation sendListMessageWithHttpInfo
      *
      * Send a List message.
      *
      * @param  string $instance_key Instance key (required)
      * @param  \WhatsAPI\models\ListMessagePayload $data Message data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendListPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendListMessage'] to see the possible values for this operation
      *
      * @throws \WhatsAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function instancesInstanceKeySendListPostWithHttpInfo($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeySendListPost'][0])
+    public function sendListMessageWithHttpInfo($instance_key, $data, string $contentType = self::contentTypes['sendListMessage'][0])
     {
-        $request = $this->instancesInstanceKeySendListPostRequest($instance_key, $data, $contentType);
+        $request = $this->sendListMessageRequest($instance_key, $data, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2880,20 +2880,20 @@ class MessageSendingApi
     }
 
     /**
-     * Operation instancesInstanceKeySendListPostAsync
+     * Operation sendListMessageAsync
      *
      * Send a List message.
      *
      * @param  string $instance_key Instance key (required)
      * @param  \WhatsAPI\models\ListMessagePayload $data Message data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendListPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendListMessage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function instancesInstanceKeySendListPostAsync($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeySendListPost'][0])
+    public function sendListMessageAsync($instance_key, $data, string $contentType = self::contentTypes['sendListMessage'][0])
     {
-        return $this->instancesInstanceKeySendListPostAsyncWithHttpInfo($instance_key, $data, $contentType)
+        return $this->sendListMessageAsyncWithHttpInfo($instance_key, $data, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2902,21 +2902,21 @@ class MessageSendingApi
     }
 
     /**
-     * Operation instancesInstanceKeySendListPostAsyncWithHttpInfo
+     * Operation sendListMessageAsyncWithHttpInfo
      *
      * Send a List message.
      *
      * @param  string $instance_key Instance key (required)
      * @param  \WhatsAPI\models\ListMessagePayload $data Message data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendListPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendListMessage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function instancesInstanceKeySendListPostAsyncWithHttpInfo($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeySendListPost'][0])
+    public function sendListMessageAsyncWithHttpInfo($instance_key, $data, string $contentType = self::contentTypes['sendListMessage'][0])
     {
         $returnType = '\WhatsAPI\models\APIResponse';
-        $request = $this->instancesInstanceKeySendListPostRequest($instance_key, $data, $contentType);
+        $request = $this->sendListMessageRequest($instance_key, $data, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2955,29 +2955,29 @@ class MessageSendingApi
     }
 
     /**
-     * Create request for operation 'instancesInstanceKeySendListPost'
+     * Create request for operation 'sendListMessage'
      *
      * @param  string $instance_key Instance key (required)
      * @param  \WhatsAPI\models\ListMessagePayload $data Message data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendListPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendListMessage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function instancesInstanceKeySendListPostRequest($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeySendListPost'][0])
+    public function sendListMessageRequest($instance_key, $data, string $contentType = self::contentTypes['sendListMessage'][0])
     {
 
         // verify the required parameter 'instance_key' is set
         if ($instance_key === null || (is_array($instance_key) && count($instance_key) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $instance_key when calling instancesInstanceKeySendListPost'
+                'Missing the required parameter $instance_key when calling sendListMessage'
             );
         }
 
         // verify the required parameter 'data' is set
         if ($data === null || (is_array($data) && count($data) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $data when calling instancesInstanceKeySendListPost'
+                'Missing the required parameter $data when calling sendListMessage'
             );
         }
 
@@ -3067,40 +3067,40 @@ class MessageSendingApi
     }
 
     /**
-     * Operation instancesInstanceKeySendLocationPost
+     * Operation sendLocation
      *
      * Send a location message.
      *
      * @param  string $instance_key Instance key (required)
      * @param  \WhatsAPI\models\LocationMessagePayload $data Message data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendLocationPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendLocation'] to see the possible values for this operation
      *
      * @throws \WhatsAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse
      */
-    public function instancesInstanceKeySendLocationPost($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeySendLocationPost'][0])
+    public function sendLocation($instance_key, $data, string $contentType = self::contentTypes['sendLocation'][0])
     {
-        list($response) = $this->instancesInstanceKeySendLocationPostWithHttpInfo($instance_key, $data, $contentType);
+        list($response) = $this->sendLocationWithHttpInfo($instance_key, $data, $contentType);
         return $response;
     }
 
     /**
-     * Operation instancesInstanceKeySendLocationPostWithHttpInfo
+     * Operation sendLocationWithHttpInfo
      *
      * Send a location message.
      *
      * @param  string $instance_key Instance key (required)
      * @param  \WhatsAPI\models\LocationMessagePayload $data Message data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendLocationPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendLocation'] to see the possible values for this operation
      *
      * @throws \WhatsAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function instancesInstanceKeySendLocationPostWithHttpInfo($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeySendLocationPost'][0])
+    public function sendLocationWithHttpInfo($instance_key, $data, string $contentType = self::contentTypes['sendLocation'][0])
     {
-        $request = $this->instancesInstanceKeySendLocationPostRequest($instance_key, $data, $contentType);
+        $request = $this->sendLocationRequest($instance_key, $data, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3279,20 +3279,20 @@ class MessageSendingApi
     }
 
     /**
-     * Operation instancesInstanceKeySendLocationPostAsync
+     * Operation sendLocationAsync
      *
      * Send a location message.
      *
      * @param  string $instance_key Instance key (required)
      * @param  \WhatsAPI\models\LocationMessagePayload $data Message data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendLocationPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendLocation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function instancesInstanceKeySendLocationPostAsync($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeySendLocationPost'][0])
+    public function sendLocationAsync($instance_key, $data, string $contentType = self::contentTypes['sendLocation'][0])
     {
-        return $this->instancesInstanceKeySendLocationPostAsyncWithHttpInfo($instance_key, $data, $contentType)
+        return $this->sendLocationAsyncWithHttpInfo($instance_key, $data, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3301,21 +3301,21 @@ class MessageSendingApi
     }
 
     /**
-     * Operation instancesInstanceKeySendLocationPostAsyncWithHttpInfo
+     * Operation sendLocationAsyncWithHttpInfo
      *
      * Send a location message.
      *
      * @param  string $instance_key Instance key (required)
      * @param  \WhatsAPI\models\LocationMessagePayload $data Message data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendLocationPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendLocation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function instancesInstanceKeySendLocationPostAsyncWithHttpInfo($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeySendLocationPost'][0])
+    public function sendLocationAsyncWithHttpInfo($instance_key, $data, string $contentType = self::contentTypes['sendLocation'][0])
     {
         $returnType = '\WhatsAPI\models\APIResponse';
-        $request = $this->instancesInstanceKeySendLocationPostRequest($instance_key, $data, $contentType);
+        $request = $this->sendLocationRequest($instance_key, $data, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3354,29 +3354,29 @@ class MessageSendingApi
     }
 
     /**
-     * Create request for operation 'instancesInstanceKeySendLocationPost'
+     * Create request for operation 'sendLocation'
      *
      * @param  string $instance_key Instance key (required)
      * @param  \WhatsAPI\models\LocationMessagePayload $data Message data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendLocationPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendLocation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function instancesInstanceKeySendLocationPostRequest($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeySendLocationPost'][0])
+    public function sendLocationRequest($instance_key, $data, string $contentType = self::contentTypes['sendLocation'][0])
     {
 
         // verify the required parameter 'instance_key' is set
         if ($instance_key === null || (is_array($instance_key) && count($instance_key) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $instance_key when calling instancesInstanceKeySendLocationPost'
+                'Missing the required parameter $instance_key when calling sendLocation'
             );
         }
 
         // verify the required parameter 'data' is set
         if ($data === null || (is_array($data) && count($data) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $data when calling instancesInstanceKeySendLocationPost'
+                'Missing the required parameter $data when calling sendLocation'
             );
         }
 
@@ -3466,40 +3466,40 @@ class MessageSendingApi
     }
 
     /**
-     * Operation instancesInstanceKeySendMediaPost
+     * Operation sendMediaMessage
      *
      * Send a media message.
      *
      * @param  string $instance_key Instance key (required)
      * @param  \WhatsAPI\models\SendMediaPayload $data Message data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendMediaPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendMediaMessage'] to see the possible values for this operation
      *
      * @throws \WhatsAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse
      */
-    public function instancesInstanceKeySendMediaPost($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeySendMediaPost'][0])
+    public function sendMediaMessage($instance_key, $data, string $contentType = self::contentTypes['sendMediaMessage'][0])
     {
-        list($response) = $this->instancesInstanceKeySendMediaPostWithHttpInfo($instance_key, $data, $contentType);
+        list($response) = $this->sendMediaMessageWithHttpInfo($instance_key, $data, $contentType);
         return $response;
     }
 
     /**
-     * Operation instancesInstanceKeySendMediaPostWithHttpInfo
+     * Operation sendMediaMessageWithHttpInfo
      *
      * Send a media message.
      *
      * @param  string $instance_key Instance key (required)
      * @param  \WhatsAPI\models\SendMediaPayload $data Message data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendMediaPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendMediaMessage'] to see the possible values for this operation
      *
      * @throws \WhatsAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function instancesInstanceKeySendMediaPostWithHttpInfo($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeySendMediaPost'][0])
+    public function sendMediaMessageWithHttpInfo($instance_key, $data, string $contentType = self::contentTypes['sendMediaMessage'][0])
     {
-        $request = $this->instancesInstanceKeySendMediaPostRequest($instance_key, $data, $contentType);
+        $request = $this->sendMediaMessageRequest($instance_key, $data, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3678,20 +3678,20 @@ class MessageSendingApi
     }
 
     /**
-     * Operation instancesInstanceKeySendMediaPostAsync
+     * Operation sendMediaMessageAsync
      *
      * Send a media message.
      *
      * @param  string $instance_key Instance key (required)
      * @param  \WhatsAPI\models\SendMediaPayload $data Message data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendMediaPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendMediaMessage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function instancesInstanceKeySendMediaPostAsync($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeySendMediaPost'][0])
+    public function sendMediaMessageAsync($instance_key, $data, string $contentType = self::contentTypes['sendMediaMessage'][0])
     {
-        return $this->instancesInstanceKeySendMediaPostAsyncWithHttpInfo($instance_key, $data, $contentType)
+        return $this->sendMediaMessageAsyncWithHttpInfo($instance_key, $data, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3700,21 +3700,21 @@ class MessageSendingApi
     }
 
     /**
-     * Operation instancesInstanceKeySendMediaPostAsyncWithHttpInfo
+     * Operation sendMediaMessageAsyncWithHttpInfo
      *
      * Send a media message.
      *
      * @param  string $instance_key Instance key (required)
      * @param  \WhatsAPI\models\SendMediaPayload $data Message data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendMediaPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendMediaMessage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function instancesInstanceKeySendMediaPostAsyncWithHttpInfo($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeySendMediaPost'][0])
+    public function sendMediaMessageAsyncWithHttpInfo($instance_key, $data, string $contentType = self::contentTypes['sendMediaMessage'][0])
     {
         $returnType = '\WhatsAPI\models\APIResponse';
-        $request = $this->instancesInstanceKeySendMediaPostRequest($instance_key, $data, $contentType);
+        $request = $this->sendMediaMessageRequest($instance_key, $data, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3753,29 +3753,29 @@ class MessageSendingApi
     }
 
     /**
-     * Create request for operation 'instancesInstanceKeySendMediaPost'
+     * Create request for operation 'sendMediaMessage'
      *
      * @param  string $instance_key Instance key (required)
      * @param  \WhatsAPI\models\SendMediaPayload $data Message data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendMediaPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendMediaMessage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function instancesInstanceKeySendMediaPostRequest($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeySendMediaPost'][0])
+    public function sendMediaMessageRequest($instance_key, $data, string $contentType = self::contentTypes['sendMediaMessage'][0])
     {
 
         // verify the required parameter 'instance_key' is set
         if ($instance_key === null || (is_array($instance_key) && count($instance_key) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $instance_key when calling instancesInstanceKeySendMediaPost'
+                'Missing the required parameter $instance_key when calling sendMediaMessage'
             );
         }
 
         // verify the required parameter 'data' is set
         if ($data === null || (is_array($data) && count($data) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $data when calling instancesInstanceKeySendMediaPost'
+                'Missing the required parameter $data when calling sendMediaMessage'
             );
         }
 
@@ -3865,40 +3865,40 @@ class MessageSendingApi
     }
 
     /**
-     * Operation instancesInstanceKeySendPollPost
+     * Operation sendPollMessage
      *
      * Send a Poll message.
      *
      * @param  string $instance_key Instance key (required)
      * @param  \WhatsAPI\models\PollMessagePayload $data Message data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendPollPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendPollMessage'] to see the possible values for this operation
      *
      * @throws \WhatsAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse
      */
-    public function instancesInstanceKeySendPollPost($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeySendPollPost'][0])
+    public function sendPollMessage($instance_key, $data, string $contentType = self::contentTypes['sendPollMessage'][0])
     {
-        list($response) = $this->instancesInstanceKeySendPollPostWithHttpInfo($instance_key, $data, $contentType);
+        list($response) = $this->sendPollMessageWithHttpInfo($instance_key, $data, $contentType);
         return $response;
     }
 
     /**
-     * Operation instancesInstanceKeySendPollPostWithHttpInfo
+     * Operation sendPollMessageWithHttpInfo
      *
      * Send a Poll message.
      *
      * @param  string $instance_key Instance key (required)
      * @param  \WhatsAPI\models\PollMessagePayload $data Message data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendPollPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendPollMessage'] to see the possible values for this operation
      *
      * @throws \WhatsAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function instancesInstanceKeySendPollPostWithHttpInfo($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeySendPollPost'][0])
+    public function sendPollMessageWithHttpInfo($instance_key, $data, string $contentType = self::contentTypes['sendPollMessage'][0])
     {
-        $request = $this->instancesInstanceKeySendPollPostRequest($instance_key, $data, $contentType);
+        $request = $this->sendPollMessageRequest($instance_key, $data, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4077,20 +4077,20 @@ class MessageSendingApi
     }
 
     /**
-     * Operation instancesInstanceKeySendPollPostAsync
+     * Operation sendPollMessageAsync
      *
      * Send a Poll message.
      *
      * @param  string $instance_key Instance key (required)
      * @param  \WhatsAPI\models\PollMessagePayload $data Message data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendPollPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendPollMessage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function instancesInstanceKeySendPollPostAsync($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeySendPollPost'][0])
+    public function sendPollMessageAsync($instance_key, $data, string $contentType = self::contentTypes['sendPollMessage'][0])
     {
-        return $this->instancesInstanceKeySendPollPostAsyncWithHttpInfo($instance_key, $data, $contentType)
+        return $this->sendPollMessageAsyncWithHttpInfo($instance_key, $data, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4099,21 +4099,21 @@ class MessageSendingApi
     }
 
     /**
-     * Operation instancesInstanceKeySendPollPostAsyncWithHttpInfo
+     * Operation sendPollMessageAsyncWithHttpInfo
      *
      * Send a Poll message.
      *
      * @param  string $instance_key Instance key (required)
      * @param  \WhatsAPI\models\PollMessagePayload $data Message data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendPollPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendPollMessage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function instancesInstanceKeySendPollPostAsyncWithHttpInfo($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeySendPollPost'][0])
+    public function sendPollMessageAsyncWithHttpInfo($instance_key, $data, string $contentType = self::contentTypes['sendPollMessage'][0])
     {
         $returnType = '\WhatsAPI\models\APIResponse';
-        $request = $this->instancesInstanceKeySendPollPostRequest($instance_key, $data, $contentType);
+        $request = $this->sendPollMessageRequest($instance_key, $data, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4152,29 +4152,29 @@ class MessageSendingApi
     }
 
     /**
-     * Create request for operation 'instancesInstanceKeySendPollPost'
+     * Create request for operation 'sendPollMessage'
      *
      * @param  string $instance_key Instance key (required)
      * @param  \WhatsAPI\models\PollMessagePayload $data Message data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendPollPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendPollMessage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function instancesInstanceKeySendPollPostRequest($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeySendPollPost'][0])
+    public function sendPollMessageRequest($instance_key, $data, string $contentType = self::contentTypes['sendPollMessage'][0])
     {
 
         // verify the required parameter 'instance_key' is set
         if ($instance_key === null || (is_array($instance_key) && count($instance_key) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $instance_key when calling instancesInstanceKeySendPollPost'
+                'Missing the required parameter $instance_key when calling sendPollMessage'
             );
         }
 
         // verify the required parameter 'data' is set
         if ($data === null || (is_array($data) && count($data) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $data when calling instancesInstanceKeySendPollPost'
+                'Missing the required parameter $data when calling sendPollMessage'
             );
         }
 
@@ -4264,40 +4264,40 @@ class MessageSendingApi
     }
 
     /**
-     * Operation instancesInstanceKeySendTemplateMediaPost
+     * Operation sendTemplate
      *
-     * Send a template message with media.
+     * Send a template message.
      *
      * @param  string $instance_key Instance key (required)
-     * @param  \WhatsAPI\models\TemplateButtonWithMediaPayload $data Message data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendTemplateMediaPost'] to see the possible values for this operation
+     * @param  \WhatsAPI\models\TemplateButtonPayload $data Message data (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendTemplate'] to see the possible values for this operation
      *
      * @throws \WhatsAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse
      */
-    public function instancesInstanceKeySendTemplateMediaPost($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeySendTemplateMediaPost'][0])
+    public function sendTemplate($instance_key, $data, string $contentType = self::contentTypes['sendTemplate'][0])
     {
-        list($response) = $this->instancesInstanceKeySendTemplateMediaPostWithHttpInfo($instance_key, $data, $contentType);
+        list($response) = $this->sendTemplateWithHttpInfo($instance_key, $data, $contentType);
         return $response;
     }
 
     /**
-     * Operation instancesInstanceKeySendTemplateMediaPostWithHttpInfo
+     * Operation sendTemplateWithHttpInfo
      *
-     * Send a template message with media.
+     * Send a template message.
      *
      * @param  string $instance_key Instance key (required)
-     * @param  \WhatsAPI\models\TemplateButtonWithMediaPayload $data Message data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendTemplateMediaPost'] to see the possible values for this operation
+     * @param  \WhatsAPI\models\TemplateButtonPayload $data Message data (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendTemplate'] to see the possible values for this operation
      *
      * @throws \WhatsAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function instancesInstanceKeySendTemplateMediaPostWithHttpInfo($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeySendTemplateMediaPost'][0])
+    public function sendTemplateWithHttpInfo($instance_key, $data, string $contentType = self::contentTypes['sendTemplate'][0])
     {
-        $request = $this->instancesInstanceKeySendTemplateMediaPostRequest($instance_key, $data, $contentType);
+        $request = $this->sendTemplateRequest($instance_key, $data, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4476,20 +4476,20 @@ class MessageSendingApi
     }
 
     /**
-     * Operation instancesInstanceKeySendTemplateMediaPostAsync
+     * Operation sendTemplateAsync
      *
-     * Send a template message with media.
+     * Send a template message.
      *
      * @param  string $instance_key Instance key (required)
-     * @param  \WhatsAPI\models\TemplateButtonWithMediaPayload $data Message data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendTemplateMediaPost'] to see the possible values for this operation
+     * @param  \WhatsAPI\models\TemplateButtonPayload $data Message data (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function instancesInstanceKeySendTemplateMediaPostAsync($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeySendTemplateMediaPost'][0])
+    public function sendTemplateAsync($instance_key, $data, string $contentType = self::contentTypes['sendTemplate'][0])
     {
-        return $this->instancesInstanceKeySendTemplateMediaPostAsyncWithHttpInfo($instance_key, $data, $contentType)
+        return $this->sendTemplateAsyncWithHttpInfo($instance_key, $data, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4498,21 +4498,21 @@ class MessageSendingApi
     }
 
     /**
-     * Operation instancesInstanceKeySendTemplateMediaPostAsyncWithHttpInfo
+     * Operation sendTemplateAsyncWithHttpInfo
      *
-     * Send a template message with media.
+     * Send a template message.
      *
      * @param  string $instance_key Instance key (required)
-     * @param  \WhatsAPI\models\TemplateButtonWithMediaPayload $data Message data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendTemplateMediaPost'] to see the possible values for this operation
+     * @param  \WhatsAPI\models\TemplateButtonPayload $data Message data (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function instancesInstanceKeySendTemplateMediaPostAsyncWithHttpInfo($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeySendTemplateMediaPost'][0])
+    public function sendTemplateAsyncWithHttpInfo($instance_key, $data, string $contentType = self::contentTypes['sendTemplate'][0])
     {
         $returnType = '\WhatsAPI\models\APIResponse';
-        $request = $this->instancesInstanceKeySendTemplateMediaPostRequest($instance_key, $data, $contentType);
+        $request = $this->sendTemplateRequest($instance_key, $data, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4551,428 +4551,29 @@ class MessageSendingApi
     }
 
     /**
-     * Create request for operation 'instancesInstanceKeySendTemplateMediaPost'
+     * Create request for operation 'sendTemplate'
      *
      * @param  string $instance_key Instance key (required)
-     * @param  \WhatsAPI\models\TemplateButtonWithMediaPayload $data Message data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendTemplateMediaPost'] to see the possible values for this operation
+     * @param  \WhatsAPI\models\TemplateButtonPayload $data Message data (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendTemplate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function instancesInstanceKeySendTemplateMediaPostRequest($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeySendTemplateMediaPost'][0])
+    public function sendTemplateRequest($instance_key, $data, string $contentType = self::contentTypes['sendTemplate'][0])
     {
 
         // verify the required parameter 'instance_key' is set
         if ($instance_key === null || (is_array($instance_key) && count($instance_key) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $instance_key when calling instancesInstanceKeySendTemplateMediaPost'
+                'Missing the required parameter $instance_key when calling sendTemplate'
             );
         }
 
         // verify the required parameter 'data' is set
         if ($data === null || (is_array($data) && count($data) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $data when calling instancesInstanceKeySendTemplateMediaPost'
-            );
-        }
-
-
-        $resourcePath = '/instances/{instance_key}/send/template-media';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-        // path params
-        if ($instance_key !== null) {
-            $resourcePath = str_replace(
-                '{' . 'instance_key' . '}',
-                ObjectSerializer::toPathValue($instance_key),
-                $resourcePath
-            );
-        }
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['*/*', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (isset($data)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($data));
-            } else {
-                $httpBody = $data;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'POST',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation instancesInstanceKeySendTemplatePost
-     *
-     * Send a template message.
-     *
-     * @param  string $instance_key Instance key (required)
-     * @param  \WhatsAPI\models\TemplateButtonPayload $data Message data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendTemplatePost'] to see the possible values for this operation
-     *
-     * @throws \WhatsAPI\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse
-     */
-    public function instancesInstanceKeySendTemplatePost($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeySendTemplatePost'][0])
-    {
-        list($response) = $this->instancesInstanceKeySendTemplatePostWithHttpInfo($instance_key, $data, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation instancesInstanceKeySendTemplatePostWithHttpInfo
-     *
-     * Send a template message.
-     *
-     * @param  string $instance_key Instance key (required)
-     * @param  \WhatsAPI\models\TemplateButtonPayload $data Message data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendTemplatePost'] to see the possible values for this operation
-     *
-     * @throws \WhatsAPI\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function instancesInstanceKeySendTemplatePostWithHttpInfo($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeySendTemplatePost'][0])
-    {
-        $request = $this->instancesInstanceKeySendTemplatePostRequest($instance_key, $data, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 400:
-                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 401:
-                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 404:
-                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 500:
-                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\WhatsAPI\models\APIResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\WhatsAPI\models\APIResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\WhatsAPI\models\APIResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\WhatsAPI\models\APIResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\WhatsAPI\models\APIResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\WhatsAPI\models\APIResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation instancesInstanceKeySendTemplatePostAsync
-     *
-     * Send a template message.
-     *
-     * @param  string $instance_key Instance key (required)
-     * @param  \WhatsAPI\models\TemplateButtonPayload $data Message data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendTemplatePost'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function instancesInstanceKeySendTemplatePostAsync($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeySendTemplatePost'][0])
-    {
-        return $this->instancesInstanceKeySendTemplatePostAsyncWithHttpInfo($instance_key, $data, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation instancesInstanceKeySendTemplatePostAsyncWithHttpInfo
-     *
-     * Send a template message.
-     *
-     * @param  string $instance_key Instance key (required)
-     * @param  \WhatsAPI\models\TemplateButtonPayload $data Message data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendTemplatePost'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function instancesInstanceKeySendTemplatePostAsyncWithHttpInfo($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeySendTemplatePost'][0])
-    {
-        $returnType = '\WhatsAPI\models\APIResponse';
-        $request = $this->instancesInstanceKeySendTemplatePostRequest($instance_key, $data, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'instancesInstanceKeySendTemplatePost'
-     *
-     * @param  string $instance_key Instance key (required)
-     * @param  \WhatsAPI\models\TemplateButtonPayload $data Message data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendTemplatePost'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function instancesInstanceKeySendTemplatePostRequest($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeySendTemplatePost'][0])
-    {
-
-        // verify the required parameter 'instance_key' is set
-        if ($instance_key === null || (is_array($instance_key) && count($instance_key) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $instance_key when calling instancesInstanceKeySendTemplatePost'
-            );
-        }
-
-        // verify the required parameter 'data' is set
-        if ($data === null || (is_array($data) && count($data) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $data when calling instancesInstanceKeySendTemplatePost'
+                'Missing the required parameter $data when calling sendTemplate'
             );
         }
 
@@ -5062,40 +4663,40 @@ class MessageSendingApi
     }
 
     /**
-     * Operation instancesInstanceKeySendTextPost
+     * Operation sendTemplateWithMedia
      *
-     * Send a text message.
+     * Send a template message with media.
      *
      * @param  string $instance_key Instance key (required)
-     * @param  \WhatsAPI\models\TextMessage $data Message data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendTextPost'] to see the possible values for this operation
+     * @param  \WhatsAPI\models\TemplateButtonWithMediaPayload $data Message data (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendTemplateWithMedia'] to see the possible values for this operation
      *
      * @throws \WhatsAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse
      */
-    public function instancesInstanceKeySendTextPost($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeySendTextPost'][0])
+    public function sendTemplateWithMedia($instance_key, $data, string $contentType = self::contentTypes['sendTemplateWithMedia'][0])
     {
-        list($response) = $this->instancesInstanceKeySendTextPostWithHttpInfo($instance_key, $data, $contentType);
+        list($response) = $this->sendTemplateWithMediaWithHttpInfo($instance_key, $data, $contentType);
         return $response;
     }
 
     /**
-     * Operation instancesInstanceKeySendTextPostWithHttpInfo
+     * Operation sendTemplateWithMediaWithHttpInfo
      *
-     * Send a text message.
+     * Send a template message with media.
      *
      * @param  string $instance_key Instance key (required)
-     * @param  \WhatsAPI\models\TextMessage $data Message data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendTextPost'] to see the possible values for this operation
+     * @param  \WhatsAPI\models\TemplateButtonWithMediaPayload $data Message data (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendTemplateWithMedia'] to see the possible values for this operation
      *
      * @throws \WhatsAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function instancesInstanceKeySendTextPostWithHttpInfo($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeySendTextPost'][0])
+    public function sendTemplateWithMediaWithHttpInfo($instance_key, $data, string $contentType = self::contentTypes['sendTemplateWithMedia'][0])
     {
-        $request = $this->instancesInstanceKeySendTextPostRequest($instance_key, $data, $contentType);
+        $request = $this->sendTemplateWithMediaRequest($instance_key, $data, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5274,20 +4875,20 @@ class MessageSendingApi
     }
 
     /**
-     * Operation instancesInstanceKeySendTextPostAsync
+     * Operation sendTemplateWithMediaAsync
      *
-     * Send a text message.
+     * Send a template message with media.
      *
      * @param  string $instance_key Instance key (required)
-     * @param  \WhatsAPI\models\TextMessage $data Message data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendTextPost'] to see the possible values for this operation
+     * @param  \WhatsAPI\models\TemplateButtonWithMediaPayload $data Message data (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendTemplateWithMedia'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function instancesInstanceKeySendTextPostAsync($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeySendTextPost'][0])
+    public function sendTemplateWithMediaAsync($instance_key, $data, string $contentType = self::contentTypes['sendTemplateWithMedia'][0])
     {
-        return $this->instancesInstanceKeySendTextPostAsyncWithHttpInfo($instance_key, $data, $contentType)
+        return $this->sendTemplateWithMediaAsyncWithHttpInfo($instance_key, $data, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5296,21 +4897,21 @@ class MessageSendingApi
     }
 
     /**
-     * Operation instancesInstanceKeySendTextPostAsyncWithHttpInfo
+     * Operation sendTemplateWithMediaAsyncWithHttpInfo
      *
-     * Send a text message.
+     * Send a template message with media.
      *
      * @param  string $instance_key Instance key (required)
-     * @param  \WhatsAPI\models\TextMessage $data Message data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendTextPost'] to see the possible values for this operation
+     * @param  \WhatsAPI\models\TemplateButtonWithMediaPayload $data Message data (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendTemplateWithMedia'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function instancesInstanceKeySendTextPostAsyncWithHttpInfo($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeySendTextPost'][0])
+    public function sendTemplateWithMediaAsyncWithHttpInfo($instance_key, $data, string $contentType = self::contentTypes['sendTemplateWithMedia'][0])
     {
         $returnType = '\WhatsAPI\models\APIResponse';
-        $request = $this->instancesInstanceKeySendTextPostRequest($instance_key, $data, $contentType);
+        $request = $this->sendTemplateWithMediaRequest($instance_key, $data, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5349,29 +4950,428 @@ class MessageSendingApi
     }
 
     /**
-     * Create request for operation 'instancesInstanceKeySendTextPost'
+     * Create request for operation 'sendTemplateWithMedia'
      *
      * @param  string $instance_key Instance key (required)
-     * @param  \WhatsAPI\models\TextMessage $data Message data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendTextPost'] to see the possible values for this operation
+     * @param  \WhatsAPI\models\TemplateButtonWithMediaPayload $data Message data (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendTemplateWithMedia'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function instancesInstanceKeySendTextPostRequest($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeySendTextPost'][0])
+    public function sendTemplateWithMediaRequest($instance_key, $data, string $contentType = self::contentTypes['sendTemplateWithMedia'][0])
     {
 
         // verify the required parameter 'instance_key' is set
         if ($instance_key === null || (is_array($instance_key) && count($instance_key) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $instance_key when calling instancesInstanceKeySendTextPost'
+                'Missing the required parameter $instance_key when calling sendTemplateWithMedia'
             );
         }
 
         // verify the required parameter 'data' is set
         if ($data === null || (is_array($data) && count($data) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $data when calling instancesInstanceKeySendTextPost'
+                'Missing the required parameter $data when calling sendTemplateWithMedia'
+            );
+        }
+
+
+        $resourcePath = '/instances/{instance_key}/send/template-media';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($instance_key !== null) {
+            $resourcePath = str_replace(
+                '{' . 'instance_key' . '}',
+                ObjectSerializer::toPathValue($instance_key),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['*/*', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($data)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($data));
+            } else {
+                $httpBody = $data;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation sendTextMessage
+     *
+     * Send a text message.
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  \WhatsAPI\models\TextMessage $data Message data (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendTextMessage'] to see the possible values for this operation
+     *
+     * @throws \WhatsAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse
+     */
+    public function sendTextMessage($instance_key, $data, string $contentType = self::contentTypes['sendTextMessage'][0])
+    {
+        list($response) = $this->sendTextMessageWithHttpInfo($instance_key, $data, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation sendTextMessageWithHttpInfo
+     *
+     * Send a text message.
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  \WhatsAPI\models\TextMessage $data Message data (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendTextMessage'] to see the possible values for this operation
+     *
+     * @throws \WhatsAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function sendTextMessageWithHttpInfo($instance_key, $data, string $contentType = self::contentTypes['sendTextMessage'][0])
+    {
+        $request = $this->sendTextMessageRequest($instance_key, $data, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\WhatsAPI\models\APIResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation sendTextMessageAsync
+     *
+     * Send a text message.
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  \WhatsAPI\models\TextMessage $data Message data (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendTextMessage'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function sendTextMessageAsync($instance_key, $data, string $contentType = self::contentTypes['sendTextMessage'][0])
+    {
+        return $this->sendTextMessageAsyncWithHttpInfo($instance_key, $data, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation sendTextMessageAsyncWithHttpInfo
+     *
+     * Send a text message.
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  \WhatsAPI\models\TextMessage $data Message data (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendTextMessage'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function sendTextMessageAsyncWithHttpInfo($instance_key, $data, string $contentType = self::contentTypes['sendTextMessage'][0])
+    {
+        $returnType = '\WhatsAPI\models\APIResponse';
+        $request = $this->sendTextMessageRequest($instance_key, $data, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'sendTextMessage'
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  \WhatsAPI\models\TextMessage $data Message data (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendTextMessage'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function sendTextMessageRequest($instance_key, $data, string $contentType = self::contentTypes['sendTextMessage'][0])
+    {
+
+        // verify the required parameter 'instance_key' is set
+        if ($instance_key === null || (is_array($instance_key) && count($instance_key) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $instance_key when calling sendTextMessage'
+            );
+        }
+
+        // verify the required parameter 'data' is set
+        if ($data === null || (is_array($data) && count($data) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $data when calling sendTextMessage'
             );
         }
 
@@ -5461,42 +5461,44 @@ class MessageSendingApi
     }
 
     /**
-     * Operation instancesInstanceKeySendUploadPost
+     * Operation sendVideo
      *
-     * Upload media.
+     * Send raw video.
      *
      * @param  string $instance_key Instance key (required)
-     * @param  string $type Media type (required)
-     * @param  \WhatsAPI\models\InstancesInstanceKeySendUploadPostRequest $instances_instance_key_send_upload_post_request instances_instance_key_send_upload_post_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendUploadPost'] to see the possible values for this operation
+     * @param  string $to The recipient&#39;s number (required)
+     * @param  \WhatsAPI\models\SendVideoRequest $send_video_request send_video_request (required)
+     * @param  string $caption Attached caption (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendVideo'] to see the possible values for this operation
      *
      * @throws \WhatsAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse
      */
-    public function instancesInstanceKeySendUploadPost($instance_key, $type, $instances_instance_key_send_upload_post_request, string $contentType = self::contentTypes['instancesInstanceKeySendUploadPost'][0])
+    public function sendVideo($instance_key, $to, $send_video_request, $caption = null, string $contentType = self::contentTypes['sendVideo'][0])
     {
-        list($response) = $this->instancesInstanceKeySendUploadPostWithHttpInfo($instance_key, $type, $instances_instance_key_send_upload_post_request, $contentType);
+        list($response) = $this->sendVideoWithHttpInfo($instance_key, $to, $send_video_request, $caption, $contentType);
         return $response;
     }
 
     /**
-     * Operation instancesInstanceKeySendUploadPostWithHttpInfo
+     * Operation sendVideoWithHttpInfo
      *
-     * Upload media.
+     * Send raw video.
      *
      * @param  string $instance_key Instance key (required)
-     * @param  string $type Media type (required)
-     * @param  \WhatsAPI\models\InstancesInstanceKeySendUploadPostRequest $instances_instance_key_send_upload_post_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendUploadPost'] to see the possible values for this operation
+     * @param  string $to The recipient&#39;s number (required)
+     * @param  \WhatsAPI\models\SendVideoRequest $send_video_request (required)
+     * @param  string $caption Attached caption (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendVideo'] to see the possible values for this operation
      *
      * @throws \WhatsAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function instancesInstanceKeySendUploadPostWithHttpInfo($instance_key, $type, $instances_instance_key_send_upload_post_request, string $contentType = self::contentTypes['instancesInstanceKeySendUploadPost'][0])
+    public function sendVideoWithHttpInfo($instance_key, $to, $send_video_request, $caption = null, string $contentType = self::contentTypes['sendVideo'][0])
     {
-        $request = $this->instancesInstanceKeySendUploadPostRequest($instance_key, $type, $instances_instance_key_send_upload_post_request, $contentType);
+        $request = $this->sendVideoRequest($instance_key, $to, $send_video_request, $caption, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5675,21 +5677,22 @@ class MessageSendingApi
     }
 
     /**
-     * Operation instancesInstanceKeySendUploadPostAsync
+     * Operation sendVideoAsync
      *
-     * Upload media.
+     * Send raw video.
      *
      * @param  string $instance_key Instance key (required)
-     * @param  string $type Media type (required)
-     * @param  \WhatsAPI\models\InstancesInstanceKeySendUploadPostRequest $instances_instance_key_send_upload_post_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendUploadPost'] to see the possible values for this operation
+     * @param  string $to The recipient&#39;s number (required)
+     * @param  \WhatsAPI\models\SendVideoRequest $send_video_request (required)
+     * @param  string $caption Attached caption (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendVideo'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function instancesInstanceKeySendUploadPostAsync($instance_key, $type, $instances_instance_key_send_upload_post_request, string $contentType = self::contentTypes['instancesInstanceKeySendUploadPost'][0])
+    public function sendVideoAsync($instance_key, $to, $send_video_request, $caption = null, string $contentType = self::contentTypes['sendVideo'][0])
     {
-        return $this->instancesInstanceKeySendUploadPostAsyncWithHttpInfo($instance_key, $type, $instances_instance_key_send_upload_post_request, $contentType)
+        return $this->sendVideoAsyncWithHttpInfo($instance_key, $to, $send_video_request, $caption, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5698,22 +5701,23 @@ class MessageSendingApi
     }
 
     /**
-     * Operation instancesInstanceKeySendUploadPostAsyncWithHttpInfo
+     * Operation sendVideoAsyncWithHttpInfo
      *
-     * Upload media.
+     * Send raw video.
      *
      * @param  string $instance_key Instance key (required)
-     * @param  string $type Media type (required)
-     * @param  \WhatsAPI\models\InstancesInstanceKeySendUploadPostRequest $instances_instance_key_send_upload_post_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendUploadPost'] to see the possible values for this operation
+     * @param  string $to The recipient&#39;s number (required)
+     * @param  \WhatsAPI\models\SendVideoRequest $send_video_request (required)
+     * @param  string $caption Attached caption (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendVideo'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function instancesInstanceKeySendUploadPostAsyncWithHttpInfo($instance_key, $type, $instances_instance_key_send_upload_post_request, string $contentType = self::contentTypes['instancesInstanceKeySendUploadPost'][0])
+    public function sendVideoAsyncWithHttpInfo($instance_key, $to, $send_video_request, $caption = null, string $contentType = self::contentTypes['sendVideo'][0])
     {
         $returnType = '\WhatsAPI\models\APIResponse';
-        $request = $this->instancesInstanceKeySendUploadPostRequest($instance_key, $type, $instances_instance_key_send_upload_post_request, $contentType);
+        $request = $this->sendVideoRequest($instance_key, $to, $send_video_request, $caption, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5752,42 +5756,44 @@ class MessageSendingApi
     }
 
     /**
-     * Create request for operation 'instancesInstanceKeySendUploadPost'
+     * Create request for operation 'sendVideo'
      *
      * @param  string $instance_key Instance key (required)
-     * @param  string $type Media type (required)
-     * @param  \WhatsAPI\models\InstancesInstanceKeySendUploadPostRequest $instances_instance_key_send_upload_post_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendUploadPost'] to see the possible values for this operation
+     * @param  string $to The recipient&#39;s number (required)
+     * @param  \WhatsAPI\models\SendVideoRequest $send_video_request (required)
+     * @param  string $caption Attached caption (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendVideo'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function instancesInstanceKeySendUploadPostRequest($instance_key, $type, $instances_instance_key_send_upload_post_request, string $contentType = self::contentTypes['instancesInstanceKeySendUploadPost'][0])
+    public function sendVideoRequest($instance_key, $to, $send_video_request, $caption = null, string $contentType = self::contentTypes['sendVideo'][0])
     {
 
         // verify the required parameter 'instance_key' is set
         if ($instance_key === null || (is_array($instance_key) && count($instance_key) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $instance_key when calling instancesInstanceKeySendUploadPost'
+                'Missing the required parameter $instance_key when calling sendVideo'
             );
         }
 
-        // verify the required parameter 'type' is set
-        if ($type === null || (is_array($type) && count($type) === 0)) {
+        // verify the required parameter 'to' is set
+        if ($to === null || (is_array($to) && count($to) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $type when calling instancesInstanceKeySendUploadPost'
+                'Missing the required parameter $to when calling sendVideo'
             );
         }
 
-        // verify the required parameter 'instances_instance_key_send_upload_post_request' is set
-        if ($instances_instance_key_send_upload_post_request === null || (is_array($instances_instance_key_send_upload_post_request) && count($instances_instance_key_send_upload_post_request) === 0)) {
+        // verify the required parameter 'send_video_request' is set
+        if ($send_video_request === null || (is_array($send_video_request) && count($send_video_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $instances_instance_key_send_upload_post_request when calling instancesInstanceKeySendUploadPost'
+                'Missing the required parameter $send_video_request when calling sendVideo'
             );
         }
 
 
-        $resourcePath = '/instances/{instance_key}/send/upload';
+
+        $resourcePath = '/instances/{instance_key}/send/video';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -5796,12 +5802,21 @@ class MessageSendingApi
 
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $type,
-            'type', // param base name
+            $to,
+            'to', // param base name
             'string', // openApiType
             '', // style
             false, // explode
             true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $caption,
+            'caption', // param base name
+            'string', // openApiType
+            '', // style
+            false, // explode
+            false // required
         ) ?? []);
 
 
@@ -5822,12 +5837,12 @@ class MessageSendingApi
         );
 
         // for model (json/xml)
-        if (isset($instances_instance_key_send_upload_post_request)) {
+        if (isset($send_video_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($instances_instance_key_send_upload_post_request));
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($send_video_request));
             } else {
-                $httpBody = $instances_instance_key_send_upload_post_request;
+                $httpBody = $send_video_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -5881,44 +5896,42 @@ class MessageSendingApi
     }
 
     /**
-     * Operation instancesInstanceKeySendVideoPost
+     * Operation uploadMedia
      *
-     * Send raw video.
+     * Upload media.
      *
      * @param  string $instance_key Instance key (required)
-     * @param  string $to The recipient&#39;s number (required)
-     * @param  \WhatsAPI\models\InstancesInstanceKeySendVideoPostRequest $instances_instance_key_send_video_post_request instances_instance_key_send_video_post_request (required)
-     * @param  string $caption Attached caption (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendVideoPost'] to see the possible values for this operation
+     * @param  string $type Media type (required)
+     * @param  \WhatsAPI\models\UploadMediaRequest $upload_media_request upload_media_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadMedia'] to see the possible values for this operation
      *
      * @throws \WhatsAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse
      */
-    public function instancesInstanceKeySendVideoPost($instance_key, $to, $instances_instance_key_send_video_post_request, $caption = null, string $contentType = self::contentTypes['instancesInstanceKeySendVideoPost'][0])
+    public function uploadMedia($instance_key, $type, $upload_media_request, string $contentType = self::contentTypes['uploadMedia'][0])
     {
-        list($response) = $this->instancesInstanceKeySendVideoPostWithHttpInfo($instance_key, $to, $instances_instance_key_send_video_post_request, $caption, $contentType);
+        list($response) = $this->uploadMediaWithHttpInfo($instance_key, $type, $upload_media_request, $contentType);
         return $response;
     }
 
     /**
-     * Operation instancesInstanceKeySendVideoPostWithHttpInfo
+     * Operation uploadMediaWithHttpInfo
      *
-     * Send raw video.
+     * Upload media.
      *
      * @param  string $instance_key Instance key (required)
-     * @param  string $to The recipient&#39;s number (required)
-     * @param  \WhatsAPI\models\InstancesInstanceKeySendVideoPostRequest $instances_instance_key_send_video_post_request (required)
-     * @param  string $caption Attached caption (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendVideoPost'] to see the possible values for this operation
+     * @param  string $type Media type (required)
+     * @param  \WhatsAPI\models\UploadMediaRequest $upload_media_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadMedia'] to see the possible values for this operation
      *
      * @throws \WhatsAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function instancesInstanceKeySendVideoPostWithHttpInfo($instance_key, $to, $instances_instance_key_send_video_post_request, $caption = null, string $contentType = self::contentTypes['instancesInstanceKeySendVideoPost'][0])
+    public function uploadMediaWithHttpInfo($instance_key, $type, $upload_media_request, string $contentType = self::contentTypes['uploadMedia'][0])
     {
-        $request = $this->instancesInstanceKeySendVideoPostRequest($instance_key, $to, $instances_instance_key_send_video_post_request, $caption, $contentType);
+        $request = $this->uploadMediaRequest($instance_key, $type, $upload_media_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6097,22 +6110,21 @@ class MessageSendingApi
     }
 
     /**
-     * Operation instancesInstanceKeySendVideoPostAsync
+     * Operation uploadMediaAsync
      *
-     * Send raw video.
+     * Upload media.
      *
      * @param  string $instance_key Instance key (required)
-     * @param  string $to The recipient&#39;s number (required)
-     * @param  \WhatsAPI\models\InstancesInstanceKeySendVideoPostRequest $instances_instance_key_send_video_post_request (required)
-     * @param  string $caption Attached caption (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendVideoPost'] to see the possible values for this operation
+     * @param  string $type Media type (required)
+     * @param  \WhatsAPI\models\UploadMediaRequest $upload_media_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadMedia'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function instancesInstanceKeySendVideoPostAsync($instance_key, $to, $instances_instance_key_send_video_post_request, $caption = null, string $contentType = self::contentTypes['instancesInstanceKeySendVideoPost'][0])
+    public function uploadMediaAsync($instance_key, $type, $upload_media_request, string $contentType = self::contentTypes['uploadMedia'][0])
     {
-        return $this->instancesInstanceKeySendVideoPostAsyncWithHttpInfo($instance_key, $to, $instances_instance_key_send_video_post_request, $caption, $contentType)
+        return $this->uploadMediaAsyncWithHttpInfo($instance_key, $type, $upload_media_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6121,23 +6133,22 @@ class MessageSendingApi
     }
 
     /**
-     * Operation instancesInstanceKeySendVideoPostAsyncWithHttpInfo
+     * Operation uploadMediaAsyncWithHttpInfo
      *
-     * Send raw video.
+     * Upload media.
      *
      * @param  string $instance_key Instance key (required)
-     * @param  string $to The recipient&#39;s number (required)
-     * @param  \WhatsAPI\models\InstancesInstanceKeySendVideoPostRequest $instances_instance_key_send_video_post_request (required)
-     * @param  string $caption Attached caption (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendVideoPost'] to see the possible values for this operation
+     * @param  string $type Media type (required)
+     * @param  \WhatsAPI\models\UploadMediaRequest $upload_media_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadMedia'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function instancesInstanceKeySendVideoPostAsyncWithHttpInfo($instance_key, $to, $instances_instance_key_send_video_post_request, $caption = null, string $contentType = self::contentTypes['instancesInstanceKeySendVideoPost'][0])
+    public function uploadMediaAsyncWithHttpInfo($instance_key, $type, $upload_media_request, string $contentType = self::contentTypes['uploadMedia'][0])
     {
         $returnType = '\WhatsAPI\models\APIResponse';
-        $request = $this->instancesInstanceKeySendVideoPostRequest($instance_key, $to, $instances_instance_key_send_video_post_request, $caption, $contentType);
+        $request = $this->uploadMediaRequest($instance_key, $type, $upload_media_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6176,44 +6187,42 @@ class MessageSendingApi
     }
 
     /**
-     * Create request for operation 'instancesInstanceKeySendVideoPost'
+     * Create request for operation 'uploadMedia'
      *
      * @param  string $instance_key Instance key (required)
-     * @param  string $to The recipient&#39;s number (required)
-     * @param  \WhatsAPI\models\InstancesInstanceKeySendVideoPostRequest $instances_instance_key_send_video_post_request (required)
-     * @param  string $caption Attached caption (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeySendVideoPost'] to see the possible values for this operation
+     * @param  string $type Media type (required)
+     * @param  \WhatsAPI\models\UploadMediaRequest $upload_media_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadMedia'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function instancesInstanceKeySendVideoPostRequest($instance_key, $to, $instances_instance_key_send_video_post_request, $caption = null, string $contentType = self::contentTypes['instancesInstanceKeySendVideoPost'][0])
+    public function uploadMediaRequest($instance_key, $type, $upload_media_request, string $contentType = self::contentTypes['uploadMedia'][0])
     {
 
         // verify the required parameter 'instance_key' is set
         if ($instance_key === null || (is_array($instance_key) && count($instance_key) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $instance_key when calling instancesInstanceKeySendVideoPost'
+                'Missing the required parameter $instance_key when calling uploadMedia'
             );
         }
 
-        // verify the required parameter 'to' is set
-        if ($to === null || (is_array($to) && count($to) === 0)) {
+        // verify the required parameter 'type' is set
+        if ($type === null || (is_array($type) && count($type) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $to when calling instancesInstanceKeySendVideoPost'
+                'Missing the required parameter $type when calling uploadMedia'
             );
         }
 
-        // verify the required parameter 'instances_instance_key_send_video_post_request' is set
-        if ($instances_instance_key_send_video_post_request === null || (is_array($instances_instance_key_send_video_post_request) && count($instances_instance_key_send_video_post_request) === 0)) {
+        // verify the required parameter 'upload_media_request' is set
+        if ($upload_media_request === null || (is_array($upload_media_request) && count($upload_media_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $instances_instance_key_send_video_post_request when calling instancesInstanceKeySendVideoPost'
+                'Missing the required parameter $upload_media_request when calling uploadMedia'
             );
         }
 
 
-
-        $resourcePath = '/instances/{instance_key}/send/video';
+        $resourcePath = '/instances/{instance_key}/send/upload';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -6222,21 +6231,12 @@ class MessageSendingApi
 
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $to,
-            'to', // param base name
+            $type,
+            'type', // param base name
             'string', // openApiType
             '', // style
             false, // explode
             true // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $caption,
-            'caption', // param base name
-            'string', // openApiType
-            '', // style
-            false, // explode
-            false // required
         ) ?? []);
 
 
@@ -6257,12 +6257,12 @@ class MessageSendingApi
         );
 
         // for model (json/xml)
-        if (isset($instances_instance_key_send_video_post_request)) {
+        if (isset($upload_media_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($instances_instance_key_send_video_post_request));
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($upload_media_request));
             } else {
-                $httpBody = $instances_instance_key_send_video_post_request;
+                $httpBody = $upload_media_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

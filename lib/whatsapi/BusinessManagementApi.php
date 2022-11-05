@@ -72,7 +72,7 @@ class BusinessManagementApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'instancesInstanceKeyBusinessCatalogGet' => [
+        'fetchCatlog' => [
             'application/json',
         ],
     ];
@@ -124,38 +124,38 @@ class BusinessManagementApi
     }
 
     /**
-     * Operation instancesInstanceKeyBusinessCatalogGet
+     * Operation fetchCatlog
      *
      * Fetches the catlog.
      *
      * @param  string $instance_key Instance key (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyBusinessCatalogGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fetchCatlog'] to see the possible values for this operation
      *
      * @throws \WhatsAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse
      */
-    public function instancesInstanceKeyBusinessCatalogGet($instance_key, string $contentType = self::contentTypes['instancesInstanceKeyBusinessCatalogGet'][0])
+    public function fetchCatlog($instance_key, string $contentType = self::contentTypes['fetchCatlog'][0])
     {
-        list($response) = $this->instancesInstanceKeyBusinessCatalogGetWithHttpInfo($instance_key, $contentType);
+        list($response) = $this->fetchCatlogWithHttpInfo($instance_key, $contentType);
         return $response;
     }
 
     /**
-     * Operation instancesInstanceKeyBusinessCatalogGetWithHttpInfo
+     * Operation fetchCatlogWithHttpInfo
      *
      * Fetches the catlog.
      *
      * @param  string $instance_key Instance key (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyBusinessCatalogGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fetchCatlog'] to see the possible values for this operation
      *
      * @throws \WhatsAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function instancesInstanceKeyBusinessCatalogGetWithHttpInfo($instance_key, string $contentType = self::contentTypes['instancesInstanceKeyBusinessCatalogGet'][0])
+    public function fetchCatlogWithHttpInfo($instance_key, string $contentType = self::contentTypes['fetchCatlog'][0])
     {
-        $request = $this->instancesInstanceKeyBusinessCatalogGetRequest($instance_key, $contentType);
+        $request = $this->fetchCatlogRequest($instance_key, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -334,19 +334,19 @@ class BusinessManagementApi
     }
 
     /**
-     * Operation instancesInstanceKeyBusinessCatalogGetAsync
+     * Operation fetchCatlogAsync
      *
      * Fetches the catlog.
      *
      * @param  string $instance_key Instance key (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyBusinessCatalogGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fetchCatlog'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function instancesInstanceKeyBusinessCatalogGetAsync($instance_key, string $contentType = self::contentTypes['instancesInstanceKeyBusinessCatalogGet'][0])
+    public function fetchCatlogAsync($instance_key, string $contentType = self::contentTypes['fetchCatlog'][0])
     {
-        return $this->instancesInstanceKeyBusinessCatalogGetAsyncWithHttpInfo($instance_key, $contentType)
+        return $this->fetchCatlogAsyncWithHttpInfo($instance_key, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -355,20 +355,20 @@ class BusinessManagementApi
     }
 
     /**
-     * Operation instancesInstanceKeyBusinessCatalogGetAsyncWithHttpInfo
+     * Operation fetchCatlogAsyncWithHttpInfo
      *
      * Fetches the catlog.
      *
      * @param  string $instance_key Instance key (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyBusinessCatalogGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fetchCatlog'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function instancesInstanceKeyBusinessCatalogGetAsyncWithHttpInfo($instance_key, string $contentType = self::contentTypes['instancesInstanceKeyBusinessCatalogGet'][0])
+    public function fetchCatlogAsyncWithHttpInfo($instance_key, string $contentType = self::contentTypes['fetchCatlog'][0])
     {
         $returnType = '\WhatsAPI\models\APIResponse';
-        $request = $this->instancesInstanceKeyBusinessCatalogGetRequest($instance_key, $contentType);
+        $request = $this->fetchCatlogRequest($instance_key, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -407,21 +407,21 @@ class BusinessManagementApi
     }
 
     /**
-     * Create request for operation 'instancesInstanceKeyBusinessCatalogGet'
+     * Create request for operation 'fetchCatlog'
      *
      * @param  string $instance_key Instance key (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyBusinessCatalogGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fetchCatlog'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function instancesInstanceKeyBusinessCatalogGetRequest($instance_key, string $contentType = self::contentTypes['instancesInstanceKeyBusinessCatalogGet'][0])
+    public function fetchCatlogRequest($instance_key, string $contentType = self::contentTypes['fetchCatlog'][0])
     {
 
         // verify the required parameter 'instance_key' is set
         if ($instance_key === null || (is_array($instance_key) && count($instance_key) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $instance_key when calling instancesInstanceKeyBusinessCatalogGet'
+                'Missing the required parameter $instance_key when calling fetchCatlog'
             );
         }
 

@@ -72,52 +72,52 @@ class GroupManagementApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'instancesInstanceKeyGroupsAdminGet' => [
+        'addParticipant' => [
             'application/json',
         ],
-        'instancesInstanceKeyGroupsCreatePost' => [
+        'createGroup' => [
             'application/json',
         ],
-        'instancesInstanceKeyGroupsGet' => [
+        'demoteParticipant' => [
             'application/json',
         ],
-        'instancesInstanceKeyGroupsGroupIdAnnouncePut' => [
+        'getAdminGroups' => [
             'application/json',
         ],
-        'instancesInstanceKeyGroupsGroupIdDelete' => [
+        'getAllGroups' => [
             'application/json',
         ],
-        'instancesInstanceKeyGroupsGroupIdDescriptionPut' => [
+        'getGroup' => [
             'application/json',
         ],
-        'instancesInstanceKeyGroupsGroupIdGet' => [
+        'getGroupFromInviteLink' => [
             'application/json',
         ],
-        'instancesInstanceKeyGroupsGroupIdInviteCodeGet' => [
+        'getGroupInviteCode' => [
             'application/json',
         ],
-        'instancesInstanceKeyGroupsGroupIdLockPut' => [
+        'leaveGroup' => [
             'application/json',
         ],
-        'instancesInstanceKeyGroupsGroupIdNamePut' => [
+        'promoteParticipant' => [
             'application/json',
         ],
-        'instancesInstanceKeyGroupsGroupIdParticipantsAddPost' => [
+        'removeParticipant' => [
             'application/json',
         ],
-        'instancesInstanceKeyGroupsGroupIdParticipantsDemotePut' => [
+        'setGroupAnnounce' => [
             'application/json',
         ],
-        'instancesInstanceKeyGroupsGroupIdParticipantsPromotePut' => [
+        'setGroupDescription' => [
             'application/json',
         ],
-        'instancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete' => [
+        'setGroupLocked' => [
             'application/json',
         ],
-        'instancesInstanceKeyGroupsGroupIdProfilePicPut' => [
+        'setGroupName' => [
             'application/json',
         ],
-        'instancesInstanceKeyGroupsInviteInfoGet' => [
+        'setGroupPicture' => [
             'application/json',
         ],
     ];
@@ -169,38 +169,42 @@ class GroupManagementApi
     }
 
     /**
-     * Operation instancesInstanceKeyGroupsAdminGet
+     * Operation addParticipant
      *
-     * Get admin groupss.
+     * Add participant.
      *
      * @param  string $instance_key Instance key (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsAdminGet'] to see the possible values for this operation
+     * @param  string $group_id Group id of the group (required)
+     * @param  \WhatsAPI\models\GroupUpdateParticipantsPayload $data Group update payload (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addParticipant'] to see the possible values for this operation
      *
      * @throws \WhatsAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse
      */
-    public function instancesInstanceKeyGroupsAdminGet($instance_key, string $contentType = self::contentTypes['instancesInstanceKeyGroupsAdminGet'][0])
+    public function addParticipant($instance_key, $group_id, $data, string $contentType = self::contentTypes['addParticipant'][0])
     {
-        list($response) = $this->instancesInstanceKeyGroupsAdminGetWithHttpInfo($instance_key, $contentType);
+        list($response) = $this->addParticipantWithHttpInfo($instance_key, $group_id, $data, $contentType);
         return $response;
     }
 
     /**
-     * Operation instancesInstanceKeyGroupsAdminGetWithHttpInfo
+     * Operation addParticipantWithHttpInfo
      *
-     * Get admin groupss.
+     * Add participant.
      *
      * @param  string $instance_key Instance key (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsAdminGet'] to see the possible values for this operation
+     * @param  string $group_id Group id of the group (required)
+     * @param  \WhatsAPI\models\GroupUpdateParticipantsPayload $data Group update payload (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addParticipant'] to see the possible values for this operation
      *
      * @throws \WhatsAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function instancesInstanceKeyGroupsAdminGetWithHttpInfo($instance_key, string $contentType = self::contentTypes['instancesInstanceKeyGroupsAdminGet'][0])
+    public function addParticipantWithHttpInfo($instance_key, $group_id, $data, string $contentType = self::contentTypes['addParticipant'][0])
     {
-        $request = $this->instancesInstanceKeyGroupsAdminGetRequest($instance_key, $contentType);
+        $request = $this->addParticipantRequest($instance_key, $group_id, $data, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -379,19 +383,21 @@ class GroupManagementApi
     }
 
     /**
-     * Operation instancesInstanceKeyGroupsAdminGetAsync
+     * Operation addParticipantAsync
      *
-     * Get admin groupss.
+     * Add participant.
      *
      * @param  string $instance_key Instance key (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsAdminGet'] to see the possible values for this operation
+     * @param  string $group_id Group id of the group (required)
+     * @param  \WhatsAPI\models\GroupUpdateParticipantsPayload $data Group update payload (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addParticipant'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function instancesInstanceKeyGroupsAdminGetAsync($instance_key, string $contentType = self::contentTypes['instancesInstanceKeyGroupsAdminGet'][0])
+    public function addParticipantAsync($instance_key, $group_id, $data, string $contentType = self::contentTypes['addParticipant'][0])
     {
-        return $this->instancesInstanceKeyGroupsAdminGetAsyncWithHttpInfo($instance_key, $contentType)
+        return $this->addParticipantAsyncWithHttpInfo($instance_key, $group_id, $data, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -400,20 +406,22 @@ class GroupManagementApi
     }
 
     /**
-     * Operation instancesInstanceKeyGroupsAdminGetAsyncWithHttpInfo
+     * Operation addParticipantAsyncWithHttpInfo
      *
-     * Get admin groupss.
+     * Add participant.
      *
      * @param  string $instance_key Instance key (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsAdminGet'] to see the possible values for this operation
+     * @param  string $group_id Group id of the group (required)
+     * @param  \WhatsAPI\models\GroupUpdateParticipantsPayload $data Group update payload (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addParticipant'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function instancesInstanceKeyGroupsAdminGetAsyncWithHttpInfo($instance_key, string $contentType = self::contentTypes['instancesInstanceKeyGroupsAdminGet'][0])
+    public function addParticipantAsyncWithHttpInfo($instance_key, $group_id, $data, string $contentType = self::contentTypes['addParticipant'][0])
     {
         $returnType = '\WhatsAPI\models\APIResponse';
-        $request = $this->instancesInstanceKeyGroupsAdminGetRequest($instance_key, $contentType);
+        $request = $this->addParticipantRequest($instance_key, $group_id, $data, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -452,26 +460,42 @@ class GroupManagementApi
     }
 
     /**
-     * Create request for operation 'instancesInstanceKeyGroupsAdminGet'
+     * Create request for operation 'addParticipant'
      *
      * @param  string $instance_key Instance key (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsAdminGet'] to see the possible values for this operation
+     * @param  string $group_id Group id of the group (required)
+     * @param  \WhatsAPI\models\GroupUpdateParticipantsPayload $data Group update payload (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addParticipant'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function instancesInstanceKeyGroupsAdminGetRequest($instance_key, string $contentType = self::contentTypes['instancesInstanceKeyGroupsAdminGet'][0])
+    public function addParticipantRequest($instance_key, $group_id, $data, string $contentType = self::contentTypes['addParticipant'][0])
     {
 
         // verify the required parameter 'instance_key' is set
         if ($instance_key === null || (is_array($instance_key) && count($instance_key) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $instance_key when calling instancesInstanceKeyGroupsAdminGet'
+                'Missing the required parameter $instance_key when calling addParticipant'
+            );
+        }
+
+        // verify the required parameter 'group_id' is set
+        if ($group_id === null || (is_array($group_id) && count($group_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $group_id when calling addParticipant'
+            );
+        }
+
+        // verify the required parameter 'data' is set
+        if ($data === null || (is_array($data) && count($data) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $data when calling addParticipant'
             );
         }
 
 
-        $resourcePath = '/instances/{instance_key}/groups/admin';
+        $resourcePath = '/instances/{instance_key}/groups/{group_id}/participants/add';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -488,6 +512,14 @@ class GroupManagementApi
                 $resourcePath
             );
         }
+        // path params
+        if ($group_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'group_id' . '}',
+                ObjectSerializer::toPathValue($group_id),
+                $resourcePath
+            );
+        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -497,7 +529,14 @@ class GroupManagementApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($data)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($data));
+            } else {
+                $httpBody = $data;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -541,7 +580,7 @@ class GroupManagementApi
         $operationHost = $this->config->getHost();
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
-            'GET',
+            'POST',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -549,40 +588,40 @@ class GroupManagementApi
     }
 
     /**
-     * Operation instancesInstanceKeyGroupsCreatePost
+     * Operation createGroup
      *
      * Create group.
      *
      * @param  string $instance_key Instance key (required)
      * @param  \WhatsAPI\models\GroupCreatePayload $data Group create payload (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsCreatePost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createGroup'] to see the possible values for this operation
      *
      * @throws \WhatsAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse
      */
-    public function instancesInstanceKeyGroupsCreatePost($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeyGroupsCreatePost'][0])
+    public function createGroup($instance_key, $data, string $contentType = self::contentTypes['createGroup'][0])
     {
-        list($response) = $this->instancesInstanceKeyGroupsCreatePostWithHttpInfo($instance_key, $data, $contentType);
+        list($response) = $this->createGroupWithHttpInfo($instance_key, $data, $contentType);
         return $response;
     }
 
     /**
-     * Operation instancesInstanceKeyGroupsCreatePostWithHttpInfo
+     * Operation createGroupWithHttpInfo
      *
      * Create group.
      *
      * @param  string $instance_key Instance key (required)
      * @param  \WhatsAPI\models\GroupCreatePayload $data Group create payload (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsCreatePost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createGroup'] to see the possible values for this operation
      *
      * @throws \WhatsAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function instancesInstanceKeyGroupsCreatePostWithHttpInfo($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeyGroupsCreatePost'][0])
+    public function createGroupWithHttpInfo($instance_key, $data, string $contentType = self::contentTypes['createGroup'][0])
     {
-        $request = $this->instancesInstanceKeyGroupsCreatePostRequest($instance_key, $data, $contentType);
+        $request = $this->createGroupRequest($instance_key, $data, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -761,20 +800,20 @@ class GroupManagementApi
     }
 
     /**
-     * Operation instancesInstanceKeyGroupsCreatePostAsync
+     * Operation createGroupAsync
      *
      * Create group.
      *
      * @param  string $instance_key Instance key (required)
      * @param  \WhatsAPI\models\GroupCreatePayload $data Group create payload (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsCreatePost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createGroup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function instancesInstanceKeyGroupsCreatePostAsync($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeyGroupsCreatePost'][0])
+    public function createGroupAsync($instance_key, $data, string $contentType = self::contentTypes['createGroup'][0])
     {
-        return $this->instancesInstanceKeyGroupsCreatePostAsyncWithHttpInfo($instance_key, $data, $contentType)
+        return $this->createGroupAsyncWithHttpInfo($instance_key, $data, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -783,21 +822,21 @@ class GroupManagementApi
     }
 
     /**
-     * Operation instancesInstanceKeyGroupsCreatePostAsyncWithHttpInfo
+     * Operation createGroupAsyncWithHttpInfo
      *
      * Create group.
      *
      * @param  string $instance_key Instance key (required)
      * @param  \WhatsAPI\models\GroupCreatePayload $data Group create payload (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsCreatePost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createGroup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function instancesInstanceKeyGroupsCreatePostAsyncWithHttpInfo($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeyGroupsCreatePost'][0])
+    public function createGroupAsyncWithHttpInfo($instance_key, $data, string $contentType = self::contentTypes['createGroup'][0])
     {
         $returnType = '\WhatsAPI\models\APIResponse';
-        $request = $this->instancesInstanceKeyGroupsCreatePostRequest($instance_key, $data, $contentType);
+        $request = $this->createGroupRequest($instance_key, $data, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -836,29 +875,29 @@ class GroupManagementApi
     }
 
     /**
-     * Create request for operation 'instancesInstanceKeyGroupsCreatePost'
+     * Create request for operation 'createGroup'
      *
      * @param  string $instance_key Instance key (required)
      * @param  \WhatsAPI\models\GroupCreatePayload $data Group create payload (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsCreatePost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createGroup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function instancesInstanceKeyGroupsCreatePostRequest($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeyGroupsCreatePost'][0])
+    public function createGroupRequest($instance_key, $data, string $contentType = self::contentTypes['createGroup'][0])
     {
 
         // verify the required parameter 'instance_key' is set
         if ($instance_key === null || (is_array($instance_key) && count($instance_key) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $instance_key when calling instancesInstanceKeyGroupsCreatePost'
+                'Missing the required parameter $instance_key when calling createGroup'
             );
         }
 
         // verify the required parameter 'data' is set
         if ($data === null || (is_array($data) && count($data) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $data when calling instancesInstanceKeyGroupsCreatePost'
+                'Missing the required parameter $data when calling createGroup'
             );
         }
 
@@ -948,40 +987,42 @@ class GroupManagementApi
     }
 
     /**
-     * Operation instancesInstanceKeyGroupsGet
+     * Operation demoteParticipant
      *
-     * Get all groups.
+     * Demote participant.
      *
      * @param  string $instance_key Instance key (required)
-     * @param  string $include_participants Include participants data (optional, default to 'true')
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGet'] to see the possible values for this operation
+     * @param  string $group_id Group id of the group (required)
+     * @param  \WhatsAPI\models\GroupUpdateParticipantsPayload $data Group update payload (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['demoteParticipant'] to see the possible values for this operation
      *
      * @throws \WhatsAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse
      */
-    public function instancesInstanceKeyGroupsGet($instance_key, $include_participants = 'true', string $contentType = self::contentTypes['instancesInstanceKeyGroupsGet'][0])
+    public function demoteParticipant($instance_key, $group_id, $data, string $contentType = self::contentTypes['demoteParticipant'][0])
     {
-        list($response) = $this->instancesInstanceKeyGroupsGetWithHttpInfo($instance_key, $include_participants, $contentType);
+        list($response) = $this->demoteParticipantWithHttpInfo($instance_key, $group_id, $data, $contentType);
         return $response;
     }
 
     /**
-     * Operation instancesInstanceKeyGroupsGetWithHttpInfo
+     * Operation demoteParticipantWithHttpInfo
      *
-     * Get all groups.
+     * Demote participant.
      *
      * @param  string $instance_key Instance key (required)
-     * @param  string $include_participants Include participants data (optional, default to 'true')
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGet'] to see the possible values for this operation
+     * @param  string $group_id Group id of the group (required)
+     * @param  \WhatsAPI\models\GroupUpdateParticipantsPayload $data Group update payload (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['demoteParticipant'] to see the possible values for this operation
      *
      * @throws \WhatsAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function instancesInstanceKeyGroupsGetWithHttpInfo($instance_key, $include_participants = 'true', string $contentType = self::contentTypes['instancesInstanceKeyGroupsGet'][0])
+    public function demoteParticipantWithHttpInfo($instance_key, $group_id, $data, string $contentType = self::contentTypes['demoteParticipant'][0])
     {
-        $request = $this->instancesInstanceKeyGroupsGetRequest($instance_key, $include_participants, $contentType);
+        $request = $this->demoteParticipantRequest($instance_key, $group_id, $data, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1160,20 +1201,21 @@ class GroupManagementApi
     }
 
     /**
-     * Operation instancesInstanceKeyGroupsGetAsync
+     * Operation demoteParticipantAsync
      *
-     * Get all groups.
+     * Demote participant.
      *
      * @param  string $instance_key Instance key (required)
-     * @param  string $include_participants Include participants data (optional, default to 'true')
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGet'] to see the possible values for this operation
+     * @param  string $group_id Group id of the group (required)
+     * @param  \WhatsAPI\models\GroupUpdateParticipantsPayload $data Group update payload (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['demoteParticipant'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function instancesInstanceKeyGroupsGetAsync($instance_key, $include_participants = 'true', string $contentType = self::contentTypes['instancesInstanceKeyGroupsGet'][0])
+    public function demoteParticipantAsync($instance_key, $group_id, $data, string $contentType = self::contentTypes['demoteParticipant'][0])
     {
-        return $this->instancesInstanceKeyGroupsGetAsyncWithHttpInfo($instance_key, $include_participants, $contentType)
+        return $this->demoteParticipantAsyncWithHttpInfo($instance_key, $group_id, $data, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1182,21 +1224,22 @@ class GroupManagementApi
     }
 
     /**
-     * Operation instancesInstanceKeyGroupsGetAsyncWithHttpInfo
+     * Operation demoteParticipantAsyncWithHttpInfo
      *
-     * Get all groups.
+     * Demote participant.
      *
      * @param  string $instance_key Instance key (required)
-     * @param  string $include_participants Include participants data (optional, default to 'true')
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGet'] to see the possible values for this operation
+     * @param  string $group_id Group id of the group (required)
+     * @param  \WhatsAPI\models\GroupUpdateParticipantsPayload $data Group update payload (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['demoteParticipant'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function instancesInstanceKeyGroupsGetAsyncWithHttpInfo($instance_key, $include_participants = 'true', string $contentType = self::contentTypes['instancesInstanceKeyGroupsGet'][0])
+    public function demoteParticipantAsyncWithHttpInfo($instance_key, $group_id, $data, string $contentType = self::contentTypes['demoteParticipant'][0])
     {
         $returnType = '\WhatsAPI\models\APIResponse';
-        $request = $this->instancesInstanceKeyGroupsGetRequest($instance_key, $include_participants, $contentType);
+        $request = $this->demoteParticipantRequest($instance_key, $group_id, $data, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1235,22 +1278,817 @@ class GroupManagementApi
     }
 
     /**
-     * Create request for operation 'instancesInstanceKeyGroupsGet'
+     * Create request for operation 'demoteParticipant'
      *
      * @param  string $instance_key Instance key (required)
-     * @param  string $include_participants Include participants data (optional, default to 'true')
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGet'] to see the possible values for this operation
+     * @param  string $group_id Group id of the group (required)
+     * @param  \WhatsAPI\models\GroupUpdateParticipantsPayload $data Group update payload (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['demoteParticipant'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function instancesInstanceKeyGroupsGetRequest($instance_key, $include_participants = 'true', string $contentType = self::contentTypes['instancesInstanceKeyGroupsGet'][0])
+    public function demoteParticipantRequest($instance_key, $group_id, $data, string $contentType = self::contentTypes['demoteParticipant'][0])
     {
 
         // verify the required parameter 'instance_key' is set
         if ($instance_key === null || (is_array($instance_key) && count($instance_key) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $instance_key when calling instancesInstanceKeyGroupsGet'
+                'Missing the required parameter $instance_key when calling demoteParticipant'
+            );
+        }
+
+        // verify the required parameter 'group_id' is set
+        if ($group_id === null || (is_array($group_id) && count($group_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $group_id when calling demoteParticipant'
+            );
+        }
+
+        // verify the required parameter 'data' is set
+        if ($data === null || (is_array($data) && count($data) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $data when calling demoteParticipant'
+            );
+        }
+
+
+        $resourcePath = '/instances/{instance_key}/groups/{group_id}/participants/demote';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($instance_key !== null) {
+            $resourcePath = str_replace(
+                '{' . 'instance_key' . '}',
+                ObjectSerializer::toPathValue($instance_key),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($group_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'group_id' . '}',
+                ObjectSerializer::toPathValue($group_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['*/*', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($data)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($data));
+            } else {
+                $httpBody = $data;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PUT',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getAdminGroups
+     *
+     * Get admin groups.
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdminGroups'] to see the possible values for this operation
+     *
+     * @throws \WhatsAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse
+     */
+    public function getAdminGroups($instance_key, string $contentType = self::contentTypes['getAdminGroups'][0])
+    {
+        list($response) = $this->getAdminGroupsWithHttpInfo($instance_key, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getAdminGroupsWithHttpInfo
+     *
+     * Get admin groups.
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdminGroups'] to see the possible values for this operation
+     *
+     * @throws \WhatsAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getAdminGroupsWithHttpInfo($instance_key, string $contentType = self::contentTypes['getAdminGroups'][0])
+    {
+        $request = $this->getAdminGroupsRequest($instance_key, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\WhatsAPI\models\APIResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getAdminGroupsAsync
+     *
+     * Get admin groups.
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdminGroups'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAdminGroupsAsync($instance_key, string $contentType = self::contentTypes['getAdminGroups'][0])
+    {
+        return $this->getAdminGroupsAsyncWithHttpInfo($instance_key, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getAdminGroupsAsyncWithHttpInfo
+     *
+     * Get admin groups.
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdminGroups'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAdminGroupsAsyncWithHttpInfo($instance_key, string $contentType = self::contentTypes['getAdminGroups'][0])
+    {
+        $returnType = '\WhatsAPI\models\APIResponse';
+        $request = $this->getAdminGroupsRequest($instance_key, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getAdminGroups'
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdminGroups'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getAdminGroupsRequest($instance_key, string $contentType = self::contentTypes['getAdminGroups'][0])
+    {
+
+        // verify the required parameter 'instance_key' is set
+        if ($instance_key === null || (is_array($instance_key) && count($instance_key) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $instance_key when calling getAdminGroups'
+            );
+        }
+
+
+        $resourcePath = '/instances/{instance_key}/groups/admin';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($instance_key !== null) {
+            $resourcePath = str_replace(
+                '{' . 'instance_key' . '}',
+                ObjectSerializer::toPathValue($instance_key),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['*/*', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getAllGroups
+     *
+     * Get all groups.
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  string $include_participants Include participants data (optional, default to 'true')
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllGroups'] to see the possible values for this operation
+     *
+     * @throws \WhatsAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse
+     */
+    public function getAllGroups($instance_key, $include_participants = 'true', string $contentType = self::contentTypes['getAllGroups'][0])
+    {
+        list($response) = $this->getAllGroupsWithHttpInfo($instance_key, $include_participants, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getAllGroupsWithHttpInfo
+     *
+     * Get all groups.
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  string $include_participants Include participants data (optional, default to 'true')
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllGroups'] to see the possible values for this operation
+     *
+     * @throws \WhatsAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getAllGroupsWithHttpInfo($instance_key, $include_participants = 'true', string $contentType = self::contentTypes['getAllGroups'][0])
+    {
+        $request = $this->getAllGroupsRequest($instance_key, $include_participants, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\WhatsAPI\models\APIResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getAllGroupsAsync
+     *
+     * Get all groups.
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  string $include_participants Include participants data (optional, default to 'true')
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllGroups'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAllGroupsAsync($instance_key, $include_participants = 'true', string $contentType = self::contentTypes['getAllGroups'][0])
+    {
+        return $this->getAllGroupsAsyncWithHttpInfo($instance_key, $include_participants, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getAllGroupsAsyncWithHttpInfo
+     *
+     * Get all groups.
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  string $include_participants Include participants data (optional, default to 'true')
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllGroups'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAllGroupsAsyncWithHttpInfo($instance_key, $include_participants = 'true', string $contentType = self::contentTypes['getAllGroups'][0])
+    {
+        $returnType = '\WhatsAPI\models\APIResponse';
+        $request = $this->getAllGroupsRequest($instance_key, $include_participants, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getAllGroups'
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  string $include_participants Include participants data (optional, default to 'true')
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllGroups'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getAllGroupsRequest($instance_key, $include_participants = 'true', string $contentType = self::contentTypes['getAllGroups'][0])
+    {
+
+        // verify the required parameter 'instance_key' is set
+        if ($instance_key === null || (is_array($instance_key) && count($instance_key) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $instance_key when calling getAllGroups'
             );
         }
 
@@ -1343,42 +2181,40 @@ class GroupManagementApi
     }
 
     /**
-     * Operation instancesInstanceKeyGroupsGroupIdAnnouncePut
+     * Operation getGroup
      *
-     * Set group announce.
+     * Get group.
      *
      * @param  string $instance_key Instance key (required)
-     * @param  bool $announce Announce status (required)
      * @param  string $group_id Group id of the group (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdAnnouncePut'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGroup'] to see the possible values for this operation
      *
      * @throws \WhatsAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse
      */
-    public function instancesInstanceKeyGroupsGroupIdAnnouncePut($instance_key, $announce, $group_id, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdAnnouncePut'][0])
+    public function getGroup($instance_key, $group_id, string $contentType = self::contentTypes['getGroup'][0])
     {
-        list($response) = $this->instancesInstanceKeyGroupsGroupIdAnnouncePutWithHttpInfo($instance_key, $announce, $group_id, $contentType);
+        list($response) = $this->getGroupWithHttpInfo($instance_key, $group_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation instancesInstanceKeyGroupsGroupIdAnnouncePutWithHttpInfo
+     * Operation getGroupWithHttpInfo
      *
-     * Set group announce.
+     * Get group.
      *
      * @param  string $instance_key Instance key (required)
-     * @param  bool $announce Announce status (required)
      * @param  string $group_id Group id of the group (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdAnnouncePut'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGroup'] to see the possible values for this operation
      *
      * @throws \WhatsAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function instancesInstanceKeyGroupsGroupIdAnnouncePutWithHttpInfo($instance_key, $announce, $group_id, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdAnnouncePut'][0])
+    public function getGroupWithHttpInfo($instance_key, $group_id, string $contentType = self::contentTypes['getGroup'][0])
     {
-        $request = $this->instancesInstanceKeyGroupsGroupIdAnnouncePutRequest($instance_key, $announce, $group_id, $contentType);
+        $request = $this->getGroupRequest($instance_key, $group_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1557,21 +2393,20 @@ class GroupManagementApi
     }
 
     /**
-     * Operation instancesInstanceKeyGroupsGroupIdAnnouncePutAsync
+     * Operation getGroupAsync
      *
-     * Set group announce.
+     * Get group.
      *
      * @param  string $instance_key Instance key (required)
-     * @param  bool $announce Announce status (required)
      * @param  string $group_id Group id of the group (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdAnnouncePut'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGroup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function instancesInstanceKeyGroupsGroupIdAnnouncePutAsync($instance_key, $announce, $group_id, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdAnnouncePut'][0])
+    public function getGroupAsync($instance_key, $group_id, string $contentType = self::contentTypes['getGroup'][0])
     {
-        return $this->instancesInstanceKeyGroupsGroupIdAnnouncePutAsyncWithHttpInfo($instance_key, $announce, $group_id, $contentType)
+        return $this->getGroupAsyncWithHttpInfo($instance_key, $group_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1580,22 +2415,21 @@ class GroupManagementApi
     }
 
     /**
-     * Operation instancesInstanceKeyGroupsGroupIdAnnouncePutAsyncWithHttpInfo
+     * Operation getGroupAsyncWithHttpInfo
      *
-     * Set group announce.
+     * Get group.
      *
      * @param  string $instance_key Instance key (required)
-     * @param  bool $announce Announce status (required)
      * @param  string $group_id Group id of the group (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdAnnouncePut'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGroup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function instancesInstanceKeyGroupsGroupIdAnnouncePutAsyncWithHttpInfo($instance_key, $announce, $group_id, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdAnnouncePut'][0])
+    public function getGroupAsyncWithHttpInfo($instance_key, $group_id, string $contentType = self::contentTypes['getGroup'][0])
     {
         $returnType = '\WhatsAPI\models\APIResponse';
-        $request = $this->instancesInstanceKeyGroupsGroupIdAnnouncePutRequest($instance_key, $announce, $group_id, $contentType);
+        $request = $this->getGroupRequest($instance_key, $group_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1634,37 +2468,2480 @@ class GroupManagementApi
     }
 
     /**
-     * Create request for operation 'instancesInstanceKeyGroupsGroupIdAnnouncePut'
+     * Create request for operation 'getGroup'
      *
      * @param  string $instance_key Instance key (required)
-     * @param  bool $announce Announce status (required)
      * @param  string $group_id Group id of the group (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdAnnouncePut'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGroup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function instancesInstanceKeyGroupsGroupIdAnnouncePutRequest($instance_key, $announce, $group_id, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdAnnouncePut'][0])
+    public function getGroupRequest($instance_key, $group_id, string $contentType = self::contentTypes['getGroup'][0])
     {
 
         // verify the required parameter 'instance_key' is set
         if ($instance_key === null || (is_array($instance_key) && count($instance_key) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $instance_key when calling instancesInstanceKeyGroupsGroupIdAnnouncePut'
-            );
-        }
-
-        // verify the required parameter 'announce' is set
-        if ($announce === null || (is_array($announce) && count($announce) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $announce when calling instancesInstanceKeyGroupsGroupIdAnnouncePut'
+                'Missing the required parameter $instance_key when calling getGroup'
             );
         }
 
         // verify the required parameter 'group_id' is set
         if ($group_id === null || (is_array($group_id) && count($group_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $group_id when calling instancesInstanceKeyGroupsGroupIdAnnouncePut'
+                'Missing the required parameter $group_id when calling getGroup'
+            );
+        }
+
+
+        $resourcePath = '/instances/{instance_key}/groups/{group_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($instance_key !== null) {
+            $resourcePath = str_replace(
+                '{' . 'instance_key' . '}',
+                ObjectSerializer::toPathValue($instance_key),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($group_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'group_id' . '}',
+                ObjectSerializer::toPathValue($group_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['*/*', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getGroupFromInviteLink
+     *
+     * Get group from invite link.
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  string $invite_link The invite link to check (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGroupFromInviteLink'] to see the possible values for this operation
+     *
+     * @throws \WhatsAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse
+     */
+    public function getGroupFromInviteLink($instance_key, $invite_link, string $contentType = self::contentTypes['getGroupFromInviteLink'][0])
+    {
+        list($response) = $this->getGroupFromInviteLinkWithHttpInfo($instance_key, $invite_link, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getGroupFromInviteLinkWithHttpInfo
+     *
+     * Get group from invite link.
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  string $invite_link The invite link to check (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGroupFromInviteLink'] to see the possible values for this operation
+     *
+     * @throws \WhatsAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getGroupFromInviteLinkWithHttpInfo($instance_key, $invite_link, string $contentType = self::contentTypes['getGroupFromInviteLink'][0])
+    {
+        $request = $this->getGroupFromInviteLinkRequest($instance_key, $invite_link, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\WhatsAPI\models\APIResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getGroupFromInviteLinkAsync
+     *
+     * Get group from invite link.
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  string $invite_link The invite link to check (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGroupFromInviteLink'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getGroupFromInviteLinkAsync($instance_key, $invite_link, string $contentType = self::contentTypes['getGroupFromInviteLink'][0])
+    {
+        return $this->getGroupFromInviteLinkAsyncWithHttpInfo($instance_key, $invite_link, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getGroupFromInviteLinkAsyncWithHttpInfo
+     *
+     * Get group from invite link.
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  string $invite_link The invite link to check (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGroupFromInviteLink'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getGroupFromInviteLinkAsyncWithHttpInfo($instance_key, $invite_link, string $contentType = self::contentTypes['getGroupFromInviteLink'][0])
+    {
+        $returnType = '\WhatsAPI\models\APIResponse';
+        $request = $this->getGroupFromInviteLinkRequest($instance_key, $invite_link, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getGroupFromInviteLink'
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  string $invite_link The invite link to check (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGroupFromInviteLink'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getGroupFromInviteLinkRequest($instance_key, $invite_link, string $contentType = self::contentTypes['getGroupFromInviteLink'][0])
+    {
+
+        // verify the required parameter 'instance_key' is set
+        if ($instance_key === null || (is_array($instance_key) && count($instance_key) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $instance_key when calling getGroupFromInviteLink'
+            );
+        }
+
+        // verify the required parameter 'invite_link' is set
+        if ($invite_link === null || (is_array($invite_link) && count($invite_link) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $invite_link when calling getGroupFromInviteLink'
+            );
+        }
+
+
+        $resourcePath = '/instances/{instance_key}/groups/invite-info';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $invite_link,
+            'invite_link', // param base name
+            'string', // openApiType
+            '', // style
+            false, // explode
+            true // required
+        ) ?? []);
+
+
+        // path params
+        if ($instance_key !== null) {
+            $resourcePath = str_replace(
+                '{' . 'instance_key' . '}',
+                ObjectSerializer::toPathValue($instance_key),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['*/*', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getGroupInviteCode
+     *
+     * Get group invite code.
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  string $group_id Group id of the group (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGroupInviteCode'] to see the possible values for this operation
+     *
+     * @throws \WhatsAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse
+     */
+    public function getGroupInviteCode($instance_key, $group_id, string $contentType = self::contentTypes['getGroupInviteCode'][0])
+    {
+        list($response) = $this->getGroupInviteCodeWithHttpInfo($instance_key, $group_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getGroupInviteCodeWithHttpInfo
+     *
+     * Get group invite code.
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  string $group_id Group id of the group (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGroupInviteCode'] to see the possible values for this operation
+     *
+     * @throws \WhatsAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getGroupInviteCodeWithHttpInfo($instance_key, $group_id, string $contentType = self::contentTypes['getGroupInviteCode'][0])
+    {
+        $request = $this->getGroupInviteCodeRequest($instance_key, $group_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\WhatsAPI\models\APIResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getGroupInviteCodeAsync
+     *
+     * Get group invite code.
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  string $group_id Group id of the group (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGroupInviteCode'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getGroupInviteCodeAsync($instance_key, $group_id, string $contentType = self::contentTypes['getGroupInviteCode'][0])
+    {
+        return $this->getGroupInviteCodeAsyncWithHttpInfo($instance_key, $group_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getGroupInviteCodeAsyncWithHttpInfo
+     *
+     * Get group invite code.
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  string $group_id Group id of the group (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGroupInviteCode'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getGroupInviteCodeAsyncWithHttpInfo($instance_key, $group_id, string $contentType = self::contentTypes['getGroupInviteCode'][0])
+    {
+        $returnType = '\WhatsAPI\models\APIResponse';
+        $request = $this->getGroupInviteCodeRequest($instance_key, $group_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getGroupInviteCode'
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  string $group_id Group id of the group (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGroupInviteCode'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getGroupInviteCodeRequest($instance_key, $group_id, string $contentType = self::contentTypes['getGroupInviteCode'][0])
+    {
+
+        // verify the required parameter 'instance_key' is set
+        if ($instance_key === null || (is_array($instance_key) && count($instance_key) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $instance_key when calling getGroupInviteCode'
+            );
+        }
+
+        // verify the required parameter 'group_id' is set
+        if ($group_id === null || (is_array($group_id) && count($group_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $group_id when calling getGroupInviteCode'
+            );
+        }
+
+
+        $resourcePath = '/instances/{instance_key}/groups/{group_id}/invite-code';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($instance_key !== null) {
+            $resourcePath = str_replace(
+                '{' . 'instance_key' . '}',
+                ObjectSerializer::toPathValue($instance_key),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($group_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'group_id' . '}',
+                ObjectSerializer::toPathValue($group_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['*/*', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation leaveGroup
+     *
+     * Leaves the group.
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  string $group_id Group id of the group (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['leaveGroup'] to see the possible values for this operation
+     *
+     * @throws \WhatsAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse
+     */
+    public function leaveGroup($instance_key, $group_id, string $contentType = self::contentTypes['leaveGroup'][0])
+    {
+        list($response) = $this->leaveGroupWithHttpInfo($instance_key, $group_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation leaveGroupWithHttpInfo
+     *
+     * Leaves the group.
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  string $group_id Group id of the group (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['leaveGroup'] to see the possible values for this operation
+     *
+     * @throws \WhatsAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function leaveGroupWithHttpInfo($instance_key, $group_id, string $contentType = self::contentTypes['leaveGroup'][0])
+    {
+        $request = $this->leaveGroupRequest($instance_key, $group_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\WhatsAPI\models\APIResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation leaveGroupAsync
+     *
+     * Leaves the group.
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  string $group_id Group id of the group (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['leaveGroup'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function leaveGroupAsync($instance_key, $group_id, string $contentType = self::contentTypes['leaveGroup'][0])
+    {
+        return $this->leaveGroupAsyncWithHttpInfo($instance_key, $group_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation leaveGroupAsyncWithHttpInfo
+     *
+     * Leaves the group.
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  string $group_id Group id of the group (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['leaveGroup'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function leaveGroupAsyncWithHttpInfo($instance_key, $group_id, string $contentType = self::contentTypes['leaveGroup'][0])
+    {
+        $returnType = '\WhatsAPI\models\APIResponse';
+        $request = $this->leaveGroupRequest($instance_key, $group_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'leaveGroup'
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  string $group_id Group id of the group (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['leaveGroup'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function leaveGroupRequest($instance_key, $group_id, string $contentType = self::contentTypes['leaveGroup'][0])
+    {
+
+        // verify the required parameter 'instance_key' is set
+        if ($instance_key === null || (is_array($instance_key) && count($instance_key) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $instance_key when calling leaveGroup'
+            );
+        }
+
+        // verify the required parameter 'group_id' is set
+        if ($group_id === null || (is_array($group_id) && count($group_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $group_id when calling leaveGroup'
+            );
+        }
+
+
+        $resourcePath = '/instances/{instance_key}/groups/{group_id}/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($instance_key !== null) {
+            $resourcePath = str_replace(
+                '{' . 'instance_key' . '}',
+                ObjectSerializer::toPathValue($instance_key),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($group_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'group_id' . '}',
+                ObjectSerializer::toPathValue($group_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['*/*', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'DELETE',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation promoteParticipant
+     *
+     * Promote participant.
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  string $group_id Group id of the group (required)
+     * @param  \WhatsAPI\models\GroupUpdateParticipantsPayload $data Group update payload (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['promoteParticipant'] to see the possible values for this operation
+     *
+     * @throws \WhatsAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse
+     */
+    public function promoteParticipant($instance_key, $group_id, $data, string $contentType = self::contentTypes['promoteParticipant'][0])
+    {
+        list($response) = $this->promoteParticipantWithHttpInfo($instance_key, $group_id, $data, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation promoteParticipantWithHttpInfo
+     *
+     * Promote participant.
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  string $group_id Group id of the group (required)
+     * @param  \WhatsAPI\models\GroupUpdateParticipantsPayload $data Group update payload (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['promoteParticipant'] to see the possible values for this operation
+     *
+     * @throws \WhatsAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function promoteParticipantWithHttpInfo($instance_key, $group_id, $data, string $contentType = self::contentTypes['promoteParticipant'][0])
+    {
+        $request = $this->promoteParticipantRequest($instance_key, $group_id, $data, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\WhatsAPI\models\APIResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation promoteParticipantAsync
+     *
+     * Promote participant.
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  string $group_id Group id of the group (required)
+     * @param  \WhatsAPI\models\GroupUpdateParticipantsPayload $data Group update payload (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['promoteParticipant'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function promoteParticipantAsync($instance_key, $group_id, $data, string $contentType = self::contentTypes['promoteParticipant'][0])
+    {
+        return $this->promoteParticipantAsyncWithHttpInfo($instance_key, $group_id, $data, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation promoteParticipantAsyncWithHttpInfo
+     *
+     * Promote participant.
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  string $group_id Group id of the group (required)
+     * @param  \WhatsAPI\models\GroupUpdateParticipantsPayload $data Group update payload (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['promoteParticipant'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function promoteParticipantAsyncWithHttpInfo($instance_key, $group_id, $data, string $contentType = self::contentTypes['promoteParticipant'][0])
+    {
+        $returnType = '\WhatsAPI\models\APIResponse';
+        $request = $this->promoteParticipantRequest($instance_key, $group_id, $data, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'promoteParticipant'
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  string $group_id Group id of the group (required)
+     * @param  \WhatsAPI\models\GroupUpdateParticipantsPayload $data Group update payload (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['promoteParticipant'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function promoteParticipantRequest($instance_key, $group_id, $data, string $contentType = self::contentTypes['promoteParticipant'][0])
+    {
+
+        // verify the required parameter 'instance_key' is set
+        if ($instance_key === null || (is_array($instance_key) && count($instance_key) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $instance_key when calling promoteParticipant'
+            );
+        }
+
+        // verify the required parameter 'group_id' is set
+        if ($group_id === null || (is_array($group_id) && count($group_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $group_id when calling promoteParticipant'
+            );
+        }
+
+        // verify the required parameter 'data' is set
+        if ($data === null || (is_array($data) && count($data) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $data when calling promoteParticipant'
+            );
+        }
+
+
+        $resourcePath = '/instances/{instance_key}/groups/{group_id}/participants/promote';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($instance_key !== null) {
+            $resourcePath = str_replace(
+                '{' . 'instance_key' . '}',
+                ObjectSerializer::toPathValue($instance_key),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($group_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'group_id' . '}',
+                ObjectSerializer::toPathValue($group_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['*/*', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($data)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($data));
+            } else {
+                $httpBody = $data;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PUT',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation removeParticipant
+     *
+     * Remove participant.
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  string $group_id Group id of the group (required)
+     * @param  \WhatsAPI\models\GroupUpdateParticipantsPayload $data Group update payload (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['removeParticipant'] to see the possible values for this operation
+     *
+     * @throws \WhatsAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse
+     */
+    public function removeParticipant($instance_key, $group_id, $data, string $contentType = self::contentTypes['removeParticipant'][0])
+    {
+        list($response) = $this->removeParticipantWithHttpInfo($instance_key, $group_id, $data, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation removeParticipantWithHttpInfo
+     *
+     * Remove participant.
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  string $group_id Group id of the group (required)
+     * @param  \WhatsAPI\models\GroupUpdateParticipantsPayload $data Group update payload (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['removeParticipant'] to see the possible values for this operation
+     *
+     * @throws \WhatsAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function removeParticipantWithHttpInfo($instance_key, $group_id, $data, string $contentType = self::contentTypes['removeParticipant'][0])
+    {
+        $request = $this->removeParticipantRequest($instance_key, $group_id, $data, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\WhatsAPI\models\APIResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation removeParticipantAsync
+     *
+     * Remove participant.
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  string $group_id Group id of the group (required)
+     * @param  \WhatsAPI\models\GroupUpdateParticipantsPayload $data Group update payload (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['removeParticipant'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function removeParticipantAsync($instance_key, $group_id, $data, string $contentType = self::contentTypes['removeParticipant'][0])
+    {
+        return $this->removeParticipantAsyncWithHttpInfo($instance_key, $group_id, $data, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation removeParticipantAsyncWithHttpInfo
+     *
+     * Remove participant.
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  string $group_id Group id of the group (required)
+     * @param  \WhatsAPI\models\GroupUpdateParticipantsPayload $data Group update payload (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['removeParticipant'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function removeParticipantAsyncWithHttpInfo($instance_key, $group_id, $data, string $contentType = self::contentTypes['removeParticipant'][0])
+    {
+        $returnType = '\WhatsAPI\models\APIResponse';
+        $request = $this->removeParticipantRequest($instance_key, $group_id, $data, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'removeParticipant'
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  string $group_id Group id of the group (required)
+     * @param  \WhatsAPI\models\GroupUpdateParticipantsPayload $data Group update payload (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['removeParticipant'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function removeParticipantRequest($instance_key, $group_id, $data, string $contentType = self::contentTypes['removeParticipant'][0])
+    {
+
+        // verify the required parameter 'instance_key' is set
+        if ($instance_key === null || (is_array($instance_key) && count($instance_key) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $instance_key when calling removeParticipant'
+            );
+        }
+
+        // verify the required parameter 'group_id' is set
+        if ($group_id === null || (is_array($group_id) && count($group_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $group_id when calling removeParticipant'
+            );
+        }
+
+        // verify the required parameter 'data' is set
+        if ($data === null || (is_array($data) && count($data) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $data when calling removeParticipant'
+            );
+        }
+
+
+        $resourcePath = '/instances/{instance_key}/groups/{group_id}/participants/remove';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($instance_key !== null) {
+            $resourcePath = str_replace(
+                '{' . 'instance_key' . '}',
+                ObjectSerializer::toPathValue($instance_key),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($group_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'group_id' . '}',
+                ObjectSerializer::toPathValue($group_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['*/*', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($data)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($data));
+            } else {
+                $httpBody = $data;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'DELETE',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation setGroupAnnounce
+     *
+     * Set group announce.
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  bool $announce Announce status (required)
+     * @param  string $group_id Group id of the group (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setGroupAnnounce'] to see the possible values for this operation
+     *
+     * @throws \WhatsAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse
+     */
+    public function setGroupAnnounce($instance_key, $announce, $group_id, string $contentType = self::contentTypes['setGroupAnnounce'][0])
+    {
+        list($response) = $this->setGroupAnnounceWithHttpInfo($instance_key, $announce, $group_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation setGroupAnnounceWithHttpInfo
+     *
+     * Set group announce.
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  bool $announce Announce status (required)
+     * @param  string $group_id Group id of the group (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setGroupAnnounce'] to see the possible values for this operation
+     *
+     * @throws \WhatsAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function setGroupAnnounceWithHttpInfo($instance_key, $announce, $group_id, string $contentType = self::contentTypes['setGroupAnnounce'][0])
+    {
+        $request = $this->setGroupAnnounceRequest($instance_key, $announce, $group_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\WhatsAPI\models\APIResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation setGroupAnnounceAsync
+     *
+     * Set group announce.
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  bool $announce Announce status (required)
+     * @param  string $group_id Group id of the group (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setGroupAnnounce'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function setGroupAnnounceAsync($instance_key, $announce, $group_id, string $contentType = self::contentTypes['setGroupAnnounce'][0])
+    {
+        return $this->setGroupAnnounceAsyncWithHttpInfo($instance_key, $announce, $group_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation setGroupAnnounceAsyncWithHttpInfo
+     *
+     * Set group announce.
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  bool $announce Announce status (required)
+     * @param  string $group_id Group id of the group (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setGroupAnnounce'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function setGroupAnnounceAsyncWithHttpInfo($instance_key, $announce, $group_id, string $contentType = self::contentTypes['setGroupAnnounce'][0])
+    {
+        $returnType = '\WhatsAPI\models\APIResponse';
+        $request = $this->setGroupAnnounceRequest($instance_key, $announce, $group_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'setGroupAnnounce'
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  bool $announce Announce status (required)
+     * @param  string $group_id Group id of the group (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setGroupAnnounce'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function setGroupAnnounceRequest($instance_key, $announce, $group_id, string $contentType = self::contentTypes['setGroupAnnounce'][0])
+    {
+
+        // verify the required parameter 'instance_key' is set
+        if ($instance_key === null || (is_array($instance_key) && count($instance_key) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $instance_key when calling setGroupAnnounce'
+            );
+        }
+
+        // verify the required parameter 'announce' is set
+        if ($announce === null || (is_array($announce) && count($announce) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $announce when calling setGroupAnnounce'
+            );
+        }
+
+        // verify the required parameter 'group_id' is set
+        if ($group_id === null || (is_array($group_id) && count($group_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $group_id when calling setGroupAnnounce'
             );
         }
 
@@ -1763,40 +5040,42 @@ class GroupManagementApi
     }
 
     /**
-     * Operation instancesInstanceKeyGroupsGroupIdDelete
+     * Operation setGroupDescription
      *
-     * Leaves the group.
+     * Set group description.
      *
      * @param  string $instance_key Instance key (required)
      * @param  string $group_id Group id of the group (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdDelete'] to see the possible values for this operation
+     * @param  \WhatsAPI\models\GroupUpdateDescriptionPayload $data Group description data (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setGroupDescription'] to see the possible values for this operation
      *
      * @throws \WhatsAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse
      */
-    public function instancesInstanceKeyGroupsGroupIdDelete($instance_key, $group_id, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdDelete'][0])
+    public function setGroupDescription($instance_key, $group_id, $data, string $contentType = self::contentTypes['setGroupDescription'][0])
     {
-        list($response) = $this->instancesInstanceKeyGroupsGroupIdDeleteWithHttpInfo($instance_key, $group_id, $contentType);
+        list($response) = $this->setGroupDescriptionWithHttpInfo($instance_key, $group_id, $data, $contentType);
         return $response;
     }
 
     /**
-     * Operation instancesInstanceKeyGroupsGroupIdDeleteWithHttpInfo
+     * Operation setGroupDescriptionWithHttpInfo
      *
-     * Leaves the group.
+     * Set group description.
      *
      * @param  string $instance_key Instance key (required)
      * @param  string $group_id Group id of the group (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdDelete'] to see the possible values for this operation
+     * @param  \WhatsAPI\models\GroupUpdateDescriptionPayload $data Group description data (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setGroupDescription'] to see the possible values for this operation
      *
      * @throws \WhatsAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function instancesInstanceKeyGroupsGroupIdDeleteWithHttpInfo($instance_key, $group_id, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdDelete'][0])
+    public function setGroupDescriptionWithHttpInfo($instance_key, $group_id, $data, string $contentType = self::contentTypes['setGroupDescription'][0])
     {
-        $request = $this->instancesInstanceKeyGroupsGroupIdDeleteRequest($instance_key, $group_id, $contentType);
+        $request = $this->setGroupDescriptionRequest($instance_key, $group_id, $data, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1975,20 +5254,21 @@ class GroupManagementApi
     }
 
     /**
-     * Operation instancesInstanceKeyGroupsGroupIdDeleteAsync
+     * Operation setGroupDescriptionAsync
      *
-     * Leaves the group.
+     * Set group description.
      *
      * @param  string $instance_key Instance key (required)
      * @param  string $group_id Group id of the group (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdDelete'] to see the possible values for this operation
+     * @param  \WhatsAPI\models\GroupUpdateDescriptionPayload $data Group description data (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setGroupDescription'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function instancesInstanceKeyGroupsGroupIdDeleteAsync($instance_key, $group_id, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdDelete'][0])
+    public function setGroupDescriptionAsync($instance_key, $group_id, $data, string $contentType = self::contentTypes['setGroupDescription'][0])
     {
-        return $this->instancesInstanceKeyGroupsGroupIdDeleteAsyncWithHttpInfo($instance_key, $group_id, $contentType)
+        return $this->setGroupDescriptionAsyncWithHttpInfo($instance_key, $group_id, $data, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1997,21 +5277,22 @@ class GroupManagementApi
     }
 
     /**
-     * Operation instancesInstanceKeyGroupsGroupIdDeleteAsyncWithHttpInfo
+     * Operation setGroupDescriptionAsyncWithHttpInfo
      *
-     * Leaves the group.
+     * Set group description.
      *
      * @param  string $instance_key Instance key (required)
      * @param  string $group_id Group id of the group (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdDelete'] to see the possible values for this operation
+     * @param  \WhatsAPI\models\GroupUpdateDescriptionPayload $data Group description data (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setGroupDescription'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function instancesInstanceKeyGroupsGroupIdDeleteAsyncWithHttpInfo($instance_key, $group_id, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdDelete'][0])
+    public function setGroupDescriptionAsyncWithHttpInfo($instance_key, $group_id, $data, string $contentType = self::contentTypes['setGroupDescription'][0])
     {
         $returnType = '\WhatsAPI\models\APIResponse';
-        $request = $this->instancesInstanceKeyGroupsGroupIdDeleteRequest($instance_key, $group_id, $contentType);
+        $request = $this->setGroupDescriptionRequest($instance_key, $group_id, $data, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2050,441 +5331,37 @@ class GroupManagementApi
     }
 
     /**
-     * Create request for operation 'instancesInstanceKeyGroupsGroupIdDelete'
+     * Create request for operation 'setGroupDescription'
      *
      * @param  string $instance_key Instance key (required)
      * @param  string $group_id Group id of the group (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdDelete'] to see the possible values for this operation
+     * @param  \WhatsAPI\models\GroupUpdateDescriptionPayload $data Group description data (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setGroupDescription'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function instancesInstanceKeyGroupsGroupIdDeleteRequest($instance_key, $group_id, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdDelete'][0])
+    public function setGroupDescriptionRequest($instance_key, $group_id, $data, string $contentType = self::contentTypes['setGroupDescription'][0])
     {
 
         // verify the required parameter 'instance_key' is set
         if ($instance_key === null || (is_array($instance_key) && count($instance_key) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $instance_key when calling instancesInstanceKeyGroupsGroupIdDelete'
+                'Missing the required parameter $instance_key when calling setGroupDescription'
             );
         }
 
         // verify the required parameter 'group_id' is set
         if ($group_id === null || (is_array($group_id) && count($group_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $group_id when calling instancesInstanceKeyGroupsGroupIdDelete'
-            );
-        }
-
-
-        $resourcePath = '/instances/{instance_key}/groups/{group_id}/';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-        // path params
-        if ($instance_key !== null) {
-            $resourcePath = str_replace(
-                '{' . 'instance_key' . '}',
-                ObjectSerializer::toPathValue($instance_key),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($group_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'group_id' . '}',
-                ObjectSerializer::toPathValue($group_id),
-                $resourcePath
-            );
-        }
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['*/*', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'DELETE',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation instancesInstanceKeyGroupsGroupIdDescriptionPut
-     *
-     * Set group description.
-     *
-     * @param  string $instance_key Instance key (required)
-     * @param  string $group_id Group id of the group (required)
-     * @param  \WhatsAPI\models\GroupUpdateDescriptionPayload $data Group description data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdDescriptionPut'] to see the possible values for this operation
-     *
-     * @throws \WhatsAPI\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse
-     */
-    public function instancesInstanceKeyGroupsGroupIdDescriptionPut($instance_key, $group_id, $data, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdDescriptionPut'][0])
-    {
-        list($response) = $this->instancesInstanceKeyGroupsGroupIdDescriptionPutWithHttpInfo($instance_key, $group_id, $data, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation instancesInstanceKeyGroupsGroupIdDescriptionPutWithHttpInfo
-     *
-     * Set group description.
-     *
-     * @param  string $instance_key Instance key (required)
-     * @param  string $group_id Group id of the group (required)
-     * @param  \WhatsAPI\models\GroupUpdateDescriptionPayload $data Group description data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdDescriptionPut'] to see the possible values for this operation
-     *
-     * @throws \WhatsAPI\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function instancesInstanceKeyGroupsGroupIdDescriptionPutWithHttpInfo($instance_key, $group_id, $data, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdDescriptionPut'][0])
-    {
-        $request = $this->instancesInstanceKeyGroupsGroupIdDescriptionPutRequest($instance_key, $group_id, $data, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 400:
-                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 401:
-                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 404:
-                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 500:
-                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\WhatsAPI\models\APIResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\WhatsAPI\models\APIResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\WhatsAPI\models\APIResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\WhatsAPI\models\APIResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\WhatsAPI\models\APIResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\WhatsAPI\models\APIResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation instancesInstanceKeyGroupsGroupIdDescriptionPutAsync
-     *
-     * Set group description.
-     *
-     * @param  string $instance_key Instance key (required)
-     * @param  string $group_id Group id of the group (required)
-     * @param  \WhatsAPI\models\GroupUpdateDescriptionPayload $data Group description data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdDescriptionPut'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function instancesInstanceKeyGroupsGroupIdDescriptionPutAsync($instance_key, $group_id, $data, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdDescriptionPut'][0])
-    {
-        return $this->instancesInstanceKeyGroupsGroupIdDescriptionPutAsyncWithHttpInfo($instance_key, $group_id, $data, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation instancesInstanceKeyGroupsGroupIdDescriptionPutAsyncWithHttpInfo
-     *
-     * Set group description.
-     *
-     * @param  string $instance_key Instance key (required)
-     * @param  string $group_id Group id of the group (required)
-     * @param  \WhatsAPI\models\GroupUpdateDescriptionPayload $data Group description data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdDescriptionPut'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function instancesInstanceKeyGroupsGroupIdDescriptionPutAsyncWithHttpInfo($instance_key, $group_id, $data, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdDescriptionPut'][0])
-    {
-        $returnType = '\WhatsAPI\models\APIResponse';
-        $request = $this->instancesInstanceKeyGroupsGroupIdDescriptionPutRequest($instance_key, $group_id, $data, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'instancesInstanceKeyGroupsGroupIdDescriptionPut'
-     *
-     * @param  string $instance_key Instance key (required)
-     * @param  string $group_id Group id of the group (required)
-     * @param  \WhatsAPI\models\GroupUpdateDescriptionPayload $data Group description data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdDescriptionPut'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function instancesInstanceKeyGroupsGroupIdDescriptionPutRequest($instance_key, $group_id, $data, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdDescriptionPut'][0])
-    {
-
-        // verify the required parameter 'instance_key' is set
-        if ($instance_key === null || (is_array($instance_key) && count($instance_key) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $instance_key when calling instancesInstanceKeyGroupsGroupIdDescriptionPut'
-            );
-        }
-
-        // verify the required parameter 'group_id' is set
-        if ($group_id === null || (is_array($group_id) && count($group_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $group_id when calling instancesInstanceKeyGroupsGroupIdDescriptionPut'
+                'Missing the required parameter $group_id when calling setGroupDescription'
             );
         }
 
         // verify the required parameter 'data' is set
         if ($data === null || (is_array($data) && count($data) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $data when calling instancesInstanceKeyGroupsGroupIdDescriptionPut'
+                'Missing the required parameter $data when calling setGroupDescription'
             );
         }
 
@@ -2582,40 +5459,42 @@ class GroupManagementApi
     }
 
     /**
-     * Operation instancesInstanceKeyGroupsGroupIdGet
+     * Operation setGroupLocked
      *
-     * Get group.
+     * Set group locked.
      *
      * @param  string $instance_key Instance key (required)
+     * @param  bool $locked Locked status (required)
      * @param  string $group_id Group id of the group (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setGroupLocked'] to see the possible values for this operation
      *
      * @throws \WhatsAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse
      */
-    public function instancesInstanceKeyGroupsGroupIdGet($instance_key, $group_id, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdGet'][0])
+    public function setGroupLocked($instance_key, $locked, $group_id, string $contentType = self::contentTypes['setGroupLocked'][0])
     {
-        list($response) = $this->instancesInstanceKeyGroupsGroupIdGetWithHttpInfo($instance_key, $group_id, $contentType);
+        list($response) = $this->setGroupLockedWithHttpInfo($instance_key, $locked, $group_id, $contentType);
         return $response;
     }
 
     /**
-     * Operation instancesInstanceKeyGroupsGroupIdGetWithHttpInfo
+     * Operation setGroupLockedWithHttpInfo
      *
-     * Get group.
+     * Set group locked.
      *
      * @param  string $instance_key Instance key (required)
+     * @param  bool $locked Locked status (required)
      * @param  string $group_id Group id of the group (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setGroupLocked'] to see the possible values for this operation
      *
      * @throws \WhatsAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function instancesInstanceKeyGroupsGroupIdGetWithHttpInfo($instance_key, $group_id, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdGet'][0])
+    public function setGroupLockedWithHttpInfo($instance_key, $locked, $group_id, string $contentType = self::contentTypes['setGroupLocked'][0])
     {
-        $request = $this->instancesInstanceKeyGroupsGroupIdGetRequest($instance_key, $group_id, $contentType);
+        $request = $this->setGroupLockedRequest($instance_key, $locked, $group_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2794,20 +5673,21 @@ class GroupManagementApi
     }
 
     /**
-     * Operation instancesInstanceKeyGroupsGroupIdGetAsync
+     * Operation setGroupLockedAsync
      *
-     * Get group.
+     * Set group locked.
      *
      * @param  string $instance_key Instance key (required)
+     * @param  bool $locked Locked status (required)
      * @param  string $group_id Group id of the group (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setGroupLocked'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function instancesInstanceKeyGroupsGroupIdGetAsync($instance_key, $group_id, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdGet'][0])
+    public function setGroupLockedAsync($instance_key, $locked, $group_id, string $contentType = self::contentTypes['setGroupLocked'][0])
     {
-        return $this->instancesInstanceKeyGroupsGroupIdGetAsyncWithHttpInfo($instance_key, $group_id, $contentType)
+        return $this->setGroupLockedAsyncWithHttpInfo($instance_key, $locked, $group_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2816,21 +5696,22 @@ class GroupManagementApi
     }
 
     /**
-     * Operation instancesInstanceKeyGroupsGroupIdGetAsyncWithHttpInfo
+     * Operation setGroupLockedAsyncWithHttpInfo
      *
-     * Get group.
+     * Set group locked.
      *
      * @param  string $instance_key Instance key (required)
+     * @param  bool $locked Locked status (required)
      * @param  string $group_id Group id of the group (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setGroupLocked'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function instancesInstanceKeyGroupsGroupIdGetAsyncWithHttpInfo($instance_key, $group_id, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdGet'][0])
+    public function setGroupLockedAsyncWithHttpInfo($instance_key, $locked, $group_id, string $contentType = self::contentTypes['setGroupLocked'][0])
     {
         $returnType = '\WhatsAPI\models\APIResponse';
-        $request = $this->instancesInstanceKeyGroupsGroupIdGetRequest($instance_key, $group_id, $contentType);
+        $request = $this->setGroupLockedRequest($instance_key, $locked, $group_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2869,841 +5750,37 @@ class GroupManagementApi
     }
 
     /**
-     * Create request for operation 'instancesInstanceKeyGroupsGroupIdGet'
+     * Create request for operation 'setGroupLocked'
      *
      * @param  string $instance_key Instance key (required)
+     * @param  bool $locked Locked status (required)
      * @param  string $group_id Group id of the group (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setGroupLocked'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function instancesInstanceKeyGroupsGroupIdGetRequest($instance_key, $group_id, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdGet'][0])
+    public function setGroupLockedRequest($instance_key, $locked, $group_id, string $contentType = self::contentTypes['setGroupLocked'][0])
     {
 
         // verify the required parameter 'instance_key' is set
         if ($instance_key === null || (is_array($instance_key) && count($instance_key) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $instance_key when calling instancesInstanceKeyGroupsGroupIdGet'
-            );
-        }
-
-        // verify the required parameter 'group_id' is set
-        if ($group_id === null || (is_array($group_id) && count($group_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $group_id when calling instancesInstanceKeyGroupsGroupIdGet'
-            );
-        }
-
-
-        $resourcePath = '/instances/{instance_key}/groups/{group_id}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-        // path params
-        if ($instance_key !== null) {
-            $resourcePath = str_replace(
-                '{' . 'instance_key' . '}',
-                ObjectSerializer::toPathValue($instance_key),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($group_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'group_id' . '}',
-                ObjectSerializer::toPathValue($group_id),
-                $resourcePath
-            );
-        }
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['*/*', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation instancesInstanceKeyGroupsGroupIdInviteCodeGet
-     *
-     * Get group invite code.
-     *
-     * @param  string $instance_key Instance key (required)
-     * @param  string $group_id Group id of the group (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdInviteCodeGet'] to see the possible values for this operation
-     *
-     * @throws \WhatsAPI\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse
-     */
-    public function instancesInstanceKeyGroupsGroupIdInviteCodeGet($instance_key, $group_id, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdInviteCodeGet'][0])
-    {
-        list($response) = $this->instancesInstanceKeyGroupsGroupIdInviteCodeGetWithHttpInfo($instance_key, $group_id, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation instancesInstanceKeyGroupsGroupIdInviteCodeGetWithHttpInfo
-     *
-     * Get group invite code.
-     *
-     * @param  string $instance_key Instance key (required)
-     * @param  string $group_id Group id of the group (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdInviteCodeGet'] to see the possible values for this operation
-     *
-     * @throws \WhatsAPI\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function instancesInstanceKeyGroupsGroupIdInviteCodeGetWithHttpInfo($instance_key, $group_id, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdInviteCodeGet'][0])
-    {
-        $request = $this->instancesInstanceKeyGroupsGroupIdInviteCodeGetRequest($instance_key, $group_id, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 400:
-                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 401:
-                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 404:
-                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 500:
-                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\WhatsAPI\models\APIResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\WhatsAPI\models\APIResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\WhatsAPI\models\APIResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\WhatsAPI\models\APIResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\WhatsAPI\models\APIResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\WhatsAPI\models\APIResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation instancesInstanceKeyGroupsGroupIdInviteCodeGetAsync
-     *
-     * Get group invite code.
-     *
-     * @param  string $instance_key Instance key (required)
-     * @param  string $group_id Group id of the group (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdInviteCodeGet'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function instancesInstanceKeyGroupsGroupIdInviteCodeGetAsync($instance_key, $group_id, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdInviteCodeGet'][0])
-    {
-        return $this->instancesInstanceKeyGroupsGroupIdInviteCodeGetAsyncWithHttpInfo($instance_key, $group_id, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation instancesInstanceKeyGroupsGroupIdInviteCodeGetAsyncWithHttpInfo
-     *
-     * Get group invite code.
-     *
-     * @param  string $instance_key Instance key (required)
-     * @param  string $group_id Group id of the group (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdInviteCodeGet'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function instancesInstanceKeyGroupsGroupIdInviteCodeGetAsyncWithHttpInfo($instance_key, $group_id, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdInviteCodeGet'][0])
-    {
-        $returnType = '\WhatsAPI\models\APIResponse';
-        $request = $this->instancesInstanceKeyGroupsGroupIdInviteCodeGetRequest($instance_key, $group_id, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'instancesInstanceKeyGroupsGroupIdInviteCodeGet'
-     *
-     * @param  string $instance_key Instance key (required)
-     * @param  string $group_id Group id of the group (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdInviteCodeGet'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function instancesInstanceKeyGroupsGroupIdInviteCodeGetRequest($instance_key, $group_id, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdInviteCodeGet'][0])
-    {
-
-        // verify the required parameter 'instance_key' is set
-        if ($instance_key === null || (is_array($instance_key) && count($instance_key) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $instance_key when calling instancesInstanceKeyGroupsGroupIdInviteCodeGet'
-            );
-        }
-
-        // verify the required parameter 'group_id' is set
-        if ($group_id === null || (is_array($group_id) && count($group_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $group_id when calling instancesInstanceKeyGroupsGroupIdInviteCodeGet'
-            );
-        }
-
-
-        $resourcePath = '/instances/{instance_key}/groups/{group_id}/invite-code';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-        // path params
-        if ($instance_key !== null) {
-            $resourcePath = str_replace(
-                '{' . 'instance_key' . '}',
-                ObjectSerializer::toPathValue($instance_key),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($group_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'group_id' . '}',
-                ObjectSerializer::toPathValue($group_id),
-                $resourcePath
-            );
-        }
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['*/*', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation instancesInstanceKeyGroupsGroupIdLockPut
-     *
-     * Set group locked.
-     *
-     * @param  string $instance_key Instance key (required)
-     * @param  bool $locked Locked status (required)
-     * @param  string $group_id Group id of the group (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdLockPut'] to see the possible values for this operation
-     *
-     * @throws \WhatsAPI\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse
-     */
-    public function instancesInstanceKeyGroupsGroupIdLockPut($instance_key, $locked, $group_id, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdLockPut'][0])
-    {
-        list($response) = $this->instancesInstanceKeyGroupsGroupIdLockPutWithHttpInfo($instance_key, $locked, $group_id, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation instancesInstanceKeyGroupsGroupIdLockPutWithHttpInfo
-     *
-     * Set group locked.
-     *
-     * @param  string $instance_key Instance key (required)
-     * @param  bool $locked Locked status (required)
-     * @param  string $group_id Group id of the group (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdLockPut'] to see the possible values for this operation
-     *
-     * @throws \WhatsAPI\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function instancesInstanceKeyGroupsGroupIdLockPutWithHttpInfo($instance_key, $locked, $group_id, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdLockPut'][0])
-    {
-        $request = $this->instancesInstanceKeyGroupsGroupIdLockPutRequest($instance_key, $locked, $group_id, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 400:
-                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 401:
-                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 404:
-                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 500:
-                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\WhatsAPI\models\APIResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\WhatsAPI\models\APIResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\WhatsAPI\models\APIResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\WhatsAPI\models\APIResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\WhatsAPI\models\APIResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\WhatsAPI\models\APIResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation instancesInstanceKeyGroupsGroupIdLockPutAsync
-     *
-     * Set group locked.
-     *
-     * @param  string $instance_key Instance key (required)
-     * @param  bool $locked Locked status (required)
-     * @param  string $group_id Group id of the group (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdLockPut'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function instancesInstanceKeyGroupsGroupIdLockPutAsync($instance_key, $locked, $group_id, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdLockPut'][0])
-    {
-        return $this->instancesInstanceKeyGroupsGroupIdLockPutAsyncWithHttpInfo($instance_key, $locked, $group_id, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation instancesInstanceKeyGroupsGroupIdLockPutAsyncWithHttpInfo
-     *
-     * Set group locked.
-     *
-     * @param  string $instance_key Instance key (required)
-     * @param  bool $locked Locked status (required)
-     * @param  string $group_id Group id of the group (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdLockPut'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function instancesInstanceKeyGroupsGroupIdLockPutAsyncWithHttpInfo($instance_key, $locked, $group_id, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdLockPut'][0])
-    {
-        $returnType = '\WhatsAPI\models\APIResponse';
-        $request = $this->instancesInstanceKeyGroupsGroupIdLockPutRequest($instance_key, $locked, $group_id, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'instancesInstanceKeyGroupsGroupIdLockPut'
-     *
-     * @param  string $instance_key Instance key (required)
-     * @param  bool $locked Locked status (required)
-     * @param  string $group_id Group id of the group (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdLockPut'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function instancesInstanceKeyGroupsGroupIdLockPutRequest($instance_key, $locked, $group_id, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdLockPut'][0])
-    {
-
-        // verify the required parameter 'instance_key' is set
-        if ($instance_key === null || (is_array($instance_key) && count($instance_key) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $instance_key when calling instancesInstanceKeyGroupsGroupIdLockPut'
+                'Missing the required parameter $instance_key when calling setGroupLocked'
             );
         }
 
         // verify the required parameter 'locked' is set
         if ($locked === null || (is_array($locked) && count($locked) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $locked when calling instancesInstanceKeyGroupsGroupIdLockPut'
+                'Missing the required parameter $locked when calling setGroupLocked'
             );
         }
 
         // verify the required parameter 'group_id' is set
         if ($group_id === null || (is_array($group_id) && count($group_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $group_id when calling instancesInstanceKeyGroupsGroupIdLockPut'
+                'Missing the required parameter $group_id when calling setGroupLocked'
             );
         }
 
@@ -3802,42 +5879,42 @@ class GroupManagementApi
     }
 
     /**
-     * Operation instancesInstanceKeyGroupsGroupIdNamePut
+     * Operation setGroupName
      *
      * Set group name.
      *
      * @param  string $instance_key Instance key (required)
      * @param  string $group_id Group id of the group (required)
      * @param  \WhatsAPI\models\GroupUpdateNamePayload $data Group name data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdNamePut'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setGroupName'] to see the possible values for this operation
      *
      * @throws \WhatsAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse
      */
-    public function instancesInstanceKeyGroupsGroupIdNamePut($instance_key, $group_id, $data, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdNamePut'][0])
+    public function setGroupName($instance_key, $group_id, $data, string $contentType = self::contentTypes['setGroupName'][0])
     {
-        list($response) = $this->instancesInstanceKeyGroupsGroupIdNamePutWithHttpInfo($instance_key, $group_id, $data, $contentType);
+        list($response) = $this->setGroupNameWithHttpInfo($instance_key, $group_id, $data, $contentType);
         return $response;
     }
 
     /**
-     * Operation instancesInstanceKeyGroupsGroupIdNamePutWithHttpInfo
+     * Operation setGroupNameWithHttpInfo
      *
      * Set group name.
      *
      * @param  string $instance_key Instance key (required)
      * @param  string $group_id Group id of the group (required)
      * @param  \WhatsAPI\models\GroupUpdateNamePayload $data Group name data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdNamePut'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setGroupName'] to see the possible values for this operation
      *
      * @throws \WhatsAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function instancesInstanceKeyGroupsGroupIdNamePutWithHttpInfo($instance_key, $group_id, $data, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdNamePut'][0])
+    public function setGroupNameWithHttpInfo($instance_key, $group_id, $data, string $contentType = self::contentTypes['setGroupName'][0])
     {
-        $request = $this->instancesInstanceKeyGroupsGroupIdNamePutRequest($instance_key, $group_id, $data, $contentType);
+        $request = $this->setGroupNameRequest($instance_key, $group_id, $data, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4016,21 +6093,21 @@ class GroupManagementApi
     }
 
     /**
-     * Operation instancesInstanceKeyGroupsGroupIdNamePutAsync
+     * Operation setGroupNameAsync
      *
      * Set group name.
      *
      * @param  string $instance_key Instance key (required)
      * @param  string $group_id Group id of the group (required)
      * @param  \WhatsAPI\models\GroupUpdateNamePayload $data Group name data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdNamePut'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setGroupName'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function instancesInstanceKeyGroupsGroupIdNamePutAsync($instance_key, $group_id, $data, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdNamePut'][0])
+    public function setGroupNameAsync($instance_key, $group_id, $data, string $contentType = self::contentTypes['setGroupName'][0])
     {
-        return $this->instancesInstanceKeyGroupsGroupIdNamePutAsyncWithHttpInfo($instance_key, $group_id, $data, $contentType)
+        return $this->setGroupNameAsyncWithHttpInfo($instance_key, $group_id, $data, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4039,22 +6116,22 @@ class GroupManagementApi
     }
 
     /**
-     * Operation instancesInstanceKeyGroupsGroupIdNamePutAsyncWithHttpInfo
+     * Operation setGroupNameAsyncWithHttpInfo
      *
      * Set group name.
      *
      * @param  string $instance_key Instance key (required)
      * @param  string $group_id Group id of the group (required)
      * @param  \WhatsAPI\models\GroupUpdateNamePayload $data Group name data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdNamePut'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setGroupName'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function instancesInstanceKeyGroupsGroupIdNamePutAsyncWithHttpInfo($instance_key, $group_id, $data, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdNamePut'][0])
+    public function setGroupNameAsyncWithHttpInfo($instance_key, $group_id, $data, string $contentType = self::contentTypes['setGroupName'][0])
     {
         $returnType = '\WhatsAPI\models\APIResponse';
-        $request = $this->instancesInstanceKeyGroupsGroupIdNamePutRequest($instance_key, $group_id, $data, $contentType);
+        $request = $this->setGroupNameRequest($instance_key, $group_id, $data, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4093,37 +6170,37 @@ class GroupManagementApi
     }
 
     /**
-     * Create request for operation 'instancesInstanceKeyGroupsGroupIdNamePut'
+     * Create request for operation 'setGroupName'
      *
      * @param  string $instance_key Instance key (required)
      * @param  string $group_id Group id of the group (required)
      * @param  \WhatsAPI\models\GroupUpdateNamePayload $data Group name data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdNamePut'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setGroupName'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function instancesInstanceKeyGroupsGroupIdNamePutRequest($instance_key, $group_id, $data, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdNamePut'][0])
+    public function setGroupNameRequest($instance_key, $group_id, $data, string $contentType = self::contentTypes['setGroupName'][0])
     {
 
         // verify the required parameter 'instance_key' is set
         if ($instance_key === null || (is_array($instance_key) && count($instance_key) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $instance_key when calling instancesInstanceKeyGroupsGroupIdNamePut'
+                'Missing the required parameter $instance_key when calling setGroupName'
             );
         }
 
         // verify the required parameter 'group_id' is set
         if ($group_id === null || (is_array($group_id) && count($group_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $group_id when calling instancesInstanceKeyGroupsGroupIdNamePut'
+                'Missing the required parameter $group_id when calling setGroupName'
             );
         }
 
         // verify the required parameter 'data' is set
         if ($data === null || (is_array($data) && count($data) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $data when calling instancesInstanceKeyGroupsGroupIdNamePut'
+                'Missing the required parameter $data when calling setGroupName'
             );
         }
 
@@ -4221,1718 +6298,42 @@ class GroupManagementApi
     }
 
     /**
-     * Operation instancesInstanceKeyGroupsGroupIdParticipantsAddPost
-     *
-     * Add participant.
-     *
-     * @param  string $instance_key Instance key (required)
-     * @param  string $group_id Group id of the group (required)
-     * @param  \WhatsAPI\models\GroupUpdateParticipantsPayload $data Group update payload (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdParticipantsAddPost'] to see the possible values for this operation
-     *
-     * @throws \WhatsAPI\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse
-     */
-    public function instancesInstanceKeyGroupsGroupIdParticipantsAddPost($instance_key, $group_id, $data, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdParticipantsAddPost'][0])
-    {
-        list($response) = $this->instancesInstanceKeyGroupsGroupIdParticipantsAddPostWithHttpInfo($instance_key, $group_id, $data, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation instancesInstanceKeyGroupsGroupIdParticipantsAddPostWithHttpInfo
-     *
-     * Add participant.
-     *
-     * @param  string $instance_key Instance key (required)
-     * @param  string $group_id Group id of the group (required)
-     * @param  \WhatsAPI\models\GroupUpdateParticipantsPayload $data Group update payload (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdParticipantsAddPost'] to see the possible values for this operation
-     *
-     * @throws \WhatsAPI\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function instancesInstanceKeyGroupsGroupIdParticipantsAddPostWithHttpInfo($instance_key, $group_id, $data, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdParticipantsAddPost'][0])
-    {
-        $request = $this->instancesInstanceKeyGroupsGroupIdParticipantsAddPostRequest($instance_key, $group_id, $data, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 400:
-                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 401:
-                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 404:
-                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 500:
-                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\WhatsAPI\models\APIResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\WhatsAPI\models\APIResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\WhatsAPI\models\APIResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\WhatsAPI\models\APIResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\WhatsAPI\models\APIResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\WhatsAPI\models\APIResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation instancesInstanceKeyGroupsGroupIdParticipantsAddPostAsync
-     *
-     * Add participant.
-     *
-     * @param  string $instance_key Instance key (required)
-     * @param  string $group_id Group id of the group (required)
-     * @param  \WhatsAPI\models\GroupUpdateParticipantsPayload $data Group update payload (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdParticipantsAddPost'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function instancesInstanceKeyGroupsGroupIdParticipantsAddPostAsync($instance_key, $group_id, $data, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdParticipantsAddPost'][0])
-    {
-        return $this->instancesInstanceKeyGroupsGroupIdParticipantsAddPostAsyncWithHttpInfo($instance_key, $group_id, $data, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation instancesInstanceKeyGroupsGroupIdParticipantsAddPostAsyncWithHttpInfo
-     *
-     * Add participant.
-     *
-     * @param  string $instance_key Instance key (required)
-     * @param  string $group_id Group id of the group (required)
-     * @param  \WhatsAPI\models\GroupUpdateParticipantsPayload $data Group update payload (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdParticipantsAddPost'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function instancesInstanceKeyGroupsGroupIdParticipantsAddPostAsyncWithHttpInfo($instance_key, $group_id, $data, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdParticipantsAddPost'][0])
-    {
-        $returnType = '\WhatsAPI\models\APIResponse';
-        $request = $this->instancesInstanceKeyGroupsGroupIdParticipantsAddPostRequest($instance_key, $group_id, $data, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'instancesInstanceKeyGroupsGroupIdParticipantsAddPost'
-     *
-     * @param  string $instance_key Instance key (required)
-     * @param  string $group_id Group id of the group (required)
-     * @param  \WhatsAPI\models\GroupUpdateParticipantsPayload $data Group update payload (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdParticipantsAddPost'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function instancesInstanceKeyGroupsGroupIdParticipantsAddPostRequest($instance_key, $group_id, $data, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdParticipantsAddPost'][0])
-    {
-
-        // verify the required parameter 'instance_key' is set
-        if ($instance_key === null || (is_array($instance_key) && count($instance_key) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $instance_key when calling instancesInstanceKeyGroupsGroupIdParticipantsAddPost'
-            );
-        }
-
-        // verify the required parameter 'group_id' is set
-        if ($group_id === null || (is_array($group_id) && count($group_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $group_id when calling instancesInstanceKeyGroupsGroupIdParticipantsAddPost'
-            );
-        }
-
-        // verify the required parameter 'data' is set
-        if ($data === null || (is_array($data) && count($data) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $data when calling instancesInstanceKeyGroupsGroupIdParticipantsAddPost'
-            );
-        }
-
-
-        $resourcePath = '/instances/{instance_key}/groups/{group_id}/participants/add';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-        // path params
-        if ($instance_key !== null) {
-            $resourcePath = str_replace(
-                '{' . 'instance_key' . '}',
-                ObjectSerializer::toPathValue($instance_key),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($group_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'group_id' . '}',
-                ObjectSerializer::toPathValue($group_id),
-                $resourcePath
-            );
-        }
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['*/*', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (isset($data)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($data));
-            } else {
-                $httpBody = $data;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'POST',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation instancesInstanceKeyGroupsGroupIdParticipantsDemotePut
-     *
-     * Demote participant.
-     *
-     * @param  string $instance_key Instance key (required)
-     * @param  string $group_id Group id of the group (required)
-     * @param  \WhatsAPI\models\GroupUpdateParticipantsPayload $data Group update payload (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdParticipantsDemotePut'] to see the possible values for this operation
-     *
-     * @throws \WhatsAPI\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse
-     */
-    public function instancesInstanceKeyGroupsGroupIdParticipantsDemotePut($instance_key, $group_id, $data, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdParticipantsDemotePut'][0])
-    {
-        list($response) = $this->instancesInstanceKeyGroupsGroupIdParticipantsDemotePutWithHttpInfo($instance_key, $group_id, $data, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation instancesInstanceKeyGroupsGroupIdParticipantsDemotePutWithHttpInfo
-     *
-     * Demote participant.
-     *
-     * @param  string $instance_key Instance key (required)
-     * @param  string $group_id Group id of the group (required)
-     * @param  \WhatsAPI\models\GroupUpdateParticipantsPayload $data Group update payload (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdParticipantsDemotePut'] to see the possible values for this operation
-     *
-     * @throws \WhatsAPI\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function instancesInstanceKeyGroupsGroupIdParticipantsDemotePutWithHttpInfo($instance_key, $group_id, $data, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdParticipantsDemotePut'][0])
-    {
-        $request = $this->instancesInstanceKeyGroupsGroupIdParticipantsDemotePutRequest($instance_key, $group_id, $data, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 400:
-                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 401:
-                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 404:
-                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 500:
-                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\WhatsAPI\models\APIResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\WhatsAPI\models\APIResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\WhatsAPI\models\APIResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\WhatsAPI\models\APIResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\WhatsAPI\models\APIResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\WhatsAPI\models\APIResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation instancesInstanceKeyGroupsGroupIdParticipantsDemotePutAsync
-     *
-     * Demote participant.
-     *
-     * @param  string $instance_key Instance key (required)
-     * @param  string $group_id Group id of the group (required)
-     * @param  \WhatsAPI\models\GroupUpdateParticipantsPayload $data Group update payload (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdParticipantsDemotePut'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function instancesInstanceKeyGroupsGroupIdParticipantsDemotePutAsync($instance_key, $group_id, $data, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdParticipantsDemotePut'][0])
-    {
-        return $this->instancesInstanceKeyGroupsGroupIdParticipantsDemotePutAsyncWithHttpInfo($instance_key, $group_id, $data, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation instancesInstanceKeyGroupsGroupIdParticipantsDemotePutAsyncWithHttpInfo
-     *
-     * Demote participant.
-     *
-     * @param  string $instance_key Instance key (required)
-     * @param  string $group_id Group id of the group (required)
-     * @param  \WhatsAPI\models\GroupUpdateParticipantsPayload $data Group update payload (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdParticipantsDemotePut'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function instancesInstanceKeyGroupsGroupIdParticipantsDemotePutAsyncWithHttpInfo($instance_key, $group_id, $data, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdParticipantsDemotePut'][0])
-    {
-        $returnType = '\WhatsAPI\models\APIResponse';
-        $request = $this->instancesInstanceKeyGroupsGroupIdParticipantsDemotePutRequest($instance_key, $group_id, $data, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'instancesInstanceKeyGroupsGroupIdParticipantsDemotePut'
-     *
-     * @param  string $instance_key Instance key (required)
-     * @param  string $group_id Group id of the group (required)
-     * @param  \WhatsAPI\models\GroupUpdateParticipantsPayload $data Group update payload (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdParticipantsDemotePut'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function instancesInstanceKeyGroupsGroupIdParticipantsDemotePutRequest($instance_key, $group_id, $data, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdParticipantsDemotePut'][0])
-    {
-
-        // verify the required parameter 'instance_key' is set
-        if ($instance_key === null || (is_array($instance_key) && count($instance_key) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $instance_key when calling instancesInstanceKeyGroupsGroupIdParticipantsDemotePut'
-            );
-        }
-
-        // verify the required parameter 'group_id' is set
-        if ($group_id === null || (is_array($group_id) && count($group_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $group_id when calling instancesInstanceKeyGroupsGroupIdParticipantsDemotePut'
-            );
-        }
-
-        // verify the required parameter 'data' is set
-        if ($data === null || (is_array($data) && count($data) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $data when calling instancesInstanceKeyGroupsGroupIdParticipantsDemotePut'
-            );
-        }
-
-
-        $resourcePath = '/instances/{instance_key}/groups/{group_id}/participants/demote';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-        // path params
-        if ($instance_key !== null) {
-            $resourcePath = str_replace(
-                '{' . 'instance_key' . '}',
-                ObjectSerializer::toPathValue($instance_key),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($group_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'group_id' . '}',
-                ObjectSerializer::toPathValue($group_id),
-                $resourcePath
-            );
-        }
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['*/*', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (isset($data)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($data));
-            } else {
-                $httpBody = $data;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'PUT',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation instancesInstanceKeyGroupsGroupIdParticipantsPromotePut
-     *
-     * Promote participant.
-     *
-     * @param  string $instance_key Instance key (required)
-     * @param  string $group_id Group id of the group (required)
-     * @param  \WhatsAPI\models\GroupUpdateParticipantsPayload $data Group update payload (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdParticipantsPromotePut'] to see the possible values for this operation
-     *
-     * @throws \WhatsAPI\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse
-     */
-    public function instancesInstanceKeyGroupsGroupIdParticipantsPromotePut($instance_key, $group_id, $data, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdParticipantsPromotePut'][0])
-    {
-        list($response) = $this->instancesInstanceKeyGroupsGroupIdParticipantsPromotePutWithHttpInfo($instance_key, $group_id, $data, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation instancesInstanceKeyGroupsGroupIdParticipantsPromotePutWithHttpInfo
-     *
-     * Promote participant.
-     *
-     * @param  string $instance_key Instance key (required)
-     * @param  string $group_id Group id of the group (required)
-     * @param  \WhatsAPI\models\GroupUpdateParticipantsPayload $data Group update payload (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdParticipantsPromotePut'] to see the possible values for this operation
-     *
-     * @throws \WhatsAPI\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function instancesInstanceKeyGroupsGroupIdParticipantsPromotePutWithHttpInfo($instance_key, $group_id, $data, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdParticipantsPromotePut'][0])
-    {
-        $request = $this->instancesInstanceKeyGroupsGroupIdParticipantsPromotePutRequest($instance_key, $group_id, $data, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 400:
-                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 401:
-                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 404:
-                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 500:
-                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\WhatsAPI\models\APIResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\WhatsAPI\models\APIResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\WhatsAPI\models\APIResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\WhatsAPI\models\APIResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\WhatsAPI\models\APIResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\WhatsAPI\models\APIResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation instancesInstanceKeyGroupsGroupIdParticipantsPromotePutAsync
-     *
-     * Promote participant.
-     *
-     * @param  string $instance_key Instance key (required)
-     * @param  string $group_id Group id of the group (required)
-     * @param  \WhatsAPI\models\GroupUpdateParticipantsPayload $data Group update payload (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdParticipantsPromotePut'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function instancesInstanceKeyGroupsGroupIdParticipantsPromotePutAsync($instance_key, $group_id, $data, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdParticipantsPromotePut'][0])
-    {
-        return $this->instancesInstanceKeyGroupsGroupIdParticipantsPromotePutAsyncWithHttpInfo($instance_key, $group_id, $data, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation instancesInstanceKeyGroupsGroupIdParticipantsPromotePutAsyncWithHttpInfo
-     *
-     * Promote participant.
-     *
-     * @param  string $instance_key Instance key (required)
-     * @param  string $group_id Group id of the group (required)
-     * @param  \WhatsAPI\models\GroupUpdateParticipantsPayload $data Group update payload (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdParticipantsPromotePut'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function instancesInstanceKeyGroupsGroupIdParticipantsPromotePutAsyncWithHttpInfo($instance_key, $group_id, $data, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdParticipantsPromotePut'][0])
-    {
-        $returnType = '\WhatsAPI\models\APIResponse';
-        $request = $this->instancesInstanceKeyGroupsGroupIdParticipantsPromotePutRequest($instance_key, $group_id, $data, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'instancesInstanceKeyGroupsGroupIdParticipantsPromotePut'
-     *
-     * @param  string $instance_key Instance key (required)
-     * @param  string $group_id Group id of the group (required)
-     * @param  \WhatsAPI\models\GroupUpdateParticipantsPayload $data Group update payload (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdParticipantsPromotePut'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function instancesInstanceKeyGroupsGroupIdParticipantsPromotePutRequest($instance_key, $group_id, $data, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdParticipantsPromotePut'][0])
-    {
-
-        // verify the required parameter 'instance_key' is set
-        if ($instance_key === null || (is_array($instance_key) && count($instance_key) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $instance_key when calling instancesInstanceKeyGroupsGroupIdParticipantsPromotePut'
-            );
-        }
-
-        // verify the required parameter 'group_id' is set
-        if ($group_id === null || (is_array($group_id) && count($group_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $group_id when calling instancesInstanceKeyGroupsGroupIdParticipantsPromotePut'
-            );
-        }
-
-        // verify the required parameter 'data' is set
-        if ($data === null || (is_array($data) && count($data) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $data when calling instancesInstanceKeyGroupsGroupIdParticipantsPromotePut'
-            );
-        }
-
-
-        $resourcePath = '/instances/{instance_key}/groups/{group_id}/participants/promote';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-        // path params
-        if ($instance_key !== null) {
-            $resourcePath = str_replace(
-                '{' . 'instance_key' . '}',
-                ObjectSerializer::toPathValue($instance_key),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($group_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'group_id' . '}',
-                ObjectSerializer::toPathValue($group_id),
-                $resourcePath
-            );
-        }
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['*/*', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (isset($data)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($data));
-            } else {
-                $httpBody = $data;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'PUT',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation instancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete
-     *
-     * Remove participant.
-     *
-     * @param  string $instance_key Instance key (required)
-     * @param  string $group_id Group id of the group (required)
-     * @param  \WhatsAPI\models\GroupUpdateParticipantsPayload $data Group update payload (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete'] to see the possible values for this operation
-     *
-     * @throws \WhatsAPI\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse
-     */
-    public function instancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete($instance_key, $group_id, $data, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete'][0])
-    {
-        list($response) = $this->instancesInstanceKeyGroupsGroupIdParticipantsRemoveDeleteWithHttpInfo($instance_key, $group_id, $data, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation instancesInstanceKeyGroupsGroupIdParticipantsRemoveDeleteWithHttpInfo
-     *
-     * Remove participant.
-     *
-     * @param  string $instance_key Instance key (required)
-     * @param  string $group_id Group id of the group (required)
-     * @param  \WhatsAPI\models\GroupUpdateParticipantsPayload $data Group update payload (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete'] to see the possible values for this operation
-     *
-     * @throws \WhatsAPI\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function instancesInstanceKeyGroupsGroupIdParticipantsRemoveDeleteWithHttpInfo($instance_key, $group_id, $data, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete'][0])
-    {
-        $request = $this->instancesInstanceKeyGroupsGroupIdParticipantsRemoveDeleteRequest($instance_key, $group_id, $data, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 400:
-                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 401:
-                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 404:
-                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 500:
-                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\WhatsAPI\models\APIResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\WhatsAPI\models\APIResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\WhatsAPI\models\APIResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\WhatsAPI\models\APIResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\WhatsAPI\models\APIResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\WhatsAPI\models\APIResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation instancesInstanceKeyGroupsGroupIdParticipantsRemoveDeleteAsync
-     *
-     * Remove participant.
-     *
-     * @param  string $instance_key Instance key (required)
-     * @param  string $group_id Group id of the group (required)
-     * @param  \WhatsAPI\models\GroupUpdateParticipantsPayload $data Group update payload (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function instancesInstanceKeyGroupsGroupIdParticipantsRemoveDeleteAsync($instance_key, $group_id, $data, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete'][0])
-    {
-        return $this->instancesInstanceKeyGroupsGroupIdParticipantsRemoveDeleteAsyncWithHttpInfo($instance_key, $group_id, $data, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation instancesInstanceKeyGroupsGroupIdParticipantsRemoveDeleteAsyncWithHttpInfo
-     *
-     * Remove participant.
-     *
-     * @param  string $instance_key Instance key (required)
-     * @param  string $group_id Group id of the group (required)
-     * @param  \WhatsAPI\models\GroupUpdateParticipantsPayload $data Group update payload (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function instancesInstanceKeyGroupsGroupIdParticipantsRemoveDeleteAsyncWithHttpInfo($instance_key, $group_id, $data, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete'][0])
-    {
-        $returnType = '\WhatsAPI\models\APIResponse';
-        $request = $this->instancesInstanceKeyGroupsGroupIdParticipantsRemoveDeleteRequest($instance_key, $group_id, $data, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'instancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete'
-     *
-     * @param  string $instance_key Instance key (required)
-     * @param  string $group_id Group id of the group (required)
-     * @param  \WhatsAPI\models\GroupUpdateParticipantsPayload $data Group update payload (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function instancesInstanceKeyGroupsGroupIdParticipantsRemoveDeleteRequest($instance_key, $group_id, $data, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete'][0])
-    {
-
-        // verify the required parameter 'instance_key' is set
-        if ($instance_key === null || (is_array($instance_key) && count($instance_key) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $instance_key when calling instancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete'
-            );
-        }
-
-        // verify the required parameter 'group_id' is set
-        if ($group_id === null || (is_array($group_id) && count($group_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $group_id when calling instancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete'
-            );
-        }
-
-        // verify the required parameter 'data' is set
-        if ($data === null || (is_array($data) && count($data) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $data when calling instancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete'
-            );
-        }
-
-
-        $resourcePath = '/instances/{instance_key}/groups/{group_id}/participants/remove';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-        // path params
-        if ($instance_key !== null) {
-            $resourcePath = str_replace(
-                '{' . 'instance_key' . '}',
-                ObjectSerializer::toPathValue($instance_key),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($group_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'group_id' . '}',
-                ObjectSerializer::toPathValue($group_id),
-                $resourcePath
-            );
-        }
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['*/*', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (isset($data)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($data));
-            } else {
-                $httpBody = $data;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'DELETE',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation instancesInstanceKeyGroupsGroupIdProfilePicPut
+     * Operation setGroupPicture
      *
      * Set group picture.
      *
      * @param  string $instance_key Instance key (required)
      * @param  string $group_id Group id of the group (required)
-     * @param  \WhatsAPI\models\InstancesInstanceKeyGroupsGroupIdProfilePicPutRequest $instances_instance_key_groups_group_id_profile_pic_put_request instances_instance_key_groups_group_id_profile_pic_put_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdProfilePicPut'] to see the possible values for this operation
+     * @param  \WhatsAPI\models\SetGroupPictureRequest $set_group_picture_request set_group_picture_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setGroupPicture'] to see the possible values for this operation
      *
      * @throws \WhatsAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse
      */
-    public function instancesInstanceKeyGroupsGroupIdProfilePicPut($instance_key, $group_id, $instances_instance_key_groups_group_id_profile_pic_put_request, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdProfilePicPut'][0])
+    public function setGroupPicture($instance_key, $group_id, $set_group_picture_request, string $contentType = self::contentTypes['setGroupPicture'][0])
     {
-        list($response) = $this->instancesInstanceKeyGroupsGroupIdProfilePicPutWithHttpInfo($instance_key, $group_id, $instances_instance_key_groups_group_id_profile_pic_put_request, $contentType);
+        list($response) = $this->setGroupPictureWithHttpInfo($instance_key, $group_id, $set_group_picture_request, $contentType);
         return $response;
     }
 
     /**
-     * Operation instancesInstanceKeyGroupsGroupIdProfilePicPutWithHttpInfo
+     * Operation setGroupPictureWithHttpInfo
      *
      * Set group picture.
      *
      * @param  string $instance_key Instance key (required)
      * @param  string $group_id Group id of the group (required)
-     * @param  \WhatsAPI\models\InstancesInstanceKeyGroupsGroupIdProfilePicPutRequest $instances_instance_key_groups_group_id_profile_pic_put_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdProfilePicPut'] to see the possible values for this operation
+     * @param  \WhatsAPI\models\SetGroupPictureRequest $set_group_picture_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setGroupPicture'] to see the possible values for this operation
      *
      * @throws \WhatsAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function instancesInstanceKeyGroupsGroupIdProfilePicPutWithHttpInfo($instance_key, $group_id, $instances_instance_key_groups_group_id_profile_pic_put_request, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdProfilePicPut'][0])
+    public function setGroupPictureWithHttpInfo($instance_key, $group_id, $set_group_picture_request, string $contentType = self::contentTypes['setGroupPicture'][0])
     {
-        $request = $this->instancesInstanceKeyGroupsGroupIdProfilePicPutRequest($instance_key, $group_id, $instances_instance_key_groups_group_id_profile_pic_put_request, $contentType);
+        $request = $this->setGroupPictureRequest($instance_key, $group_id, $set_group_picture_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6111,21 +6512,21 @@ class GroupManagementApi
     }
 
     /**
-     * Operation instancesInstanceKeyGroupsGroupIdProfilePicPutAsync
+     * Operation setGroupPictureAsync
      *
      * Set group picture.
      *
      * @param  string $instance_key Instance key (required)
      * @param  string $group_id Group id of the group (required)
-     * @param  \WhatsAPI\models\InstancesInstanceKeyGroupsGroupIdProfilePicPutRequest $instances_instance_key_groups_group_id_profile_pic_put_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdProfilePicPut'] to see the possible values for this operation
+     * @param  \WhatsAPI\models\SetGroupPictureRequest $set_group_picture_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setGroupPicture'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function instancesInstanceKeyGroupsGroupIdProfilePicPutAsync($instance_key, $group_id, $instances_instance_key_groups_group_id_profile_pic_put_request, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdProfilePicPut'][0])
+    public function setGroupPictureAsync($instance_key, $group_id, $set_group_picture_request, string $contentType = self::contentTypes['setGroupPicture'][0])
     {
-        return $this->instancesInstanceKeyGroupsGroupIdProfilePicPutAsyncWithHttpInfo($instance_key, $group_id, $instances_instance_key_groups_group_id_profile_pic_put_request, $contentType)
+        return $this->setGroupPictureAsyncWithHttpInfo($instance_key, $group_id, $set_group_picture_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6134,22 +6535,22 @@ class GroupManagementApi
     }
 
     /**
-     * Operation instancesInstanceKeyGroupsGroupIdProfilePicPutAsyncWithHttpInfo
+     * Operation setGroupPictureAsyncWithHttpInfo
      *
      * Set group picture.
      *
      * @param  string $instance_key Instance key (required)
      * @param  string $group_id Group id of the group (required)
-     * @param  \WhatsAPI\models\InstancesInstanceKeyGroupsGroupIdProfilePicPutRequest $instances_instance_key_groups_group_id_profile_pic_put_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdProfilePicPut'] to see the possible values for this operation
+     * @param  \WhatsAPI\models\SetGroupPictureRequest $set_group_picture_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setGroupPicture'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function instancesInstanceKeyGroupsGroupIdProfilePicPutAsyncWithHttpInfo($instance_key, $group_id, $instances_instance_key_groups_group_id_profile_pic_put_request, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdProfilePicPut'][0])
+    public function setGroupPictureAsyncWithHttpInfo($instance_key, $group_id, $set_group_picture_request, string $contentType = self::contentTypes['setGroupPicture'][0])
     {
         $returnType = '\WhatsAPI\models\APIResponse';
-        $request = $this->instancesInstanceKeyGroupsGroupIdProfilePicPutRequest($instance_key, $group_id, $instances_instance_key_groups_group_id_profile_pic_put_request, $contentType);
+        $request = $this->setGroupPictureRequest($instance_key, $group_id, $set_group_picture_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6188,37 +6589,37 @@ class GroupManagementApi
     }
 
     /**
-     * Create request for operation 'instancesInstanceKeyGroupsGroupIdProfilePicPut'
+     * Create request for operation 'setGroupPicture'
      *
      * @param  string $instance_key Instance key (required)
      * @param  string $group_id Group id of the group (required)
-     * @param  \WhatsAPI\models\InstancesInstanceKeyGroupsGroupIdProfilePicPutRequest $instances_instance_key_groups_group_id_profile_pic_put_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsGroupIdProfilePicPut'] to see the possible values for this operation
+     * @param  \WhatsAPI\models\SetGroupPictureRequest $set_group_picture_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setGroupPicture'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function instancesInstanceKeyGroupsGroupIdProfilePicPutRequest($instance_key, $group_id, $instances_instance_key_groups_group_id_profile_pic_put_request, string $contentType = self::contentTypes['instancesInstanceKeyGroupsGroupIdProfilePicPut'][0])
+    public function setGroupPictureRequest($instance_key, $group_id, $set_group_picture_request, string $contentType = self::contentTypes['setGroupPicture'][0])
     {
 
         // verify the required parameter 'instance_key' is set
         if ($instance_key === null || (is_array($instance_key) && count($instance_key) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $instance_key when calling instancesInstanceKeyGroupsGroupIdProfilePicPut'
+                'Missing the required parameter $instance_key when calling setGroupPicture'
             );
         }
 
         // verify the required parameter 'group_id' is set
         if ($group_id === null || (is_array($group_id) && count($group_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $group_id when calling instancesInstanceKeyGroupsGroupIdProfilePicPut'
+                'Missing the required parameter $group_id when calling setGroupPicture'
             );
         }
 
-        // verify the required parameter 'instances_instance_key_groups_group_id_profile_pic_put_request' is set
-        if ($instances_instance_key_groups_group_id_profile_pic_put_request === null || (is_array($instances_instance_key_groups_group_id_profile_pic_put_request) && count($instances_instance_key_groups_group_id_profile_pic_put_request) === 0)) {
+        // verify the required parameter 'set_group_picture_request' is set
+        if ($set_group_picture_request === null || (is_array($set_group_picture_request) && count($set_group_picture_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $instances_instance_key_groups_group_id_profile_pic_put_request when calling instancesInstanceKeyGroupsGroupIdProfilePicPut'
+                'Missing the required parameter $set_group_picture_request when calling setGroupPicture'
             );
         }
 
@@ -6257,12 +6658,12 @@ class GroupManagementApi
         );
 
         // for model (json/xml)
-        if (isset($instances_instance_key_groups_group_id_profile_pic_put_request)) {
+        if (isset($set_group_picture_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($instances_instance_key_groups_group_id_profile_pic_put_request));
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($set_group_picture_request));
             } else {
-                $httpBody = $instances_instance_key_groups_group_id_profile_pic_put_request;
+                $httpBody = $set_group_picture_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -6309,407 +6710,6 @@ class GroupManagementApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'PUT',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation instancesInstanceKeyGroupsInviteInfoGet
-     *
-     * Get group from invite link.
-     *
-     * @param  string $instance_key Instance key (required)
-     * @param  string $invite_link The invite link to check (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsInviteInfoGet'] to see the possible values for this operation
-     *
-     * @throws \WhatsAPI\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse
-     */
-    public function instancesInstanceKeyGroupsInviteInfoGet($instance_key, $invite_link, string $contentType = self::contentTypes['instancesInstanceKeyGroupsInviteInfoGet'][0])
-    {
-        list($response) = $this->instancesInstanceKeyGroupsInviteInfoGetWithHttpInfo($instance_key, $invite_link, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation instancesInstanceKeyGroupsInviteInfoGetWithHttpInfo
-     *
-     * Get group from invite link.
-     *
-     * @param  string $instance_key Instance key (required)
-     * @param  string $invite_link The invite link to check (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsInviteInfoGet'] to see the possible values for this operation
-     *
-     * @throws \WhatsAPI\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function instancesInstanceKeyGroupsInviteInfoGetWithHttpInfo($instance_key, $invite_link, string $contentType = self::contentTypes['instancesInstanceKeyGroupsInviteInfoGet'][0])
-    {
-        $request = $this->instancesInstanceKeyGroupsInviteInfoGetRequest($instance_key, $invite_link, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 400:
-                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 401:
-                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 404:
-                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 500:
-                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\WhatsAPI\models\APIResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\WhatsAPI\models\APIResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\WhatsAPI\models\APIResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\WhatsAPI\models\APIResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\WhatsAPI\models\APIResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\WhatsAPI\models\APIResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation instancesInstanceKeyGroupsInviteInfoGetAsync
-     *
-     * Get group from invite link.
-     *
-     * @param  string $instance_key Instance key (required)
-     * @param  string $invite_link The invite link to check (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsInviteInfoGet'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function instancesInstanceKeyGroupsInviteInfoGetAsync($instance_key, $invite_link, string $contentType = self::contentTypes['instancesInstanceKeyGroupsInviteInfoGet'][0])
-    {
-        return $this->instancesInstanceKeyGroupsInviteInfoGetAsyncWithHttpInfo($instance_key, $invite_link, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation instancesInstanceKeyGroupsInviteInfoGetAsyncWithHttpInfo
-     *
-     * Get group from invite link.
-     *
-     * @param  string $instance_key Instance key (required)
-     * @param  string $invite_link The invite link to check (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsInviteInfoGet'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function instancesInstanceKeyGroupsInviteInfoGetAsyncWithHttpInfo($instance_key, $invite_link, string $contentType = self::contentTypes['instancesInstanceKeyGroupsInviteInfoGet'][0])
-    {
-        $returnType = '\WhatsAPI\models\APIResponse';
-        $request = $this->instancesInstanceKeyGroupsInviteInfoGetRequest($instance_key, $invite_link, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'instancesInstanceKeyGroupsInviteInfoGet'
-     *
-     * @param  string $instance_key Instance key (required)
-     * @param  string $invite_link The invite link to check (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyGroupsInviteInfoGet'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function instancesInstanceKeyGroupsInviteInfoGetRequest($instance_key, $invite_link, string $contentType = self::contentTypes['instancesInstanceKeyGroupsInviteInfoGet'][0])
-    {
-
-        // verify the required parameter 'instance_key' is set
-        if ($instance_key === null || (is_array($instance_key) && count($instance_key) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $instance_key when calling instancesInstanceKeyGroupsInviteInfoGet'
-            );
-        }
-
-        // verify the required parameter 'invite_link' is set
-        if ($invite_link === null || (is_array($invite_link) && count($invite_link) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $invite_link when calling instancesInstanceKeyGroupsInviteInfoGet'
-            );
-        }
-
-
-        $resourcePath = '/instances/{instance_key}/groups/invite-info';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $invite_link,
-            'invite_link', // param base name
-            'string', // openApiType
-            '', // style
-            false, // explode
-            true // required
-        ) ?? []);
-
-
-        // path params
-        if ($instance_key !== null) {
-            $resourcePath = str_replace(
-                '{' . 'instance_key' . '}',
-                ObjectSerializer::toPathValue($instance_key),
-                $resourcePath
-            );
-        }
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['*/*', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

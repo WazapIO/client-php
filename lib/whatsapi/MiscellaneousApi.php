@@ -72,10 +72,10 @@ class MiscellaneousApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'instancesInstanceKeyMiscProfilePicGet' => [
+        'getProfilePic' => [
             'application/json',
         ],
-        'instancesInstanceKeyMiscUserInfoPost' => [
+        'getUsersInfo' => [
             'application/json',
         ],
     ];
@@ -127,40 +127,40 @@ class MiscellaneousApi
     }
 
     /**
-     * Operation instancesInstanceKeyMiscProfilePicGet
+     * Operation getProfilePic
      *
      * Get profile pic.
      *
      * @param  string $instance_key Instance key (required)
      * @param  string $jid JID (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyMiscProfilePicGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfilePic'] to see the possible values for this operation
      *
      * @throws \WhatsAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse
      */
-    public function instancesInstanceKeyMiscProfilePicGet($instance_key, $jid, string $contentType = self::contentTypes['instancesInstanceKeyMiscProfilePicGet'][0])
+    public function getProfilePic($instance_key, $jid, string $contentType = self::contentTypes['getProfilePic'][0])
     {
-        list($response) = $this->instancesInstanceKeyMiscProfilePicGetWithHttpInfo($instance_key, $jid, $contentType);
+        list($response) = $this->getProfilePicWithHttpInfo($instance_key, $jid, $contentType);
         return $response;
     }
 
     /**
-     * Operation instancesInstanceKeyMiscProfilePicGetWithHttpInfo
+     * Operation getProfilePicWithHttpInfo
      *
      * Get profile pic.
      *
      * @param  string $instance_key Instance key (required)
      * @param  string $jid JID (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyMiscProfilePicGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfilePic'] to see the possible values for this operation
      *
      * @throws \WhatsAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function instancesInstanceKeyMiscProfilePicGetWithHttpInfo($instance_key, $jid, string $contentType = self::contentTypes['instancesInstanceKeyMiscProfilePicGet'][0])
+    public function getProfilePicWithHttpInfo($instance_key, $jid, string $contentType = self::contentTypes['getProfilePic'][0])
     {
-        $request = $this->instancesInstanceKeyMiscProfilePicGetRequest($instance_key, $jid, $contentType);
+        $request = $this->getProfilePicRequest($instance_key, $jid, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -339,20 +339,20 @@ class MiscellaneousApi
     }
 
     /**
-     * Operation instancesInstanceKeyMiscProfilePicGetAsync
+     * Operation getProfilePicAsync
      *
      * Get profile pic.
      *
      * @param  string $instance_key Instance key (required)
      * @param  string $jid JID (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyMiscProfilePicGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfilePic'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function instancesInstanceKeyMiscProfilePicGetAsync($instance_key, $jid, string $contentType = self::contentTypes['instancesInstanceKeyMiscProfilePicGet'][0])
+    public function getProfilePicAsync($instance_key, $jid, string $contentType = self::contentTypes['getProfilePic'][0])
     {
-        return $this->instancesInstanceKeyMiscProfilePicGetAsyncWithHttpInfo($instance_key, $jid, $contentType)
+        return $this->getProfilePicAsyncWithHttpInfo($instance_key, $jid, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -361,21 +361,21 @@ class MiscellaneousApi
     }
 
     /**
-     * Operation instancesInstanceKeyMiscProfilePicGetAsyncWithHttpInfo
+     * Operation getProfilePicAsyncWithHttpInfo
      *
      * Get profile pic.
      *
      * @param  string $instance_key Instance key (required)
      * @param  string $jid JID (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyMiscProfilePicGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfilePic'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function instancesInstanceKeyMiscProfilePicGetAsyncWithHttpInfo($instance_key, $jid, string $contentType = self::contentTypes['instancesInstanceKeyMiscProfilePicGet'][0])
+    public function getProfilePicAsyncWithHttpInfo($instance_key, $jid, string $contentType = self::contentTypes['getProfilePic'][0])
     {
         $returnType = '\WhatsAPI\models\APIResponse';
-        $request = $this->instancesInstanceKeyMiscProfilePicGetRequest($instance_key, $jid, $contentType);
+        $request = $this->getProfilePicRequest($instance_key, $jid, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -414,29 +414,29 @@ class MiscellaneousApi
     }
 
     /**
-     * Create request for operation 'instancesInstanceKeyMiscProfilePicGet'
+     * Create request for operation 'getProfilePic'
      *
      * @param  string $instance_key Instance key (required)
      * @param  string $jid JID (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyMiscProfilePicGet'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProfilePic'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function instancesInstanceKeyMiscProfilePicGetRequest($instance_key, $jid, string $contentType = self::contentTypes['instancesInstanceKeyMiscProfilePicGet'][0])
+    public function getProfilePicRequest($instance_key, $jid, string $contentType = self::contentTypes['getProfilePic'][0])
     {
 
         // verify the required parameter 'instance_key' is set
         if ($instance_key === null || (is_array($instance_key) && count($instance_key) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $instance_key when calling instancesInstanceKeyMiscProfilePicGet'
+                'Missing the required parameter $instance_key when calling getProfilePic'
             );
         }
 
         // verify the required parameter 'jid' is set
         if ($jid === null || (is_array($jid) && count($jid) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $jid when calling instancesInstanceKeyMiscProfilePicGet'
+                'Missing the required parameter $jid when calling getProfilePic'
             );
         }
 
@@ -528,40 +528,40 @@ class MiscellaneousApi
     }
 
     /**
-     * Operation instancesInstanceKeyMiscUserInfoPost
+     * Operation getUsersInfo
      *
      * Fetches the users info.
      *
      * @param  string $instance_key Instance key (required)
      * @param  \WhatsAPI\models\UserInfoPayload $data Data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyMiscUserInfoPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUsersInfo'] to see the possible values for this operation
      *
      * @throws \WhatsAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse
      */
-    public function instancesInstanceKeyMiscUserInfoPost($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeyMiscUserInfoPost'][0])
+    public function getUsersInfo($instance_key, $data, string $contentType = self::contentTypes['getUsersInfo'][0])
     {
-        list($response) = $this->instancesInstanceKeyMiscUserInfoPostWithHttpInfo($instance_key, $data, $contentType);
+        list($response) = $this->getUsersInfoWithHttpInfo($instance_key, $data, $contentType);
         return $response;
     }
 
     /**
-     * Operation instancesInstanceKeyMiscUserInfoPostWithHttpInfo
+     * Operation getUsersInfoWithHttpInfo
      *
      * Fetches the users info.
      *
      * @param  string $instance_key Instance key (required)
      * @param  \WhatsAPI\models\UserInfoPayload $data Data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyMiscUserInfoPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUsersInfo'] to see the possible values for this operation
      *
      * @throws \WhatsAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function instancesInstanceKeyMiscUserInfoPostWithHttpInfo($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeyMiscUserInfoPost'][0])
+    public function getUsersInfoWithHttpInfo($instance_key, $data, string $contentType = self::contentTypes['getUsersInfo'][0])
     {
-        $request = $this->instancesInstanceKeyMiscUserInfoPostRequest($instance_key, $data, $contentType);
+        $request = $this->getUsersInfoRequest($instance_key, $data, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -740,20 +740,20 @@ class MiscellaneousApi
     }
 
     /**
-     * Operation instancesInstanceKeyMiscUserInfoPostAsync
+     * Operation getUsersInfoAsync
      *
      * Fetches the users info.
      *
      * @param  string $instance_key Instance key (required)
      * @param  \WhatsAPI\models\UserInfoPayload $data Data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyMiscUserInfoPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUsersInfo'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function instancesInstanceKeyMiscUserInfoPostAsync($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeyMiscUserInfoPost'][0])
+    public function getUsersInfoAsync($instance_key, $data, string $contentType = self::contentTypes['getUsersInfo'][0])
     {
-        return $this->instancesInstanceKeyMiscUserInfoPostAsyncWithHttpInfo($instance_key, $data, $contentType)
+        return $this->getUsersInfoAsyncWithHttpInfo($instance_key, $data, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -762,21 +762,21 @@ class MiscellaneousApi
     }
 
     /**
-     * Operation instancesInstanceKeyMiscUserInfoPostAsyncWithHttpInfo
+     * Operation getUsersInfoAsyncWithHttpInfo
      *
      * Fetches the users info.
      *
      * @param  string $instance_key Instance key (required)
      * @param  \WhatsAPI\models\UserInfoPayload $data Data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyMiscUserInfoPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUsersInfo'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function instancesInstanceKeyMiscUserInfoPostAsyncWithHttpInfo($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeyMiscUserInfoPost'][0])
+    public function getUsersInfoAsyncWithHttpInfo($instance_key, $data, string $contentType = self::contentTypes['getUsersInfo'][0])
     {
         $returnType = '\WhatsAPI\models\APIResponse';
-        $request = $this->instancesInstanceKeyMiscUserInfoPostRequest($instance_key, $data, $contentType);
+        $request = $this->getUsersInfoRequest($instance_key, $data, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -815,29 +815,29 @@ class MiscellaneousApi
     }
 
     /**
-     * Create request for operation 'instancesInstanceKeyMiscUserInfoPost'
+     * Create request for operation 'getUsersInfo'
      *
      * @param  string $instance_key Instance key (required)
      * @param  \WhatsAPI\models\UserInfoPayload $data Data (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['instancesInstanceKeyMiscUserInfoPost'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUsersInfo'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function instancesInstanceKeyMiscUserInfoPostRequest($instance_key, $data, string $contentType = self::contentTypes['instancesInstanceKeyMiscUserInfoPost'][0])
+    public function getUsersInfoRequest($instance_key, $data, string $contentType = self::contentTypes['getUsersInfo'][0])
     {
 
         // verify the required parameter 'instance_key' is set
         if ($instance_key === null || (is_array($instance_key) && count($instance_key) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $instance_key when calling instancesInstanceKeyMiscUserInfoPost'
+                'Missing the required parameter $instance_key when calling getUsersInfo'
             );
         }
 
         // verify the required parameter 'data' is set
         if ($data === null || (is_array($data) && count($data) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $data when calling instancesInstanceKeyMiscUserInfoPost'
+                'Missing the required parameter $data when calling getUsersInfo'
             );
         }
 

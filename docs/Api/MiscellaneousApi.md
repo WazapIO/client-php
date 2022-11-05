@@ -4,14 +4,14 @@ All URIs are relative to /api, except if the operation defines another base path
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**instancesInstanceKeyMiscProfilePicGet()**](MiscellaneousApi.md#instancesInstanceKeyMiscProfilePicGet) | **GET** /instances/{instance_key}/misc/profile-pic | Get profile pic. |
-| [**instancesInstanceKeyMiscUserInfoPost()**](MiscellaneousApi.md#instancesInstanceKeyMiscUserInfoPost) | **POST** /instances/{instance_key}/misc/user-info | Fetches the users info. |
+| [**getProfilePic()**](MiscellaneousApi.md#getProfilePic) | **GET** /instances/{instance_key}/misc/profile-pic | Get profile pic. |
+| [**getUsersInfo()**](MiscellaneousApi.md#getUsersInfo) | **POST** /instances/{instance_key}/misc/user-info | Fetches the users info. |
 
 
-## `instancesInstanceKeyMiscProfilePicGet()`
+## `getProfilePic()`
 
 ```php
-instancesInstanceKeyMiscProfilePicGet($instance_key, $jid): \WhatsAPI\models\APIResponse
+getProfilePic($instance_key, $jid): \WhatsAPI\models\APIResponse
 ```
 
 Get profile pic.
@@ -41,10 +41,10 @@ $instance_key = 'instance_key_example'; // string | Instance key
 $jid = 'jid_example'; // string | JID
 
 try {
-    $result = $apiInstance->instancesInstanceKeyMiscProfilePicGet($instance_key, $jid);
+    $result = $apiInstance->getProfilePic($instance_key, $jid);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling MiscellaneousApi->instancesInstanceKeyMiscProfilePicGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling MiscellaneousApi->getProfilePic: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -72,10 +72,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `instancesInstanceKeyMiscUserInfoPost()`
+## `getUsersInfo()`
 
 ```php
-instancesInstanceKeyMiscUserInfoPost($instance_key, $data): \WhatsAPI\models\APIResponse
+getUsersInfo($instance_key, $data): \WhatsAPI\models\APIResponse
 ```
 
 Fetches the users info.
@@ -105,10 +105,10 @@ $instance_key = 'instance_key_example'; // string | Instance key
 $data = new \WhatsAPI\models\UserInfoPayload(); // \WhatsAPI\models\UserInfoPayload | Data
 
 try {
-    $result = $apiInstance->instancesInstanceKeyMiscUserInfoPost($instance_key, $data);
+    $result = $apiInstance->getUsersInfo($instance_key, $data);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling MiscellaneousApi->instancesInstanceKeyMiscUserInfoPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling MiscellaneousApi->getUsersInfo: ', $e->getMessage(), PHP_EOL;
 }
 ```
 

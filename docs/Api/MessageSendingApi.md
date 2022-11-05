@@ -4,27 +4,27 @@ All URIs are relative to /api, except if the operation defines another base path
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**instancesInstanceKeySendAudioPost()**](MessageSendingApi.md#instancesInstanceKeySendAudioPost) | **POST** /instances/{instance_key}/send/audio | Send raw audio. |
-| [**instancesInstanceKeySendButtonMediaPost()**](MessageSendingApi.md#instancesInstanceKeySendButtonMediaPost) | **POST** /instances/{instance_key}/send/button-media | Send a button message with a media header. |
-| [**instancesInstanceKeySendButtonsPost()**](MessageSendingApi.md#instancesInstanceKeySendButtonsPost) | **POST** /instances/{instance_key}/send/buttons | Send a button message. |
-| [**instancesInstanceKeySendContactPost()**](MessageSendingApi.md#instancesInstanceKeySendContactPost) | **POST** /instances/{instance_key}/send/contact | Send a contact message. |
-| [**instancesInstanceKeySendDocumentPost()**](MessageSendingApi.md#instancesInstanceKeySendDocumentPost) | **POST** /instances/{instance_key}/send/document | Send raw document. |
-| [**instancesInstanceKeySendImagePost()**](MessageSendingApi.md#instancesInstanceKeySendImagePost) | **POST** /instances/{instance_key}/send/image | Send raw image. |
-| [**instancesInstanceKeySendListPost()**](MessageSendingApi.md#instancesInstanceKeySendListPost) | **POST** /instances/{instance_key}/send/list | Send a List message. |
-| [**instancesInstanceKeySendLocationPost()**](MessageSendingApi.md#instancesInstanceKeySendLocationPost) | **POST** /instances/{instance_key}/send/location | Send a location message. |
-| [**instancesInstanceKeySendMediaPost()**](MessageSendingApi.md#instancesInstanceKeySendMediaPost) | **POST** /instances/{instance_key}/send/media | Send a media message. |
-| [**instancesInstanceKeySendPollPost()**](MessageSendingApi.md#instancesInstanceKeySendPollPost) | **POST** /instances/{instance_key}/send/poll | Send a Poll message. |
-| [**instancesInstanceKeySendTemplateMediaPost()**](MessageSendingApi.md#instancesInstanceKeySendTemplateMediaPost) | **POST** /instances/{instance_key}/send/template-media | Send a template message with media. |
-| [**instancesInstanceKeySendTemplatePost()**](MessageSendingApi.md#instancesInstanceKeySendTemplatePost) | **POST** /instances/{instance_key}/send/template | Send a template message. |
-| [**instancesInstanceKeySendTextPost()**](MessageSendingApi.md#instancesInstanceKeySendTextPost) | **POST** /instances/{instance_key}/send/text | Send a text message. |
-| [**instancesInstanceKeySendUploadPost()**](MessageSendingApi.md#instancesInstanceKeySendUploadPost) | **POST** /instances/{instance_key}/send/upload | Upload media. |
-| [**instancesInstanceKeySendVideoPost()**](MessageSendingApi.md#instancesInstanceKeySendVideoPost) | **POST** /instances/{instance_key}/send/video | Send raw video. |
+| [**sendAudio()**](MessageSendingApi.md#sendAudio) | **POST** /instances/{instance_key}/send/audio | Send raw audio. |
+| [**sendButtonMessage()**](MessageSendingApi.md#sendButtonMessage) | **POST** /instances/{instance_key}/send/buttons | Send a button message. |
+| [**sendButtonWithMedia()**](MessageSendingApi.md#sendButtonWithMedia) | **POST** /instances/{instance_key}/send/button-media | Send a button message with a media header. |
+| [**sendContact()**](MessageSendingApi.md#sendContact) | **POST** /instances/{instance_key}/send/contact | Send a contact message. |
+| [**sendDocument()**](MessageSendingApi.md#sendDocument) | **POST** /instances/{instance_key}/send/document | Send raw document. |
+| [**sendImage()**](MessageSendingApi.md#sendImage) | **POST** /instances/{instance_key}/send/image | Send raw image. |
+| [**sendListMessage()**](MessageSendingApi.md#sendListMessage) | **POST** /instances/{instance_key}/send/list | Send a List message. |
+| [**sendLocation()**](MessageSendingApi.md#sendLocation) | **POST** /instances/{instance_key}/send/location | Send a location message. |
+| [**sendMediaMessage()**](MessageSendingApi.md#sendMediaMessage) | **POST** /instances/{instance_key}/send/media | Send a media message. |
+| [**sendPollMessage()**](MessageSendingApi.md#sendPollMessage) | **POST** /instances/{instance_key}/send/poll | Send a Poll message. |
+| [**sendTemplate()**](MessageSendingApi.md#sendTemplate) | **POST** /instances/{instance_key}/send/template | Send a template message. |
+| [**sendTemplateWithMedia()**](MessageSendingApi.md#sendTemplateWithMedia) | **POST** /instances/{instance_key}/send/template-media | Send a template message with media. |
+| [**sendTextMessage()**](MessageSendingApi.md#sendTextMessage) | **POST** /instances/{instance_key}/send/text | Send a text message. |
+| [**sendVideo()**](MessageSendingApi.md#sendVideo) | **POST** /instances/{instance_key}/send/video | Send raw video. |
+| [**uploadMedia()**](MessageSendingApi.md#uploadMedia) | **POST** /instances/{instance_key}/send/upload | Upload media. |
 
 
-## `instancesInstanceKeySendAudioPost()`
+## `sendAudio()`
 
 ```php
-instancesInstanceKeySendAudioPost($instance_key, $to, $instances_instance_key_send_audio_post_request, $caption): \WhatsAPI\models\APIResponse
+sendAudio($instance_key, $to, $send_audio_request, $caption): \WhatsAPI\models\APIResponse
 ```
 
 Send raw audio.
@@ -52,14 +52,14 @@ $apiInstance = new WhatsAPI\Api\MessageSendingApi(
 );
 $instance_key = 'instance_key_example'; // string | Instance key
 $to = 'to_example'; // string | The recipient's number
-$instances_instance_key_send_audio_post_request = new \WhatsAPI\models\InstancesInstanceKeySendAudioPostRequest(); // \WhatsAPI\models\InstancesInstanceKeySendAudioPostRequest
+$send_audio_request = new \WhatsAPI\models\SendAudioRequest(); // \WhatsAPI\models\SendAudioRequest
 $caption = 'caption_example'; // string | Attached caption
 
 try {
-    $result = $apiInstance->instancesInstanceKeySendAudioPost($instance_key, $to, $instances_instance_key_send_audio_post_request, $caption);
+    $result = $apiInstance->sendAudio($instance_key, $to, $send_audio_request, $caption);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling MessageSendingApi->instancesInstanceKeySendAudioPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling MessageSendingApi->sendAudio: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -69,7 +69,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **instance_key** | **string**| Instance key | |
 | **to** | **string**| The recipient&#39;s number | |
-| **instances_instance_key_send_audio_post_request** | [**\WhatsAPI\models\InstancesInstanceKeySendAudioPostRequest**](../Model/InstancesInstanceKeySendAudioPostRequest.md)|  | |
+| **send_audio_request** | [**\WhatsAPI\models\SendAudioRequest**](../Model/SendAudioRequest.md)|  | |
 | **caption** | **string**| Attached caption | [optional] |
 
 ### Return type
@@ -89,74 +89,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `instancesInstanceKeySendButtonMediaPost()`
+## `sendButtonMessage()`
 
 ```php
-instancesInstanceKeySendButtonMediaPost($instance_key, $data): \WhatsAPI\models\APIResponse
-```
-
-Send a button message with a media header.
-
-Sends an interactive button message to the given user. This message also has media header with it. Make sure that all the button ids are unique
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: ApiKeyAuth
-$config = WhatsAPI\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = WhatsAPI\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new WhatsAPI\Api\MessageSendingApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$instance_key = 'instance_key_example'; // string | Instance key
-$data = new \WhatsAPI\models\ButtonMessageWithMediaPayload(); // \WhatsAPI\models\ButtonMessageWithMediaPayload | Message data
-
-try {
-    $result = $apiInstance->instancesInstanceKeySendButtonMediaPost($instance_key, $data);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling MessageSendingApi->instancesInstanceKeySendButtonMediaPost: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **instance_key** | **string**| Instance key | |
-| **data** | [**\WhatsAPI\models\ButtonMessageWithMediaPayload**](../Model/ButtonMessageWithMediaPayload.md)| Message data | |
-
-### Return type
-
-[**\WhatsAPI\models\APIResponse**](../Model/APIResponse.md)
-
-### Authorization
-
-[ApiKeyAuth](../../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `*/*`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `instancesInstanceKeySendButtonsPost()`
-
-```php
-instancesInstanceKeySendButtonsPost($instance_key, $data): \WhatsAPI\models\APIResponse
+sendButtonMessage($instance_key, $data): \WhatsAPI\models\APIResponse
 ```
 
 Send a button message.
@@ -186,10 +122,10 @@ $instance_key = 'instance_key_example'; // string | Instance key
 $data = new \WhatsAPI\models\ButtonMessagePayload(); // \WhatsAPI\models\ButtonMessagePayload | Message data
 
 try {
-    $result = $apiInstance->instancesInstanceKeySendButtonsPost($instance_key, $data);
+    $result = $apiInstance->sendButtonMessage($instance_key, $data);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling MessageSendingApi->instancesInstanceKeySendButtonsPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling MessageSendingApi->sendButtonMessage: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -217,10 +153,74 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `instancesInstanceKeySendContactPost()`
+## `sendButtonWithMedia()`
 
 ```php
-instancesInstanceKeySendContactPost($instance_key, $data): \WhatsAPI\models\APIResponse
+sendButtonWithMedia($instance_key, $data): \WhatsAPI\models\APIResponse
+```
+
+Send a button message with a media header.
+
+Sends an interactive button message to the given user. This message also has media header with it. Make sure that all the button ids are unique
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: ApiKeyAuth
+$config = WhatsAPI\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = WhatsAPI\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new WhatsAPI\Api\MessageSendingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$instance_key = 'instance_key_example'; // string | Instance key
+$data = new \WhatsAPI\models\ButtonMessageWithMediaPayload(); // \WhatsAPI\models\ButtonMessageWithMediaPayload | Message data
+
+try {
+    $result = $apiInstance->sendButtonWithMedia($instance_key, $data);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MessageSendingApi->sendButtonWithMedia: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **instance_key** | **string**| Instance key | |
+| **data** | [**\WhatsAPI\models\ButtonMessageWithMediaPayload**](../Model/ButtonMessageWithMediaPayload.md)| Message data | |
+
+### Return type
+
+[**\WhatsAPI\models\APIResponse**](../Model/APIResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `*/*`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `sendContact()`
+
+```php
+sendContact($instance_key, $data): \WhatsAPI\models\APIResponse
 ```
 
 Send a contact message.
@@ -250,10 +250,10 @@ $instance_key = 'instance_key_example'; // string | Instance key
 $data = new \WhatsAPI\models\ContactMessagePayload(); // \WhatsAPI\models\ContactMessagePayload | Message data
 
 try {
-    $result = $apiInstance->instancesInstanceKeySendContactPost($instance_key, $data);
+    $result = $apiInstance->sendContact($instance_key, $data);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling MessageSendingApi->instancesInstanceKeySendContactPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling MessageSendingApi->sendContact: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -281,10 +281,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `instancesInstanceKeySendDocumentPost()`
+## `sendDocument()`
 
 ```php
-instancesInstanceKeySendDocumentPost($instance_key, $to, $instances_instance_key_send_document_post_request, $caption): \WhatsAPI\models\APIResponse
+sendDocument($instance_key, $to, $send_document_request, $caption): \WhatsAPI\models\APIResponse
 ```
 
 Send raw document.
@@ -312,14 +312,14 @@ $apiInstance = new WhatsAPI\Api\MessageSendingApi(
 );
 $instance_key = 'instance_key_example'; // string | Instance key
 $to = 'to_example'; // string | The recipient's number
-$instances_instance_key_send_document_post_request = new \WhatsAPI\models\InstancesInstanceKeySendDocumentPostRequest(); // \WhatsAPI\models\InstancesInstanceKeySendDocumentPostRequest
+$send_document_request = new \WhatsAPI\models\SendDocumentRequest(); // \WhatsAPI\models\SendDocumentRequest
 $caption = 'caption_example'; // string | Attached caption
 
 try {
-    $result = $apiInstance->instancesInstanceKeySendDocumentPost($instance_key, $to, $instances_instance_key_send_document_post_request, $caption);
+    $result = $apiInstance->sendDocument($instance_key, $to, $send_document_request, $caption);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling MessageSendingApi->instancesInstanceKeySendDocumentPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling MessageSendingApi->sendDocument: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -329,7 +329,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **instance_key** | **string**| Instance key | |
 | **to** | **string**| The recipient&#39;s number | |
-| **instances_instance_key_send_document_post_request** | [**\WhatsAPI\models\InstancesInstanceKeySendDocumentPostRequest**](../Model/InstancesInstanceKeySendDocumentPostRequest.md)|  | |
+| **send_document_request** | [**\WhatsAPI\models\SendDocumentRequest**](../Model/SendDocumentRequest.md)|  | |
 | **caption** | **string**| Attached caption | [optional] |
 
 ### Return type
@@ -349,10 +349,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `instancesInstanceKeySendImagePost()`
+## `sendImage()`
 
 ```php
-instancesInstanceKeySendImagePost($instance_key, $to, $instances_instance_key_send_image_post_request, $caption): \WhatsAPI\models\APIResponse
+sendImage($instance_key, $to, $send_image_request, $caption): \WhatsAPI\models\APIResponse
 ```
 
 Send raw image.
@@ -380,14 +380,14 @@ $apiInstance = new WhatsAPI\Api\MessageSendingApi(
 );
 $instance_key = 'instance_key_example'; // string | Instance key
 $to = 'to_example'; // string | The recipient's number
-$instances_instance_key_send_image_post_request = new \WhatsAPI\models\InstancesInstanceKeySendImagePostRequest(); // \WhatsAPI\models\InstancesInstanceKeySendImagePostRequest
+$send_image_request = new \WhatsAPI\models\SendImageRequest(); // \WhatsAPI\models\SendImageRequest
 $caption = 'caption_example'; // string | Attached caption
 
 try {
-    $result = $apiInstance->instancesInstanceKeySendImagePost($instance_key, $to, $instances_instance_key_send_image_post_request, $caption);
+    $result = $apiInstance->sendImage($instance_key, $to, $send_image_request, $caption);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling MessageSendingApi->instancesInstanceKeySendImagePost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling MessageSendingApi->sendImage: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -397,7 +397,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **instance_key** | **string**| Instance key | |
 | **to** | **string**| The recipient&#39;s number | |
-| **instances_instance_key_send_image_post_request** | [**\WhatsAPI\models\InstancesInstanceKeySendImagePostRequest**](../Model/InstancesInstanceKeySendImagePostRequest.md)|  | |
+| **send_image_request** | [**\WhatsAPI\models\SendImageRequest**](../Model/SendImageRequest.md)|  | |
 | **caption** | **string**| Attached caption | [optional] |
 
 ### Return type
@@ -417,10 +417,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `instancesInstanceKeySendListPost()`
+## `sendListMessage()`
 
 ```php
-instancesInstanceKeySendListPost($instance_key, $data): \WhatsAPI\models\APIResponse
+sendListMessage($instance_key, $data): \WhatsAPI\models\APIResponse
 ```
 
 Send a List message.
@@ -450,10 +450,10 @@ $instance_key = 'instance_key_example'; // string | Instance key
 $data = new \WhatsAPI\models\ListMessagePayload(); // \WhatsAPI\models\ListMessagePayload | Message data
 
 try {
-    $result = $apiInstance->instancesInstanceKeySendListPost($instance_key, $data);
+    $result = $apiInstance->sendListMessage($instance_key, $data);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling MessageSendingApi->instancesInstanceKeySendListPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling MessageSendingApi->sendListMessage: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -481,10 +481,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `instancesInstanceKeySendLocationPost()`
+## `sendLocation()`
 
 ```php
-instancesInstanceKeySendLocationPost($instance_key, $data): \WhatsAPI\models\APIResponse
+sendLocation($instance_key, $data): \WhatsAPI\models\APIResponse
 ```
 
 Send a location message.
@@ -514,10 +514,10 @@ $instance_key = 'instance_key_example'; // string | Instance key
 $data = new \WhatsAPI\models\LocationMessagePayload(); // \WhatsAPI\models\LocationMessagePayload | Message data
 
 try {
-    $result = $apiInstance->instancesInstanceKeySendLocationPost($instance_key, $data);
+    $result = $apiInstance->sendLocation($instance_key, $data);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling MessageSendingApi->instancesInstanceKeySendLocationPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling MessageSendingApi->sendLocation: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -545,10 +545,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `instancesInstanceKeySendMediaPost()`
+## `sendMediaMessage()`
 
 ```php
-instancesInstanceKeySendMediaPost($instance_key, $data): \WhatsAPI\models\APIResponse
+sendMediaMessage($instance_key, $data): \WhatsAPI\models\APIResponse
 ```
 
 Send a media message.
@@ -578,10 +578,10 @@ $instance_key = 'instance_key_example'; // string | Instance key
 $data = new \WhatsAPI\models\SendMediaPayload(); // \WhatsAPI\models\SendMediaPayload | Message data
 
 try {
-    $result = $apiInstance->instancesInstanceKeySendMediaPost($instance_key, $data);
+    $result = $apiInstance->sendMediaMessage($instance_key, $data);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling MessageSendingApi->instancesInstanceKeySendMediaPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling MessageSendingApi->sendMediaMessage: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -609,10 +609,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `instancesInstanceKeySendPollPost()`
+## `sendPollMessage()`
 
 ```php
-instancesInstanceKeySendPollPost($instance_key, $data): \WhatsAPI\models\APIResponse
+sendPollMessage($instance_key, $data): \WhatsAPI\models\APIResponse
 ```
 
 Send a Poll message.
@@ -642,10 +642,10 @@ $instance_key = 'instance_key_example'; // string | Instance key
 $data = new \WhatsAPI\models\PollMessagePayload(); // \WhatsAPI\models\PollMessagePayload | Message data
 
 try {
-    $result = $apiInstance->instancesInstanceKeySendPollPost($instance_key, $data);
+    $result = $apiInstance->sendPollMessage($instance_key, $data);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling MessageSendingApi->instancesInstanceKeySendPollPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling MessageSendingApi->sendPollMessage: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -673,74 +673,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `instancesInstanceKeySendTemplateMediaPost()`
+## `sendTemplate()`
 
 ```php
-instancesInstanceKeySendTemplateMediaPost($instance_key, $data): \WhatsAPI\models\APIResponse
-```
-
-Send a template message with media.
-
-Sends an interactive template message with a media header to the given user. Note: The valid button types are \"replyButton\", \"urlButton\", \"callButton\"
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: ApiKeyAuth
-$config = WhatsAPI\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = WhatsAPI\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new WhatsAPI\Api\MessageSendingApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$instance_key = 'instance_key_example'; // string | Instance key
-$data = new \WhatsAPI\models\TemplateButtonWithMediaPayload(); // \WhatsAPI\models\TemplateButtonWithMediaPayload | Message data
-
-try {
-    $result = $apiInstance->instancesInstanceKeySendTemplateMediaPost($instance_key, $data);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling MessageSendingApi->instancesInstanceKeySendTemplateMediaPost: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **instance_key** | **string**| Instance key | |
-| **data** | [**\WhatsAPI\models\TemplateButtonWithMediaPayload**](../Model/TemplateButtonWithMediaPayload.md)| Message data | |
-
-### Return type
-
-[**\WhatsAPI\models\APIResponse**](../Model/APIResponse.md)
-
-### Authorization
-
-[ApiKeyAuth](../../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `*/*`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `instancesInstanceKeySendTemplatePost()`
-
-```php
-instancesInstanceKeySendTemplatePost($instance_key, $data): \WhatsAPI\models\APIResponse
+sendTemplate($instance_key, $data): \WhatsAPI\models\APIResponse
 ```
 
 Send a template message.
@@ -770,10 +706,10 @@ $instance_key = 'instance_key_example'; // string | Instance key
 $data = new \WhatsAPI\models\TemplateButtonPayload(); // \WhatsAPI\models\TemplateButtonPayload | Message data
 
 try {
-    $result = $apiInstance->instancesInstanceKeySendTemplatePost($instance_key, $data);
+    $result = $apiInstance->sendTemplate($instance_key, $data);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling MessageSendingApi->instancesInstanceKeySendTemplatePost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling MessageSendingApi->sendTemplate: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -801,10 +737,74 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `instancesInstanceKeySendTextPost()`
+## `sendTemplateWithMedia()`
 
 ```php
-instancesInstanceKeySendTextPost($instance_key, $data): \WhatsAPI\models\APIResponse
+sendTemplateWithMedia($instance_key, $data): \WhatsAPI\models\APIResponse
+```
+
+Send a template message with media.
+
+Sends an interactive template message with a media header to the given user. Note: The valid button types are \"replyButton\", \"urlButton\", \"callButton\"
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: ApiKeyAuth
+$config = WhatsAPI\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = WhatsAPI\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new WhatsAPI\Api\MessageSendingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$instance_key = 'instance_key_example'; // string | Instance key
+$data = new \WhatsAPI\models\TemplateButtonWithMediaPayload(); // \WhatsAPI\models\TemplateButtonWithMediaPayload | Message data
+
+try {
+    $result = $apiInstance->sendTemplateWithMedia($instance_key, $data);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MessageSendingApi->sendTemplateWithMedia: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **instance_key** | **string**| Instance key | |
+| **data** | [**\WhatsAPI\models\TemplateButtonWithMediaPayload**](../Model/TemplateButtonWithMediaPayload.md)| Message data | |
+
+### Return type
+
+[**\WhatsAPI\models\APIResponse**](../Model/APIResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `*/*`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `sendTextMessage()`
+
+```php
+sendTextMessage($instance_key, $data): \WhatsAPI\models\APIResponse
 ```
 
 Send a text message.
@@ -834,10 +834,10 @@ $instance_key = 'instance_key_example'; // string | Instance key
 $data = new \WhatsAPI\models\TextMessage(); // \WhatsAPI\models\TextMessage | Message data
 
 try {
-    $result = $apiInstance->instancesInstanceKeySendTextPost($instance_key, $data);
+    $result = $apiInstance->sendTextMessage($instance_key, $data);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling MessageSendingApi->instancesInstanceKeySendTextPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling MessageSendingApi->sendTextMessage: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -865,76 +865,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `instancesInstanceKeySendUploadPost()`
+## `sendVideo()`
 
 ```php
-instancesInstanceKeySendUploadPost($instance_key, $type, $instances_instance_key_send_upload_post_request): \WhatsAPI\models\APIResponse
-```
-
-Upload media.
-
-Uploads media to WhatsApp servers and returns the media keys. Store the returned media keys, as you will need them to send media messages
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure API key authorization: ApiKeyAuth
-$config = WhatsAPI\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = WhatsAPI\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-
-$apiInstance = new WhatsAPI\Api\MessageSendingApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$instance_key = 'instance_key_example'; // string | Instance key
-$type = 'type_example'; // string | Media type
-$instances_instance_key_send_upload_post_request = new \WhatsAPI\models\InstancesInstanceKeySendUploadPostRequest(); // \WhatsAPI\models\InstancesInstanceKeySendUploadPostRequest
-
-try {
-    $result = $apiInstance->instancesInstanceKeySendUploadPost($instance_key, $type, $instances_instance_key_send_upload_post_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling MessageSendingApi->instancesInstanceKeySendUploadPost: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **instance_key** | **string**| Instance key | |
-| **type** | **string**| Media type | |
-| **instances_instance_key_send_upload_post_request** | [**\WhatsAPI\models\InstancesInstanceKeySendUploadPostRequest**](../Model/InstancesInstanceKeySendUploadPostRequest.md)|  | |
-
-### Return type
-
-[**\WhatsAPI\models\APIResponse**](../Model/APIResponse.md)
-
-### Authorization
-
-[ApiKeyAuth](../../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `*/*`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `instancesInstanceKeySendVideoPost()`
-
-```php
-instancesInstanceKeySendVideoPost($instance_key, $to, $instances_instance_key_send_video_post_request, $caption): \WhatsAPI\models\APIResponse
+sendVideo($instance_key, $to, $send_video_request, $caption): \WhatsAPI\models\APIResponse
 ```
 
 Send raw video.
@@ -962,14 +896,14 @@ $apiInstance = new WhatsAPI\Api\MessageSendingApi(
 );
 $instance_key = 'instance_key_example'; // string | Instance key
 $to = 'to_example'; // string | The recipient's number
-$instances_instance_key_send_video_post_request = new \WhatsAPI\models\InstancesInstanceKeySendVideoPostRequest(); // \WhatsAPI\models\InstancesInstanceKeySendVideoPostRequest
+$send_video_request = new \WhatsAPI\models\SendVideoRequest(); // \WhatsAPI\models\SendVideoRequest
 $caption = 'caption_example'; // string | Attached caption
 
 try {
-    $result = $apiInstance->instancesInstanceKeySendVideoPost($instance_key, $to, $instances_instance_key_send_video_post_request, $caption);
+    $result = $apiInstance->sendVideo($instance_key, $to, $send_video_request, $caption);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling MessageSendingApi->instancesInstanceKeySendVideoPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling MessageSendingApi->sendVideo: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -979,8 +913,74 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **instance_key** | **string**| Instance key | |
 | **to** | **string**| The recipient&#39;s number | |
-| **instances_instance_key_send_video_post_request** | [**\WhatsAPI\models\InstancesInstanceKeySendVideoPostRequest**](../Model/InstancesInstanceKeySendVideoPostRequest.md)|  | |
+| **send_video_request** | [**\WhatsAPI\models\SendVideoRequest**](../Model/SendVideoRequest.md)|  | |
 | **caption** | **string**| Attached caption | [optional] |
+
+### Return type
+
+[**\WhatsAPI\models\APIResponse**](../Model/APIResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `*/*`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `uploadMedia()`
+
+```php
+uploadMedia($instance_key, $type, $upload_media_request): \WhatsAPI\models\APIResponse
+```
+
+Upload media.
+
+Uploads media to WhatsApp servers and returns the media keys. Store the returned media keys, as you will need them to send media messages
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: ApiKeyAuth
+$config = WhatsAPI\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = WhatsAPI\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new WhatsAPI\Api\MessageSendingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$instance_key = 'instance_key_example'; // string | Instance key
+$type = 'type_example'; // string | Media type
+$upload_media_request = new \WhatsAPI\models\UploadMediaRequest(); // \WhatsAPI\models\UploadMediaRequest
+
+try {
+    $result = $apiInstance->uploadMedia($instance_key, $type, $upload_media_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MessageSendingApi->uploadMedia: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **instance_key** | **string**| Instance key | |
+| **type** | **string**| Media type | |
+| **upload_media_request** | [**\WhatsAPI\models\UploadMediaRequest**](../Model/UploadMediaRequest.md)|  | |
 
 ### Return type
 
