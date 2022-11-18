@@ -9,6 +9,7 @@ All URIs are relative to /api, except if the operation defines another base path
 | [**sendButtonWithMedia()**](MessageSendingApi.md#sendButtonWithMedia) | **POST** /instances/{instance_key}/send/button-media | Send a button message with a media header. |
 | [**sendContact()**](MessageSendingApi.md#sendContact) | **POST** /instances/{instance_key}/send/contact | Send a contact message. |
 | [**sendDocument()**](MessageSendingApi.md#sendDocument) | **POST** /instances/{instance_key}/send/document | Send raw document. |
+| [**sendGroupInvite()**](MessageSendingApi.md#sendGroupInvite) | **POST** /instances/{instance_key}/send/group-invite | Send a group invite message |
 | [**sendImage()**](MessageSendingApi.md#sendImage) | **POST** /instances/{instance_key}/send/image | Send raw image. |
 | [**sendListMessage()**](MessageSendingApi.md#sendListMessage) | **POST** /instances/{instance_key}/send/list | Send a List message. |
 | [**sendLocation()**](MessageSendingApi.md#sendLocation) | **POST** /instances/{instance_key}/send/location | Send a location message. |
@@ -349,10 +350,74 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `sendGroupInvite()`
+
+```php
+sendGroupInvite($instance_key, $data): \WhatsAPI\models\APIResponse
+```
+
+Send a group invite message
+
+Sends a group invite message to the specified number. Don't include \"https://chat.whatsapp.com/\" in the invite code.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: ApiKeyAuth
+$config = WhatsAPI\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = WhatsAPI\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new WhatsAPI\Api\MessageSendingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$instance_key = 'instance_key_example'; // string | Instance key
+$data = new \WhatsAPI\models\GroupInviteMessagePayload(); // \WhatsAPI\models\GroupInviteMessagePayload | Message data
+
+try {
+    $result = $apiInstance->sendGroupInvite($instance_key, $data);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MessageSendingApi->sendGroupInvite: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **instance_key** | **string**| Instance key | |
+| **data** | [**\WhatsAPI\models\GroupInviteMessagePayload**](../Model/GroupInviteMessagePayload.md)| Message data | |
+
+### Return type
+
+[**\WhatsAPI\models\APIResponse**](../Model/APIResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `*/*`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `sendImage()`
 
 ```php
-sendImage($instance_key, $to, $send_image_request, $caption): \WhatsAPI\models\APIResponse
+sendImage($instance_key, $to, $update_profile_pic_request, $caption): \WhatsAPI\models\APIResponse
 ```
 
 Send raw image.
@@ -380,11 +445,11 @@ $apiInstance = new WhatsAPI\Api\MessageSendingApi(
 );
 $instance_key = 'instance_key_example'; // string | Instance key
 $to = 'to_example'; // string | The recipient's number
-$send_image_request = new \WhatsAPI\models\SendImageRequest(); // \WhatsAPI\models\SendImageRequest
+$update_profile_pic_request = new \WhatsAPI\models\UpdateProfilePicRequest(); // \WhatsAPI\models\UpdateProfilePicRequest
 $caption = 'caption_example'; // string | Attached caption
 
 try {
-    $result = $apiInstance->sendImage($instance_key, $to, $send_image_request, $caption);
+    $result = $apiInstance->sendImage($instance_key, $to, $update_profile_pic_request, $caption);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MessageSendingApi->sendImage: ', $e->getMessage(), PHP_EOL;
@@ -397,7 +462,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **instance_key** | **string**| Instance key | |
 | **to** | **string**| The recipient&#39;s number | |
-| **send_image_request** | [**\WhatsAPI\models\SendImageRequest**](../Model/SendImageRequest.md)|  | |
+| **update_profile_pic_request** | [**\WhatsAPI\models\UpdateProfilePicRequest**](../Model/UpdateProfilePicRequest.md)|  | |
 | **caption** | **string**| Attached caption | [optional] |
 
 ### Return type

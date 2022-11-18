@@ -79,14 +79,17 @@ All URIs are relative to */api*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *BusinessManagementApi* | [**fetchCatlog**](docs/Api/BusinessManagementApi.md#fetchcatlog) | **GET** /instances/{instance_key}/business/catalog | Fetches the catlog.
+*BusinessManagementApi* | [**sendPaymentRequest**](docs/Api/BusinessManagementApi.md#sendpaymentrequest) | **POST** /instances/{instance_key}/business/payment-request | Send a payment request.
 *GroupManagementApi* | [**addParticipant**](docs/Api/GroupManagementApi.md#addparticipant) | **POST** /instances/{instance_key}/groups/{group_id}/participants/add | Add participant.
 *GroupManagementApi* | [**createGroup**](docs/Api/GroupManagementApi.md#creategroup) | **POST** /instances/{instance_key}/groups/create | Create group.
 *GroupManagementApi* | [**demoteParticipant**](docs/Api/GroupManagementApi.md#demoteparticipant) | **PUT** /instances/{instance_key}/groups/{group_id}/participants/demote | Demote participant.
 *GroupManagementApi* | [**getAdminGroups**](docs/Api/GroupManagementApi.md#getadmingroups) | **GET** /instances/{instance_key}/groups/admin | Get admin groups.
 *GroupManagementApi* | [**getAllGroups**](docs/Api/GroupManagementApi.md#getallgroups) | **GET** /instances/{instance_key}/groups/ | Get all groups.
+*GroupManagementApi* | [**getAllParticipants**](docs/Api/GroupManagementApi.md#getallparticipants) | **GET** /instances/{instance_key}/groups/{group_id}/participants | Get all participants.
 *GroupManagementApi* | [**getGroup**](docs/Api/GroupManagementApi.md#getgroup) | **GET** /instances/{instance_key}/groups/{group_id} | Get group.
 *GroupManagementApi* | [**getGroupFromInviteLink**](docs/Api/GroupManagementApi.md#getgroupfrominvitelink) | **GET** /instances/{instance_key}/groups/invite-info | Get group from invite link.
 *GroupManagementApi* | [**getGroupInviteCode**](docs/Api/GroupManagementApi.md#getgroupinvitecode) | **GET** /instances/{instance_key}/groups/{group_id}/invite-code | Get group invite code.
+*GroupManagementApi* | [**joinGroupWithLink**](docs/Api/GroupManagementApi.md#joingroupwithlink) | **GET** /instances/{instance_key}/groups/join | Join group with invite code.
 *GroupManagementApi* | [**leaveGroup**](docs/Api/GroupManagementApi.md#leavegroup) | **DELETE** /instances/{instance_key}/groups/{group_id}/ | Leaves the group.
 *GroupManagementApi* | [**promoteParticipant**](docs/Api/GroupManagementApi.md#promoteparticipant) | **PUT** /instances/{instance_key}/groups/{group_id}/participants/promote | Promote participant.
 *GroupManagementApi* | [**removeParticipant**](docs/Api/GroupManagementApi.md#removeparticipant) | **DELETE** /instances/{instance_key}/groups/{group_id}/participants/remove | Remove participant.
@@ -108,6 +111,7 @@ Class | Method | HTTP request | Description
 *MessageSendingApi* | [**sendButtonWithMedia**](docs/Api/MessageSendingApi.md#sendbuttonwithmedia) | **POST** /instances/{instance_key}/send/button-media | Send a button message with a media header.
 *MessageSendingApi* | [**sendContact**](docs/Api/MessageSendingApi.md#sendcontact) | **POST** /instances/{instance_key}/send/contact | Send a contact message.
 *MessageSendingApi* | [**sendDocument**](docs/Api/MessageSendingApi.md#senddocument) | **POST** /instances/{instance_key}/send/document | Send raw document.
+*MessageSendingApi* | [**sendGroupInvite**](docs/Api/MessageSendingApi.md#sendgroupinvite) | **POST** /instances/{instance_key}/send/group-invite | Send a group invite message
 *MessageSendingApi* | [**sendImage**](docs/Api/MessageSendingApi.md#sendimage) | **POST** /instances/{instance_key}/send/image | Send raw image.
 *MessageSendingApi* | [**sendListMessage**](docs/Api/MessageSendingApi.md#sendlistmessage) | **POST** /instances/{instance_key}/send/list | Send a List message.
 *MessageSendingApi* | [**sendLocation**](docs/Api/MessageSendingApi.md#sendlocation) | **POST** /instances/{instance_key}/send/location | Send a location message.
@@ -118,8 +122,11 @@ Class | Method | HTTP request | Description
 *MessageSendingApi* | [**sendTextMessage**](docs/Api/MessageSendingApi.md#sendtextmessage) | **POST** /instances/{instance_key}/send/text | Send a text message.
 *MessageSendingApi* | [**sendVideo**](docs/Api/MessageSendingApi.md#sendvideo) | **POST** /instances/{instance_key}/send/video | Send raw video.
 *MessageSendingApi* | [**uploadMedia**](docs/Api/MessageSendingApi.md#uploadmedia) | **POST** /instances/{instance_key}/send/upload | Upload media.
+*MiscellaneousApi* | [**downloadMedia**](docs/Api/MiscellaneousApi.md#downloadmedia) | **POST** /instances/{instance_key}/misc/download | Download media
 *MiscellaneousApi* | [**getProfilePic**](docs/Api/MiscellaneousApi.md#getprofilepic) | **GET** /instances/{instance_key}/misc/profile-pic | Get profile pic.
 *MiscellaneousApi* | [**getUsersInfo**](docs/Api/MiscellaneousApi.md#getusersinfo) | **POST** /instances/{instance_key}/misc/user-info | Fetches the users info.
+*MiscellaneousApi* | [**setChatPresence**](docs/Api/MiscellaneousApi.md#setchatpresence) | **POST** /instances/{instance_key}/misc/chat-presence | Set chat presence
+*MiscellaneousApi* | [**updateProfilePic**](docs/Api/MiscellaneousApi.md#updateprofilepic) | **PUT** /instances/{instance_key}/misc/profile-pic | Update profile picture
 
 ## Models
 
@@ -130,6 +137,7 @@ Class | Method | HTTP request | Description
 - [ContactMessagePayloadVcard](docs/Model/ContactMessagePayloadVcard.md)
 - [FileUpload](docs/Model/FileUpload.md)
 - [GroupCreatePayload](docs/Model/GroupCreatePayload.md)
+- [GroupInviteMessagePayload](docs/Model/GroupInviteMessagePayload.md)
 - [GroupUpdateDescriptionPayload](docs/Model/GroupUpdateDescriptionPayload.md)
 - [GroupUpdateNamePayload](docs/Model/GroupUpdateNamePayload.md)
 - [GroupUpdateParticipantsPayload](docs/Model/GroupUpdateParticipantsPayload.md)
@@ -138,11 +146,11 @@ Class | Method | HTTP request | Description
 - [ListSection](docs/Model/ListSection.md)
 - [LocationMessagePayload](docs/Model/LocationMessagePayload.md)
 - [LocationMessagePayloadLocation](docs/Model/LocationMessagePayloadLocation.md)
+- [PaymentRequestPayload](docs/Model/PaymentRequestPayload.md)
 - [PollMessagePayload](docs/Model/PollMessagePayload.md)
 - [ReplyButton](docs/Model/ReplyButton.md)
 - [SendAudioRequest](docs/Model/SendAudioRequest.md)
 - [SendDocumentRequest](docs/Model/SendDocumentRequest.md)
-- [SendImageRequest](docs/Model/SendImageRequest.md)
 - [SendMediaPayload](docs/Model/SendMediaPayload.md)
 - [SendVideoRequest](docs/Model/SendVideoRequest.md)
 - [SetGroupPictureRequest](docs/Model/SetGroupPictureRequest.md)
@@ -150,6 +158,7 @@ Class | Method | HTTP request | Description
 - [TemplateButtonPayload](docs/Model/TemplateButtonPayload.md)
 - [TemplateButtonWithMediaPayload](docs/Model/TemplateButtonWithMediaPayload.md)
 - [TextMessage](docs/Model/TextMessage.md)
+- [UpdateProfilePicRequest](docs/Model/UpdateProfilePicRequest.md)
 - [UploadMediaRequest](docs/Model/UploadMediaRequest.md)
 - [UserInfoPayload](docs/Model/UserInfoPayload.md)
 - [WebhookPayload](docs/Model/WebhookPayload.md)

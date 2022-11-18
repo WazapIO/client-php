@@ -87,6 +87,9 @@ class MessageSendingApi
         'sendDocument' => [
             'application/json',
         ],
+        'sendGroupInvite' => [
+            'application/json',
+        ],
         'sendImage' => [
             'application/json',
         ],
@@ -2233,13 +2236,412 @@ class MessageSendingApi
     }
 
     /**
+     * Operation sendGroupInvite
+     *
+     * Send a group invite message
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  \WhatsAPI\models\GroupInviteMessagePayload $data Message data (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendGroupInvite'] to see the possible values for this operation
+     *
+     * @throws \WhatsAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse
+     */
+    public function sendGroupInvite($instance_key, $data, string $contentType = self::contentTypes['sendGroupInvite'][0])
+    {
+        list($response) = $this->sendGroupInviteWithHttpInfo($instance_key, $data, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation sendGroupInviteWithHttpInfo
+     *
+     * Send a group invite message
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  \WhatsAPI\models\GroupInviteMessagePayload $data Message data (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendGroupInvite'] to see the possible values for this operation
+     *
+     * @throws \WhatsAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function sendGroupInviteWithHttpInfo($instance_key, $data, string $contentType = self::contentTypes['sendGroupInvite'][0])
+    {
+        $request = $this->sendGroupInviteRequest($instance_key, $data, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\WhatsAPI\models\APIResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation sendGroupInviteAsync
+     *
+     * Send a group invite message
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  \WhatsAPI\models\GroupInviteMessagePayload $data Message data (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendGroupInvite'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function sendGroupInviteAsync($instance_key, $data, string $contentType = self::contentTypes['sendGroupInvite'][0])
+    {
+        return $this->sendGroupInviteAsyncWithHttpInfo($instance_key, $data, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation sendGroupInviteAsyncWithHttpInfo
+     *
+     * Send a group invite message
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  \WhatsAPI\models\GroupInviteMessagePayload $data Message data (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendGroupInvite'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function sendGroupInviteAsyncWithHttpInfo($instance_key, $data, string $contentType = self::contentTypes['sendGroupInvite'][0])
+    {
+        $returnType = '\WhatsAPI\models\APIResponse';
+        $request = $this->sendGroupInviteRequest($instance_key, $data, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'sendGroupInvite'
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  \WhatsAPI\models\GroupInviteMessagePayload $data Message data (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendGroupInvite'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function sendGroupInviteRequest($instance_key, $data, string $contentType = self::contentTypes['sendGroupInvite'][0])
+    {
+
+        // verify the required parameter 'instance_key' is set
+        if ($instance_key === null || (is_array($instance_key) && count($instance_key) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $instance_key when calling sendGroupInvite'
+            );
+        }
+
+        // verify the required parameter 'data' is set
+        if ($data === null || (is_array($data) && count($data) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $data when calling sendGroupInvite'
+            );
+        }
+
+
+        $resourcePath = '/instances/{instance_key}/send/group-invite';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($instance_key !== null) {
+            $resourcePath = str_replace(
+                '{' . 'instance_key' . '}',
+                ObjectSerializer::toPathValue($instance_key),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['*/*', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($data)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($data));
+            } else {
+                $httpBody = $data;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation sendImage
      *
      * Send raw image.
      *
      * @param  string $instance_key Instance key (required)
      * @param  string $to The recipient&#39;s number (required)
-     * @param  \WhatsAPI\models\SendImageRequest $send_image_request send_image_request (required)
+     * @param  \WhatsAPI\models\UpdateProfilePicRequest $update_profile_pic_request update_profile_pic_request (required)
      * @param  string $caption Attached caption (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendImage'] to see the possible values for this operation
      *
@@ -2247,9 +2649,9 @@ class MessageSendingApi
      * @throws \InvalidArgumentException
      * @return \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse
      */
-    public function sendImage($instance_key, $to, $send_image_request, $caption = null, string $contentType = self::contentTypes['sendImage'][0])
+    public function sendImage($instance_key, $to, $update_profile_pic_request, $caption = null, string $contentType = self::contentTypes['sendImage'][0])
     {
-        list($response) = $this->sendImageWithHttpInfo($instance_key, $to, $send_image_request, $caption, $contentType);
+        list($response) = $this->sendImageWithHttpInfo($instance_key, $to, $update_profile_pic_request, $caption, $contentType);
         return $response;
     }
 
@@ -2260,7 +2662,7 @@ class MessageSendingApi
      *
      * @param  string $instance_key Instance key (required)
      * @param  string $to The recipient&#39;s number (required)
-     * @param  \WhatsAPI\models\SendImageRequest $send_image_request (required)
+     * @param  \WhatsAPI\models\UpdateProfilePicRequest $update_profile_pic_request (required)
      * @param  string $caption Attached caption (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendImage'] to see the possible values for this operation
      *
@@ -2268,9 +2670,9 @@ class MessageSendingApi
      * @throws \InvalidArgumentException
      * @return array of \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function sendImageWithHttpInfo($instance_key, $to, $send_image_request, $caption = null, string $contentType = self::contentTypes['sendImage'][0])
+    public function sendImageWithHttpInfo($instance_key, $to, $update_profile_pic_request, $caption = null, string $contentType = self::contentTypes['sendImage'][0])
     {
-        $request = $this->sendImageRequest($instance_key, $to, $send_image_request, $caption, $contentType);
+        $request = $this->sendImageRequest($instance_key, $to, $update_profile_pic_request, $caption, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2455,16 +2857,16 @@ class MessageSendingApi
      *
      * @param  string $instance_key Instance key (required)
      * @param  string $to The recipient&#39;s number (required)
-     * @param  \WhatsAPI\models\SendImageRequest $send_image_request (required)
+     * @param  \WhatsAPI\models\UpdateProfilePicRequest $update_profile_pic_request (required)
      * @param  string $caption Attached caption (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendImage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function sendImageAsync($instance_key, $to, $send_image_request, $caption = null, string $contentType = self::contentTypes['sendImage'][0])
+    public function sendImageAsync($instance_key, $to, $update_profile_pic_request, $caption = null, string $contentType = self::contentTypes['sendImage'][0])
     {
-        return $this->sendImageAsyncWithHttpInfo($instance_key, $to, $send_image_request, $caption, $contentType)
+        return $this->sendImageAsyncWithHttpInfo($instance_key, $to, $update_profile_pic_request, $caption, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2479,17 +2881,17 @@ class MessageSendingApi
      *
      * @param  string $instance_key Instance key (required)
      * @param  string $to The recipient&#39;s number (required)
-     * @param  \WhatsAPI\models\SendImageRequest $send_image_request (required)
+     * @param  \WhatsAPI\models\UpdateProfilePicRequest $update_profile_pic_request (required)
      * @param  string $caption Attached caption (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendImage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function sendImageAsyncWithHttpInfo($instance_key, $to, $send_image_request, $caption = null, string $contentType = self::contentTypes['sendImage'][0])
+    public function sendImageAsyncWithHttpInfo($instance_key, $to, $update_profile_pic_request, $caption = null, string $contentType = self::contentTypes['sendImage'][0])
     {
         $returnType = '\WhatsAPI\models\APIResponse';
-        $request = $this->sendImageRequest($instance_key, $to, $send_image_request, $caption, $contentType);
+        $request = $this->sendImageRequest($instance_key, $to, $update_profile_pic_request, $caption, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2532,14 +2934,14 @@ class MessageSendingApi
      *
      * @param  string $instance_key Instance key (required)
      * @param  string $to The recipient&#39;s number (required)
-     * @param  \WhatsAPI\models\SendImageRequest $send_image_request (required)
+     * @param  \WhatsAPI\models\UpdateProfilePicRequest $update_profile_pic_request (required)
      * @param  string $caption Attached caption (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendImage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function sendImageRequest($instance_key, $to, $send_image_request, $caption = null, string $contentType = self::contentTypes['sendImage'][0])
+    public function sendImageRequest($instance_key, $to, $update_profile_pic_request, $caption = null, string $contentType = self::contentTypes['sendImage'][0])
     {
 
         // verify the required parameter 'instance_key' is set
@@ -2556,10 +2958,10 @@ class MessageSendingApi
             );
         }
 
-        // verify the required parameter 'send_image_request' is set
-        if ($send_image_request === null || (is_array($send_image_request) && count($send_image_request) === 0)) {
+        // verify the required parameter 'update_profile_pic_request' is set
+        if ($update_profile_pic_request === null || (is_array($update_profile_pic_request) && count($update_profile_pic_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $send_image_request when calling sendImage'
+                'Missing the required parameter $update_profile_pic_request when calling sendImage'
             );
         }
 
@@ -2609,12 +3011,12 @@ class MessageSendingApi
         );
 
         // for model (json/xml)
-        if (isset($send_image_request)) {
+        if (isset($update_profile_pic_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($send_image_request));
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($update_profile_pic_request));
             } else {
-                $httpBody = $send_image_request;
+                $httpBody = $update_profile_pic_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

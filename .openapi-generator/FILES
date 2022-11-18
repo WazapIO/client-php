@@ -15,6 +15,7 @@ docs/Model/ContactMessagePayload.md
 docs/Model/ContactMessagePayloadVcard.md
 docs/Model/FileUpload.md
 docs/Model/GroupCreatePayload.md
+docs/Model/GroupInviteMessagePayload.md
 docs/Model/GroupUpdateDescriptionPayload.md
 docs/Model/GroupUpdateNamePayload.md
 docs/Model/GroupUpdateParticipantsPayload.md
@@ -23,11 +24,11 @@ docs/Model/ListMessagePayload.md
 docs/Model/ListSection.md
 docs/Model/LocationMessagePayload.md
 docs/Model/LocationMessagePayloadLocation.md
+docs/Model/PaymentRequestPayload.md
 docs/Model/PollMessagePayload.md
 docs/Model/ReplyButton.md
 docs/Model/SendAudioRequest.md
 docs/Model/SendDocumentRequest.md
-docs/Model/SendImageRequest.md
 docs/Model/SendMediaPayload.md
 docs/Model/SendVideoRequest.md
 docs/Model/SetGroupPictureRequest.md
@@ -35,6 +36,7 @@ docs/Model/TemplateButton.md
 docs/Model/TemplateButtonPayload.md
 docs/Model/TemplateButtonWithMediaPayload.md
 docs/Model/TextMessage.md
+docs/Model/UpdateProfilePicRequest.md
 docs/Model/UploadMediaRequest.md
 docs/Model/UserInfoPayload.md
 docs/Model/WebhookPayload.md
@@ -50,6 +52,7 @@ lib/models/ContactMessagePayload.php
 lib/models/ContactMessagePayloadVcard.php
 lib/models/FileUpload.php
 lib/models/GroupCreatePayload.php
+lib/models/GroupInviteMessagePayload.php
 lib/models/GroupUpdateDescriptionPayload.php
 lib/models/GroupUpdateNamePayload.php
 lib/models/GroupUpdateParticipantsPayload.php
@@ -59,11 +62,11 @@ lib/models/ListSection.php
 lib/models/LocationMessagePayload.php
 lib/models/LocationMessagePayloadLocation.php
 lib/models/ModelInterface.php
+lib/models/PaymentRequestPayload.php
 lib/models/PollMessagePayload.php
 lib/models/ReplyButton.php
 lib/models/SendAudioRequest.php
 lib/models/SendDocumentRequest.php
-lib/models/SendImageRequest.php
 lib/models/SendMediaPayload.php
 lib/models/SendVideoRequest.php
 lib/models/SetGroupPictureRequest.php
@@ -71,6 +74,7 @@ lib/models/TemplateButton.php
 lib/models/TemplateButtonPayload.php
 lib/models/TemplateButtonWithMediaPayload.php
 lib/models/TextMessage.php
+lib/models/UpdateProfilePicRequest.php
 lib/models/UploadMediaRequest.php
 lib/models/UserInfoPayload.php
 lib/models/WebhookPayload.php
@@ -80,9 +84,6 @@ lib/whatsapi/InstanceApi.php
 lib/whatsapi/MessageSendingApi.php
 lib/whatsapi/MiscellaneousApi.php
 phpunit.xml.dist
-test/Model/SendAudioRequestTest.php
-test/Model/SendDocumentRequestTest.php
-test/Model/SendImageRequestTest.php
-test/Model/SendVideoRequestTest.php
-test/Model/SetGroupPictureRequestTest.php
-test/Model/UploadMediaRequestTest.php
+test/Model/GroupInviteMessagePayloadTest.php
+test/Model/PaymentRequestPayloadTest.php
+test/Model/UpdateProfilePicRequestTest.php
