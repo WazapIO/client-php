@@ -122,6 +122,7 @@ Class | Method | HTTP request | Description
 *MessageSendingApi* | [**sendTextMessage**](docs/Api/MessageSendingApi.md#sendtextmessage) | **POST** /instances/{instance_key}/send/text | Send a text message.
 *MessageSendingApi* | [**sendVideo**](docs/Api/MessageSendingApi.md#sendvideo) | **POST** /instances/{instance_key}/send/video | Send raw video.
 *MessageSendingApi* | [**uploadMedia**](docs/Api/MessageSendingApi.md#uploadmedia) | **POST** /instances/{instance_key}/send/upload | Upload media.
+*MessageSendingApi* | [**uploadMediaFromUrl**](docs/Api/MessageSendingApi.md#uploadmediafromurl) | **POST** /instances/{instance_key}/send/upload-url | Upload media from url.
 *MiscellaneousApi* | [**downloadMedia**](docs/Api/MiscellaneousApi.md#downloadmedia) | **POST** /instances/{instance_key}/misc/download | Download media
 *MiscellaneousApi* | [**getProfilePic**](docs/Api/MiscellaneousApi.md#getprofilepic) | **GET** /instances/{instance_key}/misc/profile-pic | Get profile pic.
 *MiscellaneousApi* | [**getUsersInfo**](docs/Api/MiscellaneousApi.md#getusersinfo) | **POST** /instances/{instance_key}/misc/user-info | Fetches the users info.
@@ -160,6 +161,7 @@ Class | Method | HTTP request | Description
 - [TextMessage](docs/Model/TextMessage.md)
 - [UpdateProfilePicRequest](docs/Model/UpdateProfilePicRequest.md)
 - [UploadMediaRequest](docs/Model/UploadMediaRequest.md)
+- [UrlMediaUploadPayload](docs/Model/UrlMediaUploadPayload.md)
 - [UserInfoPayload](docs/Model/UserInfoPayload.md)
 - [WebhookPayload](docs/Model/WebhookPayload.md)
 

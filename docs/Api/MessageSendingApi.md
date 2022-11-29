@@ -20,6 +20,7 @@ All URIs are relative to /api, except if the operation defines another base path
 | [**sendTextMessage()**](MessageSendingApi.md#sendTextMessage) | **POST** /instances/{instance_key}/send/text | Send a text message. |
 | [**sendVideo()**](MessageSendingApi.md#sendVideo) | **POST** /instances/{instance_key}/send/video | Send raw video. |
 | [**uploadMedia()**](MessageSendingApi.md#uploadMedia) | **POST** /instances/{instance_key}/send/upload | Upload media. |
+| [**uploadMediaFromUrl()**](MessageSendingApi.md#uploadMediaFromUrl) | **POST** /instances/{instance_key}/send/upload-url | Upload media from url. |
 
 
 ## `sendAudio()`
@@ -1046,6 +1047,72 @@ try {
 | **instance_key** | **string**| Instance key | |
 | **type** | **string**| Media type | |
 | **upload_media_request** | [**\WhatsAPI\models\UploadMediaRequest**](../Model/UploadMediaRequest.md)|  | |
+
+### Return type
+
+[**\WhatsAPI\models\APIResponse**](../Model/APIResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `*/*`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `uploadMediaFromUrl()`
+
+```php
+uploadMediaFromUrl($instance_key, $type, $data): \WhatsAPI\models\APIResponse
+```
+
+Upload media from url.
+
+Uploads media from a url to WhatsApp servers and returns the media keys. Store the returned media keys, as you will need them to send media messages
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: ApiKeyAuth
+$config = WhatsAPI\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = WhatsAPI\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new WhatsAPI\Api\MessageSendingApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$instance_key = 'instance_key_example'; // string | Instance key
+$type = 'type_example'; // string | Media type
+$data = new \WhatsAPI\models\UrlMediaUploadPayload(); // \WhatsAPI\models\UrlMediaUploadPayload | Media data
+
+try {
+    $result = $apiInstance->uploadMediaFromUrl($instance_key, $type, $data);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MessageSendingApi->uploadMediaFromUrl: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **instance_key** | **string**| Instance key | |
+| **type** | **string**| Media type | |
+| **data** | [**\WhatsAPI\models\UrlMediaUploadPayload**](../Model/UrlMediaUploadPayload.md)| Media data | |
 
 ### Return type
 

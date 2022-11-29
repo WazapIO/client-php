@@ -120,6 +120,9 @@ class MessageSendingApi
         'uploadMedia' => [
             'application/json',
         ],
+        'uploadMediaFromUrl' => [
+            'application/json',
+        ],
     ];
 
 /**
@@ -6665,6 +6668,426 @@ class MessageSendingApi
                 $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($upload_media_request));
             } else {
                 $httpBody = $upload_media_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation uploadMediaFromUrl
+     *
+     * Upload media from url.
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  string $type Media type (required)
+     * @param  \WhatsAPI\models\UrlMediaUploadPayload $data Media data (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadMediaFromUrl'] to see the possible values for this operation
+     *
+     * @throws \WhatsAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse
+     */
+    public function uploadMediaFromUrl($instance_key, $type, $data, string $contentType = self::contentTypes['uploadMediaFromUrl'][0])
+    {
+        list($response) = $this->uploadMediaFromUrlWithHttpInfo($instance_key, $type, $data, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation uploadMediaFromUrlWithHttpInfo
+     *
+     * Upload media from url.
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  string $type Media type (required)
+     * @param  \WhatsAPI\models\UrlMediaUploadPayload $data Media data (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadMediaFromUrl'] to see the possible values for this operation
+     *
+     * @throws \WhatsAPI\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function uploadMediaFromUrlWithHttpInfo($instance_key, $type, $data, string $contentType = self::contentTypes['uploadMediaFromUrl'][0])
+    {
+        $request = $this->uploadMediaFromUrlRequest($instance_key, $type, $data, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\WhatsAPI\models\APIResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\WhatsAPI\models\APIResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\WhatsAPI\models\APIResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\WhatsAPI\models\APIResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\WhatsAPI\models\APIResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation uploadMediaFromUrlAsync
+     *
+     * Upload media from url.
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  string $type Media type (required)
+     * @param  \WhatsAPI\models\UrlMediaUploadPayload $data Media data (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadMediaFromUrl'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function uploadMediaFromUrlAsync($instance_key, $type, $data, string $contentType = self::contentTypes['uploadMediaFromUrl'][0])
+    {
+        return $this->uploadMediaFromUrlAsyncWithHttpInfo($instance_key, $type, $data, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation uploadMediaFromUrlAsyncWithHttpInfo
+     *
+     * Upload media from url.
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  string $type Media type (required)
+     * @param  \WhatsAPI\models\UrlMediaUploadPayload $data Media data (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadMediaFromUrl'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function uploadMediaFromUrlAsyncWithHttpInfo($instance_key, $type, $data, string $contentType = self::contentTypes['uploadMediaFromUrl'][0])
+    {
+        $returnType = '\WhatsAPI\models\APIResponse';
+        $request = $this->uploadMediaFromUrlRequest($instance_key, $type, $data, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'uploadMediaFromUrl'
+     *
+     * @param  string $instance_key Instance key (required)
+     * @param  string $type Media type (required)
+     * @param  \WhatsAPI\models\UrlMediaUploadPayload $data Media data (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['uploadMediaFromUrl'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function uploadMediaFromUrlRequest($instance_key, $type, $data, string $contentType = self::contentTypes['uploadMediaFromUrl'][0])
+    {
+
+        // verify the required parameter 'instance_key' is set
+        if ($instance_key === null || (is_array($instance_key) && count($instance_key) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $instance_key when calling uploadMediaFromUrl'
+            );
+        }
+
+        // verify the required parameter 'type' is set
+        if ($type === null || (is_array($type) && count($type) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $type when calling uploadMediaFromUrl'
+            );
+        }
+
+        // verify the required parameter 'data' is set
+        if ($data === null || (is_array($data) && count($data) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $data when calling uploadMediaFromUrl'
+            );
+        }
+
+
+        $resourcePath = '/instances/{instance_key}/send/upload-url';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $type,
+            'type', // param base name
+            'string', // openApiType
+            '', // style
+            false, // explode
+            true // required
+        ) ?? []);
+
+
+        // path params
+        if ($instance_key !== null) {
+            $resourcePath = str_replace(
+                '{' . 'instance_key' . '}',
+                ObjectSerializer::toPathValue($instance_key),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['*/*', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($data)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($data));
+            } else {
+                $httpBody = $data;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

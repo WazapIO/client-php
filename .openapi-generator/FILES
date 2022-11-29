@@ -38,6 +38,7 @@ docs/Model/TemplateButtonWithMediaPayload.md
 docs/Model/TextMessage.md
 docs/Model/UpdateProfilePicRequest.md
 docs/Model/UploadMediaRequest.md
+docs/Model/UrlMediaUploadPayload.md
 docs/Model/UserInfoPayload.md
 docs/Model/WebhookPayload.md
 git_push.sh
@@ -76,6 +77,7 @@ lib/models/TemplateButtonWithMediaPayload.php
 lib/models/TextMessage.php
 lib/models/UpdateProfilePicRequest.php
 lib/models/UploadMediaRequest.php
+lib/models/UrlMediaUploadPayload.php
 lib/models/UserInfoPayload.php
 lib/models/WebhookPayload.php
 lib/whatsapi/BusinessManagementApi.php
@@ -84,6 +86,4 @@ lib/whatsapi/InstanceApi.php
 lib/whatsapi/MessageSendingApi.php
 lib/whatsapi/MiscellaneousApi.php
 phpunit.xml.dist
-test/Model/GroupInviteMessagePayloadTest.php
-test/Model/PaymentRequestPayloadTest.php
-test/Model/UpdateProfilePicRequestTest.php
+test/Model/UrlMediaUploadPayloadTest.php
