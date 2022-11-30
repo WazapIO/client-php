@@ -13,6 +13,7 @@ docs/Model/ButtonMessagePayload.md
 docs/Model/ButtonMessageWithMediaPayload.md
 docs/Model/ContactMessagePayload.md
 docs/Model/ContactMessagePayloadVcard.md
+docs/Model/CreateInstancePayload.md
 docs/Model/FileUpload.md
 docs/Model/GroupCreatePayload.md
 docs/Model/GroupInviteMessagePayload.md
@@ -51,6 +52,7 @@ lib/models/ButtonMessagePayload.php
 lib/models/ButtonMessageWithMediaPayload.php
 lib/models/ContactMessagePayload.php
 lib/models/ContactMessagePayloadVcard.php
+lib/models/CreateInstancePayload.php
 lib/models/FileUpload.php
 lib/models/GroupCreatePayload.php
 lib/models/GroupInviteMessagePayload.php
@@ -86,4 +88,4 @@ lib/whatsapi/InstanceApi.php
 lib/whatsapi/MessageSendingApi.php
 lib/whatsapi/MiscellaneousApi.php
 phpunit.xml.dist
-test/Model/UrlMediaUploadPayloadTest.php
+test/Model/CreateInstancePayloadTest.php

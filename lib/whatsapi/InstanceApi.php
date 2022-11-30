@@ -548,16 +548,16 @@ class InstanceApi
      *
      * Creates a new instance key.
      *
-     * @param  string $instance_key Insert instance key if you want to provide custom key (optional)
+     * @param  \WhatsAPI\models\CreateInstancePayload $data Instance data (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createInstance'] to see the possible values for this operation
      *
      * @throws \WhatsAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse
      */
-    public function createInstance($instance_key = null, string $contentType = self::contentTypes['createInstance'][0])
+    public function createInstance($data, string $contentType = self::contentTypes['createInstance'][0])
     {
-        list($response) = $this->createInstanceWithHttpInfo($instance_key, $contentType);
+        list($response) = $this->createInstanceWithHttpInfo($data, $contentType);
         return $response;
     }
 
@@ -566,16 +566,16 @@ class InstanceApi
      *
      * Creates a new instance key.
      *
-     * @param  string $instance_key Insert instance key if you want to provide custom key (optional)
+     * @param  \WhatsAPI\models\CreateInstancePayload $data Instance data (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createInstance'] to see the possible values for this operation
      *
      * @throws \WhatsAPI\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse|\WhatsAPI\models\APIResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createInstanceWithHttpInfo($instance_key = null, string $contentType = self::contentTypes['createInstance'][0])
+    public function createInstanceWithHttpInfo($data, string $contentType = self::contentTypes['createInstance'][0])
     {
-        $request = $this->createInstanceRequest($instance_key, $contentType);
+        $request = $this->createInstanceRequest($data, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -758,15 +758,15 @@ class InstanceApi
      *
      * Creates a new instance key.
      *
-     * @param  string $instance_key Insert instance key if you want to provide custom key (optional)
+     * @param  \WhatsAPI\models\CreateInstancePayload $data Instance data (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createInstance'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createInstanceAsync($instance_key = null, string $contentType = self::contentTypes['createInstance'][0])
+    public function createInstanceAsync($data, string $contentType = self::contentTypes['createInstance'][0])
     {
-        return $this->createInstanceAsyncWithHttpInfo($instance_key, $contentType)
+        return $this->createInstanceAsyncWithHttpInfo($data, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -779,16 +779,16 @@ class InstanceApi
      *
      * Creates a new instance key.
      *
-     * @param  string $instance_key Insert instance key if you want to provide custom key (optional)
+     * @param  \WhatsAPI\models\CreateInstancePayload $data Instance data (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createInstance'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createInstanceAsyncWithHttpInfo($instance_key = null, string $contentType = self::contentTypes['createInstance'][0])
+    public function createInstanceAsyncWithHttpInfo($data, string $contentType = self::contentTypes['createInstance'][0])
     {
         $returnType = '\WhatsAPI\models\APIResponse';
-        $request = $this->createInstanceRequest($instance_key, $contentType);
+        $request = $this->createInstanceRequest($data, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -829,15 +829,21 @@ class InstanceApi
     /**
      * Create request for operation 'createInstance'
      *
-     * @param  string $instance_key Insert instance key if you want to provide custom key (optional)
+     * @param  \WhatsAPI\models\CreateInstancePayload $data Instance data (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createInstance'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createInstanceRequest($instance_key = null, string $contentType = self::contentTypes['createInstance'][0])
+    public function createInstanceRequest($data, string $contentType = self::contentTypes['createInstance'][0])
     {
 
+        // verify the required parameter 'data' is set
+        if ($data === null || (is_array($data) && count($data) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $data when calling createInstance'
+            );
+        }
 
 
         $resourcePath = '/instances/create';
@@ -847,15 +853,6 @@ class InstanceApi
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $instance_key,
-            'instance_key', // param base name
-            'string', // openApiType
-            '', // style
-            false, // explode
-            false // required
-        ) ?? []);
 
 
 
@@ -867,7 +864,14 @@ class InstanceApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($data)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($data));
+            } else {
+                $httpBody = $data;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -911,7 +915,7 @@ class InstanceApi
         $operationHost = $this->config->getHost();
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
-            'GET',
+            'POST',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

@@ -5,7 +5,7 @@ All URIs are relative to /api, except if the operation defines another base path
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**changeWebhookUrl()**](InstanceApi.md#changeWebhookUrl) | **PUT** /instances/{instance_key}/webhook | Change Webhook url. |
-| [**createInstance()**](InstanceApi.md#createInstance) | **GET** /instances/create | Creates a new instance key. |
+| [**createInstance()**](InstanceApi.md#createInstance) | **POST** /instances/create | Creates a new instance key. |
 | [**deleteInstance()**](InstanceApi.md#deleteInstance) | **DELETE** /instances/{instance_key}/delete | Delete Instance. |
 | [**getContacts()**](InstanceApi.md#getContacts) | **GET** /instances/{instance_key}/contacts | Get contacts. |
 | [**getInstance()**](InstanceApi.md#getInstance) | **GET** /instances/{instance_key}/ | Get Instance. |
@@ -81,7 +81,7 @@ try {
 ## `createInstance()`
 
 ```php
-createInstance($instance_key): \WhatsAPI\models\APIResponse
+createInstance($data): \WhatsAPI\models\APIResponse
 ```
 
 Creates a new instance key.
@@ -107,10 +107,10 @@ $apiInstance = new WhatsAPI\Api\InstanceApi(
     new GuzzleHttp\Client(),
     $config
 );
-$instance_key = 'instance_key_example'; // string | Insert instance key if you want to provide custom key
+$data = new \WhatsAPI\models\CreateInstancePayload(); // \WhatsAPI\models\CreateInstancePayload | Instance data
 
 try {
-    $result = $apiInstance->createInstance($instance_key);
+    $result = $apiInstance->createInstance($data);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InstanceApi->createInstance: ', $e->getMessage(), PHP_EOL;
@@ -121,7 +121,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **instance_key** | **string**| Insert instance key if you want to provide custom key | [optional] |
+| **data** | [**\WhatsAPI\models\CreateInstancePayload**](../Model/CreateInstancePayload.md)| Instance data | |
 
 ### Return type
 
@@ -133,7 +133,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
 - **Accept**: `*/*`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
